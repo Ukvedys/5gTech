@@ -1,6 +1,6 @@
 # 5G TECH titulinio puslapio flow
 
-Kryptis: išlaikomas jau parengtas turinys, o Himon pavyzdys naudojamas tik puslapio ritmui, didelės tipografikos hierarchijai ir slinkimu valdomam pasakojimui. Bangos motyvas nenaudojamas.
+Kryptis: 5G TECH turinys pateikiamas aiškiu puslapio ritmu, nuoseklia tipografikos hierarchija ir slinkimu valdomu pasakojimu. Bangos motyvas nenaudojamas.
 
 | Ekranas / sekcija | Turinys | Vizualizacija ir judesys |
 |---|---|---|
@@ -25,3 +25,4 @@ Kryptis: išlaikomas jau parengtas turinys, o Himon pavyzdys naudojamas tik pusl
 - Visas puslapis remiasi centruotu proporciniu šešių kolonų hero tinkleliu. Kairėje ir dešinėje išlaikomos vienodos išorinės paraštės; nepriklausomai nuo ekrano pločio visada matomos šešios juostos, o prie jų pririšti blokai mažėja kartu su ekranu. Šviesiuose fonuose naudojamos subtilios mėlynos, tamsiuose – baltos linijos.
 - Tinklelio linijos rodomos selektyviai pagal sekcijos kompoziciją: hero dalyje paliekamos visos; „Nuo poreikio“ sekcijoje slepiamos 3, 4 ir 6; paslaugų sekcijoje slepiamos 2, 4 ir 6 linijos.
 - Septintoji linija visose sekcijose rodoma kaip pastovi dešinioji šešių kolonų tinklelio riba.
+- Paskutinėse auditorijų, naujienų ir kontaktų sekcijose tekstinis turinys nuo tinklelio linijų atitraukiamas 20 % vienos kolonos pločio tarpu; skiriamosios linijos ir blokų ribos išlieka per visą tinklelio plotį.

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="5G TECH – telekomunikacijų, energetikos ir inžinerinės infrastruktūros projektų partneris.">
-  <title>5G TECH – pagrindinio puslapio prototipas</title>
+  <title>5G TECH – pagrindinis puslapis</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
@@ -615,15 +615,18 @@
     /* Audience paths */
     .audiences { padding: 150px 0; background: white; }
     .audiences-head { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; margin-bottom: 72px; }
+    .audiences-head > * { padding-inline: calc(var(--layout-grid-unit) * .2); }
     .audiences h2 { font-size: clamp(39px, 4.3vw, 62px); line-height: 1.08; letter-spacing: -.047em; font-weight: 500; }
     .audiences-head p { max-width: 660px; align-self: end; color: #526a79; font-size: 17px; line-height: 1.72; }
     .audience-list { border-top: 1px solid var(--line); }
     .audience-item {
       display: grid; grid-template-columns: 180px 1fr 260px 56px; gap: 36px; align-items: center;
-      min-height: 180px; padding: 30px 0; border-bottom: 1px solid var(--line);
-      transition: color .25s, background .25s, padding .25s;
+      min-height: 180px;
+      padding: 30px calc(var(--layout-grid-unit) * .2);
+      border-bottom: 1px solid var(--line);
+      transition: color .25s, background .25s;
     }
-    .audience-item:hover { padding-inline: 28px; color: white; background: var(--navy); }
+    .audience-item:hover { color: white; background: var(--navy); }
     .audience-item small { color: var(--pink); font-size: 11px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
     .audience-item h3 { margin: 0; max-width: 760px; font-size: clamp(23px, 2.2vw, 34px); line-height: 1.15; letter-spacing: -.035em; }
     .audience-item p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
@@ -632,9 +635,21 @@
 
     /* News */
     .news { padding: 135px 0; background: var(--paper); }
-    .section-top { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 60px; }
+    .section-top {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 60px;
+      padding-inline: calc(var(--layout-grid-unit) * .2);
+    }
     .news h2 { max-width: 760px; margin: 0; font-size: clamp(37px, 4vw, 58px); line-height: 1.1; letter-spacing: -.04em; font-weight: 500; }
-    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding-inline: calc(var(--layout-grid-unit) * .2);
+    }
     .news-card { min-height: 330px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; background: white; border: 1px solid var(--line); }
     .news-card.featured { color: white; background: var(--navy); }
     .news-meta { color: var(--pink); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
@@ -646,6 +661,7 @@
     .final-cta { position: relative; padding: 145px 0 120px; color: white; background: var(--navy); overflow: hidden; }
     .final-cta::before { content: ""; position: absolute; left: 0; top: 0; width: 8px; height: 100%; background: var(--accent); }
     .final-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 9vw; align-items: end; }
+    .final-grid > * { padding-inline: calc(var(--layout-grid-unit) * .2); }
     .final-cta h2 { max-width: 840px; margin-bottom: 24px; font-size: clamp(44px, 4.9vw, 72px); line-height: 1.02; letter-spacing: -.05em; font-weight: 500; }
     .final-cta p { max-width: 680px; color: rgba(255,255,255,.66); font-size: 17px; line-height: 1.7; }
     .contact-stack { display: grid; gap: 14px; }
@@ -660,8 +676,6 @@
         grid-template-columns: var(--layout-grid-half) 1fr;
         gap: 0;
       }
-      .audiences-head > :last-child,
-      .final-grid > :last-child { padding-left: 28px; }
     }
 
     /* Responsive */
