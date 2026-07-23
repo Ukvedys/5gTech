@@ -564,6 +564,22 @@
       object-fit: cover;
       filter: saturate(.78) contrast(1.03);
     }
+    .step-media::before {
+      content: "DEMO IMAGE";
+      position: absolute;
+      z-index: 2;
+      top: 18px;
+      right: 18px;
+      padding: 7px 10px;
+      border: 1px solid rgba(255,255,255,.28);
+      color: rgba(255,255,255,.62);
+      background: rgba(3,31,53,.48);
+      font-size: 9px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: .14em;
+      pointer-events: none;
+    }
     .step-media::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(255,255,255,.08); pointer-events: none; }
     .blueprint {
       min-height: 0; padding: 34px; display: grid; place-items: center;
@@ -1022,7 +1038,20 @@
             <div class="step-label">03 / Įgyvendiname</div>
             <h3>Dirbame tiksliai ir saugiai.</h3>
             <p>Darbus atliekame pagal projekto, gamintojų ir saugos reikalavimus. Su užsakovu palaikome tiesioginį ryšį ir greitai reaguojame į situaciją objekte.</p>
-            <div class="step-media"><img src="../client-ready-v4/assets/hero-technicians-branded-v2.png" alt="Du 5G TECH specialistai vykdo darbus ryšio bokšte"></div>
+            <div class="step-media blueprint" aria-hidden="true">
+              <svg viewBox="0 0 520 270" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M46 226h428"/>
+                <path d="M210 226 258 38l48 188M225 169h66M238 117h40M250 70h16"/>
+                <path d="m224 169 67 57M291 169l-66 57M238 117l53 52M278 117l-53 52M250 70l28 47M266 70l-28 47"/>
+                <rect x="189" y="79" width="32" height="57" rx="4"/>
+                <rect x="296" y="70" width="32" height="63" rx="4"/>
+                <circle cx="362" cy="116" r="13"/>
+                <path d="m355 129-18 34 27 20M338 163l-19 26M354 143l31-7 17-24M364 183l24 27"/>
+                <path d="M350 139c-18-6-27-15-31-28" stroke="#ec0062" stroke-width="4"/>
+                <circle cx="318" cy="108" r="6" fill="#ec0062" stroke="none"/>
+                <path d="m407 196 15 15 34-40" stroke="#ec0062" stroke-width="5"/>
+              </svg>
+            </div>
           </article>
           <article class="process-step" data-step="4">
             <div class="step-label">04 / Patikriname</div>
@@ -1036,7 +1065,18 @@
             <div class="step-label">05 / Perduodame</div>
             <h3>Užbaigiame aiškiai.</h3>
             <p>Parengiame dokumentaciją pagal užsakovo reikalavimus ir perduodame užbaigtą darbų etapą. Kai reikia, tęsiame techninę priežiūrą.</p>
-            <div class="step-media"><img src="../no-wave-concept-v1/assets/hero-sky-worker-zoomed-out-v3.png" alt="Užbaigta ryšio infrastruktūra ir specialistas bokšte"></div>
+            <div class="step-media blueprint" aria-hidden="true">
+              <svg viewBox="0 0 520 270" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="72" y="35" width="236" height="198"/>
+                <path d="M112 82h156M112 112h112M112 142h156M112 172h92"/>
+                <path d="m111 201 15 15 35-43" stroke="#ec0062" stroke-width="5"/>
+                <path d="M338 135h88" stroke-dasharray="8 8"/>
+                <path d="m412 119 18 16-18 16"/>
+                <circle cx="430" cy="135" r="48"/>
+                <path d="m407 136 16 16 32-38" stroke="#ec0062" stroke-width="5"/>
+                <circle cx="338" cy="135" r="7" fill="#ec0062" stroke="none"/>
+              </svg>
+            </div>
           </article>
         </div>
       </div>
