@@ -16,6 +16,8 @@ Kryptis: 5G TECH turinys pateikiamas aiškiu puslapio ritmu, nuoseklia tipografi
 
 ## Dizaino principai
 
+- Pagrindinis meniu atitinka `STRUKTURA.md`: logotipas galutinėje svetainėje ves į pagrindinį puslapį, o meniu rodomi „Paslaugos“, „Patirtis“, „Apie mus“, „Karjera“ ir išskirtas „Kontaktai“ mygtukas. „Kaip dirbame“ lieka pagrindinio puslapio pasakojimo dalimi, ne atskiru aukščiausio lygio meniu punktu. Statiniame prototipe viršutinio meniu nuorodos laikinai išjungtos.
+- Pagrindinės navigacijos, hero, paslaugų ir auditorijų nuorodos veda į atskirus suplanuotus puslapius, todėl nenaudojamas animuotas slinkimas tarp titulinio puslapio sekcijų.
 - Pagrindinė spalva: `#063354`.
 - Akcentai: `#F17929`, `#F12F29`, `#EC0062`, `#BF0763`.
 - Fonas: balta, švelni pilkai melsva ir tamsiai mėlyna.

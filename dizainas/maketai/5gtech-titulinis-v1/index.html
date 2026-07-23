@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="5G TECH – telekomunikacijų, energetikos ir inžinerinės infrastruktūros projektų partneris.">
   <title>5G TECH – pagrindinis puslapis</title>
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
@@ -44,7 +45,7 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; background: var(--navy-deep); }
+    html { scroll-behavior: auto; background: var(--navy-deep); }
     body {
       margin: 0;
       color: var(--ink);
@@ -671,6 +672,76 @@
     .footer-inner { display: flex; justify-content: space-between; gap: 30px; }
     .footer a { color: white; }
 
+    /* Santūri judesio sistema */
+    .js .hero-bg {
+      opacity: 0;
+      filter: saturate(.78) contrast(.96);
+      transition:
+        opacity 1.35s cubic-bezier(.2,.7,.2,1),
+        filter 1.7s cubic-bezier(.2,.7,.2,1);
+    }
+    .js body.is-ready .hero-bg {
+      opacity: 1;
+      filter: saturate(1) contrast(1);
+    }
+    .js .site-header .nav-wrap {
+      opacity: 0;
+      translate: 0 -10px;
+      transition:
+        opacity .7s cubic-bezier(.2,.7,.2,1) .12s,
+        translate .7s cubic-bezier(.2,.7,.2,1) .12s;
+    }
+    .js body.is-ready .site-header .nav-wrap {
+      opacity: 1;
+      translate: 0 0;
+    }
+    .js .hero-copy > *,
+    .js .hero-meta,
+    .js .scroll-cue {
+      opacity: 0;
+      translate: 0 18px;
+      transition:
+        opacity .82s cubic-bezier(.2,.7,.2,1),
+        translate .82s cubic-bezier(.2,.7,.2,1);
+    }
+    .js body.is-ready .hero-copy > *,
+    .js body.is-ready .hero-meta,
+    .js body.is-ready .scroll-cue {
+      opacity: 1;
+      translate: 0 0;
+    }
+    .js body.is-ready .hero-copy > :nth-child(1) { transition-delay: .24s; }
+    .js body.is-ready .hero-copy > :nth-child(2) { transition-delay: .34s; }
+    .js body.is-ready .hero-copy > :nth-child(3) { transition-delay: .46s; }
+    .js body.is-ready .hero-copy > :nth-child(4) { transition-delay: .58s; }
+    .js body.is-ready .hero-meta { transition-delay: .72s; }
+    .js body.is-ready .scroll-cue { transition-delay: .9s; }
+
+    .js .reveal {
+      opacity: 0;
+      translate: 0 20px;
+      filter: blur(2px);
+      transition:
+        opacity .78s cubic-bezier(.2,.7,.2,1) var(--reveal-delay, 0ms),
+        translate .78s cubic-bezier(.2,.7,.2,1) var(--reveal-delay, 0ms),
+        filter .78s cubic-bezier(.2,.7,.2,1) var(--reveal-delay, 0ms);
+      will-change: opacity, translate;
+    }
+    .js .reveal.is-visible {
+      opacity: 1;
+      translate: 0 0;
+      filter: none;
+    }
+    .js .reveal-media {
+      clip-path: inset(0 0 9% 0);
+      transition:
+        opacity .95s cubic-bezier(.2,.7,.2,1) var(--reveal-delay, 0ms),
+        translate .95s cubic-bezier(.2,.7,.2,1) var(--reveal-delay, 0ms),
+        filter .95s cubic-bezier(.2,.7,.2,1) var(--reveal-delay, 0ms),
+        clip-path 1.05s cubic-bezier(.2,.7,.2,1) var(--reveal-delay, 0ms);
+    }
+    .js .reveal-media.is-visible { clip-path: inset(0 0 0 0); }
+
     @media (min-width: 1200px) {
       .audiences-head, .final-grid {
         grid-template-columns: var(--layout-grid-half) 1fr;
@@ -775,6 +846,17 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
       .hero-bg { transform: none !important; }
+      .js .hero-bg,
+      .js .site-header .nav-wrap,
+      .js .hero-copy > *,
+      .js .hero-meta,
+      .js .scroll-cue,
+      .js .reveal {
+        opacity: 1 !important;
+        translate: none !important;
+        filter: none !important;
+        clip-path: none !important;
+      }
     }
   </style>
 </head>
@@ -783,15 +865,15 @@
 
   <header class="site-header" id="header">
     <div class="nav-wrap">
-      <a href="#top" aria-label="5G TECH pradžia">
+      <a href="#" data-placeholder-link aria-label="5G TECH pradžia">
         <img class="brand-logo" src="../client-ready-v4/assets/5gtech-logo-white.png" alt="5G TECH">
       </a>
       <nav class="main-nav" aria-label="Pagrindinė navigacija">
-        <a href="#services">Paslaugos</a>
-        <a href="#process">Kaip dirbame</a>
-        <a href="#experience">Patirtis</a>
-        <a href="#careers">Karjera</a>
-        <a class="nav-cta" href="#contact">Kontaktai</a>
+        <a href="#" data-placeholder-link>Paslaugos</a>
+        <a href="#" data-placeholder-link>Patirtis</a>
+        <a href="#" data-placeholder-link>Apie mus</a>
+        <a href="#" data-placeholder-link>Karjera</a>
+        <a class="nav-cta" href="#" data-placeholder-link>Kontaktai</a>
       </nav>
     </div>
   </header>
@@ -806,8 +888,8 @@
           <h1 id="hero-title">Kai svarbus ne tik atliktas darbas, bet ir ramybė dėl rezultato</h1>
           <p class="hero-lead">Techninis partneris nuo pasirengimo ir montavimo iki testavimo, dokumentacijos bei priežiūros.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Aptarkime jūsų projektą <span class="circle">→</span></a>
-            <a class="btn" href="#services">Peržiūrėti paslaugas <span class="arrow">↓</span></a>
+            <a class="btn btn-primary" href="/kontaktai/">Aptarkime jūsų projektą <span class="circle">→</span></a>
+            <a class="btn" href="/paslaugos/">Peržiūrėti paslaugas <span class="arrow">→</span></a>
           </div>
         </div>
         <div class="hero-meta" aria-label="Pagrindiniai patirties faktai">
@@ -842,32 +924,32 @@
           <h2 id="services-title">Paslaugos</h2>
         </div>
         <div class="service-grid" role="list" aria-label="Paslaugų kryptys">
-          <a class="service-tile" href="#contact" role="listitem">
+          <a class="service-tile" href="#" data-placeholder-link role="listitem">
             <div class="service-tile-top"><span class="num">01</span><span class="mini-arrow">→</span></div>
             <h3>Mobiliojo ryšio tinklai</h3>
             <p>2G–5G įrangos, antenų, konstrukcijų ir radiorelinių linijų montavimas, modernizavimas bei testavimas.</p>
           </a>
-          <a class="service-tile" href="#contact" role="listitem">
+          <a class="service-tile" href="#" data-placeholder-link role="listitem">
             <div class="service-tile-top"><span class="num">02</span><span class="mini-arrow">→</span></div>
             <h3>Vidinio ryšio tinklai</h3>
             <p>Mobiliojo ryšio ir Wi-Fi sprendimai biurams, prekybos centrams, ligoninėms, viešbučiams ir kitiems objektams.</p>
           </a>
-          <a class="service-tile" href="#contact" role="listitem">
+          <a class="service-tile" href="#" data-placeholder-link role="listitem">
             <div class="service-tile-top"><span class="num">03</span><span class="mini-arrow">→</span></div>
             <h3>Fiksuoto ryšio tinklai</h3>
             <p>Šviesolaidinių ir varinių tinklų projektavimas, kabelių montavimas, virinimas, testavimas ir pridavimas.</p>
           </a>
-          <a class="service-tile" href="#contact" role="listitem">
+          <a class="service-tile" href="#" data-placeholder-link role="listitem">
             <div class="service-tile-top"><span class="num">04</span><span class="mini-arrow">→</span></div>
             <h3>Elektros darbai</h3>
             <p>Elektros instaliacijos, įvadai, apšvietimas, matavimai, bandymai ir dokumentacija.</p>
           </a>
-          <a class="service-tile" href="#contact" role="listitem">
+          <a class="service-tile" href="#" data-placeholder-link role="listitem">
             <div class="service-tile-top"><span class="num">05</span><span class="mini-arrow">→</span></div>
             <h3>Apsaugos sistemos</h3>
             <p>Vaizdo stebėjimo, signalizacijos, įėjimo kontrolės ir perimetro apsaugos sistemų diegimas bei integracija.</p>
           </a>
-          <a class="service-tile" href="#contact" role="listitem">
+          <a class="service-tile" href="#" data-placeholder-link role="listitem">
             <div class="service-tile-top"><span class="num">06</span><span class="mini-arrow">→</span></div>
             <h3>Saulės elektrinės</h3>
             <p>Projektavimas, konstrukcijų, modulių ir inverterių montavimas, testavimas, priežiūra bei dokumentacija.</p>
@@ -986,9 +1068,9 @@
           <p>Sprendžiant dėl bendradarbiavimo, kiekvienam svarbi kita rezultato pusė. Todėl toliau galima pasirinkti ne „personą“, o aktualiausią atsakymą.</p>
         </div>
         <div class="audience-list">
-          <a class="audience-item" href="#contact"><small>Vadovams</small><h3>Partneris, dėl kurio nereikia aiškintis užsakovui.</h3><p>Sertifikuoti procesai, valdoma rizika ir aiškios atsakomybės.</p><span class="audience-arrow">→</span></a>
-          <a class="audience-item" href="#process"><small>Projektų vadovams</small><h3>Įranga, procesai ir dokumentacija – viskas atvirai.</h3><p>Techninė eiga ir tiesioginis ryšys viso projekto metu.</p><span class="audience-arrow">→</span></a>
-          <a class="audience-item" href="#careers"><small>Specialistams</small><h3>Darbas, kuriame augimas turi kryptį.</h3><p>Europos projektai, mokymai, sertifikatai ir saugi aplinka.</p><span class="audience-arrow">→</span></a>
+          <a class="audience-item" href="/vadovams/"><small>Vadovams</small><h3>Partneris, dėl kurio nereikia aiškintis užsakovui.</h3><p>Sertifikuoti procesai, valdoma rizika ir aiškios atsakomybės.</p><span class="audience-arrow">→</span></a>
+          <a class="audience-item" href="/projektu-vadovams/"><small>Projektų vadovams</small><h3>Įranga, procesai ir dokumentacija – viskas atvirai.</h3><p>Techninė eiga ir tiesioginis ryšys viso projekto metu.</p><span class="audience-arrow">→</span></a>
+          <a class="audience-item" href="/karjera/"><small>Specialistams</small><h3>Darbas, kuriame augimas turi kryptį.</h3><p>Europos projektai, mokymai, sertifikatai ir saugi aplinka.</p><span class="audience-arrow">→</span></a>
         </div>
       </div>
     </section>
@@ -1031,10 +1113,19 @@
 
   <script>
     const header = document.getElementById('header');
+    const hero = document.querySelector('.hero');
     const heroImage = document.getElementById('hero-image');
     const bridgeSection = document.querySelector('.bridge');
     const processSection = document.querySelector('.process');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('[data-placeholder-link]').forEach((link) => {
+      link.addEventListener('click', (event) => event.preventDefault());
+    });
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => document.body.classList.add('is-ready'));
+    });
 
     function onScroll() {
       const y = window.scrollY;
@@ -1070,6 +1161,54 @@
       progressLabel.textContent = `${String(step).padStart(2, '0')} / 05`;
     }, { threshold: [0.35, 0.55, 0.75] });
     processSteps.forEach((step) => processObserver.observe(step));
+
+    const revealGroups = [
+      { selector: '.intro-grid > .eyebrow, .intro-grid > :last-child', stagger: 90 },
+      { selector: '.network-strip img', media: true },
+      { selector: '.services-heading', stagger: 0 },
+      { selector: '.service-tile', stagger: 65 },
+      { selector: '.bridge-copy', stagger: 0 },
+      { selector: '.bridge-standard', stagger: 70 },
+      { selector: '.process-intro > *', stagger: 90 },
+      { selector: '.experience .eyebrow, .experience h2, .experience-copy', stagger: 80 },
+      { selector: '.proof', stagger: 60 },
+      { selector: '.map-card', media: true },
+      { selector: '.audiences-head > *', stagger: 90 },
+      { selector: '.audience-item', stagger: 70 },
+      { selector: '.section-top > *', stagger: 90 },
+      { selector: '.news-card', stagger: 70 },
+      { selector: '.final-grid > *', stagger: 100 }
+    ];
+
+    revealGroups.forEach(({ selector, stagger = 0, media = false }) => {
+      document.querySelectorAll(selector).forEach((element, index) => {
+        element.classList.add('reveal');
+        if (media) element.classList.add('reveal-media');
+        element.style.setProperty('--reveal-delay', `${Math.min(index * stagger, 240)}ms`);
+      });
+    });
+
+    processSteps.forEach((step) => {
+      [...step.children].forEach((element, index) => {
+        element.classList.add('reveal');
+        if (element.classList.contains('step-media')) element.classList.add('reveal-media');
+        element.style.setProperty('--reveal-delay', `${Math.min(index * 65, 210)}ms`);
+      });
+    });
+
+    const revealElements = [...document.querySelectorAll('.reveal')];
+    if (reducedMotion || !('IntersectionObserver' in window)) {
+      revealElements.forEach((element) => element.classList.add('is-visible'));
+    } else {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+      revealElements.forEach((element) => revealObserver.observe(element));
+    }
   </script>
 </body>
 </html>
