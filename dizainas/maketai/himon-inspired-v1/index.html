@@ -1,0 +1,1061 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="5G TECH – telekomunikacijų, energetikos ir inžinerinės infrastruktūros projektų partneris.">
+  <title>5G TECH – pagrindinio puslapio prototipas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: "DM Sans Local";
+      src: url("../../../wordpress/wp-content/themes/twentytwentythree/assets/fonts/dm-sans/DMSans-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "DM Sans Local";
+      src: url("../../../wordpress/wp-content/themes/twentytwentythree/assets/fonts/dm-sans/DMSans-Bold.woff2") format("woff2");
+      font-weight: 700 900;
+      font-display: swap;
+    }
+
+    :root {
+      --navy: #063354;
+      --navy-deep: #031f35;
+      --ink: #0a2940;
+      --paper: #f4f6f7;
+      --white: #ffffff;
+      --muted: #6e7f8b;
+      --line: rgba(6, 51, 84, .16);
+      --orange: #f17929;
+      --red: #f12f29;
+      --pink: #ec0062;
+      --berry: #bf0763;
+      --accent: linear-gradient(120deg, var(--orange), var(--red) 42%, var(--pink) 76%, var(--berry));
+      --page: min(1440px, calc(100vw - 80px));
+      --layout-grid-origin: calc((100vw - var(--page)) / 2);
+      --layout-grid-unit: calc(var(--page) / 6);
+      --layout-grid-half: calc(var(--page) / 2);
+      --layout-grid-third: calc(var(--page) / 3);
+      --font-brand: "Gilroy", "Poppins", "DM Sans Local", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--navy-deep); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--white);
+      font-family: var(--font-brand);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    body.menu-open { overflow: hidden; }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    h1, h2, h3, p { margin-top: 0; }
+    .container { width: var(--page); margin-inline: auto; }
+    .skip-link {
+      position: fixed; left: 16px; top: 16px; z-index: 100;
+      padding: 12px 18px; background: white; color: var(--navy);
+      transform: translateY(-150%); transition: transform .2s;
+    }
+    .skip-link:focus { transform: translateY(0); }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      margin-bottom: 24px; font-size: 12px; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 9px; height: 9px; background: var(--pink); }
+    .arrow { font-size: 1.3em; line-height: 1; }
+    .link-line {
+      display: inline-flex; align-items: center; gap: 18px;
+      padding-bottom: 10px; border-bottom: 2px solid currentColor;
+      font-size: 13px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+    }
+
+    /* Header */
+    .site-header {
+      position: fixed; inset: 0 0 auto; z-index: 50; color: white;
+      transition: background .25s, backdrop-filter .25s, border-color .25s;
+      border-bottom: 1px solid rgba(255,255,255,.13);
+    }
+    .site-header.scrolled { background: rgba(3,31,53,.9); backdrop-filter: blur(18px); }
+    .nav-wrap {
+      width: var(--page); height: 86px; margin-inline: auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand-logo { width: 158px; height: auto; }
+    .main-nav { display: flex; align-items: center; gap: clamp(22px, 3vw, 48px); }
+    .main-nav > a:not(.nav-cta) { font-size: 13px; font-weight: 600; }
+    .main-nav > a:not(.nav-cta)::after {
+      content: ""; display: block; height: 1px; width: 0; margin-top: 5px;
+      background: var(--pink); transition: width .2s;
+    }
+    .main-nav > a:hover::after, .main-nav > a:focus-visible::after { width: 100%; }
+    .nav-cta {
+      min-height: 44px; padding: 0 20px; display: inline-flex; align-items: center;
+      border-radius: 999px; color: var(--navy); background: white;
+      font-size: 13px; font-weight: 700;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative; min-height: 720px; height: 100svh; overflow: hidden;
+      color: white; background: var(--navy-deep);
+    }
+    .hero-bg {
+      position: absolute; inset: -3% 0; width: 100%; height: 106%;
+      object-fit: cover; object-position: center; transform: scale(1.015);
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(3,31,53,.92) 0%, rgba(3,31,53,.72) 31%, rgba(3,31,53,.12) 64%, rgba(3,31,53,.07) 100%),
+        linear-gradient(0deg, rgba(3,31,53,.74) 0%, transparent 35%);
+    }
+    .hero-grid {
+      position: absolute; z-index: 1; top: 0; right: var(--layout-grid-origin); bottom: 0; left: var(--layout-grid-origin);
+      border-right: 1px solid rgba(255,255,255,.07);
+      background-image: repeating-linear-gradient(
+        90deg,
+        rgba(255,255,255,.07) 0,
+        rgba(255,255,255,.07) 1px,
+        transparent 1px,
+        transparent var(--layout-grid-unit)
+      );
+      pointer-events: none; opacity: .55;
+    }
+    .hero-inner {
+      position: relative; z-index: 2; height: 100%; padding-top: 126px; padding-bottom: 84px;
+      display: grid; grid-template-rows: 1fr auto;
+    }
+    .hero-copy { max-width: 810px; align-self: center; padding: 0 0 24px 28px; }
+    .hero .eyebrow { max-width: 690px; color: rgba(255,255,255,.8); line-height: 1.6; }
+    .hero h1 {
+      max-width: 760px; margin-bottom: 22px;
+      font-size: clamp(44px, 4.65vw, 70px); line-height: 1.01;
+      letter-spacing: -.052em; font-weight: 500;
+    }
+    .hero-lead {
+      max-width: 660px; margin-bottom: 28px; color: rgba(255,255,255,.78);
+      font-size: clamp(16px, 1.35vw, 20px); line-height: 1.65;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn {
+      min-height: 58px; padding: 0 24px; display: inline-flex; align-items: center; gap: 24px;
+      border: 1px solid rgba(255,255,255,.55); border-radius: 999px;
+      font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+      transition: transform .2s, background .2s, color .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: var(--navy); background: white; border-color: white; }
+    .btn-primary .circle {
+      display: grid; place-items: center; width: 36px; height: 36px; margin-right: -14px;
+      border-radius: 50%; color: white; background: var(--accent);
+    }
+    .hero-meta {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: min(100%, var(--layout-grid-half));
+      border-top: 1px solid rgba(255,255,255,.34);
+    }
+    .meta-item { padding: 19px 28px 0; }
+    .meta-item + .meta-item { border-left: 1px solid rgba(255,255,255,.25); }
+    .meta-item strong { display: block; font-size: 20px; font-weight: 600; }
+    .meta-item:nth-child(3) strong { font-size: clamp(10px, 1vw, 16px); letter-spacing: -.02em; white-space: nowrap; }
+    .meta-item span { display: block; margin-top: 5px; color: rgba(255,255,255,.66); font-size: 11px; letter-spacing: .09em; text-transform: uppercase; }
+    .scroll-cue {
+      position: absolute; z-index: 3; right: var(--layout-grid-origin); bottom: 42px;
+      display: flex; align-items: center; gap: 14px; color: rgba(255,255,255,.72);
+      font-size: 11px; letter-spacing: .1em; text-transform: uppercase; writing-mode: vertical-rl;
+    }
+    .scroll-cue::after { content: ""; width: 1px; height: 52px; background: rgba(255,255,255,.42); }
+
+    /* Intro */
+    .intro { padding: 150px 0 120px; background: var(--white); }
+    .intro > .container {
+      width: var(--page);
+      margin-inline: auto;
+    }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0;
+      align-items: start;
+    }
+    .intro-grid > .eyebrow { grid-column: 1; padding-left: 28px; }
+    .intro-grid > :last-child { grid-column: 2 / 5; padding: 0 28px; }
+    .intro h2 {
+      max-width: 850px; margin-bottom: 55px; font-size: clamp(38px, 4.3vw, 62px);
+      line-height: 1.08; letter-spacing: -.047em; font-weight: 500;
+    }
+    .intro-copy { max-width: none; margin-left: 0; font-size: 19px; line-height: 1.76; color: #486173; }
+    .intro-copy p { margin-bottom: 26px; }
+    .network-strip {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      margin-top: 90px;
+      padding-top: 48px;
+      border-top: 1px solid var(--line);
+    }
+    .network-strip img {
+      grid-column: 2 / 7;
+      width: 100%;
+      height: auto;
+      padding-left: calc(var(--layout-grid-unit) * .2);
+      object-fit: contain;
+    }
+
+    /* Bendras 5G TECH maketavimo tinklelis */
+    .intro, .services, .bridge, .process, .experience, .audiences, .news, .final-cta {
+      position: relative;
+      isolation: isolate;
+    }
+    .intro, .services, .experience, .audiences, .news { --section-grid-line: rgba(6,51,84,.055); }
+    .bridge, .process, .final-cta { --section-grid-line: rgba(255,255,255,.055); }
+    .intro::after, .services::after, .bridge::after, .process::after,
+    .experience::after, .audiences::after, .news::after, .final-cta::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      right: var(--layout-grid-origin);
+      bottom: 0;
+      left: var(--layout-grid-origin);
+      border-right: 1px solid var(--section-grid-line);
+      background-image: repeating-linear-gradient(
+        90deg,
+        var(--section-grid-line) 0,
+        var(--section-grid-line) 1px,
+        transparent 1px,
+        transparent var(--layout-grid-unit)
+      );
+      pointer-events: none;
+    }
+    .intro::after {
+      background:
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) 0 0 / 1px 100% no-repeat,
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) var(--layout-grid-unit) 0 / 1px 100% no-repeat,
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) calc(var(--layout-grid-unit) * 4) 0 / 1px 100% no-repeat;
+    }
+    .services::after {
+      background:
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) 0 0 / 1px 100% no-repeat,
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) calc(var(--layout-grid-unit) * 2) 0 / 1px 100% no-repeat,
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) calc(var(--layout-grid-unit) * 4) 0 / 1px 100% no-repeat;
+    }
+    .process::after {
+      background:
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) 0 0 / 1px 100% no-repeat,
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) calc(var(--layout-grid-unit) * 3) 0 / 1px 100% no-repeat;
+    }
+    .experience::after {
+      background:
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) 0 0 / 1px 100% no-repeat,
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) calc(var(--layout-grid-unit) * 2) 0 / 1px 100% no-repeat;
+    }
+    .audiences::after {
+      background:
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) 0 0 / 1px 100% no-repeat;
+    }
+    .intro > .container, .services > .container, .bridge > .container,
+    .experience > .container, .audiences > .container,
+    .news > .container, .final-cta > .container, .process > .process-grid {
+      position: relative;
+      z-index: 1;
+    }
+    .final-cta::before { z-index: 2; }
+
+    /* Services */
+    .services { padding: 128px 0 150px; background: var(--paper); }
+    .services-heading {
+      margin-bottom: 64px;
+      padding-left: calc(var(--layout-grid-unit) * .2);
+    }
+    .services h2 {
+      margin: 0;
+      font-size: clamp(40px, 4.2vw, 64px);
+      line-height: 1;
+      letter-spacing: -.05em;
+      font-weight: 500;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+    }
+    .service-tile {
+      min-height: 330px;
+      padding: 32px 28px 34px calc(var(--layout-grid-unit) * .2);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      color: var(--navy);
+      transition: background .25s, transform .25s;
+    }
+    .service-tile:not(:nth-child(3n + 1)) { border-left: 1px solid var(--line); }
+    .service-tile:hover, .service-tile:focus-visible {
+      background: rgba(255,255,255,.72);
+      transform: translateY(-4px);
+      outline: none;
+    }
+    .service-tile-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: auto;
+    }
+    .service-tile .num { color: var(--pink); font-size: 12px; font-weight: 700; letter-spacing: .08em; }
+    .service-tile .mini-arrow {
+      font-size: 25px;
+      line-height: 1;
+      transform: translateX(-8px);
+      opacity: .38;
+      transition: opacity .2s, transform .2s;
+    }
+    .service-tile:hover .mini-arrow, .service-tile:focus-visible .mini-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .service-tile h3 {
+      max-width: 360px;
+      margin: 56px 0 18px;
+      font-size: clamp(25px, 2.15vw, 34px);
+      line-height: 1.08;
+      letter-spacing: -.04em;
+      font-weight: 500;
+    }
+    .service-tile p {
+      max-width: 390px;
+      margin: 0;
+      color: #587080;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    /* Transition statement */
+    .bridge {
+      --bridge-reveal: 0%;
+      padding: 140px 0 120px;
+      color: white;
+      background: var(--navy);
+    }
+    .bridge-inner {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0;
+    }
+    .bridge-copy {
+      grid-column: 2 / 6;
+      padding-inline: 28px;
+    }
+    .bridge h2 {
+      max-width: 980px;
+      margin: 0;
+      color: transparent;
+      background: linear-gradient(
+        to bottom,
+        #fff 0%,
+        #fff var(--bridge-reveal),
+        rgba(255,255,255,.3) var(--bridge-reveal),
+        rgba(255,255,255,.3) 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: clamp(36px, 4.35vw, 62px);
+      line-height: 1.12;
+      letter-spacing: -.04em;
+      font-weight: 500;
+    }
+    .bridge-standards {
+      grid-column: 2 / 6;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 88px;
+      border-top: 1px solid rgba(255,255,255,.28);
+    }
+    .bridge-standard {
+      min-width: 0;
+      min-height: 238px;
+      padding: 28px;
+      border-bottom: 1px solid rgba(255,255,255,.28);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: rgba(255,255,255,.72);
+    }
+    .bridge-standard + .bridge-standard { border-left: 1px solid rgba(255,255,255,.28); }
+    .bridge-standard strong {
+      margin-top: auto;
+      color: white;
+      font-size: 20px;
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: -.02em;
+    }
+    .bridge-standard > span:last-child {
+      margin-top: 10px;
+      font-size: 11px;
+      line-height: 1.45;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .standard-icon {
+      position: relative;
+      display: block;
+      width: 54px;
+      height: 54px;
+      color: var(--pink);
+    }
+    .bridge-standard:nth-child(1) .standard-icon { color: var(--orange); }
+    .bridge-standard:nth-child(2) .standard-icon { color: var(--red); }
+    .bridge-standard:nth-child(3) .standard-icon { color: var(--pink); }
+    .bridge-standard:nth-child(4) .standard-icon { color: #d44891; }
+    .icon-quality {
+      border: 2px solid currentColor;
+      border-radius: 50%;
+    }
+    .icon-quality::before {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 16px;
+      width: 21px;
+      height: 11px;
+      border-left: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(-45deg);
+    }
+    .icon-environment::before {
+      content: "";
+      position: absolute;
+      left: 13px;
+      top: 7px;
+      width: 27px;
+      height: 37px;
+      border: 2px solid currentColor;
+      border-radius: 90% 10% 90% 10%;
+      transform: rotate(18deg);
+    }
+    .icon-environment::after {
+      content: "";
+      position: absolute;
+      left: 27px;
+      top: 15px;
+      width: 2px;
+      height: 34px;
+      background: currentColor;
+      transform: rotate(38deg);
+      transform-origin: top;
+    }
+    .icon-safety::before {
+      content: "";
+      position: absolute;
+      left: 11px;
+      top: 5px;
+      width: 32px;
+      height: 40px;
+      border: 2px solid currentColor;
+      border-radius: 15px 15px 20px 20px;
+    }
+    .icon-safety::after {
+      content: "";
+      position: absolute;
+      left: 19px;
+      top: 18px;
+      width: 16px;
+      height: 8px;
+      border-left: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(-45deg);
+    }
+    .icon-qualification::before {
+      content: "";
+      position: absolute;
+      left: 11px;
+      top: 5px;
+      width: 32px;
+      height: 42px;
+      border: 2px solid currentColor;
+    }
+    .icon-qualification::after {
+      content: "";
+      position: absolute;
+      left: 19px;
+      top: 18px;
+      width: 16px;
+      height: 2px;
+      background: currentColor;
+      box-shadow: 0 7px 0 currentColor, 0 14px 0 currentColor;
+    }
+
+    /* Process */
+    .process {
+      --process-line-progress: 0%;
+      position: relative;
+      color: white;
+      background: #11191e;
+    }
+    .process::before {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        var(--red) 0%,
+        var(--red) var(--process-line-progress),
+        transparent var(--process-line-progress),
+        transparent 100%
+      );
+      pointer-events: none;
+    }
+    .process-grid { display: grid; grid-template-columns: 50% 50%; }
+    .process-intro {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      min-height: 720px;
+      padding: 140px clamp(28px, 4vw, 64px) 80px calc(var(--layout-grid-origin) + var(--layout-grid-unit) * .2);
+      border-right: 1px solid rgba(255,255,255,.15); display: flex; flex-direction: column;
+      justify-content: space-between;
+    }
+    .process-intro h2 { max-width: 600px; font-size: clamp(40px, 4.25vw, 62px); line-height: 1.08; letter-spacing: -.045em; font-weight: 500; }
+    .process-progress { display: flex; align-items: center; gap: 18px; max-width: 510px; }
+    .progress-track { flex: 1; height: 2px; background: rgba(255,255,255,.15); overflow: hidden; }
+    .progress-fill { display: block; height: 100%; width: 20%; background: var(--accent); transition: width .45s ease; }
+    .progress-label { min-width: 60px; color: rgba(255,255,255,.62); font-size: 12px; letter-spacing: .12em; }
+    .process-steps {
+      padding: 0 var(--layout-grid-origin) 0 calc(var(--layout-grid-unit) * .2);
+    }
+    .process-step {
+      min-height: 100vh; padding: 105px 0 70px; display: flex; flex-direction: column; justify-content: center;
+      border-bottom: 1px solid rgba(255,255,255,.13);
+    }
+    .step-label { margin-bottom: 20px; color: var(--pink); font-size: 12px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .process-step h3 {
+      margin-bottom: 16px;
+      font-size: clamp(28px, 2.7vw, 42px);
+      line-height: 1.1;
+      letter-spacing: -.035em;
+      font-weight: 400;
+    }
+    .process-step > p { max-width: 600px; margin-bottom: 38px; color: rgba(255,255,255,.64); font-size: 17px; line-height: 1.72; }
+    .step-media {
+      position: relative;
+      width: 100%;
+      min-height: 0;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--navy);
+    }
+    .step-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      object-fit: cover;
+      filter: saturate(.78) contrast(1.03);
+    }
+    .step-media::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(255,255,255,.08); pointer-events: none; }
+    .blueprint {
+      min-height: 0; padding: 34px; display: grid; place-items: center;
+      background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
+      background-size: 42px 42px;
+    }
+    .blueprint svg { width: min(460px, 90%); color: rgba(255,255,255,.84); }
+
+    /* Experience / map */
+    .experience { position: relative; padding: 150px 0; overflow: hidden; background: var(--paper); }
+    .experience-grid {
+      display: grid;
+      grid-template-columns: var(--layout-grid-third) 1fr;
+      gap: 0;
+      align-items: center;
+    }
+    .experience-grid > :first-child {
+      padding-inline: calc(var(--layout-grid-unit) * .2);
+    }
+    .experience h2 { margin-bottom: 26px; font-size: clamp(40px, 4.4vw, 64px); line-height: 1.06; letter-spacing: -.047em; font-weight: 500; }
+    .experience-copy { max-width: 620px; color: #526a79; font-size: 17px; line-height: 1.72; }
+    .proof-grid { display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 58px; border-top: 1px solid var(--line); }
+    .proof {
+      min-width: 0;
+      padding: 28px calc(var(--layout-grid-unit) * .2) 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .proof:nth-child(even) {
+      padding-right: 0;
+      padding-left: calc(var(--layout-grid-unit) * .2);
+      border-left: 1px solid var(--line);
+    }
+    .proof strong { display: block; font-size: clamp(29px, 2.7vw, 41px); line-height: 1; letter-spacing: -.035em; }
+    .proof span { display: block; margin-top: 8px; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+    .map-card {
+      position: relative;
+      min-height: 0;
+      aspect-ratio: 1457 / 1079;
+      overflow: hidden;
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      background: var(--navy);
+    }
+    .map-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Audience paths */
+    .audiences { padding: 150px 0; background: white; }
+    .audiences-head { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; margin-bottom: 72px; }
+    .audiences h2 { font-size: clamp(39px, 4.3vw, 62px); line-height: 1.08; letter-spacing: -.047em; font-weight: 500; }
+    .audiences-head p { max-width: 660px; align-self: end; color: #526a79; font-size: 17px; line-height: 1.72; }
+    .audience-list { border-top: 1px solid var(--line); }
+    .audience-item {
+      display: grid; grid-template-columns: 180px 1fr 260px 56px; gap: 36px; align-items: center;
+      min-height: 180px; padding: 30px 0; border-bottom: 1px solid var(--line);
+      transition: color .25s, background .25s, padding .25s;
+    }
+    .audience-item:hover { padding-inline: 28px; color: white; background: var(--navy); }
+    .audience-item small { color: var(--pink); font-size: 11px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+    .audience-item h3 { margin: 0; max-width: 760px; font-size: clamp(23px, 2.2vw, 34px); line-height: 1.15; letter-spacing: -.035em; }
+    .audience-item p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+    .audience-item:hover p { color: rgba(255,255,255,.63); }
+    .audience-arrow { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid currentColor; border-radius: 50%; }
+
+    /* News */
+    .news { padding: 135px 0; background: var(--paper); }
+    .section-top { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 60px; }
+    .news h2 { max-width: 760px; margin: 0; font-size: clamp(37px, 4vw, 58px); line-height: 1.1; letter-spacing: -.04em; font-weight: 500; }
+    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .news-card { min-height: 330px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; background: white; border: 1px solid var(--line); }
+    .news-card.featured { color: white; background: var(--navy); }
+    .news-meta { color: var(--pink); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .news-card h3 { margin: 80px 0 18px; font-size: clamp(20px, 1.7vw, 26px); line-height: 1.18; letter-spacing: -.03em; }
+    .news-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .news-card.featured p { color: rgba(255,255,255,.62); }
+
+    /* CTA + footer */
+    .final-cta { position: relative; padding: 145px 0 120px; color: white; background: var(--navy); overflow: hidden; }
+    .final-cta::before { content: ""; position: absolute; left: 0; top: 0; width: 8px; height: 100%; background: var(--accent); }
+    .final-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 9vw; align-items: end; }
+    .final-cta h2 { max-width: 840px; margin-bottom: 24px; font-size: clamp(44px, 4.9vw, 72px); line-height: 1.02; letter-spacing: -.05em; font-weight: 500; }
+    .final-cta p { max-width: 680px; color: rgba(255,255,255,.66); font-size: 17px; line-height: 1.7; }
+    .contact-stack { display: grid; gap: 14px; }
+    .contact-stack .btn { justify-content: space-between; }
+    .contact-stack .btn:first-child { color: var(--navy); background: white; border-color: white; }
+    .footer { padding: 38px 0; color: rgba(255,255,255,.62); background: var(--navy-deep); font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 30px; }
+    .footer a { color: white; }
+
+    @media (min-width: 1200px) {
+      .audiences-head, .final-grid {
+        grid-template-columns: var(--layout-grid-half) 1fr;
+        gap: 0;
+      }
+      .audiences-head > :last-child,
+      .final-grid > :last-child { padding-left: 28px; }
+    }
+
+    /* Responsive */
+    @media (max-width: 1050px) {
+      :root {
+        --page: calc(100% - 44px);
+      }
+      .main-nav > a:not(.nav-cta) { display: none; }
+      .hero h1 { max-width: 690px; }
+      .meta-item { padding-inline: 14px; }
+      .meta-item:nth-child(3) strong { font-size: clamp(9px, 1.25vw, 12px); }
+      .experience-grid, .audiences-head, .final-grid { grid-template-columns: 1fr; gap: 40px; }
+      .bridge-standards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .bridge-standard { border-left: 0; }
+      .bridge-standard:nth-child(even) { border-left: 1px solid rgba(255,255,255,.28); }
+      .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .service-tile { border-left: 0; }
+      .service-tile:not(:nth-child(2n + 1)) { border-left: 1px solid var(--line); }
+      .process-grid { grid-template-columns: 50% 50%; }
+      .process-intro {
+        padding-left: calc(var(--layout-grid-origin) + var(--layout-grid-unit) * .2);
+        padding-right: 28px;
+      }
+      .map-card { min-height: 0; }
+      .audience-item { grid-template-columns: 150px 1fr 54px; }
+      .audience-item p { display: none; }
+    }
+    @media (max-width: 720px) {
+      :root {
+        --page: calc(100% - 32px);
+      }
+      .nav-wrap { height: 72px; }
+      .brand-logo { width: 126px; }
+      .nav-cta { min-height: 40px; padding-inline: 15px; font-size: 11px; }
+      .hero { min-height: 760px; }
+      .hero-bg { object-position: 78% center; }
+      .hero::before { background: linear-gradient(90deg, rgba(3,31,53,.94), rgba(3,31,53,.64) 72%, rgba(3,31,53,.32)); }
+      .hero-inner { padding-top: 108px; padding-bottom: 28px; }
+      .hero-copy { padding: 0 0 26px 10px; }
+      .hero h1 { font-size: clamp(40px, 11.5vw, 56px); }
+      .hero-meta { width: 100%; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .meta-item { padding: 12px 10px 0; }
+      .meta-item + .meta-item { border-left: 1px solid rgba(255,255,255,.18); border-top: 0; }
+      .meta-item strong { font-size: 15px; line-height: 1.25; }
+      .meta-item:nth-child(3) strong { font-size: 8px; line-height: 1.35; letter-spacing: -.02em; }
+      .meta-item span { font-size: 8px; line-height: 1.35; }
+      .scroll-cue { display: none; }
+      .intro, .services, .experience, .audiences, .news, .final-cta { padding-block: 90px; }
+      .intro-grid { grid-template-columns: 1fr; gap: 28px; }
+      .intro-grid > .eyebrow,
+      .intro-grid > :last-child { grid-column: 1; padding-inline: 10px 16px; }
+      .intro-grid { gap: 30px; }
+      .intro-copy { font-size: 16px; }
+      .network-strip { margin-top: 50px; }
+      .services-heading { margin-bottom: 45px; }
+      .services h2 { font-size: 42px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-tile,
+      .service-tile:not(:nth-child(2n + 1)) {
+        min-height: 250px;
+        padding: 26px 16px 30px;
+        border-left: 0;
+      }
+      .service-tile h3 { margin-top: 40px; }
+      .bridge { padding-block: 90px; }
+      .bridge-copy,
+      .bridge-standards { grid-column: 1 / -1; }
+      .bridge-copy { padding-inline: 16px; }
+      .bridge-standards { grid-template-columns: 1fr; margin-top: 58px; }
+      .bridge-standard,
+      .bridge-standard:nth-child(even) {
+        min-height: 205px;
+        padding-inline: 16px;
+        border-left: 0;
+      }
+      .process-grid { display: block; }
+      .process::before { display: none; }
+      .process-intro { position: relative; height: auto; min-height: 0; padding: 90px 16px 55px; border-right: 0; }
+      .process-intro h2 { margin-bottom: 50px; }
+      .process-steps { padding-inline: 16px; }
+      .process-step { min-height: auto; padding: 70px 0; }
+      .step-media,
+      .step-media img { min-height: 0; }
+      .proof-grid { grid-template-columns: 1fr; }
+      .proof:nth-child(even) { padding-left: 0; border-left: 0; }
+      .map-card { min-height: 0; }
+      .audience-item { grid-template-columns: 1fr 48px; min-height: 160px; gap: 18px; }
+      .audience-item small { grid-column: 1 / -1; }
+      .news-grid { grid-template-columns: 1fr; }
+      .section-top { align-items: start; flex-direction: column; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (max-height: 800px) and (min-width: 721px) {
+      .hero-inner { padding-bottom: 48px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .hero-bg { transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pereiti prie turinio</a>
+
+  <header class="site-header" id="header">
+    <div class="nav-wrap">
+      <a href="#top" aria-label="5G TECH pradžia">
+        <img class="brand-logo" src="../client-ready-v4/assets/5gtech-logo-white.png" alt="5G TECH">
+      </a>
+      <nav class="main-nav" aria-label="Pagrindinė navigacija">
+        <a href="#services">Paslaugos</a>
+        <a href="#process">Kaip dirbame</a>
+        <a href="#experience">Patirtis</a>
+        <a href="#careers">Karjera</a>
+        <a class="nav-cta" href="#contact">Kontaktai</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <img class="hero-bg" id="hero-image" src="../no-wave-concept-v1/assets/hero-sky-worker-zoomed-out-v3.png" alt="5G TECH specialistas dirba mobiliojo ryšio bokšte kalnų fone">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow">Telekomunikacijų, energetikos ir inžinerinės infrastruktūros projektai</div>
+          <h1 id="hero-title">Kai svarbus ne tik atliktas darbas, bet ir ramybė dėl rezultato</h1>
+          <p class="hero-lead">Techninis partneris nuo pasirengimo ir montavimo iki testavimo, dokumentacijos bei priežiūros.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Aptarkime jūsų projektą <span class="circle">→</span></a>
+            <a class="btn" href="#services">Peržiūrėti paslaugas <span class="arrow">↓</span></a>
+          </div>
+        </div>
+        <div class="hero-meta" aria-label="Pagrindiniai patirties faktai">
+          <div class="meta-item"><strong>6000+</strong><span>bazinių stočių</span></div>
+          <div class="meta-item"><strong>6</strong><span>Europos šalys</span></div>
+          <div class="meta-item"><strong>ISO 9001 / 14001 / 45001</strong><span>sertifikuoti procesai</span></div>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">Slinkti</div>
+    </section>
+
+    <section class="intro" id="about" aria-labelledby="intro-title">
+      <div class="container">
+        <div class="intro-grid">
+          <div class="eyebrow">Nuo poreikio iki rezultato</div>
+          <div>
+            <h2 id="intro-title">Kiekvienas projektas prasideda nuo konkretaus poreikio.</h2>
+            <div class="intro-copy">
+              <p>Skiriasi objektai, šalys ir technologijos, tačiau užsakovo klausimas tas pats: kas suvaldys technines detales, terminus ir kokybę taip, kad rezultatu būtų galima pasitikėti?</p>
+            </div>
+          </div>
+        </div>
+        <div class="network-strip">
+          <img src="../../../5g-infrastrukturos-linijine-iliustracija.png" alt="Telekomunikacijų, apsaugos, elektros ir saulės energetikos infrastruktūros linijinė iliustracija">
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="services-heading">
+          <h2 id="services-title">Paslaugos</h2>
+        </div>
+        <div class="service-grid" role="list" aria-label="Paslaugų kryptys">
+          <a class="service-tile" href="#contact" role="listitem">
+            <div class="service-tile-top"><span class="num">01</span><span class="mini-arrow">→</span></div>
+            <h3>Mobiliojo ryšio tinklai</h3>
+            <p>2G–5G įrangos, antenų, konstrukcijų ir radiorelinių linijų montavimas, modernizavimas bei testavimas.</p>
+          </a>
+          <a class="service-tile" href="#contact" role="listitem">
+            <div class="service-tile-top"><span class="num">02</span><span class="mini-arrow">→</span></div>
+            <h3>Vidinio ryšio tinklai</h3>
+            <p>Mobiliojo ryšio ir Wi-Fi sprendimai biurams, prekybos centrams, ligoninėms, viešbučiams ir kitiems objektams.</p>
+          </a>
+          <a class="service-tile" href="#contact" role="listitem">
+            <div class="service-tile-top"><span class="num">03</span><span class="mini-arrow">→</span></div>
+            <h3>Fiksuoto ryšio tinklai</h3>
+            <p>Šviesolaidinių ir varinių tinklų projektavimas, kabelių montavimas, virinimas, testavimas ir pridavimas.</p>
+          </a>
+          <a class="service-tile" href="#contact" role="listitem">
+            <div class="service-tile-top"><span class="num">04</span><span class="mini-arrow">→</span></div>
+            <h3>Elektros darbai</h3>
+            <p>Elektros instaliacijos, įvadai, apšvietimas, matavimai, bandymai ir dokumentacija.</p>
+          </a>
+          <a class="service-tile" href="#contact" role="listitem">
+            <div class="service-tile-top"><span class="num">05</span><span class="mini-arrow">→</span></div>
+            <h3>Apsaugos sistemos</h3>
+            <p>Vaizdo stebėjimo, signalizacijos, įėjimo kontrolės ir perimetro apsaugos sistemų diegimas bei integracija.</p>
+          </a>
+          <a class="service-tile" href="#contact" role="listitem">
+            <div class="service-tile-top"><span class="num">06</span><span class="mini-arrow">→</span></div>
+            <h3>Saulės elektrinės</h3>
+            <p>Projektavimas, konstrukcijų, modulių ir inverterių montavimas, testavimas, priežiūra bei dokumentacija.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bridge" aria-labelledby="bridge-title">
+      <div class="container bridge-inner">
+        <div class="bridge-copy">
+          <div class="eyebrow">Darbo standartas</div>
+          <h2 id="bridge-title">Platus paslaugų spektras svarbus tik tada, kai visas kompetencijas jungia vienodas darbo standartas.</h2>
+        </div>
+        <div class="bridge-standards" aria-label="Sertifikatai ir kvalifikacijos">
+          <div class="bridge-standard">
+            <i class="standard-icon icon-quality" aria-hidden="true"></i>
+            <strong>ISO 9001</strong>
+            <span>Kokybės vadyba</span>
+          </div>
+          <div class="bridge-standard">
+            <i class="standard-icon icon-environment" aria-hidden="true"></i>
+            <strong>ISO 14001</strong>
+            <span>Aplinkos apsaugos vadyba</span>
+          </div>
+          <div class="bridge-standard">
+            <i class="standard-icon icon-safety" aria-hidden="true"></i>
+            <strong>ISO 45001</strong>
+            <span>Darbuotojų sveikata ir sauga</span>
+          </div>
+          <div class="bridge-standard">
+            <i class="standard-icon icon-qualification" aria-hidden="true"></i>
+            <strong>SSVA</strong>
+            <span>Ypatingojo statinio rangovo kvalifikacija</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="process" aria-labelledby="process-title">
+      <div class="process-grid">
+        <div class="process-intro">
+          <div>
+            <div class="eyebrow">Kaip dirbame</div>
+            <h2 id="process-title">Rezultatas nesukuriamas paskutinę projekto dieną.</h2>
+          </div>
+          <div class="process-progress" aria-hidden="true">
+            <div class="progress-track"><span class="progress-fill" id="progress-fill"></span></div>
+            <span class="progress-label" id="progress-label">01 / 05</span>
+          </div>
+        </div>
+        <div class="process-steps">
+          <article class="process-step" data-step="1">
+            <div class="step-label">01 / Įsigiliname</div>
+            <h3>Pradedame nuo klausimų.</h3>
+            <p>Išsiaiškiname techninę užduotį, užsakovo standartus, objekto sąlygas, terminus ir atsakomybių ribas.</p>
+            <div class="step-media blueprint" aria-hidden="true">
+              <svg viewBox="0 0 520 270" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="48" y="42" width="424" height="186"/><circle cx="151" cy="135" r="58"/><path d="M151 77v116M93 135h116M280 79h139M280 113h109M280 147h139M280 181h84"/><path d="m132 134 15 15 31-36" stroke="#ec0062" stroke-width="4"/></svg>
+            </div>
+          </article>
+          <article class="process-step" data-step="2">
+            <div class="step-label">02 / Suplanuojame</div>
+            <h3>Susitarimus paverčiame planu.</h3>
+            <p>Įvertiname rizikas, parenkame komandą, įrangą ir darbų seką. Kiekvienas žino savo atsakomybę dar iki atvykimo į objektą.</p>
+            <div class="step-media blueprint" aria-hidden="true">
+              <svg viewBox="0 0 520 270" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M48 219h424M82 219V61h107v158M220 219V95h110v124M361 219V42h77v177"/><path d="M103 87h65M103 113h65M103 139h43M243 122h63M243 148h63M243 174h42M380 69h39M380 95h39M380 121h39"/><circle cx="82" cy="219" r="7" fill="#ec0062" stroke="none"/><circle cx="220" cy="219" r="7" fill="#ec0062" stroke="none"/><circle cx="361" cy="219" r="7" fill="#ec0062" stroke="none"/></svg>
+            </div>
+          </article>
+          <article class="process-step" data-step="3">
+            <div class="step-label">03 / Įgyvendiname</div>
+            <h3>Dirbame tiksliai ir saugiai.</h3>
+            <p>Darbus atliekame pagal projekto, gamintojų ir saugos reikalavimus. Su užsakovu palaikome tiesioginį ryšį ir greitai reaguojame į situaciją objekte.</p>
+            <div class="step-media"><img src="../client-ready-v4/assets/hero-technicians-branded-v2.png" alt="Du 5G TECH specialistai vykdo darbus ryšio bokšte"></div>
+          </article>
+          <article class="process-step" data-step="4">
+            <div class="step-label">04 / Patikriname</div>
+            <h3>Rezultatą patvirtiname duomenimis.</h3>
+            <p>Sumontuotą įrangą testuojame, fiksuojame rezultatus ir sprendžiame neatitikimus, kol sistema atitinka numatytus kriterijus.</p>
+            <div class="step-media blueprint" aria-hidden="true">
+              <svg viewBox="0 0 520 270" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M58 212h404M82 186l64-62 61 28 64-91 60 72 91-47"/><path d="M82 65v147M82 186h380"/><circle cx="146" cy="124" r="8" fill="#ec0062" stroke="none"/><circle cx="271" cy="61" r="8" fill="#ec0062" stroke="none"/><circle cx="422" cy="86" r="8" fill="#ec0062" stroke="none"/><path d="m342 190 18 18 39-47" stroke="#ec0062" stroke-width="5"/></svg>
+            </div>
+          </article>
+          <article class="process-step" data-step="5">
+            <div class="step-label">05 / Perduodame</div>
+            <h3>Užbaigiame aiškiai.</h3>
+            <p>Parengiame dokumentaciją pagal užsakovo reikalavimus ir perduodame užbaigtą darbų etapą. Kai reikia, tęsiame techninę priežiūrą.</p>
+            <div class="step-media"><img src="../no-wave-concept-v1/assets/hero-sky-worker-zoomed-out-v3.png" alt="Užbaigta ryšio infrastruktūra ir specialistas bokšte"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience" id="experience" aria-labelledby="experience-title">
+      <div class="container experience-grid">
+        <div>
+          <div class="eyebrow">Patirties geografija</div>
+          <h2 id="experience-title">Patirtis, kurią galima pagrįsti.</h2>
+          <p class="experience-copy">Pasitikėjimą kuria tūkstančiai užbaigtų darbų, skirtingų operatorių standartai, įvairi įranga ir komanda, gebanti tą patirtį pritaikyti naujame objekte.</p>
+          <div class="proof-grid">
+            <div class="proof"><strong>6000+</strong><span>įgyvendintų bazinių stočių</span></div>
+            <div class="proof"><strong>2G–5G</strong><span>technologijų patirtis</span></div>
+            <div class="proof"><strong>6 šalys</strong><span>projektai Europoje</span></div>
+            <div class="proof"><strong>2020</strong><span>nuosekliai augame nuo</span></div>
+          </div>
+        </div>
+        <div class="map-card" aria-label="5G TECH veiklos žemėlapis">
+          <img src="../../../5gtech-europe-footprint-map.png" alt="5G TECH veiklos Europoje žemėlapis: Lietuva, Vokietija, Švedija, Norvegija, Danija ir Suomija">
+        </div>
+      </div>
+    </section>
+
+    <section class="audiences" id="careers" aria-labelledby="audiences-title">
+      <div class="container">
+        <div class="audiences-head">
+          <h2 id="audiences-title">Tas pats projektas. Skirtinga atsakomybė.</h2>
+          <p>Sprendžiant dėl bendradarbiavimo, kiekvienam svarbi kita rezultato pusė. Todėl toliau galima pasirinkti ne „personą“, o aktualiausią atsakymą.</p>
+        </div>
+        <div class="audience-list">
+          <a class="audience-item" href="#contact"><small>Vadovams</small><h3>Partneris, dėl kurio nereikia aiškintis užsakovui.</h3><p>Sertifikuoti procesai, valdoma rizika ir aiškios atsakomybės.</p><span class="audience-arrow">→</span></a>
+          <a class="audience-item" href="#process"><small>Projektų vadovams</small><h3>Įranga, procesai ir dokumentacija – viskas atvirai.</h3><p>Techninė eiga ir tiesioginis ryšys viso projekto metu.</p><span class="audience-arrow">→</span></a>
+          <a class="audience-item" href="#careers"><small>Specialistams</small><h3>Darbas, kuriame augimas turi kryptį.</h3><p>Europos projektai, mokymai, sertifikatai ir saugi aplinka.</p><span class="audience-arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="news" aria-labelledby="news-title">
+      <div class="container">
+        <div class="section-top">
+          <h2 id="news-title">Kol infrastruktūra auga, tęsiasi ir mūsų istorija.</h2>
+          <a class="link-line" href="/naujienos/">Visos naujienos <span>→</span></a>
+        </div>
+        <div class="news-grid">
+          <article class="news-card featured"><span class="news-meta">Projektai / 2026</span><div><h3>Dar viena užbaigta infrastruktūros projekto dalis Europoje</h3><p>Vieta naujausiam projekto pasakojimui ir rezultatams.</p></div></article>
+          <article class="news-card"><span class="news-meta">Komanda / 2026</span><div><h3>Specialistų kompetenciją stiprina praktika ir sertifikatai</h3><p>Vieta naujienai apie komandą, mokymus ar saugos kultūrą.</p></div></article>
+          <article class="news-card"><span class="news-meta">Žinios / 2026</span><div><h3>Ką svarbu įvertinti planuojant ryšio infrastruktūros darbus</h3><p>Vieta techniniam straipsniui, padedančiam užsakovui priimti sprendimą.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="contact" aria-labelledby="contact-title">
+      <div class="container final-grid">
+        <div>
+          <div class="eyebrow">Pradėkime nuo pokalbio</div>
+          <h2 id="contact-title">Kitas projektas prasideda nuo aiškaus pokalbio.</h2>
+          <p>Papasakokite, ką planuojate ir kur susiduriate su iššūkiu. Įvertinsime, kur mūsų patirtis gali būti naudingiausia, ir pasiūlysime konkretų kitą žingsnį.</p>
+        </div>
+        <div class="contact-stack">
+          <a class="btn" href="mailto:info@5gtech.lt">info@5gtech.lt <span>↗</span></a>
+          <a class="btn" href="tel:+37068777155">+370 687 77155 <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 UAB „5GTECH“ · Meistrų g. 8A, Vilnius</span>
+      <span><a href="#top">Grįžti į viršų ↑</a></span>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    const heroImage = document.getElementById('hero-image');
+    const bridgeSection = document.querySelector('.bridge');
+    const processSection = document.querySelector('.process');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function onScroll() {
+      const y = window.scrollY;
+      header.classList.toggle('scrolled', y > 40);
+      if (!reducedMotion && y < window.innerHeight * 1.15) {
+        heroImage.style.transform = `translateY(${y * 0.12}px) scale(1.03)`;
+      }
+      if (bridgeSection) {
+        const bridgeRect = bridgeSection.getBoundingClientRect();
+        const revealStart = window.innerHeight * .82;
+        const revealEnd = window.innerHeight * .22;
+        const revealProgress = Math.max(0, Math.min(1, (revealStart - bridgeRect.top) / (revealStart - revealEnd)));
+        bridgeSection.style.setProperty('--bridge-reveal', `${revealProgress * 100}%`);
+      }
+      if (processSection) {
+        const processRect = processSection.getBoundingClientRect();
+        const processScrollDistance = Math.max(1, processSection.offsetHeight - window.innerHeight);
+        const processLineProgress = Math.max(0, Math.min(1, -processRect.top / processScrollDistance));
+        processSection.style.setProperty('--process-line-progress', `${processLineProgress * 100}%`);
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const processSteps = [...document.querySelectorAll('.process-step')];
+    const progressFill = document.getElementById('progress-fill');
+    const progressLabel = document.getElementById('progress-label');
+    const processObserver = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      const step = Number(visible.target.dataset.step);
+      progressFill.style.width = `${step * 20}%`;
+      progressLabel.textContent = `${String(step).padStart(2, '0')} / 05`;
+    }, { threshold: [0.35, 0.55, 0.75] });
+    processSteps.forEach((step) => processObserver.observe(step));
+  </script>
+</body>
+</html>

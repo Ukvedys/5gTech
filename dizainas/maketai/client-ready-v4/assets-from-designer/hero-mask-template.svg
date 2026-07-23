@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 1220">
+  <title>5G TECH hero mask template — 820 × 1220</title>
+  <desc>Pakeiskite pilką uždarą formą balta galutine nuotraukos kauke. Foną palikite skaidrų.</desc>
+  <g id="guides" fill="none" stroke="#00AEEF" stroke-width="2" stroke-dasharray="12 10" opacity="0.55">
+    <rect x="1" y="1" width="818" height="1218"/>
+    <line x1="410" y1="0" x2="410" y2="1220"/>
+    <line x1="0" y1="610" x2="820" y2="610"/>
+  </g>
+  <path id="replace-with-final-mask" fill="#B8C1C8" opacity="0.72" d="M310 106 C193 139 142 252 71 365 C7 465 12 565 52 690 C105 856 236 1030 399 1132 C540 1220 699 1208 820 1220 L820 267 C699 270 626 236 542 169 C455 99 391 83 310 106 Z"/>
+</svg>
