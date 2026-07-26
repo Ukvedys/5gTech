@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="5G TECH svetainės dizaino sistema: tokenai, komponentai ir maketavimo taisyklės.">
+  <title>5G TECH – dizaino sistema</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="components.css">
+  <style>
+    @font-face {
+      font-family: "DM Sans";
+      src: url("../../wordpress/wp-content/themes/twentytwentythree/assets/fonts/dm-sans/DMSans-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "DM Sans";
+      src: url("../../wordpress/wp-content/themes/twentytwentythree/assets/fonts/dm-sans/DMSans-Bold.woff2") format("woff2");
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    .ds-header {
+      position: sticky;
+      z-index: var(--5g-z-header);
+      top: 0;
+      color: var(--5g-color-white);
+      border-bottom: 1px solid rgba(255, 255, 255, .13);
+      background: rgba(3, 31, 53, .94);
+      backdrop-filter: blur(18px);
+    }
+
+    .ds-header__inner {
+      min-height: 5.375rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--5g-space-8);
+    }
+
+    .ds-logo {
+      width: 9.875rem;
+      height: auto;
+    }
+
+    .ds-nav {
+      display: flex;
+      gap: clamp(1rem, 2vw, 2.5rem);
+      align-items: center;
+      font-size: var(--5g-text-caption);
+      font-weight: var(--5g-weight-semibold);
+    }
+
+    .ds-nav a {
+      padding-block: var(--5g-space-3);
+    }
+
+    .ds-nav a:hover {
+      color: var(--5g-color-pink);
+    }
+
+    .ds-hero {
+      min-height: 42rem;
+      padding: 8.5rem 0 var(--5g-space-20);
+      display: flex;
+      align-items: end;
+      color: var(--5g-color-white);
+      background:
+        radial-gradient(circle at 80% 24%, rgba(241, 47, 41, .17), transparent 26rem),
+        linear-gradient(135deg, var(--5g-color-navy-950), var(--5g-color-navy-900));
+    }
+
+    .ds-hero__copy {
+      grid-column: 1 / 5;
+      padding-left: var(--5g-grid-inset);
+    }
+
+    .ds-hero__copy .g5-display-xl {
+      max-width: 55rem;
+    }
+
+    .ds-hero__copy .g5-body {
+      max-width: 44rem;
+      margin-top: var(--5g-space-6);
+      color: var(--5g-color-on-dark-muted);
+    }
+
+    .ds-hero__meta {
+      margin-top: var(--5g-space-16);
+      grid-column: 1 / 4;
+    }
+
+    .ds-section-head {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      margin-bottom: var(--5g-space-18);
+    }
+
+    .ds-section-head .g5-eyebrow {
+      grid-column: 1;
+      padding-left: var(--5g-grid-inset);
+    }
+
+    .ds-section-head__copy {
+      grid-column: 2 / 6;
+      padding-inline: var(--5g-grid-inset);
+    }
+
+    .ds-section-head__copy .g5-body {
+      max-width: 48rem;
+      margin-top: var(--5g-space-5);
+    }
+
+    .ds-palette {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: var(--5g-border-width) solid var(--5g-line-light);
+      border-left: var(--5g-border-width) solid var(--5g-line-light);
+    }
+
+    .ds-swatch {
+      min-height: 13rem;
+      padding: var(--5g-space-5);
+      border-right: var(--5g-border-width) solid var(--5g-line-light);
+      border-bottom: var(--5g-border-width) solid var(--5g-line-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--swatch);
+      color: var(--swatch-text, var(--5g-color-white));
+    }
+
+    .ds-swatch strong {
+      font-size: var(--5g-text-body-sm);
+    }
+
+    .ds-swatch code {
+      font-size: var(--5g-text-caption);
+      opacity: .72;
+    }
+
+    .ds-type-scale {
+      border-top: var(--5g-border-width) solid var(--5g-line-light);
+    }
+
+    .ds-type-row {
+      padding: var(--5g-space-8) var(--5g-grid-inset);
+      display: grid;
+      grid-template-columns: 11rem 1fr;
+      gap: var(--5g-space-8);
+      align-items: baseline;
+      border-bottom: var(--5g-border-width) solid var(--5g-line-light);
+    }
+
+    .ds-type-row__label {
+      color: var(--5g-color-text-subtle);
+      font-size: var(--5g-text-micro);
+      font-weight: var(--5g-weight-bold);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .ds-grid-demo {
+      min-height: 26rem;
+      padding-block: var(--5g-space-12);
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .ds-grid-demo__column {
+      padding: var(--5g-space-4);
+      display: flex;
+      align-items: end;
+      border-top: var(--5g-border-width) solid var(--5g-line-dark);
+      border-bottom: var(--5g-border-width) solid var(--5g-line-dark);
+      color: var(--5g-color-on-dark-muted);
+      font-size: var(--5g-text-label);
+      font-weight: var(--5g-weight-bold);
+    }
+
+    .ds-grid-demo__column + .ds-grid-demo__column {
+      border-left: var(--5g-border-width) solid var(--5g-line-dark);
+    }
+
+    .ds-spacing {
+      display: grid;
+      gap: var(--5g-space-4);
+      padding-inline: var(--5g-grid-inset);
+    }
+
+    .ds-spacing__row {
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+      gap: var(--5g-space-4);
+      align-items: center;
+      font-size: var(--5g-text-caption);
+    }
+
+    .ds-spacing__bar {
+      width: var(--spacing);
+      max-width: 100%;
+      height: .625rem;
+      background: var(--5g-gradient-brand);
+    }
+
+    .ds-component-block {
+      margin-top: var(--5g-space-24);
+    }
+
+    .ds-component-head {
+      padding: 0 var(--5g-grid-inset) var(--5g-space-6);
+      display: flex;
+      justify-content: space-between;
+      gap: var(--5g-space-6);
+      align-items: end;
+      border-bottom: var(--5g-border-width) solid var(--5g-line-light);
+    }
+
+    .ds-component-head code {
+      color: var(--5g-color-text-subtle);
+      font-size: var(--5g-text-caption);
+    }
+
+    .ds-button-demo {
+      padding: var(--5g-space-10) var(--5g-grid-inset);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--5g-space-4);
+      align-items: center;
+    }
+
+    .ds-dark-demo {
+      color: var(--5g-color-white);
+      background: var(--5g-color-navy-900);
+    }
+
+    .ds-form {
+      max-width: 48rem;
+      padding: var(--5g-space-10) var(--5g-grid-inset);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--5g-space-6);
+    }
+
+    .ds-form .g5-field--full {
+      grid-column: 1 / -1;
+    }
+
+    .ds-media {
+      position: relative;
+      grid-column: 2 / 7;
+      margin: 0;
+      aspect-ratio: 16 / 7;
+      overflow: hidden;
+      background: var(--5g-color-navy-900);
+    }
+
+    .ds-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 44%;
+      filter: saturate(.88) contrast(1.03);
+    }
+
+    .ds-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: var(--5g-border-width) solid rgba(255, 255, 255, .12);
+      background: linear-gradient(90deg, rgba(3, 31, 53, .62), transparent 55%);
+    }
+
+    .ds-rules {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: var(--5g-border-width) solid var(--5g-line-dark);
+    }
+
+    .ds-rule {
+      min-height: 18rem;
+      padding: var(--5g-space-8) var(--5g-grid-inset);
+      border-bottom: var(--5g-border-width) solid var(--5g-line-dark);
+    }
+
+    .ds-rule + .ds-rule {
+      border-left: var(--5g-border-width) solid var(--5g-line-dark);
+    }
+
+    .ds-rule ul {
+      margin: var(--5g-space-6) 0 0;
+      padding-left: 1.2rem;
+      color: var(--5g-color-on-dark-muted);
+      font-size: var(--5g-text-body-sm);
+      line-height: 1.8;
+    }
+
+    .ds-footer {
+      padding-block: var(--5g-space-10);
+      color: var(--5g-color-on-dark-muted);
+      background: var(--5g-color-navy-950);
+      font-size: var(--5g-text-label);
+    }
+
+    .ds-footer__inner {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--5g-space-6);
+    }
+
+    @media (max-width: 65.625rem) {
+      .ds-palette {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .ds-nav a:not(:last-child) {
+        display: none;
+      }
+
+      .ds-type-row {
+        grid-template-columns: 8rem 1fr;
+      }
+    }
+
+    @media (max-width: 45rem) {
+      .ds-header__inner {
+        min-height: 4.5rem;
+      }
+
+      .ds-logo {
+        width: 7.875rem;
+      }
+
+      .ds-hero {
+        min-height: 38rem;
+        padding-top: 7rem;
+      }
+
+      .ds-hero__copy,
+      .ds-hero__meta {
+        grid-column: 1;
+        padding-inline: .625rem;
+      }
+
+      .ds-section-head {
+        grid-template-columns: 1fr;
+        gap: var(--5g-space-5);
+      }
+
+      .ds-section-head .g5-eyebrow,
+      .ds-section-head__copy {
+        grid-column: 1;
+        padding-inline: .625rem;
+      }
+
+      .ds-palette {
+        grid-template-columns: 1fr;
+      }
+
+      .ds-swatch {
+        min-height: 10rem;
+      }
+
+      .ds-type-row {
+        grid-template-columns: 1fr;
+        gap: var(--5g-space-3);
+        padding-inline: var(--5g-space-4);
+      }
+
+      .ds-grid-demo {
+        min-height: 18rem;
+      }
+
+      .ds-grid-demo__column {
+        padding: var(--5g-space-2);
+        font-size: .625rem;
+      }
+
+      .ds-component-head {
+        align-items: start;
+        flex-direction: column;
+        padding-inline: var(--5g-space-4);
+      }
+
+      .ds-button-demo,
+      .ds-form {
+        padding-inline: var(--5g-space-4);
+      }
+
+      .ds-form {
+        grid-template-columns: 1fr;
+      }
+
+      .ds-form .g5-field--full {
+        grid-column: 1;
+      }
+
+      .ds-media {
+        grid-column: 1;
+        aspect-ratio: 4 / 3;
+      }
+
+      .ds-rules {
+        grid-template-columns: 1fr;
+      }
+
+      .ds-rule + .ds-rule {
+        border-left: 0;
+      }
+
+      .ds-footer__inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Pereiti prie turinio</a>
+
+  <header class="ds-header">
+    <div class="g5-container ds-header__inner">
+      <a href="#top" aria-label="5G TECH dizaino sistemos pradžia">
+        <img class="ds-logo" src="../maketai/client-ready-v4/assets/5gtech-logo-white.png" alt="5G TECH">
+      </a>
+      <nav class="ds-nav" aria-label="Dizaino sistemos skyriai">
+        <a href="#foundations">Pagrindai</a>
+        <a href="#type">Tipografija</a>
+        <a href="#grid">Tinklelis</a>
+        <a href="#components">Komponentai</a>
+        <a href="#patterns">Šablonai</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="ds-hero g5-grid-lines g5-grid-lines--dark" id="top">
+      <div class="g5-container g5-grid">
+        <div class="ds-hero__copy">
+          <div class="g5-eyebrow">Dizaino sistema / 1.0</div>
+          <h1 class="g5-display-xl">Inžinerinis tikslumas kiekviename puslapyje.</h1>
+          <p class="g5-body">Bendra 5G TECH svetainės vizualinė kalba: nuo šešių kolonų tinklelio ir tipografijos iki komponentų, judesio ir vidinių puslapių struktūros.</p>
+        </div>
+        <div class="ds-hero__meta g5-metrics" aria-label="Dizaino sistemos faktai">
+          <div class="g5-metric"><strong>1.0</strong><span>Sistemos versija</span></div>
+          <div class="g5-metric"><strong>6</strong><span>Tinklelio kolonos</span></div>
+          <div class="g5-metric"><strong>720 / 1050</strong><span>Lūžio taškai</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="g5-section g5-grid-lines" id="foundations">
+      <div class="g5-container">
+        <div class="ds-section-head">
+          <div class="g5-eyebrow">01 / Pagrindai</div>
+          <div class="ds-section-head__copy">
+            <h2 class="g5-display-lg">Spalva kuria atpažįstamumą. Struktūra kuria pasitikėjimą.</h2>
+            <p class="g5-body">Tamsiai mėlyna yra sistemos architektūra. Rausvi ir oranžiniai akcentai naudojami veiksmui, progresui ir svarbiam įrodymui – ne dideliems dekoratyviems plotams.</p>
+          </div>
+        </div>
+
+        <div class="ds-palette" aria-label="Pagrindinė spalvų paletė">
+          <div class="ds-swatch" style="--swatch:#031f35"><strong>Navy 950</strong><code>#031F35</code></div>
+          <div class="ds-swatch" style="--swatch:#063354"><strong>Navy 900</strong><code>#063354</code></div>
+          <div class="ds-swatch" style="--swatch:#0a2940"><strong>Navy 800</strong><code>#0A2940</code></div>
+          <div class="ds-swatch" style="--swatch:#11191e"><strong>Dark neutral</strong><code>#11191E</code></div>
+          <div class="ds-swatch" style="--swatch:#f4f6f7;--swatch-text:#0a2940"><strong>Paper</strong><code>#F4F6F7</code></div>
+          <div class="ds-swatch" style="--swatch:#f17929"><strong>Orange</strong><code>#F17929</code></div>
+          <div class="ds-swatch" style="--swatch:#f12f29"><strong>Red</strong><code>#F12F29</code></div>
+          <div class="ds-swatch" style="--swatch:#ec0062"><strong>Pink</strong><code>#EC0062</code></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="g5-section g5-section--paper g5-grid-lines" id="type">
+      <div class="g5-container">
+        <div class="ds-section-head">
+          <div class="g5-eyebrow">02 / Tipografija</div>
+          <div class="ds-section-head__copy">
+            <h2 class="g5-display-lg">Didelė, bet rami hierarchija.</h2>
+            <p class="g5-body">Didžiausi tekstai skirti tik pagrindinei minčiai. Poppins naudojamas kaip produkcijai paruošta bazė, o Gilroy – tik patvirtinus web licenciją.</p>
+          </div>
+        </div>
+
+        <div class="ds-type-scale">
+          <div class="ds-type-row">
+            <div class="ds-type-row__label">Display XL · 44–72</div>
+            <div class="g5-display-xl">Ramybė dėl rezultato.</div>
+          </div>
+          <div class="ds-type-row">
+            <div class="ds-type-row__label">Display LG · 40–64</div>
+            <div class="g5-display-lg">Patirtis, kurią galima pagrįsti.</div>
+          </div>
+          <div class="ds-type-row">
+            <div class="ds-type-row__label">Display MD · 36–58</div>
+            <div class="g5-display-md">Vienas techninis partneris.</div>
+          </div>
+          <div class="ds-type-row">
+            <div class="ds-type-row__label">Heading LG · 28–42</div>
+            <div class="g5-heading-lg">Rezultatą patvirtiname duomenimis.</div>
+          </div>
+          <div class="ds-type-row">
+            <div class="ds-type-row__label">Heading MD · 23–34</div>
+            <div class="g5-heading-md">Mobiliojo ryšio tinklai</div>
+          </div>
+          <div class="ds-type-row">
+            <div class="ds-type-row__label">Body · 17 / 1.7</div>
+            <p class="g5-body">Techninė kompetencija, aiškūs procesai ir atsakomybė už susitarimus sujungiami į vieną nuoseklią darbo eigą.</p>
+          </div>
+          <div class="ds-type-row">
+            <div class="ds-type-row__label">Label · 12 / 700</div>
+            <div class="g5-eyebrow" style="margin:0">Patirties geografija</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="g5-section g5-section--navy g5-grid-lines g5-grid-lines--dark" id="grid">
+      <div class="g5-container">
+        <div class="ds-section-head">
+          <div class="g5-eyebrow">03 / Tinklelis</div>
+          <div class="ds-section-head__copy">
+            <h2 class="g5-display-lg">Šešios kolonos – viena bendra logika.</h2>
+            <p class="g5-body">Tinklelis matomas per visą svetainę, tačiau jo linijos gali būti selektyviai paslepiamos. Vidinis turinio atitraukimas lygus 20 % vienos kolonos pločio.</p>
+          </div>
+        </div>
+
+        <div class="ds-grid-demo" aria-label="Šešių kolonų tinklelio demonstracija">
+          <div class="ds-grid-demo__column">01</div>
+          <div class="ds-grid-demo__column">02</div>
+          <div class="ds-grid-demo__column">03</div>
+          <div class="ds-grid-demo__column">04</div>
+          <div class="ds-grid-demo__column">05</div>
+          <div class="ds-grid-demo__column">06</div>
+        </div>
+
+        <div class="ds-spacing" aria-label="Tarpų skalė">
+          <div class="ds-spacing__row"><span>8 px</span><i class="ds-spacing__bar" style="--spacing:8px"></i></div>
+          <div class="ds-spacing__row"><span>16 px</span><i class="ds-spacing__bar" style="--spacing:16px"></i></div>
+          <div class="ds-spacing__row"><span>24 px</span><i class="ds-spacing__bar" style="--spacing:24px"></i></div>
+          <div class="ds-spacing__row"><span>32 px</span><i class="ds-spacing__bar" style="--spacing:32px"></i></div>
+          <div class="ds-spacing__row"><span>48 px</span><i class="ds-spacing__bar" style="--spacing:48px"></i></div>
+          <div class="ds-spacing__row"><span>72 px</span><i class="ds-spacing__bar" style="--spacing:72px"></i></div>
+          <div class="ds-spacing__row"><span>120 px</span><i class="ds-spacing__bar" style="--spacing:120px"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="g5-section g5-section--paper g5-grid-lines" id="components">
+      <div class="g5-container">
+        <div class="ds-section-head">
+          <div class="g5-eyebrow">04 / Komponentai</div>
+          <div class="ds-section-head__copy">
+            <h2 class="g5-display-lg">Pakartojami elementai be vizualaus triukšmo.</h2>
+            <p class="g5-body">Korteles skiria linijos ir erdvė. Mygtukai vieninteliai naudoja pilną užapvalinimą, todėl aiškiai išsiskiria kaip veiksmas.</p>
+          </div>
+        </div>
+
+        <div class="ds-component-block" style="margin-top:0">
+          <div class="ds-component-head">
+            <h3 class="g5-heading-md">Mygtukai ir nuorodos</h3>
+            <code>.g5-button · .g5-text-link</code>
+          </div>
+          <div class="ds-button-demo ds-dark-demo">
+            <a class="g5-button g5-button--primary" href="#components">Pagrindinis veiksmas <span class="g5-button__icon">→</span></a>
+            <a class="g5-button g5-button--outline-light" href="#components">Antrinis veiksmas →</a>
+            <a class="g5-text-link" href="#components">Tekstinė nuoroda →</a>
+            <button class="g5-button g5-button--outline-light" disabled>Neaktyvus</button>
+          </div>
+          <div class="ds-button-demo">
+            <a class="g5-button g5-button--dark" href="#components">Aptarkime projektą →</a>
+            <a class="g5-text-link" href="#components">Peržiūrėti patirtį →</a>
+          </div>
+        </div>
+
+        <div class="ds-component-block">
+          <div class="ds-component-head">
+            <h3 class="g5-heading-md">Paslaugos kortelė</h3>
+            <code>.g5-service-grid · .g5-service-card</code>
+          </div>
+          <div class="g5-service-grid">
+            <a class="g5-service-card" href="#components">
+              <div class="g5-service-card__top"><span class="g5-service-card__number">01</span><span>→</span></div>
+              <h4 class="g5-heading-md">Mobiliojo ryšio tinklai</h4>
+              <p class="g5-body-sm">2G–5G įrangos, antenų ir konstrukcijų montavimas, modernizavimas bei testavimas.</p>
+            </a>
+            <a class="g5-service-card" href="#components">
+              <div class="g5-service-card__top"><span class="g5-service-card__number">02</span><span>→</span></div>
+              <h4 class="g5-heading-md">Vidinio ryšio tinklai</h4>
+              <p class="g5-body-sm">Ryšio sprendimai biurams, prekybos centrams, ligoninėms ir sudėtingiems objektams.</p>
+            </a>
+            <a class="g5-service-card" href="#components">
+              <div class="g5-service-card__top"><span class="g5-service-card__number">03</span><span>→</span></div>
+              <h4 class="g5-heading-md">Elektros darbai</h4>
+              <p class="g5-body-sm">Instaliacijos, įvadai, apšvietimas, matavimai, bandymai ir dokumentacija.</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="ds-component-block">
+          <div class="ds-component-head">
+            <h3 class="g5-heading-md">Auditorijos eilutė</h3>
+            <code>.g5-audience-row</code>
+          </div>
+          <div class="g5-audience-list">
+            <a class="g5-audience-row" href="#components">
+              <small>Vadovams</small>
+              <h4 class="g5-heading-md">Partneris, dėl kurio nereikia aiškintis užsakovui.</h4>
+              <p>Sertifikuoti procesai, valdoma rizika ir aiškios atsakomybės.</p>
+              <span class="g5-round-arrow">→</span>
+            </a>
+            <a class="g5-audience-row" href="#components">
+              <small>Projektų vadovams</small>
+              <h4 class="g5-heading-md">Įranga, procesai ir dokumentacija – viskas atvirai.</h4>
+              <p>Techninė eiga ir tiesioginis ryšys viso projekto metu.</p>
+              <span class="g5-round-arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="ds-component-block">
+          <div class="ds-component-head">
+            <h3 class="g5-heading-md">Standartai ir sertifikatai</h3>
+            <code>.g5-standard-grid · .g5-standard</code>
+          </div>
+          <div class="g5-standard-grid ds-dark-demo">
+            <div class="g5-standard">
+              <span class="g5-standard__icon" aria-hidden="true">✓</span>
+              <strong>ISO 9001</strong>
+              <span>Kokybės vadyba</span>
+            </div>
+            <div class="g5-standard">
+              <span class="g5-standard__icon" aria-hidden="true">○</span>
+              <strong>ISO 14001</strong>
+              <span>Aplinkos apsaugos vadyba</span>
+            </div>
+            <div class="g5-standard">
+              <span class="g5-standard__icon" aria-hidden="true">✓</span>
+              <strong>ISO 45001</strong>
+              <span>Darbuotojų sveikata ir sauga</span>
+            </div>
+            <div class="g5-standard">
+              <span class="g5-standard__icon" aria-hidden="true">≡</span>
+              <strong>SSVA</strong>
+              <span>Ypatingojo statinio rangovo kvalifikacija</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ds-component-block">
+          <div class="ds-component-head">
+            <h3 class="g5-heading-md">Naujienos</h3>
+            <code>.g5-news-card</code>
+          </div>
+          <div class="g5-news-grid" style="padding-top:var(--5g-space-8)">
+            <article class="g5-news-card g5-news-card--featured">
+              <span class="g5-news-card__meta">Projektai / 2026</span>
+              <div>
+                <h4 class="g5-heading-sm">Užbaigta nauja infrastruktūros projekto dalis Europoje</h4>
+                <p class="g5-body-sm" style="margin-top:var(--5g-space-4)">Projektų apimtį geriausiai parodo konkretus rezultatas ir jo kontekstas.</p>
+              </div>
+            </article>
+            <article class="g5-news-card">
+              <span class="g5-news-card__meta">Komanda / 2026</span>
+              <div>
+                <h4 class="g5-heading-sm">Kompetenciją stiprina praktika ir sertifikatai</h4>
+                <p class="g5-body-sm" style="margin-top:var(--5g-space-4)">Žmonės, mokymai ir saugos kultūra – techninio rezultato dalis.</p>
+              </div>
+            </article>
+            <article class="g5-news-card">
+              <span class="g5-news-card__meta">Žinios / 2026</span>
+              <div>
+                <h4 class="g5-heading-sm">Ką įvertinti planuojant infrastruktūros darbus</h4>
+                <p class="g5-body-sm" style="margin-top:var(--5g-space-4)">Techninis turinys padeda užsakovui priimti sprendimą.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="ds-component-block">
+          <div class="ds-component-head">
+            <h3 class="g5-heading-md">Formos</h3>
+            <code>.g5-field · .g5-input</code>
+          </div>
+          <form class="ds-form">
+            <div class="g5-field">
+              <label for="name">Vardas ir pavardė</label>
+              <input class="g5-input" id="name" name="name" type="text" placeholder="Jūsų vardas">
+            </div>
+            <div class="g5-field">
+              <label for="email">El. paštas</label>
+              <input class="g5-input" id="email" name="email" type="email" placeholder="vardas@imone.lt">
+              <span class="g5-field__help">Naudosime tik atsakymui į užklausą.</span>
+            </div>
+            <div class="g5-field g5-field--full">
+              <label for="message">Projekto informacija</label>
+              <textarea class="g5-input" id="message" name="message" placeholder="Trumpai aprašykite planuojamus darbus"></textarea>
+            </div>
+            <div class="g5-field g5-field--full">
+              <button class="g5-button g5-button--dark" type="button">Siųsti užklausą →</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="g5-section g5-section--navy g5-grid-lines g5-grid-lines--dark" id="patterns">
+      <div class="g5-container">
+        <div class="ds-section-head">
+          <div class="g5-eyebrow">05 / Šablonai</div>
+          <div class="ds-section-head__copy">
+            <h2 class="g5-display-lg">Vidiniai puslapiai tęsia tą pačią sistemą.</h2>
+            <p class="g5-body">Hero, turinio sekcijos ir CTA keičia turinį, bet ne pagrindinę kompozicijos logiką. Taip svetainė išlieka vientisa net augant puslapių skaičiui.</p>
+          </div>
+        </div>
+
+        <div class="g5-page-hero g5-grid-lines g5-grid-lines--dark" style="min-height:30rem">
+          <div class="g5-container g5-grid">
+            <div class="g5-page-hero__copy">
+              <nav class="g5-breadcrumbs" aria-label="Puslapio kelias" style="color:rgba(255,255,255,.62)">
+                <a href="#patterns">Pagrindinis</a><span>/</span><span>Paslaugos</span>
+              </nav>
+              <div class="g5-eyebrow" style="margin-top:var(--5g-space-8)">Mobiliojo ryšio tinklai</div>
+              <h3 class="g5-display-xl">Nuo parengimo iki veikiančios infrastruktūros.</h3>
+              <p class="g5-body">Vidinio puslapio hero turi vieną aiškią mintį, trumpą kontekstą ir konkretų kitą žingsnį.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="g5-grid" style="margin-top:var(--5g-space-16)">
+          <figure class="ds-media">
+            <img src="../maketai/no-wave-concept-v1/assets/hero-sky-worker-zoomed-out-v3.png" alt="5G TECH specialistas dirba mobiliojo ryšio bokšte">
+          </figure>
+        </div>
+
+        <div class="ds-rules" style="margin-top:var(--5g-space-16)">
+          <div class="ds-rule">
+            <div class="g5-eyebrow">Naudoti</div>
+            <h3 class="g5-heading-md">Struktūra ir įrodymai</h3>
+            <ul>
+              <li>Aiški viena pagrindinė mintis.</li>
+              <li>Realios darbo aplinkos ir infrastruktūra.</li>
+              <li>Faktai, sertifikatai ir konkretus procesas.</li>
+              <li>Daug erdvės tarp turinio grupių.</li>
+            </ul>
+          </div>
+          <div class="ds-rule">
+            <div class="g5-eyebrow">Vengti</div>
+            <h3 class="g5-heading-md">Dekoratyvus technologijų teatras</h3>
+            <ul>
+              <li>Neonas, stiklas ir 3D burbulai.</li>
+              <li>Atsitiktinės užapvalintos kortelės.</li>
+              <li>Stock vaizdai be realaus konteksto.</li>
+              <li>Animacijos, kurios nepadeda suprasti turinio.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ds-footer">
+    <div class="g5-container ds-footer__inner">
+      <span>5G TECH dizaino sistema · 1.0</span>
+      <span>Atnaujinta 2026-07-25</span>
+    </div>
+  </footer>
+</body>
+</html>
