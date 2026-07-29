@@ -211,14 +211,14 @@
     }
 
     /* Bendras 5G TECH maketavimo tinklelis */
-    .intro, .services, .bridge, .process, .experience, .audiences, .news, .final-cta {
+    .intro, .services, .bridge, .process, .experience, .equipment, .team, .audiences, .news, .final-cta {
       position: relative;
       isolation: isolate;
     }
-    .intro, .services, .experience, .audiences, .news { --section-grid-line: rgba(6,51,84,.055); }
-    .bridge, .process, .final-cta { --section-grid-line: rgba(255,255,255,.055); }
+    .intro, .services, .experience, .team, .audiences, .news { --section-grid-line: rgba(6,51,84,.055); }
+    .bridge, .process, .equipment, .final-cta { --section-grid-line: rgba(255,255,255,.055); }
     .intro::after, .services::after, .bridge::after, .process::after,
-    .experience::after, .audiences::after, .news::after, .final-cta::after {
+    .experience::after, .equipment::after, .team::after, .audiences::after, .news::after, .final-cta::after {
       content: "";
       position: absolute;
       z-index: 0;
@@ -258,12 +258,24 @@
         linear-gradient(var(--section-grid-line), var(--section-grid-line)) 0 0 / 1px 100% no-repeat,
         linear-gradient(var(--section-grid-line), var(--section-grid-line)) calc(var(--layout-grid-unit) * 2) 0 / 1px 100% no-repeat;
     }
+    .equipment::after {
+      background:
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) 0 0 / 1px 100% no-repeat,
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) var(--layout-grid-unit) 0 / 1px 100% no-repeat,
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) calc(var(--layout-grid-unit) * 3) 0 / 1px 100% no-repeat;
+    }
+    .team::after {
+      background:
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) 0 0 / 1px 100% no-repeat,
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) calc(var(--layout-grid-unit) * 2) 0 / 1px 100% no-repeat,
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) calc(var(--layout-grid-unit) * 4) 0 / 1px 100% no-repeat;
+    }
     .audiences::after {
       background:
         linear-gradient(var(--section-grid-line), var(--section-grid-line)) 0 0 / 1px 100% no-repeat;
     }
     .intro > .container, .services > .container, .bridge > .container,
-    .experience > .container, .audiences > .container,
+    .experience > .container, .equipment > .container, .team > .container, .audiences > .container,
     .news > .container, .final-cta > .container, .process > .process-grid {
       position: relative;
       z-index: 1;
@@ -629,6 +641,256 @@
       object-fit: cover;
     }
 
+    /* Equipment experience */
+    .equipment {
+      padding: 130px 0;
+      overflow: hidden;
+      color: white;
+      background: var(--navy);
+    }
+    .equipment-head {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      margin-bottom: 68px;
+    }
+    .equipment-head > div {
+      grid-column: 2 / 6;
+      padding-inline: calc(var(--layout-grid-unit) * .2);
+    }
+    .equipment h2 {
+      max-width: 980px;
+      margin-bottom: 24px;
+      font-size: clamp(38px, 4.25vw, 62px);
+      line-height: 1.07;
+      letter-spacing: -.047em;
+      font-weight: 500;
+    }
+    .equipment-copy {
+      max-width: 760px;
+      color: rgba(255,255,255,.66);
+      font-size: 17px;
+      line-height: 1.72;
+    }
+    .equipment-marquee {
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,.28);
+      border-bottom: 1px solid rgba(255,255,255,.28);
+    }
+    .equipment-track {
+      --marquee-duration: 38s;
+      width: max-content;
+      display: flex;
+      animation: equipment-marquee var(--marquee-duration) linear infinite;
+      will-change: transform;
+    }
+    .equipment-marquee:hover .equipment-track,
+    .equipment-marquee:focus-within .equipment-track {
+      animation-play-state: paused;
+    }
+    .equipment-group {
+      flex: 0 0 auto;
+      display: flex;
+    }
+    .equipment-name {
+      min-width: clamp(175px, 15vw, 230px);
+      min-height: 122px;
+      padding: 24px;
+      display: grid;
+      place-items: center;
+      border-right: 1px solid rgba(255,255,255,.28);
+      font-size: clamp(18px, 1.65vw, 25px);
+      font-weight: 600;
+      letter-spacing: -.025em;
+      white-space: nowrap;
+    }
+    .equipment-note {
+      max-width: 760px;
+      margin: 24px 0 0;
+      padding-left: calc(var(--layout-grid-unit) * .2);
+      color: rgba(255,255,255,.46);
+      font-size: 11px;
+      line-height: 1.6;
+      letter-spacing: .03em;
+    }
+    @keyframes equipment-marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    /* Team competence */
+    .team {
+      padding: 150px 0;
+      overflow: hidden;
+      background: white;
+    }
+    .team-head {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      margin-bottom: 68px;
+    }
+    .team-head > .eyebrow {
+      grid-column: 1;
+      padding-left: calc(var(--layout-grid-unit) * .2);
+    }
+    .team-head-copy {
+      grid-column: 2 / 6;
+      padding-inline: calc(var(--layout-grid-unit) * .2);
+    }
+    .team h2 {
+      max-width: 960px;
+      margin-bottom: 24px;
+      font-size: clamp(39px, 4.3vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -.047em;
+      font-weight: 500;
+    }
+    .team-copy {
+      max-width: 760px;
+      color: #526a79;
+      font-size: 17px;
+      line-height: 1.72;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+    .team-card {
+      min-width: 0;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: white;
+      transition: color .25s, background .25s, transform .25s;
+    }
+    .team-card:hover {
+      color: white;
+      background: var(--navy);
+      transform: translateY(-4px);
+    }
+    .team-portrait {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      display: flex;
+      align-items: end;
+      padding: 22px;
+      color: rgba(255,255,255,.66);
+      background:
+        linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px),
+        radial-gradient(circle at 63% 35%, rgba(236,0,98,.2), transparent 33%),
+        #0a2940;
+      background-size: 42px 42px, 42px 42px, auto, auto;
+    }
+    .team-portrait::before {
+      content: "";
+      position: absolute;
+      top: 24%;
+      left: 50%;
+      width: 31%;
+      aspect-ratio: 1;
+      border: 1px solid rgba(255,255,255,.42);
+      border-radius: 50%;
+      transform: translateX(-50%);
+    }
+    .team-portrait::after {
+      content: "";
+      position: absolute;
+      right: 24%;
+      bottom: 17%;
+      left: 24%;
+      height: 34%;
+      border: 1px solid rgba(255,255,255,.42);
+      border-bottom: 0;
+      border-radius: 50% 50% 0 0;
+    }
+    .team-portrait span {
+      position: relative;
+      z-index: 1;
+      padding: 8px 11px;
+      border: 1px solid rgba(255,255,255,.28);
+      background: rgba(3,31,53,.72);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .team-card-body {
+      padding: 28px calc(var(--layout-grid-unit) * .2);
+    }
+    .team-role {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--pink);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+    .team-card h3 {
+      margin: 0;
+      font-size: clamp(23px, 2.2vw, 34px);
+      line-height: 1.15;
+      letter-spacing: -.035em;
+      font-weight: 500;
+    }
+    .team-card-copy {
+      margin: 13px 0 0;
+      color: #526a79;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .team-card:hover .team-card-copy { color: rgba(255,255,255,.66); }
+    .team-card-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+    }
+    .team-card:hover .team-card-metrics { border-color: rgba(255,255,255,.28); }
+    .team-metric {
+      min-width: 0;
+      padding: 17px 13px;
+    }
+    .team-metric + .team-metric { border-left: 1px solid var(--line); }
+    .team-card:hover .team-metric + .team-metric { border-color: rgba(255,255,255,.28); }
+    .team-metric strong {
+      display: block;
+      font-size: clamp(20px, 1.7vw, 26px);
+      font-weight: 600;
+      line-height: 1;
+    }
+    .team-metric span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 9px;
+      line-height: 1.35;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .team-card:hover .team-metric span { color: rgba(255,255,255,.66); }
+    .team-summary {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      border-bottom: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+    .team-summary .team-metric:first-child,
+    .team-summary .team-metric:last-child {
+      grid-column: span 2;
+    }
+    .team-summary .team-metric {
+      min-height: 136px;
+      padding: 28px calc(var(--layout-grid-unit) * .2);
+      border-right: 1px solid var(--line);
+    }
+    .team-summary .team-metric + .team-metric { border-left: 0; }
+    .team-summary .team-metric strong { font-size: clamp(27px, 2.5vw, 38px); }
+    .team-link {
+      margin-top: 38px;
+      margin-left: calc(var(--layout-grid-unit) * .2);
+    }
+
     /* Audience paths */
     .audiences { padding: 150px 0; background: white; }
     .audiences-head { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; margin-bottom: 72px; }
@@ -677,7 +939,7 @@
     /* CTA + footer */
     .final-cta { position: relative; padding: 145px 0 120px; color: white; background: var(--navy); overflow: hidden; }
     .final-cta::before { content: ""; position: absolute; left: 0; top: 0; width: 8px; height: 100%; background: var(--accent); }
-    .final-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 9vw; align-items: end; }
+    .final-grid { display: grid; grid-template-columns: 4fr 2fr; gap: 0; align-items: end; }
     .final-grid > * { padding-inline: calc(var(--layout-grid-unit) * .2); }
     .final-cta h2 { max-width: 840px; margin-bottom: 24px; font-size: clamp(44px, 4.9vw, 72px); line-height: 1.02; letter-spacing: -.05em; font-weight: 500; }
     .final-cta p { max-width: 680px; color: rgba(255,255,255,.66); font-size: 17px; line-height: 1.7; }
@@ -759,7 +1021,7 @@
     .js .reveal-media.is-visible { clip-path: inset(0 0 0 0); }
 
     @media (min-width: 1200px) {
-      .audiences-head, .final-grid {
+      .audiences-head {
         grid-template-columns: var(--layout-grid-half) 1fr;
         gap: 0;
       }
@@ -775,6 +1037,10 @@
       .meta-item { padding-inline: 14px; }
       .meta-item:nth-child(3) strong { font-size: clamp(9px, 1.25vw, 12px); }
       .experience-grid, .audiences-head, .final-grid { grid-template-columns: 1fr; gap: 40px; }
+      .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .team-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .team-summary .team-metric:first-child,
+      .team-summary .team-metric:last-child { grid-column: auto; }
       .bridge-standards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .bridge-standard { border-left: 0; }
       .bridge-standard:nth-child(even) { border-left: 1px solid rgba(255,255,255,.28); }
@@ -810,7 +1076,7 @@
       .meta-item:nth-child(3) strong { font-size: 8px; line-height: 1.35; letter-spacing: -.02em; }
       .meta-item span { font-size: 8px; line-height: 1.35; }
       .scroll-cue { display: none; }
-      .intro, .services, .experience, .audiences, .news, .final-cta { padding-block: 90px; }
+      .intro, .services, .experience, .equipment, .team, .audiences, .news, .final-cta { padding-block: 90px; }
       .intro-grid { grid-template-columns: 1fr; gap: 28px; }
       .intro-grid > .eyebrow,
       .intro-grid > :last-child { grid-column: 1; padding-inline: 10px 16px; }
@@ -849,6 +1115,21 @@
       .proof-grid { grid-template-columns: 1fr; }
       .proof:nth-child(even) { padding-left: 0; border-left: 0; }
       .map-card { min-height: 0; }
+      .equipment-head,
+      .team-head { grid-template-columns: 1fr; margin-bottom: 46px; }
+      .equipment-head > div,
+      .team-head > .eyebrow,
+      .team-head-copy {
+        grid-column: 1;
+        padding-inline: 16px;
+      }
+      .equipment-name { min-width: 156px; min-height: 96px; padding: 18px; }
+      .equipment-note { padding-inline: 16px; }
+      .team-grid { grid-template-columns: 1fr; }
+      .team-card-body { padding-inline: 20px; }
+      .team-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .team-summary .team-metric { min-height: 118px; padding-inline: 18px; }
+      .team-link { margin-left: 0; padding-inline: 16px; }
       .audience-item { grid-template-columns: 1fr 48px; min-height: 160px; gap: 18px; }
       .audience-item small { grid-column: 1 / -1; }
       .news-grid { grid-template-columns: 1fr; }
@@ -873,6 +1154,13 @@
         filter: none !important;
         clip-path: none !important;
       }
+      .equipment-track {
+        width: auto;
+        flex-wrap: wrap;
+        animation: none;
+      }
+      .equipment-group { flex-wrap: wrap; }
+      .equipment-group[aria-hidden="true"] { display: none; }
     }
   </style>
 </head>
@@ -881,15 +1169,15 @@
 
   <header class="site-header" id="header">
     <div class="nav-wrap">
-      <a href="#" data-placeholder-link aria-label="5G TECH pradžia">
+      <a href="index.html" aria-label="5G TECH pradžia">
         <img class="brand-logo" src="../client-ready-v4/assets/5gtech-logo-white.png" alt="5G TECH">
       </a>
       <nav class="main-nav" aria-label="Pagrindinė navigacija">
-        <a href="#" data-placeholder-link>Paslaugos</a>
-        <a href="#" data-placeholder-link>Patirtis</a>
-        <a href="#" data-placeholder-link>Apie mus</a>
-        <a href="#" data-placeholder-link>Karjera</a>
-        <a class="nav-cta" href="#" data-placeholder-link>Kontaktai</a>
+        <a href="../5gtech-vidiniai-v1/paslaugos.html">Paslaugos</a>
+        <a href="../5gtech-vidiniai-v1/patirtis.html">Patirtis</a>
+        <a href="../5gtech-komanda-v1/index.html">Apie mus</a>
+        <a href="../5gtech-vidiniai-v1/karjera.html">Karjera</a>
+        <a class="nav-cta" href="../5gtech-vidiniai-v1/kontaktai.html">Kontaktai</a>
       </nav>
     </div>
   </header>
@@ -904,8 +1192,8 @@
           <h1 id="hero-title">Kai svarbus ne tik atliktas darbas, bet ir ramybė dėl rezultato</h1>
           <p class="hero-lead">Techninis partneris nuo pasirengimo ir montavimo iki testavimo, dokumentacijos bei priežiūros.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="/kontaktai/">Aptarkime jūsų projektą <span class="circle">→</span></a>
-            <a class="btn" href="/paslaugos/">Peržiūrėti paslaugas <span class="arrow">→</span></a>
+            <a class="btn btn-primary" href="../5gtech-vidiniai-v1/kontaktai.html">Aptarkime jūsų projektą <span class="circle">→</span></a>
+            <a class="btn" href="../5gtech-vidiniai-v1/paslaugos.html">Peržiūrėti paslaugas <span class="arrow">→</span></a>
           </div>
         </div>
         <div class="hero-meta" aria-label="Pagrindiniai patirties faktai">
@@ -924,7 +1212,7 @@
           <div>
             <h2 id="intro-title">Kiekvienas projektas prasideda nuo konkretaus poreikio.</h2>
             <div class="intro-copy">
-              <p>Skiriasi objektai, šalys ir technologijos, tačiau užsakovo klausimas tas pats: kas suvaldys technines detales, terminus ir kokybę taip, kad rezultatu būtų galima pasitikėti?</p>
+              <p>Skiriasi objektai, šalys ir technologijos, tačiau užsakovui visada svarbu, kas prisiims atsakomybę už techninius sprendimus, terminus ir kokybę.</p>
             </div>
           </div>
         </div>
@@ -940,32 +1228,32 @@
           <h2 id="services-title">Paslaugos</h2>
         </div>
         <div class="service-grid" role="list" aria-label="Paslaugų kryptys">
-          <a class="service-tile" href="#" data-placeholder-link role="listitem">
+          <a class="service-tile" href="../5gtech-vidiniai-v1/mobiliojo-rysio-tinklai.html" role="listitem">
             <div class="service-tile-top"><span class="num">01</span><span class="mini-arrow">→</span></div>
             <h3>Mobiliojo ryšio tinklai</h3>
             <p>2G–5G įrangos, antenų, konstrukcijų ir radiorelinių linijų montavimas, modernizavimas bei testavimas.</p>
           </a>
-          <a class="service-tile" href="#" data-placeholder-link role="listitem">
+          <a class="service-tile" href="../5gtech-vidiniai-v1/vidinio-rysio-tinklai.html" role="listitem">
             <div class="service-tile-top"><span class="num">02</span><span class="mini-arrow">→</span></div>
             <h3>Vidinio ryšio tinklai</h3>
             <p>Mobiliojo ryšio ir Wi-Fi sprendimai biurams, prekybos centrams, ligoninėms, viešbučiams ir kitiems objektams.</p>
           </a>
-          <a class="service-tile" href="#" data-placeholder-link role="listitem">
+          <a class="service-tile" href="../5gtech-vidiniai-v1/fiksuoto-rysio-tinklai.html" role="listitem">
             <div class="service-tile-top"><span class="num">03</span><span class="mini-arrow">→</span></div>
             <h3>Fiksuoto ryšio tinklai</h3>
-            <p>Šviesolaidinių ir varinių tinklų projektavimas, kabelių montavimas, virinimas, testavimas ir pridavimas.</p>
+            <p>Šviesolaidinių ir varinių tinklų projektavimas, kabelių montavimas, virinimas, testavimas ir perdavimas.</p>
           </a>
-          <a class="service-tile" href="#" data-placeholder-link role="listitem">
+          <a class="service-tile" href="../5gtech-vidiniai-v1/elektros-darbai.html" role="listitem">
             <div class="service-tile-top"><span class="num">04</span><span class="mini-arrow">→</span></div>
             <h3>Elektros darbai</h3>
             <p>Elektros instaliacijos, įvadai, apšvietimas, matavimai, bandymai ir dokumentacija.</p>
           </a>
-          <a class="service-tile" href="#" data-placeholder-link role="listitem">
+          <a class="service-tile" href="../5gtech-vidiniai-v1/apsaugos-sistemos.html" role="listitem">
             <div class="service-tile-top"><span class="num">05</span><span class="mini-arrow">→</span></div>
             <h3>Apsaugos sistemos</h3>
-            <p>Vaizdo stebėjimo, signalizacijos, įėjimo kontrolės ir perimetro apsaugos sistemų diegimas bei integracija.</p>
+            <p>Vaizdo stebėjimo, signalizacijos, patekimo kontrolės ir perimetro apsaugos sistemų diegimas bei integracija.</p>
           </a>
-          <a class="service-tile" href="#" data-placeholder-link role="listitem">
+          <a class="service-tile" href="../5gtech-vidiniai-v1/saules-elektrines.html" role="listitem">
             <div class="service-tile-top"><span class="num">06</span><span class="mini-arrow">→</span></div>
             <h3>Saulės elektrinės</h3>
             <p>Projektavimas, konstrukcijų, modulių ir inverterių montavimas, testavimas, priežiūra bei dokumentacija.</p>
@@ -978,7 +1266,7 @@
       <div class="container bridge-inner">
         <div class="bridge-copy">
           <div class="eyebrow">Darbo standartas</div>
-          <h2 id="bridge-title">Platus paslaugų spektras svarbus tik tada, kai visas kompetencijas jungia vienodas darbo standartas.</h2>
+          <h2 id="bridge-title">ISO standartai ir SSVA kvalifikacija.</h2>
         </div>
         <div class="bridge-standards" aria-label="Sertifikatai ir kvalifikacijos">
           <div class="bridge-standard">
@@ -1010,7 +1298,7 @@
         <div class="process-intro">
           <div>
             <div class="eyebrow">Kaip dirbame</div>
-            <h2 id="process-title">Rezultatas nesukuriamas paskutinę projekto dieną.</h2>
+            <h2 id="process-title">Patikimas rezultatas kuriamas kiekviename projekto etape.</h2>
           </div>
           <div class="process-progress" aria-hidden="true">
             <div class="progress-track"><span class="progress-fill" id="progress-fill"></span></div>
@@ -1020,15 +1308,15 @@
         <div class="process-steps">
           <article class="process-step" data-step="1">
             <div class="step-label">01 / Įsigiliname</div>
-            <h3>Pradedame nuo klausimų.</h3>
-            <p>Išsiaiškiname techninę užduotį, užsakovo standartus, objekto sąlygas, terminus ir atsakomybių ribas.</p>
+            <h3>Įvertiname užduotį ir objekto sąlygas.</h3>
+            <p>Suderiname užsakovo standartus, terminus ir atsakomybių ribas.</p>
             <div class="step-media blueprint" aria-hidden="true">
               <svg viewBox="0 0 520 270" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="48" y="42" width="424" height="186"/><circle cx="151" cy="135" r="58"/><path d="M151 77v116M93 135h116M280 79h139M280 113h109M280 147h139M280 181h84"/><path d="m132 134 15 15 31-36" stroke="#ec0062" stroke-width="4"/></svg>
             </div>
           </article>
           <article class="process-step" data-step="2">
             <div class="step-label">02 / Suplanuojame</div>
-            <h3>Susitarimus paverčiame planu.</h3>
+            <h3>Parengiame darbų planą.</h3>
             <p>Įvertiname rizikas, parenkame komandą, įrangą ir darbų seką. Kiekvienas žino savo atsakomybę dar iki atvykimo į objektą.</p>
             <div class="step-media blueprint" aria-hidden="true">
               <svg viewBox="0 0 520 270" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M48 219h424M82 219V61h107v158M220 219V95h110v124M361 219V42h77v177"/><path d="M103 87h65M103 113h65M103 139h43M243 122h63M243 148h63M243 174h42M380 69h39M380 95h39M380 121h39"/><circle cx="82" cy="219" r="7" fill="#ec0062" stroke="none"/><circle cx="220" cy="219" r="7" fill="#ec0062" stroke="none"/><circle cx="361" cy="219" r="7" fill="#ec0062" stroke="none"/></svg>
@@ -1036,8 +1324,8 @@
           </article>
           <article class="process-step" data-step="3">
             <div class="step-label">03 / Įgyvendiname</div>
-            <h3>Dirbame tiksliai ir saugiai.</h3>
-            <p>Darbus atliekame pagal projekto, gamintojų ir saugos reikalavimus. Su užsakovu palaikome tiesioginį ryšį ir greitai reaguojame į situaciją objekte.</p>
+            <h3>Atliekame montavimo darbus.</h3>
+            <p>Laikomės projekto, gamintojų ir darbų saugos reikalavimų. Apie situaciją objekte tiesiogiai informuojame užsakovą.</p>
             <div class="step-media blueprint" aria-hidden="true">
               <svg viewBox="0 0 520 270" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M46 226h428"/>
@@ -1055,16 +1343,16 @@
           </article>
           <article class="process-step" data-step="4">
             <div class="step-label">04 / Patikriname</div>
-            <h3>Rezultatą patvirtiname duomenimis.</h3>
-            <p>Sumontuotą įrangą testuojame, fiksuojame rezultatus ir sprendžiame neatitikimus, kol sistema atitinka numatytus kriterijus.</p>
+            <h3>Atliekame testavimą.</h3>
+            <p>Fiksuojame rezultatus ir šaliname neatitikimus, kol sistema atitinka numatytus kriterijus.</p>
             <div class="step-media blueprint" aria-hidden="true">
               <svg viewBox="0 0 520 270" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M58 212h404M82 186l64-62 61 28 64-91 60 72 91-47"/><path d="M82 65v147M82 186h380"/><circle cx="146" cy="124" r="8" fill="#ec0062" stroke="none"/><circle cx="271" cy="61" r="8" fill="#ec0062" stroke="none"/><circle cx="422" cy="86" r="8" fill="#ec0062" stroke="none"/><path d="m342 190 18 18 39-47" stroke="#ec0062" stroke-width="5"/></svg>
             </div>
           </article>
           <article class="process-step" data-step="5">
             <div class="step-label">05 / Perduodame</div>
-            <h3>Užbaigiame aiškiai.</h3>
-            <p>Parengiame dokumentaciją pagal užsakovo reikalavimus ir perduodame užbaigtą darbų etapą. Kai reikia, tęsiame techninę priežiūrą.</p>
+            <h3>Parengiame dokumentaciją.</h3>
+            <p>Perduodame užbaigtą darbų etapą pagal užsakovo reikalavimus. Kai reikia, tęsiame techninę priežiūrą.</p>
             <div class="step-media blueprint" aria-hidden="true">
               <svg viewBox="0 0 520 270" fill="none" stroke="currentColor" stroke-width="1.5">
                 <rect x="72" y="35" width="236" height="198"/>
@@ -1086,13 +1374,12 @@
       <div class="container experience-grid">
         <div>
           <div class="eyebrow">Patirties geografija</div>
-          <h2 id="experience-title">Patirtis, kurią galima pagrįsti.</h2>
-          <p class="experience-copy">Pasitikėjimą kuria tūkstančiai užbaigtų darbų, skirtingų operatorių standartai, įvairi įranga ir komanda, gebanti tą patirtį pritaikyti naujame objekte.</p>
+          <h2 id="experience-title">Patirtis šešiose Europos šalyse.</h2>
           <div class="proof-grid">
             <div class="proof"><strong>6000+</strong><span>įgyvendintų bazinių stočių</span></div>
             <div class="proof"><strong>2G–5G</strong><span>technologijų patirtis</span></div>
-            <div class="proof"><strong>6 šalys</strong><span>projektai Europoje</span></div>
-            <div class="proof"><strong>2020</strong><span>nuosekliai augame nuo</span></div>
+            <div class="proof"><strong>6 šalys</strong><span>projektų geografija Europoje</span></div>
+            <div class="proof"><strong>2020</strong><span>veikiame nuo</span></div>
           </div>
         </div>
         <div class="map-card" aria-label="5G TECH veiklos žemėlapis">
@@ -1101,16 +1388,115 @@
       </div>
     </section>
 
+    <section class="equipment" aria-labelledby="equipment-title">
+      <div class="container">
+        <div class="equipment-head">
+          <div>
+            <div class="eyebrow">Partneriai</div>
+            <h2 id="equipment-title">Gamintojai, su kurių įranga dirbame.</h2>
+          </div>
+        </div>
+        <div class="equipment-marquee" aria-label="Įrangos gamintojai, su kurių įranga komanda turi praktinės patirties">
+          <div class="equipment-track">
+            <div class="equipment-group">
+              <span class="equipment-name">Nokia</span>
+              <span class="equipment-name">Ericsson</span>
+              <span class="equipment-name">Huawei</span>
+              <span class="equipment-name">ZTE</span>
+              <span class="equipment-name">FIAMM</span>
+              <span class="equipment-name">Enersys</span>
+              <span class="equipment-name">Eltek</span>
+              <span class="equipment-name">Delta</span>
+              <span class="equipment-name">Dantherm</span>
+            </div>
+            <div class="equipment-group" aria-hidden="true">
+              <span class="equipment-name">Nokia</span>
+              <span class="equipment-name">Ericsson</span>
+              <span class="equipment-name">Huawei</span>
+              <span class="equipment-name">ZTE</span>
+              <span class="equipment-name">FIAMM</span>
+              <span class="equipment-name">Enersys</span>
+              <span class="equipment-name">Eltek</span>
+              <span class="equipment-name">Delta</span>
+              <span class="equipment-name">Dantherm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="team" id="team" aria-labelledby="team-title">
+      <div class="container">
+        <div class="team-head">
+          <div class="eyebrow">Žmonės, kurie atsako už rezultatą</div>
+          <div class="team-head-copy">
+            <h2 id="team-title">Patirtis turi vardą, kompetenciją ir atsakomybę.</h2>
+            <p class="team-copy">Susipažinkite su žmonėmis, kurie planuoja, įgyvendina ir tikrina projektus.</p>
+          </div>
+        </div>
+
+        <div class="team-grid">
+          <a class="team-card" href="../5gtech-komanda-v1/profilis.html" aria-label="Peržiūrėti technikos vadovo profilį">
+            <div class="team-portrait" aria-hidden="true"></div>
+            <div class="team-card-body">
+              <span class="team-role">Technikos vadovas</span>
+              <h3>Vardas Pavardė</h3>
+              <p class="team-card-copy">Telekomunikacijų infrastruktūros srityje nuo 2012 m.</p>
+            </div>
+            <div class="team-card-metrics" aria-label="Patirties rodikliai">
+              <div class="team-metric"><strong>13 m.</strong><span>patirties</span></div>
+              <div class="team-metric"><strong>6</strong><span>šalys</span></div>
+              <div class="team-metric"><strong>8</strong><span>kvalifikacijos</span></div>
+            </div>
+          </a>
+          <a class="team-card" href="../5gtech-komanda-v1/profilis.html" aria-label="Peržiūrėti projektų vadovo profilį">
+            <div class="team-portrait" aria-hidden="true"></div>
+            <div class="team-card-body">
+              <span class="team-role">Projektų vadovas</span>
+              <h3>Vardas Pavardė</h3>
+              <p class="team-card-copy">Tarptautinių ryšio infrastruktūros projektų valdymas.</p>
+            </div>
+            <div class="team-card-metrics" aria-label="Patirties rodikliai">
+              <div class="team-metric"><strong>11 m.</strong><span>patirties</span></div>
+              <div class="team-metric"><strong>9</strong><span>operatoriai</span></div>
+              <div class="team-metric"><strong>5</strong><span>kvalifikacijos</span></div>
+            </div>
+          </a>
+          <a class="team-card" href="../5gtech-komanda-v1/profilis.html" aria-label="Peržiūrėti darbų vadovo profilį">
+            <div class="team-portrait" aria-hidden="true"></div>
+            <div class="team-card-body">
+              <span class="team-role">Darbų vadovas</span>
+              <h3>Vardas Pavardė</h3>
+              <p class="team-card-copy">Montavimo, saugos ir darbų kokybės priežiūra objektuose.</p>
+            </div>
+            <div class="team-card-metrics" aria-label="Patirties rodikliai">
+              <div class="team-metric"><strong>10 m.</strong><span>patirties</span></div>
+              <div class="team-metric"><strong>6</strong><span>šalys</span></div>
+              <div class="team-metric"><strong>7</strong><span>kvalifikacijos</span></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="team-summary" aria-label="Bendri komandos rodikliai">
+          <div class="team-metric"><strong>70+</strong><span>sukauptos komandos patirties metų</span></div>
+          <div class="team-metric"><strong>10 000+</strong><span>įgyvendintų objektų</span></div>
+          <div class="team-metric"><strong>6</strong><span>Europos šalys</span></div>
+          <div class="team-metric"><strong>20+</strong><span>kvalifikacijų ir atestatų</span></div>
+        </div>
+        <a class="link-line team-link" href="../5gtech-komanda-v1/index.html">Susipažinti su visa komanda <span>→</span></a>
+      </div>
+    </section>
+
     <section class="audiences" id="careers" aria-labelledby="audiences-title">
       <div class="container">
         <div class="audiences-head">
-          <h2 id="audiences-title">Tas pats projektas. Skirtinga atsakomybė.</h2>
-          <p>Sprendžiant dėl bendradarbiavimo, kiekvienam svarbi kita rezultato pusė. Todėl toliau galima pasirinkti ne „personą“, o aktualiausią atsakymą.</p>
+          <h2 id="audiences-title">Tas pats projektas – skirtingi prioritetai.</h2>
+          <p>Pasirinkite informaciją pagal savo vaidmenį projekte.</p>
         </div>
         <div class="audience-list">
-          <a class="audience-item" href="/vadovams/"><small>Vadovams</small><h3>Partneris, dėl kurio nereikia aiškintis užsakovui.</h3><p>Sertifikuoti procesai, valdoma rizika ir aiškios atsakomybės.</p><span class="audience-arrow">→</span></a>
-          <a class="audience-item" href="/projektu-vadovams/"><small>Projektų vadovams</small><h3>Įranga, procesai ir dokumentacija – viskas atvirai.</h3><p>Techninė eiga ir tiesioginis ryšys viso projekto metu.</p><span class="audience-arrow">→</span></a>
-          <a class="audience-item" href="/karjera/"><small>Specialistams</small><h3>Darbas, kuriame augimas turi kryptį.</h3><p>Europos projektai, mokymai, sertifikatai ir saugi aplinka.</p><span class="audience-arrow">→</span></a>
+          <a class="audience-item" href="../5gtech-vidiniai-v1/vadovams.html"><small>Vadovams</small><h3>Projektų vykdymas su aiškiomis atsakomybėmis.</h3><p>Sertifikuoti procesai, valdoma rizika ir tiesioginė komunikacija.</p><span class="audience-arrow">→</span></a>
+          <a class="audience-item" href="../5gtech-vidiniai-v1/projektu-vadovams.html"><small>Projektų vadovams</small><h3>Techninė projekto eiga ir dokumentacija.</h3><p>Planavimas, darbų kontrolė, testavimas ir dokumentacija.</p><span class="audience-arrow">→</span></a>
+          <a class="audience-item" href="../5gtech-vidiniai-v1/karjera.html"><small>Specialistams</small><h3>Profesinis augimas telekomunikacijų ir energetikos projektuose.</h3><p>Europos projektai, mokymai, sertifikatai ir saugi aplinka.</p><span class="audience-arrow">→</span></a>
         </div>
       </div>
     </section>
@@ -1118,13 +1504,13 @@
     <section class="news" aria-labelledby="news-title">
       <div class="container">
         <div class="section-top">
-          <h2 id="news-title">Kol infrastruktūra auga, tęsiasi ir mūsų istorija.</h2>
-          <a class="link-line" href="/naujienos/">Visos naujienos <span>→</span></a>
+          <h2 id="news-title">Projektai, komanda ir techninės įžvalgos.</h2>
+          <a class="link-line" href="../5gtech-vidiniai-v1/naujienos.html">Visos naujienos <span>→</span></a>
         </div>
         <div class="news-grid">
-          <article class="news-card featured"><span class="news-meta">Projektai / 2026</span><div><h3>Dar viena užbaigta infrastruktūros projekto dalis Europoje</h3><p>Vieta naujausiam projekto pasakojimui ir rezultatams.</p></div></article>
-          <article class="news-card"><span class="news-meta">Komanda / 2026</span><div><h3>Specialistų kompetenciją stiprina praktika ir sertifikatai</h3><p>Vieta naujienai apie komandą, mokymus ar saugos kultūrą.</p></div></article>
-          <article class="news-card"><span class="news-meta">Žinios / 2026</span><div><h3>Ką svarbu įvertinti planuojant ryšio infrastruktūros darbus</h3><p>Vieta techniniam straipsniui, padedančiam užsakovui priimti sprendimą.</p></div></article>
+          <article class="news-card featured"><span class="news-meta">Projektai / 2026</span><div><h3>Bazinių stočių modernizavimo projektas Vokietijoje</h3><p>Darbai apima įrangos montavimą, testavimą ir dokumentaciją.</p></div></article>
+          <article class="news-card"><span class="news-meta">Komanda / 2026</span><div><h3>Praktiniai darbuotojų mokymai</h3><p>Daugiausia dėmesio skiriame darbų saugai, įrangai ir techninėms užduotims.</p></div></article>
+          <article class="news-card"><span class="news-meta">Žinios / 2026</span><div><h3>Ką įvertinti planuojant ryšio infrastruktūros darbus</h3><p>Svarbiausi techninės užduoties, darbų apimties ir dokumentacijos klausimai.</p></div></article>
         </div>
       </div>
     </section>
@@ -1133,8 +1519,8 @@
       <div class="container final-grid">
         <div>
           <div class="eyebrow">Pradėkime nuo pokalbio</div>
-          <h2 id="contact-title">Kitas projektas prasideda nuo aiškaus pokalbio.</h2>
-          <p>Papasakokite, ką planuojate ir kur susiduriate su iššūkiu. Įvertinsime, kur mūsų patirtis gali būti naudingiausia, ir pasiūlysime konkretų kitą žingsnį.</p>
+          <h2 id="contact-title">Aptarkime jūsų projektą.</h2>
+          <p>Trumpai aprašykite projektą arba techninę užduotį. Įvertinsime darbų apimtį ir pasiūlysime tolesnius veiksmus.</p>
         </div>
         <div class="contact-stack">
           <a class="btn" href="mailto:info@5gtech.lt">info@5gtech.lt <span>↗</span></a>
@@ -1147,7 +1533,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <span>© 2026 UAB „5GTECH“ · Meistrų g. 8A, Vilnius</span>
-      <span><a href="#top">Grįžti į viršų ↑</a></span>
+      <span><a href="../5gtech-vidiniai-v1/privatumo-politika.html">Privatumo politika</a> · <a href="#top">Grįžti į viršų ↑</a></span>
     </div>
   </footer>
 
@@ -1213,6 +1599,9 @@
       { selector: '.experience .eyebrow, .experience h2, .experience-copy', stagger: 80 },
       { selector: '.proof', stagger: 60 },
       { selector: '.map-card', media: true },
+      { selector: '.equipment-head > div, .equipment-marquee, .equipment-note', stagger: 80 },
+      { selector: '.team-head > *, .team-card', stagger: 70 },
+      { selector: '.team-summary .team-metric, .team-link', stagger: 55 },
       { selector: '.audiences-head > *', stagger: 90 },
       { selector: '.audience-item', stagger: 70 },
       { selector: '.section-top > *', stagger: 90 },

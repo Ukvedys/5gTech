@@ -1,8 +1,8 @@
 # 5G TECH dizaino sistema
 
-**Versija:** 1.0  
-**Data:** 2026-07-25  
-**Būsena:** patvirtinta kryptis, parengta vidinių puslapių dizainui ir WordPress realizacijai  
+**Versija:** 1.3
+**Data:** 2026-07-29
+**Būsena:** patvirtinta kryptis, parengta vidinių puslapių dizainui ir WordPress realizacijai
 **Pagrindinis šaltinis:** `dizainas/maketai/5gtech-titulinis-v1/`
 
 Ši sistema aprašo taisykles, pagal kurias turi būti kuriamas visas naujas 5G TECH svetainės dizainas. Ji nėra vien spalvų ir šriftų sąrašas. Sistema apima tinklelio logiką, tipografijos hierarchiją, komponentus, judesį, vaizdų naudojimą, adaptyvumą ir turinio pateikimo principus.
@@ -13,13 +13,19 @@
 - `components.css` – baziniai pakartotinai naudojami komponentai.
 - `index.html` – vizualus sistemos katalogas ir komponentų demonstracija.
 - `README.md` – dizaino sprendimų, naudojimo ir priežiūros taisyklės.
+- `../maketai/5gtech-komanda-v1/index.html` – pilno „Apie mus“ puslapio su komandos kompetencijomis šablonas.
+- `../maketai/5gtech-komanda-v1/profilis.html` – atskiro komandos nario profilio šablonas.
+- `../maketai/5gtech-paslauga-v1/index.html` – vienas universalus visų paslaugų puslapio šablonas.
+- `../maketai/5gtech-vidiniai-v1/` – sujungtas vidinių puslapių ir bendros navigacijos prototipų rinkinys.
+
+1.3 versijoje pridėti 404, paieškos formos ir paieškos rezultatų kortelės komponentai. Jie naudoja tą patį 6 kolonų tinklelį, tamsų hero ir linijomis atskiriamas šviesias korteles.
 
 ## 1. Sistemos auditas
 
 ### Santrauka
 
-**Audituotas maketas:** 5G TECH titulinis puslapis  
-**Komponentų grupės:** 12  
+**Audituotas maketas:** 5G TECH titulinis puslapis
+**Komponentų grupės:** 16
 **Pradinio maketo sistemos brandos įvertinimas:** 78/100
 
 Maketas jau turėjo stiprią vizualinę kryptį: nuoseklų šešių kolonų tinklelį, aiškią tamsiai mėlyną spalvinę architektūrą, disciplinuotą tipografiją ir santūrų judesį. Didžiausia rizika buvo ne pats dizainas, o tai, kad daug reikšmių buvo įrašytos atskirai kiekviename bloke. Kuriant vidinius puslapius jos būtų pradėjusios skirtis.
@@ -35,6 +41,7 @@ Maketas jau turėjo stiprią vizualinę kryptį: nuoseklų šešių kolonų tink
 | Formos | Tituliniame puslapyje formų nebuvo | Pridėta į sistemą pagal tą pačią kampuotą, linijinę estetiką |
 | Judesys | Animacijų trukmės buvo tinkamos, bet neįvardytos kaip tokenai | Sukurti `fast`, `standard`, `reveal`, `media` ir `hero` judesio tokenai |
 | Prieinamumas | Buvo `reduced motion` palaikymas, bet ne visų komponentų būsenos | Aprašytos klaviatūros, fokuso, kontrasto ir sumažinto judesio taisyklės |
+| Tinklelio tęstinumas | Keli vidinių puslapių blokai buvo savarankiškai padalyti į 4 arba 5 dalis | Pilno pločio komponentai perkelti į 6 kolonų sistemą ir jungiami tik ties pagrindinėmis tinklelio linijomis |
 
 ### Prioritetai prieš produkciją
 
@@ -54,7 +61,7 @@ Dizainas neturi atrodyti nei futuristiškas, nei dekoratyvus. Technologinis įsp
 
 ### Penki principai
 
-1. **Tinklelis matomas, bet nekonkuruoja su turiniu.**
+1. **Tinklelis įrėmina turinį, bet neina per tekstą ar pagrindines vizualines zonas.**
 2. **Didelė tipografija naudojama tik pagrindinei minčiai.**
 3. **Akcentinė spalva žymi veiksmą, progresą arba įrodymą.**
 4. **Kortelės atskiriamos linijomis ir erdve, ne šešėliais.**
@@ -144,7 +151,14 @@ Dizainas neturi atrodyti nei futuristiškas, nei dekoratyvus. Technologinis įsp
 - Kolonos: **6 vienodo pločio kolonos**.
 - Tarp kolonų nėra atskiro gutter – ribas žymi linijos.
 - Vidinis komponento atitraukimas: **20 % vienos kolonos pločio**.
-- Visada matomos septynios tinklelio linijos: šešių kolonų pradžios ir pabaigos ribos.
+- Sistemoje yra septynios atskaitos linijos – šešių kolonų pradžios ir pabaigos ribos. Vizualiai jos rodomos selektyviai pagal konkrečią kompoziciją.
+- Pilno pločio komponento vidinės ribos turi sutapti su viena iš septynių pagrindinių linijų.
+- Hero sekcijoje gali būti rodomos visos šešios kolonos. Turinio sekcijose pagal nutylėjimą rodomos tik išorinės linijos ir konkrečios kompozicijos ribos.
+- Redakcinėje antraštėje rodomos 1–2 ir 5–6 kolonų ribos; CTA bloke – riba tarp 4 ir 5 kolonų.
+- Linija neturi eiti per antraštę, pastraipą, nuotrauką, formos lauką ar kortelės turinį. Komponento viduje ją pakeičia to komponento kraštinė.
+- Keturi elementai vienoje juostoje dėliojami santykiu **2–1–1–2**, o penki – **2–1–1–1–1**. Jei turiniui reikia daugiau erdvės, keturi elementai dėliojami **2 × 2** tinkleliu.
+- `repeat(4)` leidžiamas tik keturių pagrindinių kolonų pločio vidiniame konteineryje, kai kiekviena dalis tiksliai atitinka vieną pagrindinę koloną.
+- Smulkūs vidiniai UI elementai, pavyzdžiui, formos laukų poros ar kortelės metaduomenys, gali turėti vietinį tinklelį, jei jis nekuria per visą sekciją matomos konkuruojančios vertikalios ribos.
 
 ### Tablet
 
@@ -236,6 +250,21 @@ Didelis skaičius ir maža didžiosiomis raidėmis rašoma reikšmė. Skaičiai 
 - Kortelę sudaro numeris, pavadinimas, 1–2 sakiniai ir rodyklė.
 - Kortelės neturi atskiro fono ar šešėlio.
 
+### Paslaugos puslapis
+
+Visoms paslaugoms naudojamas vienas fiksuotas šablonas. Administratorius nekeičia maketo ir nekuria individualių blokų.
+
+Redaguojami laukai:
+
+1. paslaugos pavadinimas ir kategorijos žyma;
+2. trumpas 2–3 sakinių aprašymas;
+3. vienas pagrindinis vaizdas;
+4. atliekamų darbų sąrašas;
+5. pasirenkami įrangos gamintojai;
+6. neprivalomi DUK.
+
+Bendri patirties rodikliai, darbo procesas, kontaktinis CTA, navigacija ir poraštė įdedami automatiškai. Jei DUK neįrašyti, visa sekcija nerodoma.
+
 ### Standarto / sertifikato blokas
 
 Keturi vienodi blokai tamsiame fone. Ikona, standarto kodas ir vienos eilutės paaiškinimas. Ikonos turi būti vienodo 2 px linijos storio.
@@ -251,6 +280,64 @@ Visa eilutė yra nuoroda. Ji turi būti formuluojama per lankytojui aktualų rez
 ### Naujienos kortelė
 
 Metaduomenys, pavadinimas, trumpa ištrauka. Pirmą kortelę galima išskirti tamsiai mėlynu fonu. Produkcijoje visa kortelė turi būti nuoroda.
+
+### Įrangos patirties juosta
+
+**Problema:** gamintojų vardai turi veikti kaip praktinės patirties įrodymas, tačiau negali sudaryti dabartinių klientų ar oficialių partnerių įspūdžio.
+
+**Variantai:**
+
+| Variantas | Naudojimas |
+|---|---|
+| `logo` | kai gauti oficialūs, vienodos kokybės logotipų failai ir patvirtintas jų naudojimas |
+| `text` | prototipui arba kai logotipų naudojimas nepatvirtintas |
+| `static` | sumažinto judesio režimui ir siauriems ekranams |
+
+**Būsenos:** default, hover / focus metu sustabdyta, reduced motion be automatinio slinkimo.
+
+- Juostos tekstas turi aiškiai įvardyti, kad kalbama apie montuotą, integruotą arba prižiūrėtą įrangą.
+- Gamintojų negalima vadinti „partneriais“ ar „klientais“ be atskiro patvirtinimo.
+- Pasikartojanti techninė slenkančios juostos kopija paslepiama nuo ekrano skaitytuvų.
+
+### Komandos kompetencijos kortelė
+
+**Problema:** standartinė portretų galerija neparodo, kodėl konkretus žmogus sustiprina kliento projektą.
+
+**Variantai:**
+
+| Variantas | Naudojimas |
+|---|---|
+| `compact` | 3–4 žmonių anonsas tituliniame puslapyje |
+| `standard` | pilnas „Apie mus / Komanda“ tinklelis |
+| `featured` | pagrindinis vadovas arba techninis ekspertas |
+
+Kortelę sudaro 4:5 portretas, pareigos, vardas, viena patirties santrauka ir ne daugiau kaip trys patvirtinti rodikliai. Visa kortelė yra nuoroda į pilną profilį.
+
+**Būsenos:** default, hover, keyboard focus, active. Papildoma informacija negali būti pasiekiama tik užvedus pelę.
+
+### Komandos rodiklis
+
+Vienodas skaičiaus ir paaiškinimo komponentas naudojamas žmogaus kortelėje, pilname profilyje ir bendroje komandos statistikoje.
+
+- Rodiklis visada turi turėti skaičiavimo apibrėžimą.
+- „Objektai“, „projektai“ ir „bazinės stotys“ nėra sinonimai.
+- Bendra statistika negali dubliuoti tų pačių objektų sudedant atskirų žmonių patirtį.
+- Pasibaigusios kvalifikacijos neskaičiuojamos kaip aktyvios, nebent aiškiai pažymima kitaip.
+
+### Komandos profilis
+
+Pilnas profilis pateikiamas atskirame puslapyje arba prieinamame išskleidžiamame lange. Rekomenduojamas atskiras URL, nes jį galima nusiųsti klientui ir naudoti komerciniame pasiūlyme.
+
+Turinio grupės:
+
+1. vardas, pareigos ir kontaktai;
+2. trumpas patirties aprašymas ir darbo srityje pradžios metai;
+3. šalys bei operatorių projektų patirtis;
+4. pagrindinės kompetencijos ir atsakomybės.
+
+Sertifikatai ar kvalifikacijos pridedami tik tada, kai jie svarbūs konkretaus žmogaus profiliui. Nenaudojamos kvalifikacijų „patvirtinimo“ būsenos ar administracinės pastabos – lankytojui rodoma tik galutinė profesinė informacija.
+
+Kontaktai, portretas ir asmeninė profesinė informacija viešinami tik gavus žmogaus sutikimą.
 
 ### Formos
 
@@ -374,9 +461,11 @@ CTA turi nusakyti kitą žingsnį:
 1. Hero.
 2. Istorija ir kryptis.
 3. Vertybės.
-4. Komanda.
-5. Sertifikatai.
-6. „Rinkis mus“ nuoroda.
+4. Komandos kompetencijos santrauka.
+5. Komandos narių tinklelis.
+6. Bendri komandos rodikliai.
+7. Sertifikatai.
+8. „Rinkis mus“ nuoroda.
 
 ### Karjera
 

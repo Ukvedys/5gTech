@@ -1,0 +1,57 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"tagName":"main","align":"full","className":"g5-search-page","layout":{"type":"default"}} -->
+<main class="wp-block-group alignfull g5-search-page">
+	<!-- wp:group {"align":"full","className":"g5-system-page g5-grid-lines g5-grid-lines--dark","layout":{"type":"default"}} -->
+	<div class="wp-block-group alignfull g5-system-page g5-grid-lines g5-grid-lines--dark">
+		<!-- wp:group {"className":"g5-container g5-grid g5-system-page__grid","layout":{"type":"default"}} -->
+		<div class="wp-block-group g5-container g5-grid g5-system-page__grid">
+			<!-- wp:group {"className":"g5-system-page__copy","layout":{"type":"default"}} -->
+			<div class="wp-block-group g5-system-page__copy">
+				<!-- wp:paragraph {"className":"g5-eyebrow"} -->
+				<p class="g5-eyebrow">Paieška</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:query-title {"type":"search","level":1,"className":"g5-display-lg"} /-->
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"full","className":"g5-section g5-section--paper g5-grid-lines","layout":{"type":"default"}} -->
+	<div class="wp-block-group alignfull g5-section g5-section--paper g5-grid-lines">
+		<!-- wp:group {"className":"g5-container g5-search-content","layout":{"type":"default"}} -->
+		<div class="wp-block-group g5-container g5-search-content">
+			<!-- wp:search {"label":"Ieškoti svetainėje","showLabel":false,"placeholder":"Įveskite paieškos žodį","buttonText":"Ieškoti","buttonUseIcon":false,"className":"g5-search-form"} /-->
+			<!-- wp:query {"queryId":12,"query":{"inherit":true}} -->
+			<div class="wp-block-query">
+				<!-- wp:post-template {"className":"g5-search-results"} -->
+					<!-- wp:group {"className":"g5-search-card","layout":{"type":"default"}} -->
+					<div class="wp-block-group g5-search-card">
+						<!-- wp:post-title {"isLink":true,"level":2,"className":"g5-heading-md"} /-->
+						<!-- wp:post-excerpt {"moreText":"Skaityti","showMoreOnNewLine":true,"className":"g5-body"} /-->
+					</div>
+					<!-- /wp:group -->
+				<!-- /wp:post-template -->
+				<!-- wp:query-no-results -->
+					<!-- wp:heading {"level":2,"className":"g5-heading-md"} -->
+					<h2 class="wp-block-heading g5-heading-md">Rezultatų nerasta.</h2>
+					<!-- /wp:heading -->
+					<!-- wp:paragraph {"className":"g5-body"} -->
+					<p class="g5-body">Pabandykite trumpesnį arba bendresnį paieškos žodį.</p>
+					<!-- /wp:paragraph -->
+				<!-- /wp:query-no-results -->
+				<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"space-between"},"className":"g5-search-pagination"} -->
+					<!-- wp:query-pagination-previous {"label":"Ankstesnis puslapis"} /-->
+					<!-- wp:query-pagination-numbers /-->
+					<!-- wp:query-pagination-next {"label":"Kitas puslapis"} /-->
+				<!-- /wp:query-pagination -->
+			</div>
+			<!-- /wp:query -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

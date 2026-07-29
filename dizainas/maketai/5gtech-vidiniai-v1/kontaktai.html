@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Susisiekite su 5G TECH dėl telekomunikacijų, energetikos ir inžinerinės infrastruktūros projektų.">
+  <title>Kontaktai – 5G TECH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../design-system/tokens.css">
+  <link rel="stylesheet" href="../../design-system/components.css">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body data-section="contact">
+  <div data-site-header></div>
+  <main id="content">
+    <section class="inner-hero inner-hero--compact g5-grid-lines g5-grid-lines--dark" aria-labelledby="page-title">
+      <div class="g5-container g5-grid">
+        <div class="inner-hero__copy">
+          <div class="g5-eyebrow">Kontaktai</div>
+          <h1 class="g5-display-xl" id="page-title">Aptarkime jūsų projektą.</h1>
+          <p class="g5-body-lg">Aprašykite užduotį arba susisiekite tiesiogiai – atsakysime ir nukreipsime pas tinkamą specialistą.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="g5-section g5-grid-lines" aria-labelledby="contact-title">
+      <div class="g5-container section-head">
+        <div class="g5-eyebrow">Parašykite</div>
+        <div class="section-head__copy"><h2 class="g5-display-md" id="contact-title">Projekto užklausa.</h2></div>
+      </div>
+      <div class="g5-container split-layout">
+        <div class="split-layout__main">
+          <form class="prototype-form form-grid">
+            <div class="field"><label for="contact-name">Vardas ir pavardė *</label><input id="contact-name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="contact-company">Įmonė</label><input id="contact-company" name="company" autocomplete="organization"></div>
+            <div class="field"><label for="contact-email">El. paštas *</label><input id="contact-email" name="email" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="contact-phone">Telefonas</label><input id="contact-phone" name="phone" type="tel" autocomplete="tel"></div>
+            <div class="field field--full"><label for="contact-topic">Užklausos tema *</label><select id="contact-topic" name="topic" required><option value="">Pasirinkite</option><option>Bendradarbiavimas</option><option>Techninė užduotis</option><option>Karjera</option><option>Kita</option></select></div>
+            <div class="field field--full"><label for="contact-message">Trumpai aprašykite užduotį *</label><textarea id="contact-message" name="message" required></textarea></div>
+            <label class="consent field--full"><input type="checkbox" required><span>Sutinku, kad mano duomenys būtų naudojami atsakymui į užklausą. <a href="privatumo-politika.html">Privatumo politika</a>.</span></label>
+            <div class="field--full"><button class="g5-button g5-button--dark" type="submit">Siųsti užklausą <span class="g5-button__icon" aria-hidden="true">→</span></button></div>
+            <p class="form-status field--full" data-form-status tabindex="-1" hidden>Ačiū. Jūsų užklausa gauta.</p>
+          </form>
+        </div>
+        <aside class="split-layout__side">
+          <h3 class="g5-heading-md">UAB „5GTECH“</h3>
+          <ul class="plain-list" style="margin-top: var(--5g-space-6)">
+            <li>Meistrų g. 8A, LT-02189 Vilnius</li>
+            <li><a href="mailto:info@5gtech.lt">info@5gtech.lt</a></li>
+            <li><a href="tel:+37068777155">+370 687 77155</a></li>
+            <li>Įmonės kodas 305547599</li>
+            <li>PVM kodas LT100013136617</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="g5-section g5-section--paper g5-grid-lines" aria-labelledby="people-title">
+      <div class="g5-container section-head">
+        <div class="g5-eyebrow">Komanda</div>
+        <div class="section-head__copy"><h2 class="g5-display-md" id="people-title">Tiesioginiai kontaktai.</h2></div>
+      </div>
+      <div class="g5-container card-grid">
+        <div class="info-card"><span class="info-card__number">Vadovybė</span><h3 class="g5-heading-sm">Aleksandras Iljinas</h3><p>Generalinis direktorius<br><a href="mailto:Aleksandras@5gtech.lt">Aleksandras@5gtech.lt</a><br><a href="tel:+37068777155">+370 687 77155</a></p></div>
+        <div class="info-card"><span class="info-card__number">Projektai</span><h3 class="g5-heading-sm">Nerijus Bazinas</h3><p>Projektų vadovas<br><a href="mailto:Nerijus@5gtech.lt">Nerijus@5gtech.lt</a><br><a href="tel:+37060547198">+370 605 47198</a></p></div>
+        <div class="info-card"><span class="info-card__number">Karjera</span><h3 class="g5-heading-sm">Kristina Naginevičienė</h3><p>Administracijos ir personalo koordinatorė<br><a href="mailto:Kristina@5gtech.lt">Kristina@5gtech.lt</a><br><a href="tel:+37066551934">+370 665 51934</a></p></div>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+  <script src="site.js"></script>
+</body>
+</html>

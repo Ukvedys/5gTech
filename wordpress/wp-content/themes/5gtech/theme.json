@@ -1,0 +1,88 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "960px",
+      "wideSize": "1440px"
+    },
+    "color": {
+      "custom": false,
+      "palette": [
+        { "slug": "navy-950", "name": "Tamsiai mėlyna", "color": "#031f35" },
+        { "slug": "navy-900", "name": "Mėlyna", "color": "#063354" },
+        { "slug": "paper", "name": "Šviesus fonas", "color": "#f4f6f7" },
+        { "slug": "white", "name": "Balta", "color": "#ffffff" },
+        { "slug": "pink", "name": "Brand rožinė", "color": "#ec0062" }
+      ]
+    },
+    "spacing": {
+      "units": ["px", "rem", "%", "vw"],
+      "spacingSizes": [
+        { "slug": "20", "size": "0.5rem", "name": "XS" },
+        { "slug": "30", "size": "1rem", "name": "S" },
+        { "slug": "40", "size": "1.5rem", "name": "M" },
+        { "slug": "50", "size": "2.5rem", "name": "L" },
+        { "slug": "60", "size": "4rem", "name": "XL" },
+        { "slug": "70", "size": "7.5rem", "name": "XXL" }
+      ]
+    },
+    "typography": {
+      "customFontSize": false,
+      "fontFamilies": [
+        {
+          "fontFamily": "\"DM Sans\", Arial, sans-serif",
+          "slug": "display",
+          "name": "DM Sans"
+        }
+      ],
+      "fontSizes": [
+        { "slug": "small", "size": "0.875rem", "name": "Mažas" },
+        { "slug": "medium", "size": "1.0625rem", "name": "Pagrindinis" },
+        { "slug": "large", "size": "1.5rem", "name": "Didelis" },
+        { "slug": "x-large", "size": "2.625rem", "name": "Antraštė" }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "#ffffff",
+      "text": "#0a2940"
+    },
+    "spacing": {
+      "blockGap": "0"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--display)",
+      "fontSize": "1.0625rem",
+      "lineHeight": "1.7"
+    },
+    "elements": {
+      "button": {
+        "border": { "radius": "999px" },
+        "typography": {
+          "fontSize": "0.8125rem",
+          "fontWeight": "700",
+          "letterSpacing": "0.04em",
+          "textTransform": "uppercase"
+        }
+      },
+      "heading": {
+        "typography": {
+          "fontWeight": "500",
+          "lineHeight": "1.08"
+        }
+      },
+      "link": {
+        "color": { "text": "inherit" },
+        "typography": { "textDecoration": "none" }
+      }
+    }
+  },
+  "templateParts": [
+    { "name": "header", "title": "Svetainės antraštė", "area": "header" },
+    { "name": "footer", "title": "Svetainės poraštė", "area": "footer" }
+  ]
+}
+

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kandidatavimo į 5G TECH darbo pozicijas forma.">
+  <title>Kandidatuoti – 5G TECH</title>
+  <link rel="stylesheet" href="../../design-system/tokens.css">
+  <link rel="stylesheet" href="../../design-system/components.css">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body data-section="career">
+  <div data-site-header></div>
+  <main id="content">
+    <section class="inner-hero inner-hero--compact g5-grid-lines g5-grid-lines--dark" aria-labelledby="page-title">
+      <div class="g5-container g5-grid">
+        <div class="inner-hero__copy">
+          <div class="g5-eyebrow">Kandidatavimas</div>
+          <h1 class="g5-display-xl" id="page-title">Pateikite kandidatūrą.</h1>
+          <p class="g5-body-lg">Įkelkite CV ir nurodykite dominančią poziciją. Jei tinkamos pozicijos šiuo metu nėra, galėsime susisiekti vėliau.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="g5-section g5-grid-lines" aria-labelledby="form-title">
+      <div class="g5-container section-head">
+        <div class="g5-eyebrow">Kandidatavimas</div>
+        <div class="section-head__copy"><h2 class="g5-display-md" id="form-title">Kontaktai ir darbo patirtis.</h2><p class="g5-body">Žvaigždute pažymėti laukai yra privalomi.</p></div>
+      </div>
+      <form class="g5-container prototype-form form-grid">
+        <div class="field"><label for="apply-name">Vardas *</label><input id="apply-name" name="name" autocomplete="given-name" required></div>
+        <div class="field"><label for="apply-surname">Pavardė *</label><input id="apply-surname" name="surname" autocomplete="family-name" required></div>
+        <div class="field"><label for="apply-city">Miestas *</label><input id="apply-city" name="city" autocomplete="address-level2" required></div>
+        <div class="field"><label for="apply-phone">Telefonas *</label><input id="apply-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        <div class="field"><label for="apply-email">El. paštas *</label><input id="apply-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="apply-role">Dominanti pozicija</label><select id="apply-role" name="role"><option value="">Pasirinkite arba palikite tuščią</option><option>Telekomunikacijų specialistas</option><option>Telekomunikacijų inžinierius</option><option>Integracijos inžinierius</option><option>Saulės elektrinių montuotojas</option><option>Projektų valdymas</option><option>Kita</option></select></div>
+        <div class="field field--full"><label for="apply-cv">Gyvenimo aprašymas (CV) *</label><input id="apply-cv" name="cv" type="file" accept=".pdf,.doc,.docx" required><span class="field-hint">PDF, DOC arba DOCX.</span></div>
+        <div class="field field--full"><label for="apply-experience">Techninė darbo patirtis</label><textarea id="apply-experience" name="experience"></textarea></div>
+        <fieldset class="field field--full checkboxes">
+          <legend>Pažymėkite, kas tinka</legend>
+          <label><input type="checkbox" name="skills" value="height"> Esu dirbęs (-usi) aukštyje</label>
+          <label><input type="checkbox" name="skills" value="electricity"> Turiu patirties su elektros įranga</label>
+          <label><input type="checkbox" name="skills" value="english"> Galiu susikalbėti angliškai</label>
+          <label><input type="checkbox" name="skills" value="driver"> Turiu B kategorijos pažymėjimą</label>
+          <label><input type="checkbox" name="skills" value="travel"> Galiu vykti į komandiruotes</label>
+          <label><input type="checkbox" name="skills" value="documents"> Galiu skaityti techninę dokumentaciją</label>
+        </fieldset>
+        <div class="field field--full"><label for="apply-motivation">Kodėl norėtumėte prisijungti?</label><textarea id="apply-motivation" name="motivation"></textarea></div>
+        <label class="consent field--full"><input type="checkbox" required><span>Sutinku, kad mano duomenys ir CV būtų naudojami atrankos tikslais. <a href="privatumo-politika.html">Privatumo politika</a>.</span></label>
+        <div class="field--full"><button class="g5-button g5-button--dark" type="submit">Pateikti kandidatūrą <span class="g5-button__icon" aria-hidden="true">→</span></button></div>
+        <p class="form-status field--full" data-form-status tabindex="-1" hidden>Ačiū. Jūsų kandidatūra gauta.</p>
+      </form>
+    </section>
+  </main>
+  <div data-site-footer></div>
+  <script src="site.js"></script>
+</body>
+</html>
