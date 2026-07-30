@@ -43,6 +43,25 @@ Bibliotekoje yra dviejų rūšių moduliai.
 
 Puslapyje saugomas tik modulio ryšys ir jo vieta eilėje. Modulio tekstas puslapyje nekopijuojamas.
 
+### Modulio kalbos
+
+Kiekvienas modulis turi vienodą **LT / EN / DE** perjungiklį:
+
+- **LT** – pagrindinis lietuviškas turinys;
+- **EN** – angliškas to paties modulio turinys;
+- **DE** – vokiškas to paties modulio turinys.
+
+Teksto ir sąrašo modulio vertimai redaguojami tuose pačiuose laukuose kaip lietuviškas turinys. Dinaminio modulio kortelėje nuoroda **LT / EN / DE** atidaro realiai tame bloke matomų tekstų vertimus. Pakeitus vertimą, jis atsinaujina visuose puslapiuose, kuriuose naudojamas tas pats modulis.
+
+Modulio tipas, fonas, vieta puslapyje ir ryšiai su puslapiais yra bendri visoms kalboms. Jų nereikia dubliuoti.
+
+Puslapiui priklausančiose išskleidžiamose turinio grupėse naudojamas tas pats **LT / EN / DE** principas. Jis taikomas „Apie mus“, Karjeros, Mokymų, Academy, Vadovų, Projektų vadovų, titulinio auditorijų ir bendrų nustatymų tekstams.
+
+- Tekstas keičiamas pasirinktos kalbos režime.
+- Nuotraukos, nuorodos, kontaktiniai duomenys ir struktūra lieka bendri.
+- Kartotiniai elementai pridedami, šalinami ir perrikiuojami LT režime; EN ir DE režimu verčiami jų tekstai.
+- Išsaugant vieną puslapį išsaugomos visos trys kalbos.
+
 ### Puslapiui būdingas turinys
 
 Hero antraštė, kontaktų forma, konkretaus projekto duomenys ar darbo skelbimo informacija lieka savo puslapio arba įrašo valdyme. Tokio turinio nereikia paversti bendru moduliu, jei jis niekur kitur nekartojamas.
@@ -115,6 +134,8 @@ Puslapiuose, kurių turinys ateina tik iš bendrų katalogų, rodomas modulių s
 4. Pasirinkite paskelbtą modulį.
 5. Pasirinkite naudojimo būdą.
 6. Paspauskite **Įkelti modulį**.
+
+Įkėlus modulį, jo EN ir DE versijos į puslapį įkeliamos automatiškai kartu su LT versija.
 
 ### Naudoti tą patį modulį
 

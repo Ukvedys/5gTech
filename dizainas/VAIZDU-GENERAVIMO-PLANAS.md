@@ -14,7 +14,7 @@
 
 ### 01. Mobiliojo ryšio tinklai
 
-**Failas:** `service-mobile-networks-v1.png`
+**Failas:** `service-mobile-networks-v1.jpg` (aukštos kokybės šaltinis: PNG)
 
 **Naudojimas:** titulinio paslaugų rotatorius, paslaugos „Mobiliojo ryšio tinklai“ hero, bazinių stočių projekto atsarginis vaizdas.
 
@@ -24,7 +24,7 @@
 
 ### 02. Vidinio ryšio tinklai
 
-**Failas:** `service-indoor-networks-v1.png`
+**Failas:** `service-indoor-networks-v1.jpg` (aukštos kokybės šaltinis: PNG)
 
 **Naudojimas:** titulinio paslaugų rotatorius ir paslaugos „Vidinio ryšio tinklai“ hero.
 
@@ -34,7 +34,7 @@
 
 ### 03. Fiksuoto ryšio tinklai
 
-**Failas:** `service-fixed-networks-v1.png`
+**Failas:** `service-fixed-networks-v1.jpg` (aukštos kokybės šaltinis: PNG)
 
 **Naudojimas:** titulinio paslaugų rotatorius ir paslaugos „Fiksuoto ryšio tinklai“ hero.
 
@@ -44,7 +44,7 @@
 
 ### 04. Elektros darbai
 
-**Failas:** `service-electrical-v1.png`
+**Failas:** `service-electrical-v1.jpg` (aukštos kokybės šaltinis: PNG)
 
 **Naudojimas:** titulinio paslaugų rotatorius ir paslaugos „Elektros darbai“ hero.
 
@@ -54,7 +54,7 @@
 
 ### 05. Apsaugos ir stebėjimo sistemos
 
-**Failas:** `service-security-v1.png`
+**Failas:** `service-security-v1.jpg` (aukštos kokybės šaltinis: PNG)
 
 **Naudojimas:** titulinio paslaugų rotatorius ir paslaugos „Apsaugos ir stebėjimo sistemos“ hero.
 
@@ -64,7 +64,7 @@
 
 ### 06. Saulės elektrinės
 
-**Failas:** `service-solar-v1.png`
+**Failas:** `service-solar-v1.jpg` (aukštos kokybės šaltinis: PNG)
 
 **Naudojimas:** titulinio paslaugų rotatorius ir paslaugos „Saulės elektrinės“ hero.
 
@@ -74,7 +74,7 @@
 
 ### 07. Praktinių mokymų aplinka
 
-**Failas:** `training-technical-lab-v1.png`
+**Failas:** `training-technical-lab-v1.jpg` (aukštos kokybės šaltinis: PNG)
 
 **Naudojimas:** puslapio „Mokymai“ sekcija „Mokymų salė“.
 
@@ -84,7 +84,7 @@
 
 ### 08. Telekomunikacijų projekto aplinka
 
-**Failas:** `project-telecom-site-v1.png`
+**Failas:** `project-telecom-site-v1.jpg` (aukštos kokybės šaltinis: PNG)
 
 **Naudojimas:** projektų sąrašo demonstraciniam projektui ir projekto vidiniam puslapiui, kol bus įkelta reali objekto fotografija.
 

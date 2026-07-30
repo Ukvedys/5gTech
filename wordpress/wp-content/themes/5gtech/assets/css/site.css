@@ -1660,7 +1660,7 @@ svg {
 	}
 
 	.g5-site-nav .wp-block-navigation__responsive-container-content .g5-nav-contact {
-		display: none;
+		display: none !important;
 	}
 
 	.g5-service-hero {
@@ -1761,7 +1761,13 @@ svg {
 
 	.g5-display-xl {
 		font-size: clamp(2.25rem, 9.5vw, 2.75rem);
-		overflow-wrap: break-word;
+		overflow-wrap: anywhere;
+		-webkit-hyphens: auto;
+		hyphens: auto;
+	}
+
+	.g5-service-hero__copy .g5-display-xl {
+		max-width: 100%;
 	}
 
 	.g5-inner-hero__copy {

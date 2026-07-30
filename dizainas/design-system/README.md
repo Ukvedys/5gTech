@@ -1,7 +1,7 @@
 # 5G TECH dizaino sistema
 
-**Versija:** 1.3
-**Data:** 2026-07-29
+**Versija:** 1.4
+**Data:** 2026-07-30
 **Būsena:** patvirtinta kryptis, parengta vidinių puslapių dizainui ir WordPress realizacijai
 **Pagrindinis šaltinis:** `dizainas/maketai/5gtech-titulinis-v1/`
 
@@ -19,6 +19,8 @@
 - `../maketai/5gtech-vidiniai-v1/` – sujungtas vidinių puslapių ir bendros navigacijos prototipų rinkinys.
 
 1.3 versijoje pridėti 404, paieškos formos ir paieškos rezultatų kortelės komponentai. Jie naudoja tą patį 6 kolonų tinklelį, tamsų hero ir linijomis atskiriamas šviesias korteles.
+
+1.4 versijoje kalbų pasirinkimas perkeltas prie logotipo ir paverstas kompaktišku išskleidžiamu komponentu. Ramybės būsenoje rodoma tik aktyvi kalba, o kitos kalbos atveriamos užvedus, fokusuojant arba paspaudus.
 
 ## 1. Sistemos auditas
 
@@ -222,6 +224,21 @@ Sistema remiasi 4 px žingsniu. Dažniausiai naudojamos reikšmės:
 - „Kontaktai“ – baltas pill CTA.
 - Aktyvus meniu punktas pažymimas rausva 1 px linija.
 - Logotipas visada veda į pagrindinį puslapį.
+
+### Kalbų pasirinkimas
+
+**Vieta:** iš karto šalia logotipo.
+**Ramybės būsena:** matomas tik aktyvios kalbos kodas ir krypties ženklas.
+**Atverta būsena:** vertikaliame meniu rodomos tik kitos galimos kalbos.
+
+- Desktop meniu atveriamas užvedus, fokusuojant arba paspaudus.
+- Liečiamuose ekranuose meniu atveriamas paspaudus.
+- `Escape` uždaro meniu ir grąžina fokusą į aktyvios kalbos valdiklį.
+- Paspaudimas už komponento ribų uždaro meniu.
+- Fokuso būsena žymima rausvu kontūru.
+- Kalbos pasirinkimas įsimenamas, todėl pakartotinai junginėti kalbos nereikia.
+- Pirmo apsilankymo kalba parenkama pagal naršyklės `Accept-Language`; neatpažintai kalbai naudojama LT.
+- Komponentas nekeičia puslapio turinio struktūros ir išlaiko to paties puslapio atitikmenį kita kalba.
 
 ### Viršantraštė
 
@@ -477,7 +494,26 @@ CTA turi nusakyti kitą žingsnį:
 6. Kandidato DUK.
 7. Aplikavimo forma.
 
-## 14. Implementavimo taisyklės
+## 14. Administravimo komponentai
+
+### Turinio kalbų skirtukai
+
+Modulio redagavime naudojami trys vienodi skirtukai: **LT**, **EN** ir **DE**. Aktyvus skirtukas vizualiai susijungia su turinio sritimi, o neaktyvūs lieka neutralūs. Kiekviename skirtuke išlaikoma ta pati laukų seka, kad kalbos keitimas nekeistų redaktoriaus darbo modelio.
+
+- Skirtukuose rodomi tik trumpi kalbų kodai LT, EN ir DE.
+- Kalbai neutralūs nustatymai, pavyzdžiui, fonas ir modulio vieta, redaguojami tik LT skirtuke.
+- Dinaminio modulio vertimo lauke visada kartu rodomas lietuviškas šaltinis.
+- Skirtukai valdomi pele, lietimu ir klaviatūros rodyklėmis.
+
+Puslapio sekcijų formose naudojamas kompaktiškas to paties komponento variantas:
+
+- trys trumpi **LT / EN / DE** mygtukai rodomi kiekvienos tekstinės grupės pradžioje;
+- vieno skirtuko pakeitimas sinchronizuoja visų to puslapio grupių kalbą;
+- nuotraukos, nuorodos, pasirinkimai ir kiti kalbai neutralūs laukai lieka matomi ir bendri;
+- EN arba DE režimu paslepiami kartotinio elemento pridėjimo, šalinimo ir perrikiavimo veiksmai;
+- papildomos techninės būsenos ir pradinio vertimo paaiškinimai nerodomi.
+
+## 15. Implementavimo taisyklės
 
 ### Tokenų naudojimas
 

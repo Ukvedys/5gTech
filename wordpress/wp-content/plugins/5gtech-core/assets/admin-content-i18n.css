@@ -1,0 +1,58 @@
+.g5tech-page-i18n-tabs {
+	display: inline-flex;
+	gap: 3px;
+	margin: 0 0 20px;
+	padding: 3px;
+	border: 1px solid #c3c4c7;
+	border-radius: 5px;
+	background: #f0f0f1;
+}
+
+.g5tech-page-i18n-tab {
+	min-width: 54px;
+	padding: 7px 12px;
+	border: 0;
+	border-radius: 3px;
+	background: transparent;
+	color: #50575e;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1.2;
+	cursor: pointer;
+}
+
+.g5tech-page-i18n-tab:hover {
+	background: #fff;
+	color: #1d2327;
+}
+
+.g5tech-page-i18n-tab:focus-visible {
+	outline: 2px solid #2271b1;
+	outline-offset: 1px;
+}
+
+.g5tech-page-i18n-tab.is-active {
+	background: #3858e9;
+	box-shadow: 0 1px 2px rgba( 0, 0, 0, .08 );
+	color: #fff;
+}
+
+form[data-g5-page-i18n-language]:not([data-g5-page-i18n-language="lt"]) .g5tech-repeater__add,
+form[data-g5-page-i18n-language]:not([data-g5-page-i18n-language="lt"]) .g5tech-repeater__remove,
+form[data-g5-page-i18n-language]:not([data-g5-page-i18n-language="lt"]) .g5tech-repeater__handle {
+	display: none !important;
+}
+
+form[data-g5-page-i18n-language]:not([data-g5-page-i18n-language="lt"]) .g5tech-repeater__row {
+	cursor: default;
+}
+
+@media (max-width: 782px) {
+	.g5tech-page-i18n-tabs {
+		display: flex;
+	}
+
+	.g5tech-page-i18n-tab {
+		flex: 1;
+	}
+}
