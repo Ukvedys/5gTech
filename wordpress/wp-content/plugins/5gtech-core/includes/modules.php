@@ -66,10 +66,44 @@ function g5tech_redirect_special_page_modules_admin() {
 		return;
 	}
 
+	// Nenukreipiame ten, kur vartotojas neturi teisės įeiti – kitaip jis
+	// atsiduria „neturite teisės" ekrane be kelio atgal.
+	if ( ! g5tech_user_can_open_module_page_screen( $page_key ) ) {
+		return;
+	}
+
 	wp_safe_redirect( g5tech_module_page_admin_url( $page_key ) );
 	exit;
 }
 add_action( 'admin_init', 'g5tech_redirect_special_page_modules_admin', 20 );
+
+/**
+ * Ar vartotojas gali atidaryti tą ekraną, kuriame realiai valdomas puslapis.
+ *
+ * Kai kurie puslapiai valdomi atskiruose ekranuose su savo teisėmis, todėl
+ * teisės valdyti modulius nepakanka.
+ */
+function g5tech_user_can_open_module_page_screen( $page_key ) {
+	switch ( $page_key ) {
+		case 'training':
+			return current_user_can( 'manage_g5tech_settings' );
+
+		case 'about':
+			return current_user_can( 'edit_g5_team_members' );
+
+		case 'career':
+			return current_user_can( 'edit_g5_jobs' );
+
+		case 'academy':
+		case 'leaders':
+		case 'project_managers':
+			return function_exists( 'g5tech_can_manage_structured_content' )
+				? g5tech_can_manage_structured_content( $page_key )
+				: current_user_can( 'manage_g5tech_settings' );
+	}
+
+	return current_user_can( 'edit_g5_modules' );
+}
 
 function g5tech_module_meta_keys() {
 	return array(
@@ -226,19 +260,42 @@ function g5tech_module_is_on_page( $module_id, $page_key ) {
 	return in_array( absint( $module_id ), $placements[ $page_key ] ?? array(), true );
 }
 
+/**
+ * Grąžina puslapių raktus, kuriuose modulis šiuo metu naudojamas.
+ */
+function g5tech_module_page_keys( $module_id ) {
+	$module_id  = absint( $module_id );
+	$placements = g5tech_module_placements();
+	$keys       = array();
+
+	foreach ( $placements as $page_key => $ids ) {
+		if ( in_array( $module_id, array_map( 'absint', (array) $ids ), true ) ) {
+			$keys[] = $page_key;
+		}
+	}
+
+	return $keys;
+}
+
 function g5tech_set_module_pages( $module_id, $selected_pages ) {
-	$module_id     = absint( $module_id );
+	$module_id      = absint( $module_id );
 	$selected_pages = array_map( 'sanitize_key', (array) $selected_pages );
-	$placements    = g5tech_module_placements();
+	$placements     = g5tech_module_placements();
 
 	foreach ( g5tech_module_page_choices() as $page_key => $page_label ) {
-		$ids = array_values( array_diff( $placements[ $page_key ] ?? array(), array( $module_id ) ) );
+		$current  = array_values( array_map( 'absint', $placements[ $page_key ] ?? array() ) );
+		$selected = in_array( $page_key, $selected_pages, true );
+		$present  = in_array( $module_id, $current, true );
 
-		if ( in_array( $page_key, $selected_pages, true ) ) {
-			$ids[] = $module_id;
+		if ( $selected && ! $present ) {
+			// Naujas priskyrimas — dedamas į eilės galą.
+			$current[] = $module_id;
+		} elseif ( ! $selected && $present ) {
+			$current = array_values( array_diff( $current, array( $module_id ) ) );
 		}
+		// Jei modulis jau buvo puslapyje ir lieka — jo pozicija NEKEIČIAMA.
 
-		$placements[ $page_key ] = array_values( array_unique( array_map( 'absint', $ids ) ) );
+		$placements[ $page_key ] = array_values( array_unique( $current ) );
 	}
 
 	update_option( 'g5tech_module_placements', $placements, false );
@@ -278,12 +335,24 @@ function g5tech_set_page_module_order( $page_key, $order ) {
 	}
 
 	$placements = g5tech_module_placements();
-	$current    = $placements[ $page_key ] ?? array();
+	$current    = array_values( array_map( 'absint', $placements[ $page_key ] ?? array() ) );
 	$order      = array_values( array_unique( array_filter( array_map( 'absint', (array) $order ) ) ) );
 	$ordered    = array_values( array_intersect( $order, $current ) );
-	$preserved  = array_values( array_diff( $current, $ordered ) );
 
-	$placements[ $page_key ] = array_merge( $preserved, $ordered );
+	// Pateikti moduliai išsidėsto pateikta tvarka, o nepateikti (pvz. kito
+	// redaktoriaus ką tik pridėti) lieka savo vietoje, o ne iššoka į priekį.
+	$queue  = $ordered;
+	$result = array();
+
+	foreach ( $current as $module_id ) {
+		if ( in_array( $module_id, $ordered, true ) ) {
+			$result[] = array_shift( $queue );
+		} else {
+			$result[] = $module_id;
+		}
+	}
+
+	$placements[ $page_key ] = array_values( array_unique( array_merge( $result, $queue ) ) );
 	update_option( 'g5tech_module_placements', $placements, false );
 
 	return true;
@@ -762,9 +831,15 @@ function g5tech_render_page_modules_admin_page() {
 	$choices  = g5tech_module_page_choices();
 	$page_key = sanitize_key( wp_unslash( $_GET['page_key'] ?? 'home' ) );
 
-	if ( ! isset( $choices[ $page_key ] ) || ! g5tech_user_can_manage_module_page( $page_key ) ) {
+	// Siūlome tik tuos puslapius, kuriuos vartotojas ir valdo, ir gali atidaryti.
+	$is_available = static function( $key ) {
+		return g5tech_user_can_manage_module_page( $key )
+			&& g5tech_user_can_open_module_page_screen( $key );
+	};
+
+	if ( ! isset( $choices[ $page_key ] ) || ! $is_available( $page_key ) ) {
 		foreach ( array_keys( $choices ) as $candidate ) {
-			if ( g5tech_user_can_manage_module_page( $candidate ) ) {
+			if ( $is_available( $candidate ) ) {
 				$page_key = $candidate;
 				break;
 			}
@@ -773,8 +848,8 @@ function g5tech_render_page_modules_admin_page() {
 
 	$available_choices = array_filter(
 		$choices,
-		static function( $label, $key ) {
-			return g5tech_user_can_manage_module_page( $key );
+		static function( $label, $key ) use ( $is_available ) {
+			return $is_available( $key );
 		},
 		ARRAY_FILTER_USE_BOTH
 	);
@@ -921,7 +996,17 @@ function g5tech_render_content_module_usage_meta_box( $post ) {
 	$is_dynamic = 'dynamic' === get_post_meta( $post->ID, 'g5_module_type', true );
 	?>
 	<p>Pažymėkite puslapius, kuriuose turi būti rodomas tas pats modulis.</p>
-	<?php foreach ( g5tech_module_page_choices() as $page_key => $page_label ) : ?>
+	<input type="hidden" name="g5_module_pages_present" value="1">
+	<?php
+	$locked_pages = array();
+	foreach ( g5tech_module_page_choices() as $page_key => $page_label ) :
+		if ( ! g5tech_user_can_manage_module_page( $page_key ) ) {
+			if ( g5tech_module_is_on_page( $post->ID, $page_key ) ) {
+				$locked_pages[] = $page_label;
+			}
+			continue;
+		}
+		?>
 		<p>
 			<label>
 				<input type="checkbox" name="g5_module_pages[]" value="<?php echo esc_attr( $page_key ); ?>" <?php checked( g5tech_module_is_on_page( $post->ID, $page_key ) ); ?>>
@@ -929,6 +1014,12 @@ function g5tech_render_content_module_usage_meta_box( $post ) {
 			</label>
 		</p>
 	<?php endforeach; ?>
+	<?php if ( $locked_pages ) : ?>
+		<p class="description">
+			Modulis taip pat naudojamas puslapiuose, kurių jūs nevaldote:
+			<?php echo esc_html( implode( ', ', $locked_pages ) ); ?>. Šie priskyrimai nekeičiami.
+		</p>
+	<?php endif; ?>
 	<hr>
 	<p><strong>Susiejimo principas</strong></p>
 	<p class="description">Tas pats modulis visuose pažymėtuose puslapiuose atsinaujina kartu.</p>
@@ -970,8 +1061,28 @@ function g5tech_save_content_module( $post_id ) {
 		update_post_meta( $post_id, 'g5_module_theme', $theme );
 	}
 
-	$pages = isset( $_POST['g5_module_pages'] ) ? (array) wp_unslash( $_POST['g5_module_pages'] ) : array();
-	g5tech_set_module_pages( $post_id, $pages );
+	// Priskyrimai keičiami TIK tada, kai formoje realiai buvo priskyrimų laukas.
+	// Kitaip bet koks kitas išsaugojimo kelias atrištų modulį nuo visų puslapių.
+	if ( isset( $_POST['g5_module_pages_present'] ) ) {
+		$submitted = isset( $_POST['g5_module_pages'] )
+			? array_map( 'sanitize_key', (array) wp_unslash( $_POST['g5_module_pages'] ) )
+			: array();
+
+		$pages = array();
+
+		foreach ( g5tech_module_page_choices() as $page_key => $page_label ) {
+			if ( g5tech_user_can_manage_module_page( $page_key ) ) {
+				if ( in_array( $page_key, $submitted, true ) ) {
+					$pages[] = $page_key;
+				}
+			} elseif ( g5tech_module_is_on_page( $post_id, $page_key ) ) {
+				// Nevaldomo puslapio priskyrimas paliekamas nepaliestas.
+				$pages[] = $page_key;
+			}
+		}
+
+		g5tech_set_module_pages( $post_id, $pages );
+	}
 }
 add_action( 'save_post_g5_module', 'g5tech_save_content_module' );
 
@@ -1064,8 +1175,19 @@ function g5tech_delete_module_from_library() {
 	}
 
 	check_admin_referer( 'g5tech_delete_module_from_library_' . $module_id );
-	g5tech_remove_module_from_all_pages( $module_id );
 
+	// Trynimas iš bibliotekos šalina modulį iš VISŲ puslapių, todėl tikrinama
+	// teisė kiekvienam puslapiui, kuriame jis naudojamas, o ne tik tam, iš
+	// kurio paspausta.
+	foreach ( g5tech_module_page_keys( $module_id ) as $used_page_key ) {
+		if ( ! g5tech_user_can_manage_module_page( $used_page_key ) ) {
+			wp_die( esc_html__( 'Modulis naudojamas puslapiuose, kurių jūs nevaldote, todėl ištrinti jo negalima. Pasirinkite „Pašalinti iš puslapio".', '5gtech-core' ) );
+		}
+	}
+
+	// Priskyrimai šalinami tik po sėkmingo perkėlimo į šiukšlinę (jais
+	// pasirūpina trashed_post kabliukas), kad nesėkmė nepaliktų modulio
+	// atrišto nuo visų puslapių.
 	if ( ! wp_trash_post( $module_id ) ) {
 		wp_die( esc_html__( 'Modulio perkelti į šiukšlinę nepavyko.', '5gtech-core' ) );
 	}
@@ -1076,12 +1198,54 @@ function g5tech_delete_module_from_library() {
 add_action( 'admin_post_g5tech_delete_module_from_library', 'g5tech_delete_module_from_library' );
 
 function g5tech_cleanup_deleted_module_placements( $post_id ) {
-	if ( 'g5_module' === get_post_type( $post_id ) ) {
-		g5tech_remove_module_from_all_pages( $post_id );
+	if ( 'g5_module' !== get_post_type( $post_id ) ) {
+		return;
 	}
+
+	// Prieš atrišant modulį įsimenama, kuriuose puslapiuose jis buvo, kad
+	// grąžinus iš šiukšlinės priskyrimus būtų galima atkurti.
+	$page_keys = g5tech_module_page_keys( $post_id );
+
+	if ( $page_keys ) {
+		update_post_meta( $post_id, '_g5tech_module_pages_backup', $page_keys );
+	}
+
+	g5tech_remove_module_from_all_pages( $post_id );
 }
 add_action( 'trashed_post', 'g5tech_cleanup_deleted_module_placements' );
 add_action( 'before_delete_post', 'g5tech_cleanup_deleted_module_placements' );
+
+/**
+ * Grąžina modulio priskyrimus, kai jis atkuriamas iš šiukšlinės.
+ */
+function g5tech_restore_module_placements( $post_id ) {
+	if ( 'g5_module' !== get_post_type( $post_id ) ) {
+		return;
+	}
+
+	$page_keys = get_post_meta( $post_id, '_g5tech_module_pages_backup', true );
+
+	if ( ! is_array( $page_keys ) || ! $page_keys ) {
+		return;
+	}
+
+	$allowed = array();
+
+	foreach ( $page_keys as $page_key ) {
+		$page_key = sanitize_key( $page_key );
+
+		if ( isset( g5tech_module_page_choices()[ $page_key ] ) ) {
+			$allowed[] = $page_key;
+		}
+	}
+
+	if ( $allowed ) {
+		g5tech_set_module_pages( $post_id, $allowed );
+	}
+
+	delete_post_meta( $post_id, '_g5tech_module_pages_backup' );
+}
+add_action( 'untrashed_post', 'g5tech_restore_module_placements' );
 
 function g5tech_duplicate_content_module() {
 	$source_id = absint( $_GET['module_id'] ?? 0 );
@@ -1244,6 +1408,13 @@ add_action( 'manage_g5_module_posts_custom_column', 'g5tech_content_module_colum
 
 function g5tech_maybe_create_training_topics_module() {
 	if ( get_option( 'g5tech_content_modules_migrated_1' ) ) {
+		return;
+	}
+
+	// Migracija kuria įrašus, todėl ją gali paleisti tik tas, kas turi teisę
+	// juos kurti. Kitaip įrašų autoriumi taptų bet kuris pirmas į
+	// administraciją užėjęs vartotojas.
+	if ( ! current_user_can( 'edit_g5_modules' ) ) {
 		return;
 	}
 

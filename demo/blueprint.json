@@ -1,0 +1,47 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/",
+  "preferredVersions": { "php": "8.2", "wp": "latest" },
+  "features": { "networking": false },
+  "login": true,
+  "steps": [
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "url",
+        "url": "https://ukvedys.github.io/5gTech/demo/5gtech-theme-v1.zip"
+      },
+      "options": { "activate": true }
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "url",
+        "url": "https://ukvedys.github.io/5gTech/demo/5gtech-core-v1.zip"
+      },
+      "options": { "activate": true }
+    },
+    {
+      "step": "importWxr",
+      "file": {
+        "resource": "url",
+        "url": "https://ukvedys.github.io/5gTech/demo/content.xml"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/mu-plugins/5gtech-demo-seed.php",
+      "data": {
+        "resource": "url",
+        "url": "https://ukvedys.github.io/5gTech/demo/demo-seed.php"
+      }
+    },
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "permalink_structure": "/%postname%/",
+        "blogname": "5G TECH"
+      }
+    }
+  ]
+}

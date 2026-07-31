@@ -1,0 +1,1 @@
+{ "$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"g5tech/step","title":"Žingsnis","category":"theme","icon":"arrow-right-alt","parent":["g5tech/steps"],"supports":{"html":false,"reusable":false},"attributes":{"title":{"type":"string","default":""},"text":{"type":"string","default":""}},"textdomain":"5gtech-core","editorScript":"file:./index.js" }

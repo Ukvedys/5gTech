@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/partner-stats",
+  "title": "Įranga ir gamintojai",
+  "category": "theme",
+  "icon": "screenoptions",
+  "parent": [
+    "g5tech/section"
+  ],
+  "supports": {
+    "html": false,
+    "reusable": false
+  },
+  "attributes": {
+    "partnerIds": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "number"
+      }
+    },
+    "names": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

@@ -37,8 +37,11 @@ function g5tech_sanitize_repeater_items( $input, $schema, $max_items = 50 ) {
 		$has_content = false;
 
 		foreach ( $schema as $key => $field ) {
+			// Duomenys čia ateina jau po wp_unslash() kviečiančiojoje formoje
+			// (career, about, structured, Settings API), todėl antrą kartą
+			// jų atrišti negalima – dingtų pasvirieji brūkšniai.
 			$value = isset( $row[ $key ] ) && is_scalar( $row[ $key ] )
-				? wp_unslash( $row[ $key ] )
+				? (string) $row[ $key ]
 				: '';
 			$type  = isset( $field['type'] ) ? $field['type'] : 'text';
 

@@ -354,34 +354,64 @@ function g5tech_save_module_translations( $post_id ) {
 		return;
 	}
 
-	$translations = array();
-	$field_input = isset( $_POST['g5_module_i18n'] ) ? (array) wp_unslash( $_POST['g5_module_i18n'] ) : array();
-	$pair_input  = isset( $_POST['g5_module_i18n_pairs'] ) ? (array) wp_unslash( $_POST['g5_module_i18n_pairs'] ) : array();
+	// Jei formoje vertimų laukų iš viso nebuvo (modulis buvo juodraštis, jo
+	// tekstų nepavyko nuskaityti arba išsaugoma kitu keliu), esami vertimai
+	// paliekami nepaliesti. Anksčiau tokiu atveju jie būdavo ištrinami.
+	if ( ! isset( $_POST['g5_module_i18n'] ) && ! isset( $_POST['g5_module_i18n_pairs'] ) ) {
+		return;
+	}
+
+	$existing     = get_post_meta( $post_id, '_g5tech_module_translations', true );
+	$translations = is_array( $existing ) ? $existing : array();
+	$field_input  = isset( $_POST['g5_module_i18n'] ) ? (array) wp_unslash( $_POST['g5_module_i18n'] ) : array();
+	$pair_input   = isset( $_POST['g5_module_i18n_pairs'] ) ? (array) wp_unslash( $_POST['g5_module_i18n_pairs'] ) : array();
 
 	foreach ( g5tech_admin_translation_languages() as $language => $definition ) {
-		$fields = array();
+		$has_fields = isset( $field_input[ $language ] );
+		$has_pairs  = isset( $pair_input[ $language ] );
 
-		foreach ( array( 'eyebrow', 'heading', 'lead', 'content' ) as $key ) {
-			if ( isset( $field_input[ $language ][ $key ] ) ) {
-				$fields[ $key ] = sanitize_textarea_field( $field_input[ $language ][ $key ] );
-			}
+		// Tos kalbos formoje nebuvo – jos vertimai nekeičiami.
+		if ( ! $has_fields && ! $has_pairs ) {
+			continue;
 		}
 
-		$pairs = array();
-		foreach ( (array) ( $pair_input[ $language ] ?? array() ) as $item ) {
-			$source      = sanitize_textarea_field( $item['source'] ?? '' );
-			$translation = sanitize_textarea_field( $item['translation'] ?? '' );
+		$entry = isset( $translations[ $language ] ) && is_array( $translations[ $language ] )
+			? $translations[ $language ]
+			: array(
+				'fields' => array(),
+				'pairs'  => array(),
+			);
 
-			if ( '' !== $source && '' !== $translation && $translation !== $source ) {
-				$pairs[ $source ] = $translation;
+		if ( $has_fields ) {
+			$fields = array();
+
+			foreach ( array( 'eyebrow', 'heading', 'lead', 'content' ) as $key ) {
+				if ( isset( $field_input[ $language ][ $key ] ) ) {
+					$fields[ $key ] = sanitize_textarea_field( $field_input[ $language ][ $key ] );
+				}
 			}
+
+			$entry['fields'] = $fields;
 		}
 
-		$translations[ $language ] = array(
-			'fields'   => $fields,
-			'pairs'    => $pairs,
-			'updated'  => time(),
-		);
+		if ( $has_pairs ) {
+			$pairs = array();
+
+			foreach ( (array) $pair_input[ $language ] as $item ) {
+				$source      = sanitize_textarea_field( $item['source'] ?? '' );
+				$translation = sanitize_textarea_field( $item['translation'] ?? '' );
+
+				if ( '' !== $source && '' !== $translation && $translation !== $source ) {
+					$pairs[ $source ] = $translation;
+				}
+			}
+
+			$entry['pairs'] = $pairs;
+		}
+
+		$entry['updated'] = time();
+
+		$translations[ $language ] = $entry;
 	}
 
 	update_post_meta( $post_id, '_g5tech_module_translations', $translations );
@@ -621,11 +651,21 @@ function g5tech_save_admin_content_translations( $expected_context ) {
 		return false;
 	}
 
-	$payload = json_decode(
-		wp_unslash( (string) ( $_POST['g5tech_admin_i18n_payload'] ?? '' ) ),
-		true
-	);
-	$payload = is_array( $payload ) ? $payload : array();
+	$raw_payload = (string) ( $_POST['g5tech_admin_i18n_payload'] ?? '' );
+
+	// Tuščias arba sugadintas krovinys reiškia, kad naršyklės scenarijus
+	// nesuveikė – tokiu atveju esami vertimai paliekami nepaliesti.
+	// Sąmoningas išvalymas atsiunčia korektišką {"en":[],"de":[]}.
+	if ( '' === trim( $raw_payload ) ) {
+		return false;
+	}
+
+	$payload = json_decode( wp_unslash( $raw_payload ), true );
+
+	if ( ! is_array( $payload ) ) {
+		return false;
+	}
+
 	$clean   = array(
 		'en' => array(),
 		'de' => array(),

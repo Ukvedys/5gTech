@@ -168,6 +168,7 @@
 			} );
 
 			form.dataset.g5PageI18nLanguage = language;
+			updateStructuralControls( language );
 			updateTabs();
 
 			if ( window.history && window.history.replaceState ) {
@@ -180,6 +181,53 @@
 				window.localStorage.setItem( 'g5tech-admin-language-' + context, language );
 			} catch ( error ) {
 				// Naršyklė gali neleisti naudoti localStorage; redagavimas vis tiek veikia.
+			}
+		}
+
+		/**
+		 * Kartotinių elementų struktūra kuriama tik lietuvių kalbos režimu.
+		 * EN ir DE režimu pridėjimo, šalinimo ir tempimo valdikliai paslepiami,
+		 * kad naujai sukurta eilutė nebūtų įrašyta kaip lietuviškas šaltinis.
+		 */
+		function updateStructuralControls( language ) {
+			const isSource = 'lt' === language;
+			const structural = form.querySelectorAll(
+				'.g5tech-repeater__add, .g5tech-repeater__remove, .g5tech-repeater__handle'
+			);
+
+			structural.forEach( function ( control ) {
+				control.hidden = ! isSource;
+				control.setAttribute( 'aria-hidden', isSource ? 'false' : 'true' );
+
+				if ( 'BUTTON' === control.tagName || 'INPUT' === control.tagName ) {
+					control.disabled = ! isSource;
+				}
+			} );
+
+			form.querySelectorAll( '.g5tech-repeater' ).forEach( function ( repeater ) {
+				repeater.classList.toggle( 'g5tech-repeater--translation-mode', ! isSource );
+
+				if ( window.jQuery && window.jQuery( repeater ).data( 'ui-sortable' ) ) {
+					window.jQuery( repeater ).sortable( isSource ? 'enable' : 'disable' );
+				}
+			} );
+
+			let notice = form.querySelector( '[data-g5-i18n-structure-notice]' );
+
+			if ( ! isSource && ! notice && structural.length ) {
+				notice = document.createElement( 'p' );
+				notice.className = 'description';
+				notice.setAttribute( 'data-g5-i18n-structure-notice', '' );
+				notice.textContent = 'Verčiamas esamų elementų tekstas. Pridėti, šalinti ar perrikiuoti elementus galima tik LT režimu.';
+				const firstRepeater = form.querySelector( '.g5tech-repeater' );
+
+				if ( firstRepeater && firstRepeater.parentNode ) {
+					firstRepeater.parentNode.insertBefore( notice, firstRepeater );
+				}
+			}
+
+			if ( notice ) {
+				notice.hidden = isSource;
 			}
 		}
 
@@ -204,6 +252,7 @@
 		} );
 
 		form.dataset.g5PageI18nLanguage = 'lt';
+		updateStructuralControls( 'lt' );
 		updateTabs();
 
 		form.addEventListener( 'submit', function () {

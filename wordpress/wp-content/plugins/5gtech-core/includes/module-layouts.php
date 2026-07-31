@@ -503,6 +503,12 @@ function g5tech_seed_builtin_modules() {
 		return;
 	}
 
+	// Sėjama tik turint teisę kurti modulius: kitaip 38 įrašų autoriumi taptų
+	// bet kuris pirmas į administraciją užėjęs vartotojas.
+	if ( ! current_user_can( 'edit_g5_modules' ) ) {
+		return;
+	}
+
 	$definitions = g5tech_builtin_module_definitions();
 	$page_modules = array_fill_keys( array_keys( g5tech_module_page_choices() ), array() );
 

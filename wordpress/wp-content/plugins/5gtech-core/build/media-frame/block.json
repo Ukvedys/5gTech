@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/media-frame",
+  "title": "Nuotrauka rėmelyje",
+  "category": "theme",
+  "icon": "format-image",
+  "parent": [
+    "g5tech/section"
+  ],
+  "supports": {
+    "html": false,
+    "reusable": false
+  },
+  "attributes": {
+    "imageId": {
+      "type": "number",
+      "default": 0
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "alt": {
+      "type": "string",
+      "default": ""
+    },
+    "ratio": {
+      "type": "string",
+      "default": "16 / 8"
+    },
+    "themeFallback": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

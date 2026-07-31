@@ -2,7 +2,7 @@
 /**
  * Plugin Name: 5G TECH Core
  * Description: 5G TECH paslaugų turinio struktūra ir svetainės blokai.
- * Version: 0.12.0
+ * Version: 0.14.0
  * Requires at least: 6.7
  * Requires PHP: 8.1
  * Author: Object
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'G5TECH_CORE_VERSION', '0.12.0' );
+define( 'G5TECH_CORE_VERSION', '0.14.0' );
 define( 'G5TECH_CORE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'G5TECH_CORE_URL', plugin_dir_url( __FILE__ ) );
 
@@ -40,6 +40,9 @@ require_once G5TECH_CORE_DIR . 'includes/service-blocks.php';
 require_once G5TECH_CORE_DIR . 'includes/site-blocks.php';
 require_once G5TECH_CORE_DIR . 'includes/admin.php';
 require_once G5TECH_CORE_DIR . 'includes/seo.php';
+require_once G5TECH_CORE_DIR . 'includes/content-blocks.php';
+require_once G5TECH_CORE_DIR . 'includes/editor-curation.php';
+require_once G5TECH_CORE_DIR . 'includes/migrations.php';
 
 function g5tech_core_activate() {
 	g5tech_sync_editor_roles();

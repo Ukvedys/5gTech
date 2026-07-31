@@ -5,3 +5,6 @@
 /wordpress/wp-content/uploads/
 /wordpress/wp-content/plugins/sqlite-database-integration/
 
+
+# Blokų kūrimo priklausomybės — neversijuojamos
+node_modules/

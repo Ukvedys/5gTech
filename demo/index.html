@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>5G TECH — svetainės demonstracija</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center;
+    background: #063354; color: #fff; padding: 32px;
+    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  .card { max-width: 620px; text-align: center; }
+  .mark { display: inline-block; width: 10px; height: 10px; background: #ec0062; margin-bottom: 24px; }
+  h1 { font-size: clamp(28px, 5vw, 42px); line-height: 1.1; margin: 0 0 16px; font-weight: 500; }
+  p { line-height: 1.7; color: #cfe0ee; margin: 0 0 14px; }
+  .note { font-size: 14px; color: #9db6cc; margin-top: 28px; }
+  .spinner {
+    width: 34px; height: 34px; margin: 28px auto 0; border-radius: 50%;
+    border: 3px solid rgba(255,255,255,.2); border-top-color: #ec0062;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  a { color: #fff; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="mark"></span>
+    <h1>Kraunama 5G TECH svetainė</h1>
+    <p>Paleidžiamas tikras WordPress tiesiai naršyklėje. Pirmas kartas gali užtrukti apie minutę — parsiunčiama tema, papildinys ir turinys.</p>
+    <div class="spinner"></div>
+    <p class="note">
+      Demonstracinė versija: pakeitimai neišsaugomi, formos ir el. laiškai neveikia.<br>
+      Jei automatiškai neperkelia — <a id="manual" href="#">spauskite čia</a>.
+    </p>
+  </div>
+<script>
+  var blueprint = "https://ukvedys.github.io/5gTech/demo/blueprint.json";
+  var target = "https://playground.wordpress.net/?blueprint-url=" + encodeURIComponent(blueprint);
+  document.getElementById("manual").href = target;
+  window.location.replace(target);
+</script>
+</body>
+</html>

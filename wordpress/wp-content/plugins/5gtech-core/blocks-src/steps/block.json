@@ -1,0 +1,1 @@
+{ "$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"g5tech/steps","title":"Numeruoti žingsniai","category":"theme","icon":"editor-ol","parent":["g5tech/section"],"allowedBlocks":["g5tech/step"],"supports":{"html":false,"reusable":false},"textdomain":"5gtech-core","editorScript":"file:./index.js" }

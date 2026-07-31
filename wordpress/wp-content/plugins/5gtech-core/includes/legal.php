@@ -39,6 +39,135 @@ function g5tech_register_legal_blocks() {
 }
 add_action( 'init', 'g5tech_register_legal_blocks' );
 
+/**
+ * Redaguojami teisinių puslapių blokai.
+ *
+ * Šie blokai naudoja WP 7.0 PHP-only registraciją (`autoRegister`), todėl
+ * tekstiniai atributai redaktoriuje automatiškai gauna laukus, o pats blokas
+ * piešiamas serveryje. Rekvizitai ir el. paštas lieka bendruose nustatymuose,
+ * kad nebūtų dubliuojami teisiniame tekste.
+ */
+function g5tech_register_legal_content_blocks() {
+	register_block_type(
+		'g5tech/legal-hero',
+		array(
+			'api_version'     => 3,
+			'title'           => 'Teisinio puslapio antraštė',
+			'category'        => 'theme',
+			'attributes'      => array(
+				'eyebrow' => array(
+					'type'    => 'string',
+					'default' => 'Teisinė informacija',
+				),
+				'title'   => array(
+					'type'    => 'string',
+					'default' => '',
+				),
+				'lead'    => array(
+					'type'    => 'string',
+					'default' => '',
+				),
+			),
+			'render_callback' => 'g5tech_render_legal_hero_block',
+			'supports'        => array(
+				'autoRegister' => true,
+				'html'         => false,
+			),
+		)
+	);
+
+	register_block_type(
+		'g5tech/company-line',
+		array(
+			'api_version'     => 3,
+			'title'           => 'Įmonės rekvizitai (iš nustatymų)',
+			'category'        => 'theme',
+			'render_callback' => 'g5tech_render_company_line_block',
+			'supports'        => array(
+				'autoRegister' => true,
+				'html'         => false,
+			),
+		)
+	);
+
+	register_block_type(
+		'g5tech/contact-email',
+		array(
+			'api_version'     => 3,
+			'title'           => 'Kontaktinis el. paštas (iš nustatymų)',
+			'category'        => 'theme',
+			'attributes'      => array(
+				'intro' => array(
+					'type'    => 'string',
+					'default' => 'Klausimais rašykite',
+				),
+			),
+			'render_callback' => 'g5tech_render_contact_email_block',
+			'supports'        => array(
+				'autoRegister' => true,
+				'html'         => false,
+			),
+		)
+	);
+}
+add_action( 'init', 'g5tech_register_legal_content_blocks' );
+
+function g5tech_render_legal_hero_block( $attributes = array() ) {
+	$eyebrow = isset( $attributes['eyebrow'] ) ? (string) $attributes['eyebrow'] : '';
+	$title   = isset( $attributes['title'] ) ? (string) $attributes['title'] : '';
+	$lead    = isset( $attributes['lead'] ) ? (string) $attributes['lead'] : '';
+
+	ob_start();
+	?>
+	<section class="inner-hero inner-hero--compact g5-grid-lines g5-grid-lines--dark" aria-labelledby="page-title">
+		<div class="g5-container g5-grid"><div class="inner-hero__copy">
+			<?php if ( '' !== $eyebrow ) : ?>
+				<div class="g5-eyebrow"><?php echo esc_html( $eyebrow ); ?></div>
+			<?php endif; ?>
+			<h1 class="g5-display-xl" id="page-title"><?php echo esc_html( $title ); ?></h1>
+			<?php if ( '' !== $lead ) : ?>
+				<p class="g5-body-lg"><?php echo esc_html( $lead ); ?></p>
+			<?php endif; ?>
+		</div></div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+function g5tech_render_company_line_block() {
+	$address      = g5tech_setting( 'address' );
+	$company_code = g5tech_setting( 'company_code' );
+
+	$line = 'UAB „5GTECH“';
+
+	if ( $company_code ) {
+		$line .= ', įmonės kodas ' . $company_code;
+	}
+
+	if ( $address ) {
+		$line .= ', ' . str_replace( "\n", ', ', $address );
+	}
+
+	return '<p>' . esc_html( $line ) . '.</p>';
+}
+
+function g5tech_render_contact_email_block( $attributes = array() ) {
+	$intro = isset( $attributes['intro'] ) ? (string) $attributes['intro'] : '';
+	$email = sanitize_email( g5tech_setting( 'email' ) ) ?: sanitize_email( get_option( 'admin_email' ) );
+
+	if ( ! $email ) {
+		return '';
+	}
+
+	return sprintf(
+		'<p>%s <a href="mailto:%s">%s</a>.</p>',
+		esc_html( $intro ),
+		esc_attr( antispambot( $email ) ),
+		esc_html( antispambot( $email ) )
+	);
+}
+
 function g5tech_legal_hero( $title, $lead ) {
 	?>
 	<section class="inner-hero inner-hero--compact g5-grid-lines g5-grid-lines--dark" aria-labelledby="page-title">

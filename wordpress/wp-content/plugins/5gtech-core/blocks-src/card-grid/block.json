@@ -1,0 +1,13 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/card-grid",
+  "title": "Kortelių tinklelis",
+  "category": "theme",
+  "icon": "grid-view",
+  "parent": [ "g5tech/section" ],
+  "allowedBlocks": [ "g5tech/card" ],
+  "supports": { "html": false, "reusable": false },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

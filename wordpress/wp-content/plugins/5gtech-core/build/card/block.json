@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/card",
+  "title": "Kortelė",
+  "category": "theme",
+  "icon": "index-card",
+  "parent": [
+    "g5tech/card-grid"
+  ],
+  "supports": {
+    "html": false,
+    "reusable": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "text": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

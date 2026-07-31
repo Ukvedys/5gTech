@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=window.wp.blocks,t=window.wp.blockEditor,s=JSON.parse('{"UU":"g5tech/steps"}'),o=window.ReactJSXRuntime;(0,e.registerBlockType)(s.UU,{edit(){const e=(0,t.useInnerBlocksProps)((0,t.useBlockProps)({className:"g5-editor-steps"}),{template:[["g5tech/step"],["g5tech/step"]],orientation:"vertical"});return(0,o.jsx)("div",{...e})},save:()=>null})})();
