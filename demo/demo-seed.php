@@ -402,3 +402,40 @@ add_action( 'init', function () {
 
 	update_option( 'g5tech_demo_seeded', 1 );
 }, 5 );
+
+/**
+ * Nustato svetainės logotipą.
+ *
+ * Tema jį ima per `wp:site-logo` bloką, kuris skaito atskirą `site_logo`
+ * opciją. Nei turinio importas, nei nustatymų perkėlimas jos nenustato,
+ * todėl logotipas surandamas medijos bibliotekoje pagal failo vardą.
+ *
+ * Tikrinama atskirai nuo bendro seed'o, kad suveiktų ir tada, kai
+ * nustatymai jau perkelti anksčiau.
+ */
+add_action( 'init', function () {
+	if ( get_option( 'site_logo' ) ) {
+		return;
+	}
+
+	$found = get_posts(
+		array(
+			'post_type'      => 'attachment',
+			'post_status'    => 'inherit',
+			'posts_per_page' => 1,
+			'orderby'        => 'ID',
+			'order'          => 'ASC',
+			'meta_query'     => array(
+				array(
+					'key'     => '_wp_attached_file',
+					'value'   => '5gtech-logo-white',
+					'compare' => 'LIKE',
+				),
+			),
+		)
+	);
+
+	if ( $found ) {
+		update_option( 'site_logo', (int) $found[0]->ID );
+	}
+}, 6 );
