@@ -4,8 +4,8 @@
   "private": true,
   "description": "5G TECH turinio blokai",
   "scripts": {
-    "build": "wp-scripts build --output-path=build",
-    "start": "wp-scripts start --output-path=build"
+    "build": "wp-scripts build --webpack-src-dir=blocks-src --output-path=build",
+    "start": "wp-scripts start --webpack-src-dir=blocks-src --output-path=build"
   },
   "devDependencies": {
     "@wordpress/scripts": "^34.0.0"
