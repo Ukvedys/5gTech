@@ -8,3 +8,6 @@
 
 # Blokų kūrimo priklausomybės — neversijuojamos
 node_modules/
+
+# Laikini darbiniai failai
+tmp/
