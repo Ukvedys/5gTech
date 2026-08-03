@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/about-competence",
+  "title": "Apie mus · kompetencijos",
+  "category": "theme",
+  "icon": "yes-alt",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "multiple": false
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

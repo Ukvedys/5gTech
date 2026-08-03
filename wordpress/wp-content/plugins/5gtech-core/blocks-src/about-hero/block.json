@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/about-hero",
+  "title": "Apie mus · antraštė",
+  "category": "theme",
+  "icon": "cover-image",
+  "description": "Puslapio viršus su faktų juosta. Skaičiai imami iš „5G TECH nustatymų“.",
+  "supports": { "html": false, "reusable": false, "multiple": false },
+  "attributes": {
+    "eyebrow":      { "type": "string", "default": "" },
+    "title":        { "type": "string", "default": "" },
+    "lead":         { "type": "string", "default": "" },
+    "metric4Value": { "type": "string", "default": "ISO / SSVA" },
+    "metric4Label": { "type": "string", "default": "standartai ir rangovo kvalifikacija" }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

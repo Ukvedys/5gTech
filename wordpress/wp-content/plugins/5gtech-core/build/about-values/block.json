@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/about-values",
+  "title": "Apie mus · vertybės",
+  "category": "theme",
+  "icon": "heart",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "multiple": false
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "cultureLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "cultureTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "cultureText": {
+      "type": "string",
+      "default": ""
+    },
+    "cultureButtonLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "cultureUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

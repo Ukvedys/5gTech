@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/home-experience",
+  "title": "Titulinis · patirtis ir geografija",
+  "category": "theme",
+  "icon": "admin-site-alt3",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "multiple": false
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Patirties geografija"
+    },
+    "title": {
+      "type": "string",
+      "default": "Patirtis šešiose Europos šalyse."
+    },
+    "imageId": {
+      "type": "integer",
+      "default": 0
+    },
+    "mapAlt": {
+      "type": "string",
+      "default": "5G TECH veiklos Europoje žemėlapis: Lietuva, Vokietija, Švedija, Norvegija, Danija ir Suomija"
+    }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

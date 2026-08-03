@@ -1,0 +1,1 @@
+{ "$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"g5tech/home-sections","title":"Titulinio sekcijos","category":"theme","icon":"editor-table","description":"Titulinio sekcijų konteineris — tvarka keičiama velkant sekcijas.","supports":{"html":false,"reusable":false,"multiple":false},"textdomain":"5gtech-core","editorScript":"file:./index.js" }

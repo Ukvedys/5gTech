@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/labeled-item",
+  "title": "Sąrašo įrašas",
+  "category": "theme",
+  "icon": "editor-ul",
+  "parent": [ "g5tech/about-story", "g5tech/about-values", "g5tech/about-strategy", "g5tech/about-competence" ],
+  "supports": { "html": false, "reusable": false },
+  "attributes": {
+    "label": { "type": "string", "default": "" },
+    "title": { "type": "string", "default": "" },
+    "text":  { "type": "string", "default": "" }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

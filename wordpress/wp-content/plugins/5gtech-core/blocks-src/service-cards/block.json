@@ -1,0 +1,1 @@
+{ "$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"g5tech/service-cards","title":"Paslaugų kortelės","category":"theme","icon":"screenoptions","description":"Visų paslaugų kortelės iš skilties „Paslaugos“.","parent":["g5tech/section"],"supports":{"html":false,"reusable":false,"multiple":false},"textdomain":"5gtech-core","editorScript":"file:./index.js" }

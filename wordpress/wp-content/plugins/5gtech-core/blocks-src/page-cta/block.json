@@ -40,7 +40,8 @@
       "default": "internal",
       "enum": [
         "internal",
-        "site"
+        "site",
+        "team"
       ]
     },
     "anchorId": {

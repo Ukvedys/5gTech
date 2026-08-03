@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/about-purpose",
+  "title": "Apie mus · misija ir vizija",
+  "category": "theme",
+  "icon": "flag",
+  "supports": { "html": false, "reusable": false, "multiple": false },
+  "attributes": {
+    "eyebrow":      { "type": "string", "default": "" },
+    "title":        { "type": "string", "default": "" },
+    "missionLabel": { "type": "string", "default": "Misija" },
+    "missionTitle": { "type": "string", "default": "" },
+    "missionText":  { "type": "string", "default": "" },
+    "visionLabel":  { "type": "string", "default": "Vizija" },
+    "visionTitle":  { "type": "string", "default": "" },
+    "visionText":   { "type": "string", "default": "" }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

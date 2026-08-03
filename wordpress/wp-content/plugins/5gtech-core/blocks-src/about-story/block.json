@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/about-story",
+  "title": "Apie mus · istorija",
+  "category": "theme",
+  "icon": "book",
+  "supports": { "html": false, "reusable": false, "multiple": false },
+  "attributes": {
+    "eyebrow":  { "type": "string", "default": "" },
+    "title":    { "type": "string", "default": "" },
+    "lead":     { "type": "string", "default": "" },
+    "body1":    { "type": "string", "default": "" },
+    "body2":    { "type": "string", "default": "" },
+    "body3":    { "type": "string", "default": "" },
+    "image1Id": { "type": "integer", "default": 0 },
+    "image2Id": { "type": "integer", "default": 0 },
+    "caption1": { "type": "string", "default": "" },
+    "caption2": { "type": "string", "default": "" }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

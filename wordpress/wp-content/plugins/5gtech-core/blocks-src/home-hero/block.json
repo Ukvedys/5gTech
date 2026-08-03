@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/home-hero",
+  "title": "Titulinis · didysis ekranas",
+  "category": "theme",
+  "icon": "cover-image",
+  "supports": { "html": false, "reusable": false, "multiple": false },
+  "attributes": {
+    "eyebrow":      { "type": "string", "default": "" },
+    "title":        { "type": "string", "default": "" },
+    "lead":         { "type": "string", "default": "" },
+    "button1Label": { "type": "string", "default": "Aptarkime jūsų projektą" },
+    "button2Label": { "type": "string", "default": "Peržiūrėti paslaugas" },
+    "metaValue3":   { "type": "string", "default": "ISO 9001 / 14001 / 45001" },
+    "metaLabel3":   { "type": "string", "default": "sertifikuoti procesai" }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

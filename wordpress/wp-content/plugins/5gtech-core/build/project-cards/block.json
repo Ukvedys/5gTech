@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/project-cards",
+  "title": "Projektų kortelės",
+  "category": "theme",
+  "icon": "portfolio",
+  "description": "Visų projektų kortelės iš skilties „Projektai“.",
+  "parent": [
+    "g5tech/section"
+  ],
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "multiple": false
+  },
+  "attributes": {
+    "emptyText": {
+      "type": "string",
+      "default": "Projektų informacija ruošiama."
+    }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

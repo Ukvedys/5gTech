@@ -881,6 +881,274 @@ function g5tech_experience_page_block_content() {
 	);
 }
 
+/**
+ * Pagalbinė: žymos/antraštės/teksto įrašų blokai.
+ */
+function g5tech_labeled_items_markup( $rows ) {
+	$out = array();
+
+	foreach ( (array) $rows as $row ) {
+		$out[] = g5tech_block_markup(
+			'g5tech/labeled-item',
+			array(
+				'label' => (string) ( $row['label'] ?? '' ),
+				'title' => (string) ( $row['title'] ?? '' ),
+				'text'  => (string) ( $row['text'] ?? '' ),
+			)
+		);
+	}
+
+	return implode( "\n", $out );
+}
+
+/**
+ * „Apie mus“ puslapio turinys blokais. Tekstai imami iš esamos turinio opcijos.
+ */
+function g5tech_about_page_block_content() {
+	if ( ! function_exists( 'g5tech_about_content' ) ) {
+		return '';
+	}
+
+	$about       = g5tech_about_content();
+	$contact_url = function_exists( 'g5tech_setting' )
+		? (string) g5tech_setting( 'contact_page_url', '/kontaktai/' )
+		: '/kontaktai/';
+
+	// Faktų žymos saugomos be numerio — numeruoja atvaizdavimas.
+	$strip_number = static function ( $rows ) {
+		return array_map(
+			static function ( $row ) {
+				$row['label'] = preg_replace( '/^\d+\s*\/\s*/', '', (string) ( $row['label'] ?? '' ) );
+				return $row;
+			},
+			(array) $rows
+		);
+	};
+
+	return implode(
+		"\n\n",
+		array(
+			g5tech_block_markup(
+				'g5tech/about-hero',
+				array(
+					'eyebrow' => (string) $about['hero_eyebrow'],
+					'title'   => (string) $about['hero_title'],
+					'lead'    => (string) $about['hero_lead'],
+					'lock'    => array( 'move' => true, 'remove' => true ),
+				)
+			),
+			g5tech_block_markup(
+				'g5tech/about-story',
+				array(
+					'eyebrow'  => (string) $about['story_eyebrow'],
+					'title'    => (string) $about['story_title'],
+					'lead'     => (string) $about['story_lead'],
+					'body1'    => (string) $about['story_body_1'],
+					'body2'    => (string) $about['story_body_2'],
+					'body3'    => (string) $about['story_body_3'],
+					'image1Id' => absint( $about['story_image_1_id'] ),
+					'image2Id' => absint( $about['story_image_2_id'] ),
+					'caption1' => (string) $about['story_image_1_caption'],
+					'caption2' => (string) $about['story_image_2_caption'],
+				),
+				g5tech_labeled_items_markup( $strip_number( $about['story_facts'] ) )
+			),
+			g5tech_block_markup(
+				'g5tech/about-purpose',
+				array(
+					'eyebrow'      => (string) $about['purpose_eyebrow'],
+					'title'        => (string) $about['purpose_title'],
+					'missionLabel' => (string) $about['mission_label'],
+					'missionTitle' => (string) $about['mission_title'],
+					'missionText'  => (string) $about['mission_text'],
+					'visionLabel'  => (string) $about['vision_label'],
+					'visionTitle'  => (string) $about['vision_title'],
+					'visionText'   => (string) $about['vision_text'],
+				)
+			),
+			g5tech_block_markup(
+				'g5tech/about-values',
+				array(
+					'eyebrow'            => (string) $about['values_eyebrow'],
+					'title'              => (string) $about['values_title'],
+					'cultureLabel'       => (string) $about['culture_label'],
+					'cultureTitle'       => (string) $about['culture_title'],
+					'cultureText'        => (string) $about['culture_text'],
+					'cultureButtonLabel' => (string) $about['culture_button_label'],
+					'cultureUrl'         => (string) $about['culture_url'],
+				),
+				g5tech_labeled_items_markup( $about['values'] )
+			),
+			g5tech_block_markup(
+				'g5tech/about-team',
+				array(
+					'eyebrow' => (string) $about['team_eyebrow'],
+					'title'   => (string) $about['team_title'],
+				)
+			),
+			g5tech_block_markup(
+				'g5tech/about-strategy',
+				array(
+					'eyebrow' => (string) $about['strategy_eyebrow'],
+					'title'   => (string) $about['strategy_title'],
+					'lead'    => (string) $about['strategy_lead'],
+				),
+				g5tech_labeled_items_markup( $strip_number( $about['strategies'] ) )
+			),
+			g5tech_block_markup(
+				'g5tech/about-competence',
+				array(
+					'eyebrow' => (string) $about['competence_eyebrow'],
+					'title'   => (string) $about['competence_title'],
+				),
+				g5tech_labeled_items_markup( $about['competences'] )
+			),
+			g5tech_block_markup(
+				'g5tech/page-cta',
+				array(
+					'eyebrow'     => (string) $about['cta_eyebrow'],
+					'title'       => (string) $about['cta_title'],
+					'body'        => (string) $about['cta_text'],
+					'buttonLabel' => (string) $about['cta_button_label'],
+					'buttonUrl'   => $contact_url,
+					'dialect'     => 'team',
+					'anchorId'    => 'team-cta-title',
+					'lock'        => array( 'move' => true, 'remove' => true ),
+				)
+			),
+		)
+	);
+}
+
+/**
+ * Titulinio puslapio turinys blokais. Tekstai imami iš nustatymų ir
+ * struktūrinio turinio, skaidrės — iš temos failų arba pasirinktos nuotraukos.
+ */
+function g5tech_homepage_block_content() {
+	if ( ! function_exists( 'g5tech_setting' ) || ! function_exists( 'g5tech_structured_section' ) ) {
+		return '';
+	}
+
+	$audiences = g5tech_structured_section( 'home_audiences' );
+	$front_id  = (int) get_option( 'page_on_front' );
+	$hero_id   = (int) get_post_thumbnail_id( $front_id );
+
+	$slides = array(
+		array( 'imageId' => $hero_id, 'themeFile' => 'assets/images/home/hero-sky-worker.png', 'title' => 'Mobiliojo ryšio tinklai', 'alt' => '5G TECH specialistas dirba mobiliojo ryšio bokšte kalnų fone' ),
+		array( 'imageId' => 0, 'themeFile' => 'assets/images/home/hero-indoor-networks.jpg', 'title' => 'Vidinio ryšio tinklai', 'alt' => 'Specialistas montuoja vidinio mobiliojo ryšio anteną prie modernaus pastato' ),
+		array( 'imageId' => 0, 'themeFile' => 'assets/images/home/hero-fixed-networks.jpg', 'title' => 'Fiksuoto ryšio tinklai', 'alt' => 'Specialistas tvarko šviesolaidinio ryšio įrangą lauko skirstomojoje spintoje' ),
+		array( 'imageId' => 0, 'themeFile' => 'assets/images/home/hero-electrical.jpg', 'title' => 'Elektros darbai', 'alt' => 'Elektrikas tikrina pramoninę elektros skirstomąją spintą' ),
+		array( 'imageId' => 0, 'themeFile' => 'assets/images/home/hero-security.jpg', 'title' => 'Apsaugos sistemos', 'alt' => 'Specialistas montuoja lauko vaizdo stebėjimo kamerą' ),
+		array( 'imageId' => 0, 'themeFile' => 'assets/images/home/hero-solar.jpg', 'title' => 'Saulės elektrinės', 'alt' => 'Specialistas montuoja saulės modulius ant komercinio objekto stogo' ),
+	);
+
+	$slide_blocks = array();
+
+	foreach ( $slides as $slide ) {
+		$slide_blocks[] = g5tech_block_markup( 'g5tech/hero-slide', $slide );
+	}
+
+	$audience_blocks = array();
+
+	foreach ( (array) $audiences['cards'] as $card ) {
+		$audience_blocks[] = g5tech_block_markup(
+			'g5tech/audience-item',
+			array(
+				'label' => (string) ( $card['label'] ?? '' ),
+				'title' => (string) ( $card['title'] ?? '' ),
+				'text'  => (string) ( $card['text'] ?? '' ),
+				'url'   => (string) ( $card['url'] ?? '' ),
+			)
+		);
+	}
+
+	// Sekcijos dedamos nustatymuose įrašyta tvarka; paslėptos sekcijos
+	// tiesiog neįtraukiamos — nuo šiol tvarką ir matomumą valdo blokai.
+	$sections = array(
+		'intro'     => array( 1, g5tech_block_markup( 'g5tech/home-intro', array(
+			'eyebrow'  => 'Nuo poreikio iki rezultato',
+			'title'    => 'Kiekvienas projektas prasideda nuo konkretaus poreikio.',
+			'body'     => 'Skiriasi objektai, šalys ir technologijos, tačiau užsakovui visada svarbu, kas prisiims atsakomybę už techninius sprendimus, terminus ir kokybę.',
+			'imageAlt' => 'Telekomunikacijų, apsaugos, elektros ir saulės energetikos infrastruktūros linijinė iliustracija',
+		) ) ),
+		'services'  => array( 2, g5tech_block_markup( 'g5tech/home-services', array( 'title' => 'Paslaugos' ) ) ),
+		'standards' => array( 3, g5tech_block_markup( 'g5tech/home-standards', array(
+			'eyebrow' => 'Darbo standartas',
+			'title'   => 'ISO standartai ir SSVA kvalifikacija.',
+		) ) ),
+		'process'   => array( 4, g5tech_block_markup( 'g5tech/home-process', array(
+			'eyebrow' => 'Kaip dirbame',
+			'title'   => 'Patikimas rezultatas kuriamas kiekviename projekto etape.',
+		) ) ),
+		'experience' => array( 5, g5tech_block_markup( 'g5tech/home-experience', array(
+			'eyebrow' => 'Patirties geografija',
+			'title'   => 'Patirtis šešiose Europos šalyse.',
+		) ) ),
+		'equipment' => array( 6, g5tech_block_markup( 'g5tech/home-equipment', array(
+			'eyebrow' => 'Partneriai',
+			'title'   => 'Gamintojai, su kurių įranga dirbame.',
+		) ) ),
+		'team'      => array( 7, g5tech_block_markup( 'g5tech/home-team', array(
+			'eyebrow'   => 'Žmonės, kurie atsako už rezultatą',
+			'title'     => 'Patirtis turi vardą, kompetenciją ir atsakomybę.',
+			'copy'      => 'Susipažinkite su žmonėmis, kurie planuoja, įgyvendina ir tikrina projektus.',
+			'linkLabel' => 'Susipažinti su visa komanda',
+		) ) ),
+		'audiences' => array( 8, g5tech_block_markup( 'g5tech/home-audiences', array(
+			'title' => (string) $audiences['title'],
+			'lead'  => (string) $audiences['lead'],
+		), implode( "\n", $audience_blocks ) ) ),
+		'news'      => array( 9, g5tech_block_markup( 'g5tech/home-news', array(
+			'title' => 'Projektai, komanda ir techninės įžvalgos.',
+		) ) ),
+	);
+
+	$visible = array();
+
+	foreach ( $sections as $key => $definition ) {
+		if ( ! g5tech_home_section_is_visible( $key ) ) {
+			continue;
+		}
+
+		$visible[ $key ] = array( g5tech_home_section_order( $key, $definition[0] ), $definition[1] );
+	}
+
+	uasort(
+		$visible,
+		static function ( $first, $second ) {
+			return $first[0] <=> $second[0];
+		}
+	);
+
+	$section_markup = implode( "\n\n", array_column( $visible, 1 ) );
+
+	return implode(
+		"\n\n",
+		array(
+			g5tech_block_markup(
+				'g5tech/home-hero',
+				array(
+					'eyebrow' => (string) g5tech_setting( 'home_hero_eyebrow' ),
+					'title'   => (string) g5tech_setting( 'home_hero_title' ),
+					'lead'    => (string) g5tech_setting( 'home_hero_lead' ),
+					'lock'    => array( 'move' => true, 'remove' => true ),
+				),
+				implode( "\n", $slide_blocks )
+			),
+			g5tech_block_markup( 'g5tech/home-sections', array(), $section_markup ),
+			g5tech_block_markup(
+				'g5tech/home-cta',
+				array(
+					'eyebrow' => 'Pradėkime nuo pokalbio',
+					'title'   => 'Aptarkime jūsų projektą.',
+					'body'    => 'Trumpai aprašykite projektą arba techninę užduotį. Įvertinsime darbų apimtį ir pasiūlysime tolesnius veiksmus.',
+					'lock'    => array( 'move' => true, 'remove' => true ),
+				)
+			),
+		)
+	);
+}
+
 function g5tech_migrate_content_pages_to_blocks() {
 	if ( ! current_user_can( 'edit_pages' ) ) {
 		return;
@@ -900,6 +1168,8 @@ function g5tech_migrate_content_pages_to_blocks() {
 		'kandidatuoti'      => array( 'legacy' => 'g5tech/application-page',      'page_key' => '',                 'builder' => 'g5tech_application_page_block_content' ),
 		'karjera'           => array( 'legacy' => 'g5tech/career-page',           'page_key' => 'career',           'builder' => 'g5tech_career_page_block_content' ),
 		'patirtis'          => array( 'legacy' => 'g5tech/experience-page',       'page_key' => 'experience',       'builder' => 'g5tech_experience_page_block_content' ),
+		'apie-mus'          => array( 'legacy' => 'g5tech/about-page',            'page_key' => 'about',            'builder' => 'g5tech_about_page_block_content' ),
+		'pagrindinis'       => array( 'legacy' => 'g5tech/homepage',              'page_key' => 'home',             'builder' => 'g5tech_homepage_block_content' ),
 	);
 
 	foreach ( $pages as $slug => $definition ) {

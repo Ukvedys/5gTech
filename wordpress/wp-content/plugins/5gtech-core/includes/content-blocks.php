@@ -54,6 +54,31 @@ function g5tech_register_content_blocks() {
 		'partner-tag-split'  => 'g5tech_render_partner_tag_split_block',
 		'projects-preview'   => 'g5tech_render_projects_preview_block',
 		'geo-section'        => 'g5tech_render_geo_section_block',
+		'about-hero'         => 'g5tech_render_about_hero_block',
+		'about-story'        => 'g5tech_render_about_story_block',
+		'about-purpose'      => 'g5tech_render_about_purpose_block',
+		'about-values'       => 'g5tech_render_about_values_block',
+		'about-team'         => 'g5tech_render_about_team_block',
+		'about-strategy'     => 'g5tech_render_about_strategy_block',
+		'about-competence'   => 'g5tech_render_about_competence_block',
+		'labeled-item'       => 'g5tech_render_labeled_item_block',
+		'home-hero'          => 'g5tech_render_home_hero_block',
+		'hero-slide'         => 'g5tech_render_hero_slide_block',
+		'home-intro'         => 'g5tech_render_home_intro_block',
+		'home-services'      => 'g5tech_render_home_services_block',
+		'home-standards'     => 'g5tech_render_home_standards_block',
+		'home-process'       => 'g5tech_render_home_process_block',
+		'home-experience'    => 'g5tech_render_home_experience_block',
+		'home-equipment'     => 'g5tech_render_home_equipment_block',
+		'home-team'          => 'g5tech_render_home_team_block',
+		'home-audiences'     => 'g5tech_render_home_audiences_block',
+		'audience-item'      => 'g5tech_render_audience_item_block',
+		'home-news'          => 'g5tech_render_home_news_block',
+		'home-cta'           => 'g5tech_render_home_cta_block',
+		'home-sections'      => 'g5tech_render_home_sections_block',
+		'service-cards'      => 'g5tech_render_service_cards_block',
+		'project-cards'      => 'g5tech_render_project_cards_block',
+		'settings-cta'       => 'g5tech_render_settings_cta_block',
 	);
 
 	foreach ( $blocks as $dir => $callback ) {
@@ -166,6 +191,22 @@ function g5tech_render_page_cta_block( $attributes = array() ) {
 	// jis imamas iš nustatymų, kad nebūtų dubliuojamas dviejose vietose.
 	if ( '' === $body && ! empty( $attributes['bodySetting'] ) && function_exists( 'g5tech_setting' ) ) {
 		$body = (string) g5tech_setting( sanitize_key( $attributes['bodySetting'] ) );
+	}
+
+	if ( 'team' === ( $attributes['dialect'] ?? 'internal' ) ) {
+		$anchor = sanitize_title( (string) ( $attributes['anchorId'] ?? '' ) ) ?: 'team-cta-title';
+
+		ob_start();
+		?>
+	<section class="g5-section page-cta g5-grid-lines g5-grid-lines--dark" aria-labelledby="<?php echo esc_attr( $anchor ); ?>">
+		<div class="g5-container page-cta__grid">
+			<div class="page-cta__copy"><div class="g5-eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div><h2 class="g5-display-lg" id="<?php echo esc_attr( $anchor ); ?>"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2><p class="g5-body"><?php echo esc_html( $body ); ?></p></div>
+			<div class="page-cta__action"><a class="g5-button g5-button--primary" href="<?php echo esc_url( g5tech_block_url( $attributes['buttonUrl'] ?? '' ) ); ?>"><?php echo esc_html( (string) ( $attributes['buttonLabel'] ?? '' ) ); ?> <span class="g5-button__icon">→</span></a></div>
+		</div>
+	</section>
+		<?php
+
+		return (string) ob_get_clean();
 	}
 
 	if ( 'site' === ( $attributes['dialect'] ?? 'internal' ) ) {
@@ -799,6 +840,802 @@ function g5tech_render_geo_section_block( $attributes = array() ) {
 		<figure class="g5-container g5-media-frame g5-media-frame--map">
 			<img src="<?php echo esc_url( $url ); ?>" alt="<?php echo esc_attr( '5G TECH projektų geografija Europoje: ' . rtrim( $country_text, '.' ) ); ?>">
 		</figure>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * „Apie mus“ antraštė su faktų juosta. Skaičiai imami iš nustatymų.
+ */
+function g5tech_render_about_hero_block( $attributes = array() ) {
+	if ( ! function_exists( 'g5tech_stat' ) ) {
+		return '';
+	}
+
+	$stat_1 = g5tech_stat( 1, '6000+', 'įgyvendintų bazinių stočių' );
+	$stat_3 = g5tech_stat( 3, '6', 'Europos šalys' );
+	$stat_4 = g5tech_stat( 4, '2020', 'veiklos pradžia' );
+
+	ob_start();
+	?>
+	<section class="team-hero g5-grid-lines g5-grid-lines--dark" aria-labelledby="team-page-title">
+		<div class="g5-container g5-grid">
+			<div class="team-hero__copy">
+				<nav class="g5-breadcrumbs" aria-label="Puslapio kelias">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">Pagrindinis</a><span>/</span><span>Apie mus</span>
+				</nav>
+				<div class="g5-eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div>
+				<h1 class="g5-display-xl" id="team-page-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h1>
+				<p class="g5-body"><?php echo esc_html( (string) ( $attributes['lead'] ?? '' ) ); ?></p>
+			</div>
+			<div class="team-hero__proof" aria-label="Pagrindiniai 5G TECH faktai">
+				<div class="team-hero__metric"><strong><?php echo esc_html( $stat_4['value'] ); ?></strong><span><?php echo esc_html( $stat_4['label'] ); ?></span></div>
+				<div class="team-hero__metric"><strong><?php echo esc_html( $stat_1['value'] ); ?></strong><span><?php echo esc_html( $stat_1['label'] ); ?></span></div>
+				<div class="team-hero__metric"><strong><?php echo esc_html( $stat_3['value'] ); ?></strong><span><?php echo esc_html( $stat_3['label'] ); ?></span></div>
+				<div class="team-hero__metric"><strong><?php echo esc_html( (string) ( $attributes['metric4Value'] ?? 'ISO / SSVA' ) ); ?></strong><span><?php echo esc_html( (string) ( $attributes['metric4Label'] ?? 'standartai ir rangovo kvalifikacija' ) ); ?></span></div>
+			</div>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * Vidinių įrašų (žyma/antraštė/tekstas) surinkimas iš bloko vaikų.
+ */
+function g5tech_labeled_items_from_block( $block ) {
+	$items = array();
+
+	if ( ! $block instanceof WP_Block ) {
+		return $items;
+	}
+
+	foreach ( $block->inner_blocks as $inner ) {
+		if ( 'g5tech/labeled-item' !== $inner->name ) {
+			continue;
+		}
+
+		$items[] = array(
+			'label' => (string) ( $inner->attributes['label'] ?? '' ),
+			'title' => (string) ( $inner->attributes['title'] ?? '' ),
+			'text'  => (string) ( $inner->attributes['text'] ?? '' ),
+		);
+	}
+
+	return $items;
+}
+
+/**
+ * „Apie mus“ istorijos sekcija.
+ */
+function g5tech_render_about_story_block( $attributes, $content, $block = null ) {
+	$facts = g5tech_labeled_items_from_block( $block );
+
+	$image_1_id = absint( $attributes['image1Id'] ?? 0 );
+	$image_2_id = absint( $attributes['image2Id'] ?? 0 );
+	$image_1    = $image_1_id ? wp_get_attachment_image_url( $image_1_id, 'full' ) : '';
+	$image_2    = $image_2_id ? wp_get_attachment_image_url( $image_2_id, 'full' ) : '';
+	$image_1    = $image_1 ? $image_1 : get_theme_file_uri( 'assets/images/team/team-work-01.jpg' );
+	$image_2    = $image_2 ? $image_2 : get_theme_file_uri( 'assets/images/team/team-work-02.jpg' );
+	$caption_1  = (string) ( $attributes['caption1'] ?? '' );
+	$caption_2  = (string) ( $attributes['caption2'] ?? '' );
+	$alt_1      = $image_1_id ? (string) get_post_meta( $image_1_id, '_wp_attachment_image_alt', true ) : '';
+	$alt_2      = $image_2_id ? (string) get_post_meta( $image_2_id, '_wp_attachment_image_alt', true ) : '';
+	$alt_1      = $alt_1 ? $alt_1 : $caption_1;
+	$alt_2      = $alt_2 ? $alt_2 : $caption_2;
+
+	ob_start();
+	?>
+	<section class="g5-section about-story g5-grid-lines" aria-labelledby="story-title">
+		<div class="g5-container">
+			<div class="editorial-head">
+				<div class="g5-eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div>
+				<div class="editorial-head__copy">
+					<h2 class="g5-display-lg" id="story-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2>
+					<p class="g5-body"><?php echo esc_html( (string) ( $attributes['lead'] ?? '' ) ); ?></p>
+				</div>
+			</div>
+			<div class="story-layout">
+				<div class="story-copy">
+					<p class="g5-body"><?php echo esc_html( (string) ( $attributes['body1'] ?? '' ) ); ?></p>
+					<p class="g5-body"><?php echo esc_html( (string) ( $attributes['body2'] ?? '' ) ); ?></p>
+					<p class="g5-body"><?php echo esc_html( (string) ( $attributes['body3'] ?? '' ) ); ?></p>
+				</div>
+				<div class="story-facts">
+					<?php foreach ( $facts as $fact_index => $fact ) : ?>
+						<div class="story-fact"><small><?php echo esc_html( str_pad( (string) ( $fact_index + 1 ), 2, '0', STR_PAD_LEFT ) . ' / ' . $fact['label'] ); ?></small><strong><?php echo esc_html( $fact['title'] ); ?></strong><span><?php echo esc_html( $fact['text'] ); ?></span></div>
+					<?php endforeach; ?>
+				</div>
+			</div>
+			<div class="about-media">
+				<figure><img src="<?php echo esc_url( $image_1 ); ?>" alt="<?php echo esc_attr( $alt_1 ); ?>"><figcaption><?php echo esc_html( $caption_1 ); ?></figcaption></figure>
+				<figure><img src="<?php echo esc_url( $image_2 ); ?>" alt="<?php echo esc_attr( $alt_2 ); ?>"><figcaption><?php echo esc_html( $caption_2 ); ?></figcaption></figure>
+			</div>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * „Apie mus“ misijos ir vizijos sekcija.
+ */
+function g5tech_render_about_purpose_block( $attributes = array() ) {
+	ob_start();
+	?>
+	<section class="g5-section purpose-section g5-grid-lines g5-grid-lines--dark" aria-labelledby="purpose-title">
+		<div class="g5-container">
+			<div class="editorial-head">
+				<div class="g5-eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div>
+				<div class="editorial-head__copy"><h2 class="g5-display-lg" id="purpose-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2></div>
+			</div>
+			<div class="purpose-grid">
+				<article class="purpose-card"><span class="purpose-card__label"><?php echo esc_html( (string) ( $attributes['missionLabel'] ?? '' ) ); ?></span><h3 class="g5-heading-lg"><?php echo esc_html( (string) ( $attributes['missionTitle'] ?? '' ) ); ?></h3><p class="g5-body"><?php echo esc_html( (string) ( $attributes['missionText'] ?? '' ) ); ?></p></article>
+				<article class="purpose-card"><span class="purpose-card__label"><?php echo esc_html( (string) ( $attributes['visionLabel'] ?? '' ) ); ?></span><h3 class="g5-heading-lg"><?php echo esc_html( (string) ( $attributes['visionTitle'] ?? '' ) ); ?></h3><p class="g5-body"><?php echo esc_html( (string) ( $attributes['visionText'] ?? '' ) ); ?></p></article>
+			</div>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * „Apie mus“ vertybių sekcija su kultūros kvietimu.
+ */
+function g5tech_render_about_values_block( $attributes, $content, $block = null ) {
+	$values = g5tech_labeled_items_from_block( $block );
+
+	ob_start();
+	?>
+	<section class="g5-section values-section g5-grid-lines" aria-labelledby="values-title">
+		<div class="g5-container">
+			<div class="editorial-head">
+				<div class="g5-eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div>
+				<div class="editorial-head__copy"><h2 class="g5-display-lg" id="values-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2></div>
+			</div>
+			<div class="value-grid">
+				<?php foreach ( $values as $value_index => $value ) : ?>
+					<article class="value-card"><span class="value-card__number"><?php echo esc_html( str_pad( (string) ( $value_index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span><h3 class="g5-heading-sm"><?php echo esc_html( $value['title'] ); ?></h3><p><?php echo esc_html( $value['text'] ); ?></p></article>
+				<?php endforeach; ?>
+			</div>
+			<div class="culture-callout">
+				<div class="culture-callout__copy">
+					<div><span class="purpose-card__label"><?php echo esc_html( (string) ( $attributes['cultureLabel'] ?? '' ) ); ?></span><h3 class="g5-heading-lg"><?php echo esc_html( (string) ( $attributes['cultureTitle'] ?? '' ) ); ?></h3></div>
+					<p class="g5-body"><?php echo esc_html( (string) ( $attributes['cultureText'] ?? '' ) ); ?></p>
+				</div>
+				<div class="culture-callout__action"><a class="g5-button g5-button--primary" href="<?php echo esc_url( (string) ( $attributes['cultureUrl'] ?? '' ) ); ?>" target="_blank" rel="noopener"><?php echo esc_html( (string) ( $attributes['cultureButtonLabel'] ?? '' ) ); ?></a></div>
+			</div>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * „Apie mus“ komandos sekcija. Kortelės iš skilties „Komanda“.
+ */
+function g5tech_render_about_team_block( $attributes = array() ) {
+	if ( ! function_exists( 'g5tech_render_team_cards' ) ) {
+		return '';
+	}
+
+	ob_start();
+	?>
+	<section class="g5-section team-listing g5-grid-lines" id="komanda" aria-labelledby="people-title">
+		<div class="g5-container">
+			<div class="editorial-head"><div class="g5-eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div><div class="editorial-head__copy"><h2 class="g5-display-lg" id="people-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2></div></div>
+			<?php echo g5tech_render_team_cards(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * „Apie mus“ augimo strategijos sekcija.
+ */
+function g5tech_render_about_strategy_block( $attributes, $content, $block = null ) {
+	$strategies = g5tech_labeled_items_from_block( $block );
+
+	ob_start();
+	?>
+	<section class="g5-section strategy-section g5-grid-lines" aria-labelledby="strategy-title">
+		<div class="g5-container">
+			<div class="strategy-intro"><div class="strategy-intro__copy"><div class="g5-eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div><h2 class="g5-display-lg" id="strategy-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2><p class="g5-body"><?php echo esc_html( (string) ( $attributes['lead'] ?? '' ) ); ?></p></div></div>
+			<div class="strategy-grid">
+				<?php foreach ( $strategies as $strategy_index => $strategy ) : ?>
+					<article class="strategy-item"><span class="strategy-item__number"><?php echo esc_html( str_pad( (string) ( $strategy_index + 1 ), 2, '0', STR_PAD_LEFT ) . ' / ' . $strategy['label'] ); ?></span><h3 class="g5-heading-md"><?php echo esc_html( $strategy['title'] ); ?></h3><p><?php echo esc_html( $strategy['text'] ); ?></p></article>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * „Apie mus“ kompetencijų sekcija.
+ */
+function g5tech_render_about_competence_block( $attributes, $content, $block = null ) {
+	$competences = g5tech_labeled_items_from_block( $block );
+
+	ob_start();
+	?>
+	<section class="g5-section competence-section g5-grid-lines g5-grid-lines--dark" aria-labelledby="competence-title">
+		<div class="g5-container competence-grid">
+			<div class="competence-grid__intro"><div class="g5-eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div><h2 class="g5-heading-lg" id="competence-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2></div>
+			<div class="competence-list">
+				<?php foreach ( $competences as $competence_index => $competence ) : ?>
+					<article class="competence-item"><span class="competence-item__number"><?php echo esc_html( str_pad( (string) ( $competence_index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span><h3 class="g5-heading-sm"><?php echo esc_html( $competence['title'] ); ?></h3><p><?php echo esc_html( $competence['text'] ); ?></p></article>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * Įrašą atvaizduoja tėvinė sekcija.
+ */
+function g5tech_render_labeled_item_block() {
+	return '';
+}
+
+/**
+ * Titulinio didysis ekranas su skaidrėmis.
+ */
+function g5tech_render_home_hero_block( $attributes, $content, $block = null ) {
+	$slides = array();
+
+	if ( $block instanceof WP_Block ) {
+		foreach ( $block->inner_blocks as $inner ) {
+			if ( 'g5tech/hero-slide' !== $inner->name ) {
+				continue;
+			}
+
+			$image_id = absint( $inner->attributes['imageId'] ?? 0 );
+			$url      = $image_id ? wp_get_attachment_image_url( $image_id, 'full' ) : '';
+
+			if ( ! $url && ! empty( $inner->attributes['themeFile'] ) ) {
+				$url = get_theme_file_uri( ltrim( (string) $inner->attributes['themeFile'], '/' ) );
+			}
+
+			if ( ! $url ) {
+				continue;
+			}
+
+			$slides[] = array(
+				'image' => $url,
+				'title' => (string) ( $inner->attributes['title'] ?? '' ),
+				'alt'   => (string) ( $inner->attributes['alt'] ?? '' ),
+			);
+		}
+	}
+
+	if ( ! $slides ) {
+		return '';
+	}
+
+	$contact_url = home_url( g5tech_setting( 'contact_page_url', '/kontaktai/' ) );
+	$stat_1      = g5tech_stat( 1, '6000+', 'bazinių stočių' );
+	$stat_3      = g5tech_stat( 3, '6', 'Europos šalys' );
+
+	ob_start();
+	?>
+	<section class="hero" id="top" aria-labelledby="hero-title">
+		<div class="hero-media" id="hero-media" role="img" aria-label="<?php echo esc_attr( $slides[0]['alt'] ); ?>">
+			<?php foreach ( $slides as $index => $slide ) : ?>
+				<img class="hero-bg hero-bg--slide <?php echo 0 === $index ? 'is-active' : ''; ?>" src="<?php echo esc_url( $slide['image'] ); ?>" alt="" aria-hidden="true" <?php echo 0 === $index ? 'fetchpriority="high"' : 'loading="lazy"'; ?> data-hero-slide data-title="<?php echo esc_attr( $slide['title'] ); ?>" data-alt="<?php echo esc_attr( $slide['alt'] ); ?>">
+			<?php endforeach; ?>
+		</div>
+		<div class="hero-transition" aria-hidden="true">
+			<?php for ( $transition_column = 0; $transition_column < 6; $transition_column++ ) : ?>
+				<span class="hero-transition__cell" style="--transition-delay: <?php echo (int) ( $transition_column * 42 ); ?>ms"></span>
+			<?php endfor; ?>
+		</div>
+		<div class="hero-grid" aria-hidden="true"></div>
+		<div class="container hero-inner">
+			<div class="hero-copy">
+				<div class="eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div>
+				<h1 id="hero-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h1>
+				<p class="hero-lead"><?php echo esc_html( (string) ( $attributes['lead'] ?? '' ) ); ?></p>
+				<div class="hero-actions">
+					<a class="btn btn-primary" href="<?php echo esc_url( $contact_url ); ?>"><?php echo esc_html( (string) ( $attributes['button1Label'] ?? '' ) ); ?> <span class="circle">→</span></a>
+					<a class="btn" href="<?php echo esc_url( get_post_type_archive_link( 'g5_service' ) ); ?>"><?php echo esc_html( (string) ( $attributes['button2Label'] ?? '' ) ); ?> <span class="arrow">→</span></a>
+				</div>
+			</div>
+			<div class="hero-meta" aria-label="Pagrindiniai patirties faktai">
+				<div class="meta-item"><strong><?php echo esc_html( $stat_1['value'] ); ?></strong><span><?php echo esc_html( $stat_1['label'] ); ?></span></div>
+				<div class="meta-item"><strong><?php echo esc_html( $stat_3['value'] ); ?></strong><span><?php echo esc_html( $stat_3['label'] ); ?></span></div>
+				<div class="meta-item"><strong><?php echo esc_html( (string) ( $attributes['metaValue3'] ?? '' ) ); ?></strong><span><?php echo esc_html( (string) ( $attributes['metaLabel3'] ?? '' ) ); ?></span></div>
+			</div>
+		</div>
+		<div class="hero-rotator" aria-label="Paslaugų nuotraukos">
+			<div class="hero-rotator__next">
+				<span class="hero-rotator__label-prefix">Toliau</span>
+				<span class="hero-rotator__label" id="hero-rotator-label" aria-live="polite"><?php echo esc_html( $slides[1]['title'] ?? $slides[0]['title'] ); ?></span>
+			</div>
+			<div class="hero-rotator__status" aria-hidden="true">
+				<span class="hero-rotator__count" id="hero-rotator-count">01 / <?php echo esc_html( str_pad( (string) count( $slides ), 2, '0', STR_PAD_LEFT ) ); ?></span>
+				<span class="hero-rotator__progress"><span class="hero-rotator__progress-fill" id="hero-rotator-progress"></span></span>
+			</div>
+			<div class="hero-rotator__controls">
+				<button class="hero-rotator__arrow" type="button" data-hero-previous aria-label="Ankstesnė paslauga">←</button>
+				<div class="hero-rotator__dots" role="group" aria-label="Pasirinkti paslaugą">
+					<?php foreach ( $slides as $index => $slide ) : ?>
+						<button class="hero-rotator__dot <?php echo 0 === $index ? 'is-active' : ''; ?>" type="button" data-hero-go="<?php echo (int) $index; ?>" aria-label="<?php echo esc_attr( $slide['title'] ); ?>" aria-pressed="<?php echo 0 === $index ? 'true' : 'false'; ?>"></button>
+					<?php endforeach; ?>
+				</div>
+				<button class="hero-rotator__arrow" type="button" data-hero-next aria-label="Kita paslauga">→</button>
+			</div>
+		</div>
+		<div class="scroll-cue" aria-hidden="true">Slinkti</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * Skaidrę atvaizduoja tėvinis blokas.
+ */
+function g5tech_render_hero_slide_block() {
+	return '';
+}
+
+/**
+ * Titulinio įvado sekcija.
+ */
+function g5tech_render_home_intro_block( $attributes = array() ) {
+	$image_id = absint( $attributes['imageId'] ?? 0 );
+	$url      = $image_id ? wp_get_attachment_image_url( $image_id, 'full' ) : '';
+
+	if ( ! $url ) {
+		$url = get_theme_file_uri( 'assets/images/home/infrastructure-line.png' );
+	}
+
+	ob_start();
+	?>
+	<section class="intro" id="about" aria-labelledby="intro-title">
+		<div class="container">
+			<div class="intro-grid">
+				<div class="eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div>
+				<div>
+					<h2 id="intro-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2>
+					<div class="intro-copy"><p><?php echo esc_html( (string) ( $attributes['body'] ?? '' ) ); ?></p></div>
+				</div>
+			</div>
+			<div class="network-strip"><img src="<?php echo esc_url( $url ); ?>" alt="<?php echo esc_attr( (string) ( $attributes['imageAlt'] ?? '' ) ); ?>"></div>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * Titulinio paslaugų tinklelis iš paslaugų katalogo.
+ */
+function g5tech_render_home_services_block( $attributes = array() ) {
+	if ( ! function_exists( 'g5tech_home_services' ) ) {
+		return '';
+	}
+
+	$services = g5tech_home_services();
+
+	if ( ! $services ) {
+		return '';
+	}
+
+	ob_start();
+	?>
+	<section class="services" id="services" aria-labelledby="services-title">
+		<div class="container">
+			<div class="services-heading"><h2 id="services-title"><?php echo esc_html( (string) ( $attributes['title'] ?? 'Paslaugos' ) ); ?></h2></div>
+			<div class="service-grid" role="list" aria-label="Paslaugų kryptys">
+				<?php foreach ( $services as $index => $service ) : ?>
+					<?php
+					$title   = get_post_meta( $service->ID, 'g5_service_card_title', true ) ?: get_the_title( $service );
+					$summary = get_post_meta( $service->ID, 'g5_service_card_summary', true ) ?: get_post_meta( $service->ID, 'g5_service_summary', true );
+					?>
+					<a class="service-tile" href="<?php echo esc_url( get_permalink( $service ) ); ?>" role="listitem">
+						<div class="service-tile-top"><span class="num"><?php echo esc_html( str_pad( (string) ( $index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span><span class="mini-arrow">→</span></div>
+						<h3><?php echo esc_html( $title ); ?></h3>
+						<?php if ( $summary ) : ?><p><?php echo esc_html( $summary ); ?></p><?php endif; ?>
+					</a>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * Titulinio darbo standarto juosta iš nustatymų sertifikatų.
+ */
+function g5tech_render_home_standards_block( $attributes = array() ) {
+	if ( ! function_exists( 'g5tech_home_certifications' ) ) {
+		return '';
+	}
+
+	$certificates = g5tech_home_certifications();
+
+	if ( ! $certificates ) {
+		return '';
+	}
+
+	ob_start();
+	?>
+	<section class="bridge" aria-labelledby="bridge-title">
+		<div class="container bridge-inner">
+			<div class="bridge-copy"><div class="eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div><h2 id="bridge-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2></div>
+			<div class="bridge-standards" aria-label="Sertifikatai ir kvalifikacijos">
+				<?php foreach ( $certificates as $index => $certificate ) : ?>
+					<div class="bridge-standard"><i class="standard-icon <?php echo esc_attr( array( 'icon-quality', 'icon-environment', 'icon-safety', 'icon-qualification' )[ $index ] ?? 'icon-quality' ); ?>" aria-hidden="true"></i><strong><?php echo esc_html( $certificate[0] ); ?></strong><span><?php echo esc_html( $certificate[1] ); ?></span></div>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * Titulinio darbo eigos sekcija iš nustatymų etapų.
+ */
+function g5tech_render_home_process_block( $attributes = array() ) {
+	if ( ! function_exists( 'g5tech_process_steps' ) ) {
+		return '';
+	}
+
+	$process_steps = g5tech_process_steps();
+
+	if ( ! $process_steps ) {
+		return '';
+	}
+
+	ob_start();
+	?>
+	<section class="process" id="process" aria-labelledby="process-title">
+		<div class="process-grid">
+			<div class="process-intro">
+				<div><div class="eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div><h2 id="process-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2></div>
+				<div class="process-progress" aria-hidden="true"><div class="progress-track"><span class="progress-fill" id="progress-fill"></span></div><span class="progress-label" id="progress-label">01 / <?php echo esc_html( str_pad( (string) count( $process_steps ), 2, '0', STR_PAD_LEFT ) ); ?></span></div>
+			</div>
+			<div class="process-steps">
+				<?php foreach ( $process_steps as $process_index => $step ) : ?>
+					<?php $index = $process_index + 1; ?>
+					<article class="process-step" data-step="<?php echo (int) $index; ?>">
+						<div class="step-label"><?php echo esc_html( str_pad( (string) $index, 2, '0', STR_PAD_LEFT ) ); ?> / <?php echo esc_html( $step['title'] ); ?></div>
+						<h3><?php echo esc_html( $step['heading'] ); ?></h3>
+						<p><?php echo esc_html( $step['text'] ); ?></p>
+						<div class="step-media blueprint" aria-hidden="true"><?php echo g5tech_home_process_media( $index ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+					</article>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * Titulinio patirties ir geografijos sekcija.
+ */
+function g5tech_render_home_experience_block( $attributes = array() ) {
+	if ( ! function_exists( 'g5tech_stats' ) ) {
+		return '';
+	}
+
+	$image_id = absint( $attributes['imageId'] ?? 0 );
+	$url      = $image_id ? wp_get_attachment_image_url( $image_id, 'full' ) : '';
+
+	if ( ! $url ) {
+		$url = get_theme_file_uri( 'assets/images/home/europe-footprint-map.png' );
+	}
+
+	ob_start();
+	?>
+	<section class="experience" id="experience" aria-labelledby="experience-title">
+		<div class="container experience-grid">
+			<div>
+				<div class="eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div>
+				<h2 id="experience-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2>
+				<div class="proof-grid">
+					<?php foreach ( g5tech_stats() as $stat ) : ?><div class="proof"><strong><?php echo esc_html( $stat['value'] ); ?></strong><span><?php echo esc_html( $stat['label'] ); ?></span></div><?php endforeach; ?>
+				</div>
+			</div>
+			<div class="map-card" aria-label="5G TECH veiklos žemėlapis"><img src="<?php echo esc_url( $url ); ?>" alt="<?php echo esc_attr( (string) ( $attributes['mapAlt'] ?? '' ) ); ?>"></div>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * Titulinio gamintojų juosta.
+ */
+function g5tech_render_home_equipment_block( $attributes = array() ) {
+	$manufacturers = function_exists( 'g5tech_get_partners' )
+		? g5tech_get_partners( 'manufacturer', array(), true )
+		: array();
+
+	if ( ! $manufacturers ) {
+		return '';
+	}
+
+	ob_start();
+	?>
+	<section class="equipment" aria-labelledby="equipment-title">
+		<div class="container">
+			<div class="equipment-head"><div><div class="eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div><h2 id="equipment-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2></div></div>
+			<div class="equipment-marquee" aria-label="Įrangos gamintojai, su kurių įranga komanda turi praktinės patirties">
+				<div class="equipment-track">
+					<?php for ( $copy = 0; $copy < 2; $copy++ ) : ?><div class="equipment-group" <?php echo 1 === $copy ? 'aria-hidden="true"' : ''; ?>><?php foreach ( $manufacturers as $manufacturer ) : ?><span class="equipment-name"><?php echo esc_html( get_the_title( $manufacturer ) ); ?></span><?php endforeach; ?></div><?php endfor; ?>
+				</div>
+			</div>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * Titulinio komandos sekcija.
+ */
+function g5tech_render_home_team_block( $attributes = array() ) {
+	if ( ! function_exists( 'g5tech_home_team_cards' ) ) {
+		return '';
+	}
+
+	$team_cards = g5tech_home_team_cards();
+
+	if ( ! $team_cards ) {
+		return '';
+	}
+
+	$stat_1 = g5tech_stat( 1, '6000+', 'bazinių stočių' );
+	$stat_3 = g5tech_stat( 3, '6', 'Europos šalys' );
+
+	ob_start();
+	?>
+	<section class="team" id="team" aria-labelledby="team-title">
+		<div class="container">
+			<div class="team-head"><div class="eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div><div class="team-head-copy"><h2 id="team-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2><p class="team-copy"><?php echo esc_html( (string) ( $attributes['copy'] ?? '' ) ); ?></p></div></div>
+			<?php echo $team_cards; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			<div class="team-summary" aria-label="Bendri komandos rodikliai">
+				<div class="team-metric"><strong><?php echo esc_html( $stat_1['value'] ); ?></strong><span><?php echo esc_html( $stat_1['label'] ); ?></span></div>
+				<div class="team-metric"><strong><?php echo esc_html( $stat_3['value'] ); ?></strong><span><?php echo esc_html( $stat_3['label'] ); ?></span></div>
+				<div class="team-metric"><strong><?php echo esc_html( (string) ( $attributes['metric3Value'] ?? '' ) ); ?></strong><span><?php echo esc_html( (string) ( $attributes['metric3Label'] ?? '' ) ); ?></span></div>
+				<div class="team-metric"><strong><?php echo esc_html( (string) ( $attributes['metric4Value'] ?? '' ) ); ?></strong><span><?php echo esc_html( (string) ( $attributes['metric4Label'] ?? '' ) ); ?></span></div>
+			</div>
+			<a class="link-line team-link" href="<?php echo esc_url( home_url( '/apie-mus/#komanda' ) ); ?>"><?php echo esc_html( (string) ( $attributes['linkLabel'] ?? '' ) ); ?> <span>→</span></a>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * Titulinio auditorijų sekcija.
+ */
+function g5tech_render_home_audiences_block( $attributes, $content, $block = null ) {
+	$cards = array();
+
+	if ( $block instanceof WP_Block ) {
+		foreach ( $block->inner_blocks as $inner ) {
+			if ( 'g5tech/audience-item' !== $inner->name ) {
+				continue;
+			}
+
+			$cards[] = array(
+				'label' => (string) ( $inner->attributes['label'] ?? '' ),
+				'title' => (string) ( $inner->attributes['title'] ?? '' ),
+				'text'  => (string) ( $inner->attributes['text'] ?? '' ),
+				'url'   => (string) ( $inner->attributes['url'] ?? '' ),
+			);
+		}
+	}
+
+	if ( ! $cards ) {
+		return '';
+	}
+
+	ob_start();
+	?>
+	<section class="audiences" id="careers" aria-labelledby="audiences-title">
+		<div class="container">
+			<div class="audiences-head"><h2 id="audiences-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2><p><?php echo esc_html( (string) ( $attributes['lead'] ?? '' ) ); ?></p></div>
+			<div class="audience-list">
+				<?php foreach ( $cards as $audience ) : ?>
+					<?php $audience_url = str_starts_with( $audience['url'], 'http://' ) || str_starts_with( $audience['url'], 'https://' ) ? $audience['url'] : home_url( '/' . ltrim( $audience['url'], '/' ) ); ?>
+					<a class="audience-item" href="<?php echo esc_url( $audience_url ); ?>"><small><?php echo esc_html( $audience['label'] ); ?></small><h3><?php echo esc_html( $audience['title'] ); ?></h3><p><?php echo esc_html( $audience['text'] ); ?></p><span class="audience-arrow">→</span></a>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * Auditorijos kortelę atvaizduoja tėvinė sekcija.
+ */
+function g5tech_render_audience_item_block() {
+	return '';
+}
+
+/**
+ * Titulinio naujienų sekcija.
+ */
+function g5tech_render_home_news_block( $attributes = array() ) {
+	if ( ! function_exists( 'g5tech_home_news_cards' ) ) {
+		return '';
+	}
+
+	$news_cards = g5tech_home_news_cards();
+
+	if ( ! $news_cards ) {
+		return '';
+	}
+
+	ob_start();
+	?>
+	<section class="news" aria-labelledby="news-title">
+		<div class="container">
+			<div class="section-top"><h2 id="news-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2><a class="link-line" href="<?php echo esc_url( home_url( '/naujienos/' ) ); ?>"><?php echo esc_html( (string) ( $attributes['linkLabel'] ?? 'Visos naujienos' ) ); ?> <span>→</span></a></div>
+			<?php echo $news_cards; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * Titulinio baigiamasis kvietimas. Kontaktai imami iš nustatymų.
+ */
+function g5tech_render_home_cta_block( $attributes = array() ) {
+	$contact_url = home_url( g5tech_setting( 'contact_page_url', '/kontaktai/' ) );
+	$email       = g5tech_setting( 'email' );
+	$phone       = g5tech_setting( 'phone' );
+
+	ob_start();
+	?>
+	<section class="final-cta" id="contact" aria-labelledby="contact-title">
+		<div class="container final-grid">
+			<div><div class="eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div><h2 id="contact-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2><p><?php echo esc_html( (string) ( $attributes['body'] ?? '' ) ); ?></p></div>
+			<div class="contact-stack">
+				<?php if ( $email ) : ?><a class="btn" href="mailto:<?php echo esc_attr( antispambot( $email ) ); ?>"><?php echo esc_html( antispambot( $email ) ); ?> <span>↗</span></a><?php endif; ?>
+				<?php if ( $phone ) : ?><a class="btn" href="tel:<?php echo esc_attr( preg_replace( '/[^\d+]/', '', $phone ) ); ?>"><?php echo esc_html( $phone ); ?> <span>↗</span></a><?php endif; ?>
+				<?php if ( ! $email && ! $phone ) : ?><a class="btn" href="<?php echo esc_url( $contact_url ); ?>">Kontaktai <span>→</span></a><?php endif; ?>
+			</div>
+		</div>
+	</section>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * Titulinio sekcijų konteineris.
+ */
+function g5tech_render_home_sections_block( $attributes, $content ) {
+	return '<div class="home-sections">' . $content . '</div>';
+}
+
+/**
+ * Visų paslaugų kortelės archyvo puslapiui.
+ */
+function g5tech_render_service_cards_block() {
+	$services = get_posts(
+		array(
+			'post_type'      => 'g5_service',
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'orderby'        => array(
+				'menu_order' => 'ASC',
+				'title'      => 'ASC',
+			),
+		)
+	);
+
+	if ( ! $services ) {
+		return '';
+	}
+
+	ob_start();
+	?>
+	<div class="g5-container g5-services-grid">
+		<?php foreach ( $services as $index => $service ) : ?>
+			<?php
+			$card_title   = get_post_meta( $service->ID, 'g5_service_card_title', true ) ?: get_the_title( $service );
+			$card_summary = get_post_meta( $service->ID, 'g5_service_card_summary', true )
+				?: get_post_meta( $service->ID, 'g5_service_summary', true );
+			?>
+			<a class="g5-service-card" href="<?php echo esc_url( get_permalink( $service ) ); ?>">
+				<span class="g5-service-card__number"><?php echo esc_html( str_pad( (string) ( $index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
+				<h3 class="g5-heading-md"><?php echo esc_html( $card_title ); ?></h3>
+				<?php if ( $card_summary ) : ?>
+					<p><?php echo esc_html( $card_summary ); ?></p>
+				<?php endif; ?>
+				<span class="g5-service-card__link">Peržiūrėti →</span>
+			</a>
+		<?php endforeach; ?>
+	</div>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * Visų projektų kortelės archyvo puslapiui.
+ */
+function g5tech_render_project_cards_block( $attributes = array() ) {
+	if ( ! function_exists( 'g5tech_get_projects' ) || ! function_exists( 'g5tech_render_project_cards' ) ) {
+		return '';
+	}
+
+	$projects = g5tech_get_projects();
+
+	ob_start();
+	?>
+	<div class="g5-container">
+		<?php if ( $projects ) : ?>
+			<?php echo g5tech_render_project_cards( $projects ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<?php else : ?>
+			<p class="g5-body-lg"><?php echo esc_html( (string) ( $attributes['emptyText'] ?? '' ) ); ?></p>
+		<?php endif; ?>
+	</div>
+	<?php
+
+	return (string) ob_get_clean();
+}
+
+/**
+ * Kvietimas, kurio tekstai imami iš nustatymų — vienoje vietoje visai svetainei.
+ */
+function g5tech_render_settings_cta_block( $attributes = array() ) {
+	if ( ! function_exists( 'g5tech_setting' ) ) {
+		return '';
+	}
+
+	$anchor    = sanitize_title( (string) ( $attributes['anchorId'] ?? '' ) ) ?: 'cta-title';
+	$cta_title = g5tech_setting( 'cta_title', 'Aptarkime jūsų techninę užduotį.' );
+	$cta_text  = g5tech_setting( 'cta_text' );
+	$cta_label = g5tech_setting( 'cta_button_label', 'Susisiekti' );
+
+	ob_start();
+	?>
+	<section class="g5-section g5-cta-section g5-grid-lines g5-grid-lines--dark" aria-labelledby="<?php echo esc_attr( $anchor ); ?>">
+		<div class="g5-container g5-cta-grid">
+			<div>
+				<div class="g5-eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div>
+				<h2 class="g5-display-lg" id="<?php echo esc_attr( $anchor ); ?>"><?php echo esc_html( $cta_title ); ?></h2>
+				<?php if ( $cta_text ) : ?>
+					<p class="g5-body"><?php echo esc_html( $cta_text ); ?></p>
+				<?php endif; ?>
+			</div>
+			<a class="g5-button g5-button--primary" href="<?php echo esc_url( home_url( g5tech_setting( 'contact_page_url', '/kontaktai/' ) ) ); ?>"><?php echo esc_html( $cta_label ); ?> <span class="g5-button__icon" aria-hidden="true">→</span></a>
+		</div>
 	</section>
 	<?php
 

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/home-intro",
+  "title": "Titulinis · įvadas",
+  "category": "theme",
+  "icon": "welcome-write-blog",
+  "supports": { "html": false, "reusable": false, "multiple": false },
+  "attributes": {
+    "eyebrow":  { "type": "string", "default": "" },
+    "title":    { "type": "string", "default": "" },
+    "body":     { "type": "string", "default": "" },
+    "imageId":  { "type": "integer", "default": 0 },
+    "imageAlt": { "type": "string", "default": "" }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}
