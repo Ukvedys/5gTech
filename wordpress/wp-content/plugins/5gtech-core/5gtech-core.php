@@ -42,6 +42,7 @@ require_once G5TECH_CORE_DIR . 'includes/admin.php';
 require_once G5TECH_CORE_DIR . 'includes/seo.php';
 require_once G5TECH_CORE_DIR . 'includes/content-blocks.php';
 require_once G5TECH_CORE_DIR . 'includes/editor-curation.php';
+require_once G5TECH_CORE_DIR . 'includes/admin-redirects.php';
 require_once G5TECH_CORE_DIR . 'includes/migrations.php';
 
 function g5tech_core_activate() {

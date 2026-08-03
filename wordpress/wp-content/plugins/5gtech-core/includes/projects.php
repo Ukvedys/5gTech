@@ -25,7 +25,7 @@ function g5tech_register_project_type() {
 				'menu_name'          => 'Projektai',
 			),
 			'public'        => true,
-			'has_archive'   => 'projektai',
+			'has_archive'   => false,
 			'rewrite'       => array(
 				'slug'       => 'projektai',
 				'with_front' => false,
@@ -545,7 +545,7 @@ function g5tech_render_project_page( $attributes, $content, $block ) {
 		<section class="g5-inner-hero g5-grid-lines g5-grid-lines--dark" aria-labelledby="g5-project-title">
 			<div class="g5-container g5-grid">
 				<div class="g5-inner-hero__copy">
-					<nav class="g5-breadcrumbs" aria-label="Puslapio kelias"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Pagrindinis</a><span>/</span><a href="<?php echo esc_url( get_post_type_archive_link( 'g5_project' ) ); ?>">Projektai</a></nav>
+					<nav class="g5-breadcrumbs" aria-label="Puslapio kelias"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Pagrindinis</a><span>/</span><a href="<?php echo esc_url( home_url( '/projektai/' ) ); ?>">Projektai</a></nav>
 					<?php if ( $hero_meta ) : ?><div class="g5-eyebrow"><?php echo esc_html( implode( ' · ', $hero_meta ) ); ?></div><?php endif; ?>
 					<h1 class="g5-display-xl" id="g5-project-title"><?php echo esc_html( get_the_title( $post_id ) ); ?></h1>
 					<?php if ( $summary ) : ?><p class="g5-body-lg"><?php echo esc_html( $summary ); ?></p><?php endif; ?>
@@ -609,7 +609,7 @@ function g5tech_render_project_page( $attributes, $content, $block ) {
 
 function g5tech_redirect_hidden_project() {
 	if ( is_singular( 'g5_project' ) && ! g5tech_project_is_visible( get_queried_object_id() ) ) {
-		wp_safe_redirect( get_post_type_archive_link( 'g5_project' ) );
+		wp_safe_redirect( home_url( '/projektai/' ) );
 		exit;
 	}
 }

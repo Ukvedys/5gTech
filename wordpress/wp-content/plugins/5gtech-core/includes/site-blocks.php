@@ -96,7 +96,7 @@ function g5tech_render_experience_page_legacy() {
 			<div class="g5-container">
 				<?php echo g5tech_render_project_cards( $projects ); ?>
 				<div class="g5-projects-more">
-					<a class="g5-button g5-button--outline-light" href="<?php echo esc_url( get_post_type_archive_link( 'g5_project' ) ); ?>">Visi projektai →</a>
+					<a class="g5-button g5-button--outline-light" href="<?php echo esc_url( home_url( '/projektai/' ) ); ?>">Visi projektai →</a>
 				</div>
 			</div>
 		</section>

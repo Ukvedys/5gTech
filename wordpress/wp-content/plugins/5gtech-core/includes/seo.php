@@ -33,11 +33,13 @@ function g5tech_seo_description() {
 		return g5tech_seo_clean_description( g5tech_setting( 'home_hero_lead' ) );
 	}
 
-	if ( is_post_type_archive( 'g5_service' ) ) {
+	// Katalogo puslapiai — buvę archyvai. Aprašymai pagal puslapio adresą,
+	// kad virtus archyvams puslapiais SEO aprašymai nepasikeistų.
+	if ( is_page( 'paslaugos' ) || is_post_type_archive( 'g5_service' ) ) {
 		return 'Telekomunikacijų, energetikos ir inžinerinės infrastruktūros projektavimo, įrengimo ir priežiūros paslaugos.';
 	}
 
-	if ( is_post_type_archive( 'g5_project' ) ) {
+	if ( is_page( 'projektai' ) || is_post_type_archive( 'g5_project' ) ) {
 		return '5G TECH įgyvendinti telekomunikacijų ir inžinerinės infrastruktūros projektai Lietuvoje ir Europoje.';
 	}
 

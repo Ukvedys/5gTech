@@ -195,7 +195,7 @@ function g5tech_add_structured_content_page() {
 		'g5tech_render_structured_content_page'
 	);
 }
-add_action( 'admin_menu', 'g5tech_add_structured_content_page', 30 );
+// Ekranas išjungtas: šie puslapiai redaguojami Puslapiai → blokų redaktoriuje.
 
 function g5tech_render_structured_text_field( $section, $key, $label, $value, $textarea = false ) {
 	?>

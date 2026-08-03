@@ -531,7 +531,7 @@ function g5tech_add_about_order_page() {
 		'g5tech_render_about_order_page'
 	);
 }
-add_action( 'admin_menu', 'g5tech_add_about_order_page' );
+// Ekranas išjungtas: Apie mus redaguojamas Puslapiai → blokų redaktoriuje.
 
 function g5tech_about_admin_url( $view = 'structure', $section = '' ) {
 	$url = add_query_arg(
@@ -824,7 +824,7 @@ function g5tech_about_page_edit_redirect() {
 	wp_safe_redirect( admin_url( 'edit.php?post_type=g5_team&page=g5tech-about-order' ) );
 	exit;
 }
-add_action( 'load-post.php', 'g5tech_about_page_edit_redirect' );
+// Blokų redaktorius nebeperšokamas: Apie mus turinys gyvena post_content.
 
 function g5tech_about_page_row_actions( $actions, $post ) {
 	if (
@@ -836,8 +836,8 @@ function g5tech_about_page_row_actions( $actions, $post ) {
 	}
 
 	$actions['g5_about_order'] = sprintf(
-		'<a href="%s">Turinys ir tvarka</a>',
-		esc_url( admin_url( 'edit.php?post_type=g5_team&page=g5tech-about-order' ) )
+		'<a href="%s">Apie mus puslapis</a>',
+		esc_url( function_exists( 'g5tech_page_editor_url' ) ? g5tech_page_editor_url( 'apie-mus' ) : admin_url( 'edit.php?post_type=page' ) )
 	);
 	$actions['g5_team'] = sprintf(
 		'<a href="%s">Komandos nariai</a>',

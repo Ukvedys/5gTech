@@ -788,7 +788,7 @@ function g5tech_render_projects_preview_block( $attributes = array() ) {
 	<div class="g5-container">
 		<?php echo g5tech_render_project_cards( $projects ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<div class="g5-projects-more">
-			<a class="g5-button g5-button--outline-light" href="<?php echo esc_url( get_post_type_archive_link( 'g5_project' ) ); ?>"><?php echo esc_html( (string) ( $attributes['buttonLabel'] ?? 'Visi projektai →' ) ); ?></a>
+			<a class="g5-button g5-button--outline-light" href="<?php echo esc_url( home_url( '/projektai/' ) ); ?>"><?php echo esc_html( (string) ( $attributes['buttonLabel'] ?? 'Visi projektai →' ) ); ?></a>
 		</div>
 	</div>
 	<?php
@@ -1151,7 +1151,7 @@ function g5tech_render_home_hero_block( $attributes, $content, $block = null ) {
 				<p class="hero-lead"><?php echo esc_html( (string) ( $attributes['lead'] ?? '' ) ); ?></p>
 				<div class="hero-actions">
 					<a class="btn btn-primary" href="<?php echo esc_url( $contact_url ); ?>"><?php echo esc_html( (string) ( $attributes['button1Label'] ?? '' ) ); ?> <span class="circle">→</span></a>
-					<a class="btn" href="<?php echo esc_url( get_post_type_archive_link( 'g5_service' ) ); ?>"><?php echo esc_html( (string) ( $attributes['button2Label'] ?? '' ) ); ?> <span class="arrow">→</span></a>
+					<a class="btn" href="<?php echo esc_url( home_url( '/paslaugos/' ) ); ?>"><?php echo esc_html( (string) ( $attributes['button2Label'] ?? '' ) ); ?> <span class="arrow">→</span></a>
 				</div>
 			</div>
 			<div class="hero-meta" aria-label="Pagrindiniai patirties faktai">

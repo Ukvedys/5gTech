@@ -29,7 +29,7 @@ function g5tech_register_service_type() {
 			'public'        => true,
 			'menu_icon'     => 'dashicons-hammer',
 			'menu_position' => 20,
-			'has_archive'   => 'paslaugos',
+			'has_archive'   => false,
 			'rewrite'       => array(
 				'slug'       => 'paslaugos',
 				'with_front' => false,

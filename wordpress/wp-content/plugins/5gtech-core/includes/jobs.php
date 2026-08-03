@@ -165,7 +165,7 @@ function g5tech_career_page_edit_redirect() {
 	wp_safe_redirect( admin_url( 'edit.php?post_type=g5_job&g5_from=career' ) );
 	exit;
 }
-add_action( 'load-post.php', 'g5tech_career_page_edit_redirect' );
+// Blokų redaktorius nebeperšokamas: Karjeros puslapio turinys gyvena post_content.
 
 function g5tech_career_page_row_actions( $actions, $post ) {
 	if (
@@ -212,6 +212,10 @@ function g5tech_career_jobs_admin_notice() {
 add_action( 'admin_notices', 'g5tech_career_jobs_admin_notice' );
 
 function g5tech_career_content_admin_url( $section = '' ) {
+	if ( function_exists( 'g5tech_page_editor_url' ) ) {
+		return g5tech_page_editor_url( 'karjera' );
+	}
+
 	$url = admin_url( 'edit.php?post_type=g5_job&page=g5tech-career-content' );
 
 	if ( ! $section ) {
@@ -424,7 +428,7 @@ function g5tech_add_career_content_page() {
 		'g5tech_render_career_content_page'
 	);
 }
-add_action( 'admin_menu', 'g5tech_add_career_content_page', 20 );
+// Ekranas išjungtas: Karjeros puslapis redaguojamas Puslapiai → blokų redaktoriuje.
 
 function g5tech_render_career_content_page() {
 	if ( ! current_user_can( 'edit_g5_jobs' ) ) {

@@ -46,7 +46,7 @@ function g5tech_add_page_modules_admin_page() {
 		'g5tech_render_page_modules_admin_page'
 	);
 }
-add_action( 'admin_menu', 'g5tech_add_page_modules_admin_page', 25 );
+// Ekranas išjungtas: puslapiai redaguojami Puslapiai → blokų redaktoriuje (žr. admin-redirects.php).
 
 function g5tech_redirect_special_page_modules_admin() {
 	if (
@@ -75,7 +75,7 @@ function g5tech_redirect_special_page_modules_admin() {
 	wp_safe_redirect( g5tech_module_page_admin_url( $page_key ) );
 	exit;
 }
-add_action( 'admin_init', 'g5tech_redirect_special_page_modules_admin', 20 );
+// Nukreipimą perėmė g5tech_redirect_legacy_content_screens().
 
 /**
  * Ar vartotojas gali atidaryti tą ekraną, kuriame realiai valdomas puslapis.
@@ -141,8 +141,8 @@ function g5tech_module_page_choices() {
 function g5tech_module_page_public_url( $page_key ) {
 	$urls = array(
 		'home'             => home_url( '/' ),
-		'services'         => get_post_type_archive_link( 'g5_service' ),
-		'projects'         => get_post_type_archive_link( 'g5_project' ),
+		'services'         => home_url( '/paslaugos/' ),
+		'projects'         => home_url( '/projektai/' ),
 		'experience'       => home_url( '/patirtis/' ),
 		'about'            => home_url( '/apie-mus/' ),
 		'career'           => home_url( '/karjera/' ),
@@ -359,30 +359,15 @@ function g5tech_set_page_module_order( $page_key, $order ) {
 }
 
 function g5tech_module_page_admin_url( $page_key ) {
-	if ( 'training' === $page_key ) {
-		return admin_url( 'admin.php?page=g5tech-training-content' );
-	}
+	// Po turinio perkėlimo į blokus visų puslapių redagavimo vieta viena –
+	// puslapio blokų redaktorius.
+	$slug = function_exists( 'g5tech_page_key_slug_map' )
+		? ( g5tech_page_key_slug_map()[ $page_key ] ?? '' )
+		: '';
 
-	if ( 'about' === $page_key ) {
-		return admin_url( 'edit.php?post_type=g5_team&page=g5tech-about-order' );
-	}
-
-	if ( 'career' === $page_key && function_exists( 'g5tech_career_content_admin_url' ) ) {
-		return g5tech_career_content_admin_url();
-	}
-
-	if ( in_array( $page_key, array( 'academy', 'leaders', 'project_managers' ), true ) && function_exists( 'g5tech_structured_content_admin_url' ) ) {
-		return g5tech_structured_content_admin_url( $page_key );
-	}
-
-	return add_query_arg(
-		array(
-			'post_type' => 'g5_module',
-			'page'      => 'g5tech-page-modules',
-			'page_key'  => $page_key,
-		),
-		admin_url( 'edit.php' )
-	);
+	return $slug && function_exists( 'g5tech_page_editor_url' )
+		? g5tech_page_editor_url( $slug )
+		: admin_url( 'edit.php?post_type=page' );
 }
 
 function g5tech_user_can_manage_module_page( $page_key ) {
@@ -1307,7 +1292,7 @@ function g5tech_page_module_row_action( $actions, $post ) {
 
 	return $actions;
 }
-add_filter( 'page_row_actions', 'g5tech_page_module_row_action', 20, 2 );
+// Modulių nuoroda prie puslapių nebereikalinga po turinio perkėlimo į blokus.
 
 function g5tech_redirect_managed_page_editor_to_modules() {
 	if (
@@ -1332,7 +1317,7 @@ function g5tech_redirect_managed_page_editor_to_modules() {
 	wp_safe_redirect( g5tech_module_page_admin_url( $page_key ) );
 	exit;
 }
-add_action( 'load-post.php', 'g5tech_redirect_managed_page_editor_to_modules', 5 );
+// Blokų redaktorius nebeperšokamas: puslapio turinys gyvena post_content.
 
 function g5tech_replace_managed_page_edit_action( $actions, $post ) {
 	if ( 'page' !== $post->post_type ) {
@@ -1352,7 +1337,7 @@ function g5tech_replace_managed_page_edit_action( $actions, $post ) {
 
 	return $actions;
 }
-add_filter( 'page_row_actions', 'g5tech_replace_managed_page_edit_action', 5, 2 );
+// „Redaguoti" nuoroda vėl veda į standartinį blokų redaktorių.
 
 function g5tech_content_module_admin_notice() {
 	$screen = get_current_screen();

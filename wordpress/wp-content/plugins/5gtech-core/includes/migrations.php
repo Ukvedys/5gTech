@@ -1149,6 +1149,147 @@ function g5tech_homepage_block_content() {
 	);
 }
 
+/**
+ * „Paslaugos" puslapio turinys blokais — buvusio archyvo atitikmuo.
+ */
+function g5tech_services_page_block_content() {
+	return implode(
+		"\n\n",
+		array(
+			g5tech_block_markup(
+				'g5tech/page-hero',
+				array(
+					'eyebrow'  => 'Paslaugos',
+					'title'    => 'Telekomunikacijų, energetikos ir inžinerinių sistemų paslaugos.',
+					'dialect'  => 'site',
+					'anchorId' => 'g5-services-page-title',
+					'lock'     => array( 'move' => true, 'remove' => true ),
+				)
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => '6 kryptys',
+					'title'    => 'Paslaugų sritys.',
+					'theme'    => 'paper',
+					'dialect'  => 'site',
+					'anchorId' => 'g5-services-list-title',
+				),
+				g5tech_block_markup( 'g5tech/service-cards' )
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Darbo standartas',
+					'title'    => 'ISO standartai ir SSVA kvalifikacija.',
+					'theme'    => 'dark',
+					'dialect'  => 'site',
+					'anchorId' => 'g5-services-standard-title',
+				),
+				g5tech_block_markup( 'g5tech/certification-grid' )
+			),
+			g5tech_block_markup(
+				'g5tech/settings-cta',
+				array(
+					'eyebrow'  => 'Projektas',
+					'anchorId' => 'g5-services-cta-title',
+					'lock'     => array( 'move' => true, 'remove' => true ),
+				)
+			),
+		)
+	);
+}
+
+/**
+ * „Projektai" puslapio turinys blokais — buvusio archyvo atitikmuo.
+ */
+function g5tech_projects_page_block_content() {
+	return implode(
+		"\n\n",
+		array(
+			g5tech_block_markup(
+				'g5tech/page-hero',
+				array(
+					'eyebrow'  => 'Projektai',
+					'title'    => 'Infrastruktūros projektai Europoje.',
+					'lead'     => 'Telekomunikacijų, energetikos ir inžinerinės infrastruktūros darbai Lietuvoje bei kitose Europos šalyse.',
+					'dialect'  => 'site',
+					'anchorId' => 'g5-projects-title',
+					'lock'     => array( 'move' => true, 'remove' => true ),
+				)
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Patirtis',
+					'title'    => 'Atrinkti projektai.',
+					'theme'    => 'paper',
+					'dialect'  => 'site',
+					'anchorId' => 'g5-projects-list-title',
+				),
+				g5tech_block_markup( 'g5tech/project-cards' )
+			),
+			g5tech_block_markup(
+				'g5tech/page-cta',
+				array(
+					'eyebrow'     => 'Naujas projektas',
+					'title'       => 'Aptarkime jūsų projektą.',
+					'body'        => 'Atsiūskite turimą informaciją – įvertinsime darbų apimtį ir tolesnius veiksmus.',
+					'buttonLabel' => 'Susisiekti',
+					'buttonUrl'   => '/kontaktai/',
+					'dialect'     => 'site',
+					'anchorId'    => 'g5-projects-cta-title',
+					'lock'        => array( 'move' => true, 'remove' => true ),
+				)
+			),
+		)
+	);
+}
+
+/**
+ * Sukuria katalogo puslapius „Paslaugos" ir „Projektai".
+ *
+ * Anksčiau šie adresai buvo įrašų tipų archyvai, valdomi tik per šablonus.
+ * Dabar tai įprasti puslapiai sąraše „Puslapiai" — kaip visi kiti.
+ */
+function g5tech_create_catalog_pages() {
+	if ( ! current_user_can( 'edit_pages' ) ) {
+		return;
+	}
+
+	$pages = array(
+		'paslaugos' => array( 'Paslaugos', 'g5tech_services_page_block_content' ),
+		'projektai' => array( 'Projektai', 'g5tech_projects_page_block_content' ),
+	);
+
+	$created = false;
+
+	foreach ( $pages as $slug => $definition ) {
+		if ( get_page_by_path( $slug ) instanceof WP_Post ) {
+			continue;
+		}
+
+		wp_insert_post(
+			array(
+				'post_type'    => 'page',
+				'post_status'  => 'publish',
+				'post_name'    => $slug,
+				'post_title'   => $definition[0],
+				'post_content' => call_user_func( $definition[1] ),
+			)
+		);
+
+		$created = true;
+	}
+
+	// Archyvai išjungti, todėl nuorodų taisyklės perrašomos, kad šiuos
+	// adresus perimtų puslapiai.
+	if ( $created ) {
+		flush_rewrite_rules();
+	}
+}
+add_action( 'admin_init', 'g5tech_create_catalog_pages', 42 );
+
 function g5tech_migrate_content_pages_to_blocks() {
 	if ( ! current_user_can( 'edit_pages' ) ) {
 		return;

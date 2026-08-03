@@ -117,19 +117,26 @@ function g5tech_sync_editor_roles() {
 
 	$content_role->remove_cap( 'moderate_comments' );
 	$content_role->remove_cap( 'manage_links' );
+
+	// Puslapių turinys po perkėlimo gyvena blokų redaktoriuje, todėl abu
+	// redaktoriai gali keisti puslapius, bet negali jų trinti.
+	$page_edit_caps = array(
+		'edit_pages',
+		'edit_others_pages',
+		'publish_pages',
+		'read_private_pages',
+		'edit_private_pages',
+		'edit_published_pages',
+	);
+	g5tech_add_capabilities( $content_role, $page_edit_caps );
+	g5tech_add_capabilities( $hr_role, $page_edit_caps );
 	g5tech_remove_capabilities(
 		$content_role,
 		array(
-			'edit_pages',
-			'edit_others_pages',
-			'publish_pages',
-			'read_private_pages',
 			'delete_pages',
 			'delete_private_pages',
 			'delete_published_pages',
 			'delete_others_pages',
-			'edit_private_pages',
-			'edit_published_pages',
 		)
 	);
 	$content_role->add_cap( 'manage_g5tech_settings' );
@@ -166,11 +173,11 @@ function g5tech_sync_editor_roles() {
 		$administrator->add_cap( 'read_g5tech_guide' );
 	}
 
-	update_option( 'g5tech_roles_version', '3' );
+	update_option( 'g5tech_roles_version', '4' );
 }
 
 function g5tech_maybe_sync_editor_roles() {
-	if ( '3' !== get_option( 'g5tech_roles_version' ) ) {
+	if ( '4' !== get_option( 'g5tech_roles_version' ) ) {
 		g5tech_sync_editor_roles();
 	}
 }
@@ -210,7 +217,7 @@ function g5tech_add_training_content_page() {
 		'g5tech_render_training_content_page'
 	);
 }
-add_action( 'admin_menu', 'g5tech_add_training_content_page', 25 );
+// Ekranas išjungtas: Mokymų puslapis redaguojamas Puslapiai → blokų redaktoriuje.
 
 function g5tech_training_admin_fields() {
 	return array(
@@ -572,7 +579,7 @@ function g5tech_redirect_training_page_editor() {
 	wp_safe_redirect( admin_url( 'admin.php?page=g5tech-training-content' ) );
 	exit;
 }
-add_action( 'load-post.php', 'g5tech_redirect_training_page_editor' );
+// Blokų redaktorius nebeperšokamas.
 
 function g5tech_admin_guide_link( $url, $title, $text ) {
 	?>
@@ -598,14 +605,14 @@ function g5tech_render_guide_page() {
 		<?php if ( $show_content ) : ?>
 			<h2>Svetainės turinys</h2>
 			<div class="g5tech-guide-grid">
-				<?php g5tech_admin_guide_link( admin_url( 'admin.php?page=g5tech-settings' ), 'Bendri duomenys ir titulinis', 'Kontaktai, rodikliai, procesas ir titulinio sekcijų rodymas.' ); ?>
+				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=page' ), 'Puslapiai', 'Visų puslapių tekstai ir sekcijos vienoje vietoje – blokų redaktoriuje.' ); ?>
+				<?php g5tech_admin_guide_link( admin_url( 'admin.php?page=g5tech-settings' ), 'Bendri duomenys', 'Kontaktai, rodikliai ir kita visoje svetainėje naudojama informacija.' ); ?>
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_service' ), 'Paslaugos', 'Paslaugų aprašymai, darbai, vaizdai ir susijusi įranga.' ); ?>
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_project' ), 'Projektai', 'Šalys, technologijos, darbų apimtis ir viešumo būsena.' ); ?>
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_partner' ), 'Partneriai ir įranga', 'Vienoje vietoje tvarkomi pavadinimai, logotipai ir rodymo būsena.' ); ?>
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_module' ), 'Turinio moduliai', 'Pakartotinai naudojamos sekcijos, susietos versijos ir nepriklausomos kopijos.' ); ?>
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php' ), 'Naujienos', 'Naujo įrašo parengimas, peržiūra ir publikavimas.' ); ?>
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_faq' ), 'Dažniausi klausimai', 'Klausimai paslaugų puslapiams ir kandidatams.' ); ?>
-				<?php g5tech_admin_guide_link( admin_url( 'admin.php?page=g5tech-training-content' ), 'Mokymų puslapis', 'Mokymų temos, įranga, nuotrauka ir tiesioginė puslapio peržiūra.' ); ?>
 			</div>
 		<?php endif; ?>
 
@@ -613,19 +620,11 @@ function g5tech_render_guide_page() {
 			<h2>Komanda ir karjera</h2>
 			<div class="g5tech-guide-grid">
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_team' ), 'Komanda', 'Pareigos, kontaktai, patirtis ir viešas profilis.' ); ?>
-				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_team&page=g5tech-about-order' ), 'Apie mus turinys', 'Pakeiskite puslapio tekstus, nuotraukas ir sekcijų eiliškumą.' ); ?>
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_job' ), 'Darbo pozicijos', 'Naujos pozicijos, galiojimo data ir aktyvi būsena.' ); ?>
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_faq' ), 'DUK kandidatams', 'Centralizuoti klausimai apie darbą, komandiruotes ir saugą.' ); ?>
 			</div>
 		<?php endif; ?>
 
-		<?php if ( current_user_can( 'edit_g5_modules' ) ) : ?>
-			<h2>Puslapių sekcijos</h2>
-			<div class="g5tech-guide-grid">
-				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_module&page=g5tech-page-modules' ), 'Puslapių moduliai', 'Įkelkite bendras sekcijas į puslapius, pakeiskite jų tvarką arba atjunkite.' ); ?>
-				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_module' ), 'Modulių biblioteka', 'Kurkite, redaguokite, kopijuokite ir trinkite bendrus modulius.' ); ?>
-			</div>
-		<?php endif; ?>
 
 		<div class="g5tech-guide-steps">
 			<h2>Saugi publikavimo eiga</h2>

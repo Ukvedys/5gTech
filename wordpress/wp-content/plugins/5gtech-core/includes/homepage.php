@@ -245,7 +245,7 @@ function g5tech_render_homepage_legacy() {
 				<p class="hero-lead"><?php echo esc_html( g5tech_setting( 'home_hero_lead' ) ); ?></p>
 				<div class="hero-actions">
 					<a class="btn btn-primary" href="<?php echo esc_url( $contact_url ); ?>">Aptarkime jūsų projektą <span class="circle">→</span></a>
-					<a class="btn" href="<?php echo esc_url( get_post_type_archive_link( 'g5_service' ) ); ?>">Peržiūrėti paslaugas <span class="arrow">→</span></a>
+					<a class="btn" href="<?php echo esc_url( home_url( '/paslaugos/' ) ); ?>">Peržiūrėti paslaugas <span class="arrow">→</span></a>
 				</div>
 			</div>
 			<div class="hero-meta" aria-label="Pagrindiniai patirties faktai">
