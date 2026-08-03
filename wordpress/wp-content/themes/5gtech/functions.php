@@ -13,9 +13,15 @@ function g5tech_theme_setup() {
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'editor-styles' );
 
+	// Redaktorius gauna visus svetainės stilius, kad puslapis redagavimo
+	// drobėje atrodytų taip pat, kaip viešoje svetainėje.
 	$editor_styles = array(
 		'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap',
 		'assets/css/site.css',
+		'assets/css/home/home.css',
+		'assets/css/team/tokens.css',
+		'assets/css/team/components.css',
+		'assets/css/internal/shared.css',
 	);
 
 	add_editor_style( $editor_styles );

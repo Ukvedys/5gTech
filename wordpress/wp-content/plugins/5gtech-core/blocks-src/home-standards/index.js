@@ -1,12 +1,16 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps } from '@wordpress/block-editor';
+import { Disabled } from '@wordpress/components';
+import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
+
 registerBlockType( metadata.name, {
 	edit() {
 		return (
-			<div { ...useBlockProps( { className: 'g5-editor-partners' } ) }>
-				<p><strong>Titulinis · darbo standartas</strong></p>
-				<p><em>Sertifikatai imami iš „5G TECH nustatymų“.</em></p>
+			<div { ...useBlockProps() }>
+				<Disabled>
+					<ServerSideRender block={ metadata.name } />
+				</Disabled>
 			</div>
 		);
 	},

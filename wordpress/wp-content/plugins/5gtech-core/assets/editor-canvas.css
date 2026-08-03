@@ -1,0 +1,21 @@
+/* Redaktoriaus drobės korekcijos — viešos svetainės neliečia. */
+
+/* Hero redaktoriuje neturi užimti viso ekrano ir nereikia slinkties ženklo. */
+.editor-styles-wrapper .hero.g5-editor-hero-canvas{min-height:620px;height:auto}
+.editor-styles-wrapper .g5-editor-hero-canvas .scroll-cue{display:none}
+
+/* Skaidrių juosta po hero sekcija. */
+.editor-styles-wrapper .g5-hero-slides{padding:14px 18px 18px;background:#0a1220;border-top:1px solid rgba(255,255,255,.14)}
+.editor-styles-wrapper .g5-hero-slides__label{margin-bottom:10px;color:#9fb0c7;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.editor-styles-wrapper .g5-hero-slides__list{display:flex;gap:12px;flex-wrap:wrap}
+.editor-styles-wrapper .g5-hero-slides__list > .wp-block{margin:0}
+.editor-styles-wrapper .g5-hero-slide{width:190px;padding:8px;background:#101c30;color:#fff}
+.editor-styles-wrapper .g5-hero-slide strong{display:block;margin-top:8px;font-size:12px;line-height:1.4}
+.editor-styles-wrapper .g5-hero-slide__img{display:block;width:100%;height:104px;object-fit:cover}
+.editor-styles-wrapper .g5-hero-slide__img--empty{display:grid;place-items:center;background:#1c2b44;color:#9fb0c7;font-size:12px}
+
+/* Dinaminių sekcijų peržiūros neblokuoja pažymėjimo, nuorodos neveikia drobėje. */
+.editor-styles-wrapper .components-disabled{opacity:1}
+
+/* Auditorijų kortelės redaktoriuje – kaip svetainėje, tik be nuorodos elgesio. */
+.editor-styles-wrapper .audience-item{cursor:text}

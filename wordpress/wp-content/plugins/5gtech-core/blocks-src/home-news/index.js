@@ -1,13 +1,22 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { Disabled, PanelBody, TextControl } from '@wordpress/components';
+import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
+
 registerBlockType( metadata.name, {
 	edit( { attributes, setAttributes } ) {
 		return (
-			<div { ...useBlockProps( { className: 'g5-editor-partners' } ) }>
-				<RichText tagName="h2" allowedFormats={ [] } value={ attributes.title }
-					onChange={ ( v ) => setAttributes( { title: v } ) } placeholder="Sekcijos antraštė" />
-				<p><em>Rodomi 3 naujausi įrašai iš skilties „Naujienos“.</em></p>
+			<div { ...useBlockProps() }>
+				<InspectorControls>
+					<PanelBody title="Naujienų sekcija">
+						<TextControl label="Antraštė" value={ attributes.title } onChange={ ( v ) => setAttributes( { title: v } ) } />
+						<TextControl label="Nuorodos tekstas" value={ attributes.linkLabel } onChange={ ( v ) => setAttributes( { linkLabel: v } ) } />
+					</PanelBody>
+				</InspectorControls>
+				<Disabled>
+					<ServerSideRender block={ metadata.name } attributes={ attributes } />
+				</Disabled>
 			</div>
 		);
 	},
