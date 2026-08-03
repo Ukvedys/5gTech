@@ -32,9 +32,33 @@
       "type": "string",
       "default": ""
     },
+    "buttonIcon": {
+      "type": "string",
+      "default": "→"
+    },
+    "button2Label": {
+      "type": "string",
+      "default": ""
+    },
+    "button2Url": {
+      "type": "string",
+      "default": ""
+    },
     "compact": {
       "type": "boolean",
       "default": false
+    },
+    "dialect": {
+      "type": "string",
+      "default": "internal",
+      "enum": [
+        "internal",
+        "site"
+      ]
+    },
+    "anchorId": {
+      "type": "string",
+      "default": ""
     }
   },
   "textdomain": "5gtech-core",

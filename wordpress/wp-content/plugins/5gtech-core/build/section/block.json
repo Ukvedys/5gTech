@@ -35,6 +35,18 @@
     "anchorId": {
       "type": "string",
       "default": ""
+    },
+    "sectionId": {
+      "type": "string",
+      "default": ""
+    },
+    "dialect": {
+      "type": "string",
+      "default": "internal",
+      "enum": [
+        "internal",
+        "site"
+      ]
     }
   },
   "textdomain": "5gtech-core",

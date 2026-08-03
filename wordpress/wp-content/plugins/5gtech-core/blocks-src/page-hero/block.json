@@ -6,14 +6,60 @@
   "category": "theme",
   "icon": "cover-image",
   "description": "Puslapio viršus: žyma, antraštė, įžanga ir mygtukas.",
-  "supports": { "html": false, "reusable": false, "multiple": false },
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "multiple": false
+  },
   "attributes": {
-    "eyebrow":     { "type": "string", "default": "" },
-    "title":       { "type": "string", "default": "" },
-    "lead":        { "type": "string", "default": "" },
-    "buttonLabel": { "type": "string", "default": "" },
-    "buttonUrl":   { "type": "string", "default": "" },
-    "compact":     { "type": "boolean", "default": false }
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "lead": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonIcon": {
+      "type": "string",
+      "default": "→"
+    },
+    "button2Label": {
+      "type": "string",
+      "default": ""
+    },
+    "button2Url": {
+      "type": "string",
+      "default": ""
+    },
+    "compact": {
+      "type": "boolean",
+      "default": false
+    },
+    "dialect": {
+      "type": "string",
+      "default": "internal",
+      "enum": [
+        "internal",
+        "site"
+      ]
+    },
+    "anchorId": {
+      "type": "string",
+      "default": ""
+    }
   },
   "textdomain": "5gtech-core",
   "editorScript": "file:./index.js"

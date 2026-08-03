@@ -35,14 +35,15 @@ function g5tech_register_content_page_blocks() {
 }
 add_action( 'init', 'g5tech_register_content_page_blocks' );
 
-function g5tech_content_hero( $eyebrow, $title, $lead = '', $button = array(), $compact = false ) {
+function g5tech_content_hero( $eyebrow, $title, $lead = '', $button = array(), $compact = false, $secondary = array() ) {
+	$icon = isset( $button['icon'] ) && '' !== $button['icon'] ? $button['icon'] : '→';
 	?>
 	<section class="inner-hero <?php echo $compact ? 'inner-hero--compact' : ''; ?> g5-grid-lines g5-grid-lines--dark" aria-labelledby="page-title">
 		<div class="g5-container g5-grid"><div class="inner-hero__copy">
 			<div class="g5-eyebrow"><?php echo esc_html( $eyebrow ); ?></div>
 			<h1 class="g5-display-xl" id="page-title"><?php echo esc_html( $title ); ?></h1>
 			<?php if ( $lead ) : ?><p class="g5-body-lg"><?php echo esc_html( $lead ); ?></p><?php endif; ?>
-			<?php if ( $button ) : ?><div class="inner-hero__actions"><a class="g5-button g5-button--primary" href="<?php echo esc_url( $button['url'] ); ?>"><?php echo esc_html( $button['label'] ); ?> <span class="g5-button__icon" aria-hidden="true">→</span></a></div><?php endif; ?>
+			<?php if ( $button ) : ?><div class="inner-hero__actions"><a class="g5-button g5-button--primary" href="<?php echo esc_url( $button['url'] ); ?>"><?php echo esc_html( $button['label'] ); ?> <span class="g5-button__icon" aria-hidden="true"><?php echo esc_html( $icon ); ?></span></a><?php if ( $secondary ) : ?><a class="g5-button g5-button--outline-light" href="<?php echo esc_url( $secondary['url'] ); ?>"><?php echo esc_html( $secondary['label'] ); ?></a><?php endif; ?></div><?php endif; ?>
 		</div></div>
 	</section>
 	<?php

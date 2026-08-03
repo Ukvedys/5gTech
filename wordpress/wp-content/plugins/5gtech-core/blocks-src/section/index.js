@@ -5,7 +5,7 @@ import metadata from './block.json';
 
 registerBlockType( metadata.name, {
 	edit( { attributes, setAttributes } ) {
-		const { eyebrow, title, lead, theme, anchorId } = attributes;
+		const { eyebrow, title, lead, theme, anchorId, sectionId } = attributes;
 		const blockProps = useBlockProps( { className: 'g5-editor-section g5-editor-section--' + theme } );
 		const innerProps = useInnerBlocksProps( { className: 'g5-editor-section__body' }, { template: [ [ 'g5tech/card-grid' ] ] } );
 		return (
@@ -18,6 +18,7 @@ registerBlockType( metadata.name, {
 							{ label: 'Tamsus', value: 'dark' },
 						] } onChange={ ( v ) => setAttributes( { theme: v } ) } />
 						<TextControl label="Inkaro ID" value={ anchorId } onChange={ ( v ) => setAttributes( { anchorId: v } ) } />
+						<TextControl label="Sekcijos ID (nuorodoms su #)" value={ sectionId } onChange={ ( v ) => setAttributes( { sectionId: v } ) } />
 					</PanelBody>
 				</InspectorControls>
 				<section { ...blockProps }>

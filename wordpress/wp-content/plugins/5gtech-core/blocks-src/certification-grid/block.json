@@ -1,0 +1,13 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/certification-grid",
+  "title": "Sertifikatų juosta",
+  "category": "theme",
+  "icon": "awards",
+  "description": "Sertifikatai ir kvalifikacijos iš „5G TECH nustatymų“.",
+  "parent": [ "g5tech/section" ],
+  "supports": { "html": false, "reusable": false, "multiple": false },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

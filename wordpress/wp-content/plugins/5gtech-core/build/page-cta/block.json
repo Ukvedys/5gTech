@@ -23,11 +23,27 @@
       "type": "string",
       "default": ""
     },
+    "bodySetting": {
+      "type": "string",
+      "default": ""
+    },
     "buttonLabel": {
       "type": "string",
       "default": ""
     },
     "buttonUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "dialect": {
+      "type": "string",
+      "default": "internal",
+      "enum": [
+        "internal",
+        "site"
+      ]
+    },
+    "anchorId": {
       "type": "string",
       "default": ""
     }

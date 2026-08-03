@@ -6,13 +6,48 @@
   "category": "theme",
   "icon": "align-wide",
   "description": "Sekcija su žyma, antrašte ir turiniu.",
-  "supports": { "html": false, "reusable": false },
+  "supports": {
+    "html": false,
+    "reusable": false
+  },
   "attributes": {
-    "eyebrow":  { "type": "string", "default": "" },
-    "title":    { "type": "string", "default": "" },
-    "lead":     { "type": "string", "default": "" },
-    "theme":    { "type": "string", "default": "light", "enum": [ "light", "paper", "dark" ] },
-    "anchorId": { "type": "string", "default": "" }
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "lead": {
+      "type": "string",
+      "default": ""
+    },
+    "theme": {
+      "type": "string",
+      "default": "light",
+      "enum": [
+        "light",
+        "paper",
+        "dark"
+      ]
+    },
+    "anchorId": {
+      "type": "string",
+      "default": ""
+    },
+    "sectionId": {
+      "type": "string",
+      "default": ""
+    },
+    "dialect": {
+      "type": "string",
+      "default": "internal",
+      "enum": [
+        "internal",
+        "site"
+      ]
+    }
   },
   "textdomain": "5gtech-core",
   "editorScript": "file:./index.js"

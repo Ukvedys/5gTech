@@ -1,0 +1,13 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/contact-people",
+  "title": "Tiesioginiai kontaktai",
+  "category": "theme",
+  "icon": "groups",
+  "description": "Komandos narių kontaktų kortelės iš skilties „Komanda“.",
+  "parent": [ "g5tech/section" ],
+  "supports": { "html": false, "reusable": false, "multiple": false },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

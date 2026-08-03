@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/link-card",
+  "title": "Nuorodos kortelė",
+  "category": "theme",
+  "icon": "admin-links",
+  "description": "Kortelė, vedanti į kitą puslapį.",
+  "parent": [ "g5tech/card-grid" ],
+  "supports": { "html": false, "reusable": false },
+  "attributes": {
+    "label":    { "type": "string", "default": "" },
+    "title":    { "type": "string", "default": "" },
+    "linkText": { "type": "string", "default": "" },
+    "url":      { "type": "string", "default": "" }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/faq-group",
+  "title": "DUK grupė",
+  "category": "theme",
+  "icon": "editor-help",
+  "description": "Pasirinktos grupės klausimai iš skilties „Dažniausi klausimai“.",
+  "parent": [
+    "g5tech/section"
+  ],
+  "supports": {
+    "html": false,
+    "reusable": false
+  },
+  "attributes": {
+    "group": {
+      "type": "string",
+      "default": "start",
+      "enum": [
+        "start",
+        "travel",
+        "safety",
+        "daily"
+      ]
+    }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

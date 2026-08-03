@@ -5,14 +5,19 @@ import metadata from './block.json';
 
 registerBlockType( metadata.name, {
 	edit( { attributes, setAttributes } ) {
-		const { eyebrow, title, lead, buttonLabel, buttonUrl, compact } = attributes;
+		const { eyebrow, title, lead, buttonLabel, buttonUrl, buttonIcon, button2Label, button2Url, compact } = attributes;
 		return (
 			<>
 				<InspectorControls>
 					<PanelBody title="Mygtukas">
 						<TextControl label="Mygtuko tekstas" value={ buttonLabel } onChange={ ( v ) => setAttributes( { buttonLabel: v } ) } />
 						<TextControl label="Mygtuko nuoroda" value={ buttonUrl } onChange={ ( v ) => setAttributes( { buttonUrl: v } ) } />
+						<TextControl label="Mygtuko ženklas" value={ buttonIcon } help="Pvz. → arba ↓" onChange={ ( v ) => setAttributes( { buttonIcon: v } ) } />
 						<ToggleControl label="Žemesnė antraštė" checked={ !! compact } onChange={ ( v ) => setAttributes( { compact: v } ) } />
+					</PanelBody>
+					<PanelBody title="Antras mygtukas" initialOpen={ false }>
+						<TextControl label="Teksto" value={ button2Label } onChange={ ( v ) => setAttributes( { button2Label: v } ) } />
+						<TextControl label="Nuoroda" value={ button2Url } onChange={ ( v ) => setAttributes( { button2Url: v } ) } />
 					</PanelBody>
 				</InspectorControls>
 				<section { ...useBlockProps( { className: 'g5-editor-hero' } ) }>

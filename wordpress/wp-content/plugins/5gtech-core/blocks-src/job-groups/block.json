@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/job-groups",
+  "title": "Darbo pozicijų sąrašas",
+  "category": "theme",
+  "icon": "businessperson",
+  "description": "Aktyvios pozicijos iš skilties „Karjera · skelbimai“, suskirstytos į grupes.",
+  "parent": [ "g5tech/section" ],
+  "supports": { "html": false, "reusable": false, "multiple": false },
+  "attributes": {
+    "lithuaniaLabel": { "type": "string", "default": "Lietuvos projektai" },
+    "europeLabel":    { "type": "string", "default": "Europos projektai" },
+    "officeLabel":    { "type": "string", "default": "Biuro pozicijos" },
+    "emptyText":      { "type": "string", "default": "Šiuo metu atvirų pozicijų nėra. Galite palikti CV – susisieksime atsiradus tinkamai pozicijai." }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

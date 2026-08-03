@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/projects-preview",
+  "title": "Atrinkti projektai",
+  "category": "theme",
+  "icon": "portfolio",
+  "description": "Naujausi projektai iš skilties „Projektai“ su nuoroda į visą sąrašą.",
+  "parent": [ "g5tech/section" ],
+  "supports": { "html": false, "reusable": false, "multiple": false },
+  "attributes": {
+    "limit":       { "type": "integer", "default": 3 },
+    "buttonLabel": { "type": "string", "default": "Visi projektai →" }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/application-form",
+  "title": "Kandidatavimo forma",
+  "category": "theme",
+  "icon": "id",
+  "description": "Kandidatavimo forma su CV įkėlimu. Pozicijų sąrašas imamas iš aktyvių skelbimų.",
+  "parent": [
+    "g5tech/section"
+  ],
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "multiple": false
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

@@ -540,6 +540,347 @@ function g5tech_training_page_block_content() {
 	return implode( "\n\n", $blocks );
 }
 
+
+/**
+ * Naujienų puslapio turinys blokais.
+ */
+function g5tech_news_page_block_content() {
+	return implode(
+		"\n\n",
+		array(
+			g5tech_block_markup(
+				'g5tech/page-hero',
+				array(
+					'eyebrow' => 'Naujienos',
+					'title'   => 'Projektai, komanda ir techninės įžvalgos.',
+					'compact' => true,
+					'lock'    => array( 'move' => true, 'remove' => true ),
+				)
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Naujausia',
+					'title'    => 'Naujausi įrašai.',
+					'theme'    => 'paper',
+					'anchorId' => 'news-title',
+				),
+				g5tech_block_markup( 'g5tech/news-grid' )
+			),
+		)
+	);
+}
+
+/**
+ * Kandidatų DUK puslapio turinys blokais.
+ */
+function g5tech_candidate_faq_page_block_content() {
+	$sections = array(
+		g5tech_block_markup(
+			'g5tech/page-hero',
+			array(
+				'eyebrow' => 'DUK kandidatams',
+				'title'   => 'Dažniausi klausimai apie darbą 5G TECH.',
+				'compact' => true,
+				'lock'    => array( 'move' => true, 'remove' => true ),
+			)
+		),
+	);
+
+	$groups = array(
+		'start'  => array( 'Darbo pradžia', 'Kandidatavimas ir pasirengimas.' ),
+		'travel' => array( 'Komandiruotės', 'Darbas Europos projektuose.' ),
+		'safety' => array( 'Sauga ir priemonės', 'Darbas aukštyje ir sauga.' ),
+		'daily'  => array( 'Kasdienis darbas', 'Kasdienė darbo eiga.' ),
+	);
+
+	$index = 0;
+
+	foreach ( $groups as $group => $labels ) {
+		$sections[] = g5tech_block_markup(
+			'g5tech/section',
+			array(
+				'eyebrow'  => $labels[0],
+				'title'    => $labels[1],
+				'theme'    => 1 === $index % 2 ? 'paper' : 'light',
+				'anchorId' => $group . '-title',
+			),
+			g5tech_block_markup( 'g5tech/faq-group', array( 'group' => $group ) )
+		);
+		$index++;
+	}
+
+	// CTA tekstas imamas iš nustatymų (karjeros el. paštas), todėl čia
+	// nurodomas tik nustatymo raktas, o ne pati reikšmė.
+	$sections[] = g5tech_block_markup(
+		'g5tech/page-cta',
+		array(
+			'eyebrow'     => 'Neradote atsakymo?',
+			'title'       => 'Susisiekite su personalo komanda.',
+			'bodySetting' => 'career_email',
+			'buttonLabel' => 'Kandidatuoti',
+			'buttonUrl'   => '/kandidatuoti/',
+			'lock'        => array( 'move' => true, 'remove' => true ),
+		)
+	);
+
+	return implode( "\n\n", $sections );
+}
+
+/**
+ * Kontaktų puslapio turinys blokais.
+ */
+function g5tech_contact_page_block_content() {
+	return implode(
+		"\n\n",
+		array(
+			g5tech_block_markup(
+				'g5tech/page-hero',
+				array(
+					'eyebrow' => 'Kontaktai',
+					'title'   => 'Aptarkime jūsų projektą.',
+					'lead'    => 'Aprašykite užduotį arba susisiekite tiesiogiai – atsakysime ir nukreipsime pas tinkamą specialistą.',
+					'compact' => true,
+					'lock'    => array( 'move' => true, 'remove' => true ),
+				)
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Parašykite',
+					'title'    => 'Projekto užklausa.',
+					'anchorId' => 'contact-title',
+				),
+				g5tech_block_markup( 'g5tech/contact-form-split' )
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Komanda',
+					'title'    => 'Tiesioginiai kontaktai.',
+					'theme'    => 'paper',
+					'anchorId' => 'people-title',
+				),
+				g5tech_block_markup( 'g5tech/contact-people' )
+			),
+		)
+	);
+}
+
+/**
+ * Kandidatavimo puslapio turinys blokais.
+ */
+function g5tech_application_page_block_content() {
+	return implode(
+		"\n\n",
+		array(
+			g5tech_block_markup(
+				'g5tech/page-hero',
+				array(
+					'eyebrow' => 'Kandidatavimas',
+					'title'   => 'Pateikite kandidatūrą.',
+					'lead'    => 'Įkelkite CV ir nurodykite dominančią poziciją. Jei tinkamos pozicijos šiuo metu nėra, galėsime susisiekti vėliau.',
+					'compact' => true,
+					'lock'    => array( 'move' => true, 'remove' => true ),
+				)
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Kandidatavimas',
+					'title'    => 'Kontaktai ir darbo patirtis.',
+					'lead'     => 'Žvaigždute pažymėti laukai yra privalomi.',
+					'anchorId' => 'form-title',
+				),
+				g5tech_block_markup( 'g5tech/application-form' )
+			),
+		)
+	);
+}
+
+/**
+ * Karjeros puslapio turinys blokais. Tekstai imami iš esamos turinio opcijos.
+ */
+function g5tech_career_page_block_content() {
+	if ( ! function_exists( 'g5tech_career_page_content' ) ) {
+		return '';
+	}
+
+	$content = g5tech_career_page_content();
+
+	$growth_cards = array();
+
+	foreach ( (array) $content['growth_cards'] as $card ) {
+		$growth_cards[] = g5tech_block_markup(
+			'g5tech/link-card',
+			array(
+				'label'    => (string) ( $card['label'] ?? '' ),
+				'title'    => (string) ( $card['title'] ?? '' ),
+				'linkText' => (string) ( $card['link'] ?? '' ),
+				'url'      => (string) ( $card['url'] ?? '' ),
+			)
+		);
+	}
+
+	return implode(
+		"\n\n",
+		array(
+			g5tech_block_markup(
+				'g5tech/page-hero',
+				array(
+					'eyebrow'      => (string) $content['hero_eyebrow'],
+					'title'        => (string) $content['hero_title'],
+					'lead'         => (string) $content['hero_lead'],
+					'buttonLabel'  => 'Peržiūrėti pozicijas',
+					'buttonUrl'    => '#positions',
+					'buttonIcon'   => '↓',
+					'button2Label' => 'Palikti CV',
+					'button2Url'   => '/kandidatuoti/',
+					'lock'         => array( 'move' => true, 'remove' => true ),
+				)
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => (string) $content['benefits_eyebrow'],
+					'title'    => (string) $content['benefits_title'],
+					'theme'    => 'paper',
+					'anchorId' => 'benefits-title',
+				),
+				g5tech_cards_block_markup( $content['benefits'] )
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'   => (string) $content['positions_eyebrow'],
+					'title'     => (string) $content['positions_title'],
+					'anchorId'  => 'positions-title',
+					'sectionId' => 'positions',
+				),
+				g5tech_block_markup(
+					'g5tech/job-groups',
+					array( 'emptyText' => (string) $content['positions_empty'] )
+				)
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => (string) $content['selection_eyebrow'],
+					'title'    => (string) $content['selection_title'],
+					'theme'    => 'dark',
+					'anchorId' => 'selection-title',
+				),
+				g5tech_list_block_markup(
+					$content['selection_steps'],
+					'g5tech/steps',
+					'g5tech/step',
+					array( 'title' => 'title', 'text' => 'text' )
+				)
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => (string) $content['growth_eyebrow'],
+					'title'    => (string) $content['growth_title'],
+					'anchorId' => 'growth-title',
+				),
+				g5tech_block_markup( 'g5tech/card-grid', array(), implode( "\n", $growth_cards ) )
+			),
+		)
+	);
+}
+
+/**
+ * Patirties puslapio turinys blokais (svetainės g5-* dialektas).
+ */
+function g5tech_experience_page_block_content() {
+	$contact_url = function_exists( 'g5tech_setting' )
+		? (string) g5tech_setting( 'contact_page_url', '/kontaktai/' )
+		: '/kontaktai/';
+
+	return implode(
+		"\n\n",
+		array(
+			g5tech_block_markup(
+				'g5tech/page-hero',
+				array(
+					'eyebrow'  => 'Patirtis',
+					'title'    => 'Patirtis Europos infrastruktūros projektuose.',
+					'lead'     => 'Dirbame šešiose Europos šalyse, pagal skirtingų operatorių standartus ir su įvairių gamintojų įranga.',
+					'dialect'  => 'site',
+					'anchorId' => 'g5-experience-title',
+					'lock'     => array( 'move' => true, 'remove' => true ),
+				)
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Skaičiai',
+					'title'    => 'Pagrindiniai skaičiai.',
+					'theme'    => 'dark',
+					'dialect'  => 'site',
+					'anchorId' => 'g5-experience-numbers-title',
+				),
+				g5tech_block_markup( 'g5tech/stats-band' )
+			),
+			g5tech_block_markup(
+				'g5tech/geo-section',
+				array(
+					'eyebrow'  => 'Geografija',
+					'title'    => 'Šešios Europos šalys.',
+					'anchorId' => 'g5-countries-title',
+				)
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Projektai',
+					'title'    => 'Atrinkti projektai.',
+					'theme'    => 'dark',
+					'dialect'  => 'site',
+					'anchorId' => 'g5-projects-preview-title',
+				),
+				g5tech_block_markup( 'g5tech/projects-preview' )
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Patirtis',
+					'title'    => 'Partneriai.',
+					'theme'    => 'paper',
+					'dialect'  => 'site',
+					'anchorId' => 'g5-operators-title',
+				),
+				g5tech_block_markup( 'g5tech/partner-tag-split' )
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Darbo standartas',
+					'title'    => 'ISO standartai ir SSVA kvalifikacija.',
+					'theme'    => 'dark',
+					'dialect'  => 'site',
+					'anchorId' => 'g5-certifications-title',
+				),
+				g5tech_block_markup( 'g5tech/certification-grid' )
+			),
+			g5tech_block_markup(
+				'g5tech/page-cta',
+				array(
+					'eyebrow'     => 'Naujas projektas',
+					'title'       => 'Aptarkime jūsų projektą.',
+					'body'        => 'Nurodykite rinką, operatorių ar įrangą – pateiksime aktualią patirtį.',
+					'buttonLabel' => 'Susisiekti',
+					'buttonUrl'   => $contact_url,
+					'dialect'     => 'site',
+					'anchorId'    => 'g5-experience-cta-title',
+					'lock'        => array( 'move' => true, 'remove' => true ),
+				)
+			),
+		)
+	);
+}
+
 function g5tech_migrate_content_pages_to_blocks() {
 	if ( ! current_user_can( 'edit_pages' ) ) {
 		return;
@@ -553,6 +894,12 @@ function g5tech_migrate_content_pages_to_blocks() {
 		'akademija'         => array( 'legacy' => 'g5tech/academy-page',          'page_key' => 'academy',          'builder' => 'g5tech_academy_page_block_content' ),
 		'projektu-vadovams' => array( 'legacy' => 'g5tech/project-managers-page', 'page_key' => 'project_managers', 'builder' => 'g5tech_project_managers_page_block_content' ),
 		'mokymai'           => array( 'legacy' => 'g5tech/training-page',         'page_key' => 'training',         'builder' => 'g5tech_training_page_block_content' ),
+		'naujienos'         => array( 'legacy' => 'g5tech/news-page',             'page_key' => 'news',             'builder' => 'g5tech_news_page_block_content' ),
+		'duk'               => array( 'legacy' => 'g5tech/candidate-faq-page',    'page_key' => 'candidate_faq',    'builder' => 'g5tech_candidate_faq_page_block_content' ),
+		'kontaktai'         => array( 'legacy' => 'g5tech/contact-page',          'page_key' => 'contact',          'builder' => 'g5tech_contact_page_block_content' ),
+		'kandidatuoti'      => array( 'legacy' => 'g5tech/application-page',      'page_key' => '',                 'builder' => 'g5tech_application_page_block_content' ),
+		'karjera'           => array( 'legacy' => 'g5tech/career-page',           'page_key' => 'career',           'builder' => 'g5tech_career_page_block_content' ),
+		'patirtis'          => array( 'legacy' => 'g5tech/experience-page',       'page_key' => 'experience',       'builder' => 'g5tech_experience_page_block_content' ),
 	);
 
 	foreach ( $pages as $slug => $definition ) {
