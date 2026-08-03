@@ -19,3 +19,22 @@
 
 /* Auditorijų kortelės redaktoriuje – kaip svetainėje, tik be nuorodos elgesio. */
 .editor-styles-wrapper .audience-item{cursor:text}
+
+/* --- Drobės plotis: sekcijos per visą redaktoriaus plotį, kaip svetainėje --- */
+.editor-styles-wrapper .is-root-container > .wp-block[data-type^="g5tech/"],
+.editor-styles-wrapper .home-sections > .wp-block[data-type^="g5tech/"]{max-width:none;width:100%}
+
+/* --- „Kaip dirbame": viešame puslapyje sekciją išdėsto JS animacija, todėl
+   redaktoriuje ji rodoma statiškai — etapai vienas po kito. --- */
+.editor-styles-wrapper .process-grid{display:block}
+.editor-styles-wrapper .process-intro{position:static;height:auto;min-height:0;padding:70px clamp(24px,4vw,64px) 20px;border-right:0}
+.editor-styles-wrapper .process-intro h2{margin-bottom:0}
+.editor-styles-wrapper .process-steps{padding:0 clamp(24px,4vw,64px)}
+.editor-styles-wrapper .process-step{min-height:0;padding:44px 0;justify-content:flex-start}
+.editor-styles-wrapper .process::before,
+.editor-styles-wrapper .process-progress{display:none}
+.editor-styles-wrapper .step-media{max-width:520px}
+
+/* --- Sertifikatų antraštė: viešai ją paryškina slinkties efektas, redaktoriuje
+   rodoma iš karto pilno ryškumo. --- */
+.editor-styles-wrapper .bridge{--bridge-reveal:100%}
