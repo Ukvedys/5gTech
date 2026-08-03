@@ -99,7 +99,21 @@ Duomenų bazė iš SQLite į MySQL **neperkeliama tiesiogiai** — nereikia. Tur
 
 ---
 
-## 5. Saugumas
+## 5. Serverio užduotys be terminalo
+
+Failas `scripts/server-tasks.sh` vykdomas serveryje kiekvieno diegimo pabaigoje, WordPress šakniniame kataloge. Tai kanalas serverio komandoms (wp-cli, failų tvarkymas, kešo valymas) be rankinio SSH.
+
+Darbo eiga: Claude įrašo užduotis į šį failą → tu GitHub Desktop'e spaudi **Commit → Push** → GitHub Actions jas įvykdo serveryje. Rezultatas matomas diegimo žurnale, žingsnyje „Vykdyti serverio užduotis".
+
+Taisyklės:
+
+- Kiekviena užduotis privalo būti **idempotentiška** — saugu paleisti daug kartų, nes failas vykdomas per kiekvieną diegimą.
+- Vienkartinės užduotys, kai atliktos, iš failo ištrinamos.
+- Papildomai kiekvienas diegimas automatiškai atnaujina `demo/demo-seed.php` kopiją serverio `mu-plugins/` kataloge.
+
+---
+
+## 6. Saugumas
 
 - Slaptažodžiai ir raktai gyvena tik GitHub Secrets. Kode ir susirašinėjime jų nėra.
 - Privatus raktas iš GitHub Secrets neišimamas — jį galima tik perrašyti nauju.
