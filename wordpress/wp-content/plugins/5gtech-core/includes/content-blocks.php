@@ -822,7 +822,15 @@ function g5tech_render_geo_section_block( $attributes = array() ) {
 	$url      = $image_id ? wp_get_attachment_image_url( $image_id, 'full' ) : '';
 
 	if ( ! $url ) {
-		$url = get_theme_file_uri( 'assets/images/europe-footprint-map.png' );
+		// Kiekviena kalba turi savo žemėlapio versiją (užrašai paveikslėlyje).
+		$language = function_exists( 'g5tech_current_language' ) ? g5tech_current_language() : 'lt';
+		$map_file = 'assets/images/europe-footprint-map' . ( 'lt' === $language ? '' : '-' . $language ) . '.png';
+
+		if ( ! file_exists( get_theme_file_path( $map_file ) ) ) {
+			$map_file = 'assets/images/europe-footprint-map.png';
+		}
+
+		$url = get_theme_file_uri( $map_file );
 	}
 
 	ob_start();
