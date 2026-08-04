@@ -84,3 +84,21 @@ function g5tech_render_unified_admin_preview( $page_url, $title ) {
 	</aside>
 	<?php
 }
+
+/**
+ * Aiškūs pavadinimo laukai: be jų neaišku, kur rašyti vardą ar klausimą.
+ */
+function g5tech_content_title_placeholders( $text, $post ) {
+	$map = array(
+		'g5_team'    => 'Vardas ir pavardė',
+		'g5_service' => 'Paslaugos pavadinimas',
+		'g5_project' => 'Projekto pavadinimas',
+		'g5_job'     => 'Pozicijos pavadinimas',
+		'g5_faq'     => 'Klausimas',
+		'g5_module'  => 'Modulio pavadinimas (matomas tik administravime)',
+		'post'       => 'Naujienos antraštė',
+	);
+
+	return $map[ $post->post_type ] ?? $text;
+}
+add_filter( 'enter_title_here', 'g5tech_content_title_placeholders', 20, 2 );
