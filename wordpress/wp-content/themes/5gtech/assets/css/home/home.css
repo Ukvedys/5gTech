@@ -869,11 +869,16 @@
     }
     .team-card {
       min-width: 0;
+      /* Kortelė — stulpelis: rodikliai visada prispausti prie apačios,
+         nepriklausomai nuo aprašymo ilgio. */
+      display: flex;
+      flex-direction: column;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       background: white;
       transition: color .25s, background .25s, transform .25s;
     }
+    .team-card .team-card-body { flex: 1 1 auto; }
     .team-card:hover {
       color: white;
       background: var(--navy);
