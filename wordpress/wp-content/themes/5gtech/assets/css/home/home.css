@@ -372,14 +372,23 @@
     }
     .equipment::after {
       background:
-        linear-gradient(var(--section-grid-line), var(--section-grid-line)) 0 0 / 1px 100% no-repeat,
-        linear-gradient(var(--section-grid-line), var(--section-grid-line)) var(--layout-grid-unit) 0 / 1px 100% no-repeat,
-        linear-gradient(var(--section-grid-line), var(--section-grid-line)) calc(var(--layout-grid-unit) * 3) 0 / 1px 100% no-repeat;
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) calc(var(--layout-grid-unit) * 5) 0 / 1px 100% no-repeat;
     }
     .team::after {
       background:
         linear-gradient(var(--section-grid-line), var(--section-grid-line)) 0 0 / 1px 100% no-repeat,
-        linear-gradient(var(--section-grid-line), var(--section-grid-line)) calc(var(--layout-grid-unit) * 2) 0 / 1px 100% no-repeat,
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) calc(var(--layout-grid-unit) * 4) 0 / 1px 100% no-repeat;
+    }
+    .bridge::after {
+      background:
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) 0 0 / 1px 100% no-repeat,
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) var(--layout-grid-unit) 0 / 1px 100% no-repeat,
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) calc(var(--layout-grid-unit) * 4) 0 / 1px 100% no-repeat;
+    }
+    .news::after,
+    .final-cta::after {
+      background:
+        linear-gradient(var(--section-grid-line), var(--section-grid-line)) 0 0 / 1px 100% no-repeat,
         linear-gradient(var(--section-grid-line), var(--section-grid-line)) calc(var(--layout-grid-unit) * 4) 0 / 1px 100% no-repeat;
     }
     .audiences::after {
@@ -1188,6 +1197,13 @@
         --page: calc(100% - 32px);
       }
       .home .g5-site-header__inner { min-height: 72px; }
+      /* Mobilėje vertikalios grido linijos eitų per tekstą — išjungiam. */
+      .intro::after, .services::after, .bridge::after, .process::after,
+      .experience::after, .equipment::after, .team::after, .audiences::after,
+      .news::after, .final-cta::after {
+        border-right: 0;
+        background: none;
+      }
       .brand-logo { width: 126px; }
       .nav-cta { min-height: 40px; padding-inline: 15px; font-size: 11px; }
       .hero { min-height: 760px; }

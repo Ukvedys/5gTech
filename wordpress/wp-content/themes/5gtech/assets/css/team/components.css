@@ -922,6 +922,11 @@ textarea.g5-input {
     padding-block: var(--5g-space-20);
   }
 
+  /* Mobilėje pilnas hero gridas eitų per tekstą — lieka tik kraštinės. */
+  .g5-grid-lines.g5-grid-lines::after {
+    background-image: none;
+  }
+
   .g5-grid {
     grid-template-columns: 1fr;
   }

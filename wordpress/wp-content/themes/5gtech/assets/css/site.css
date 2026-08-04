@@ -106,6 +106,28 @@ svg {
 	z-index: 0;
 	inset: 0 var(--g5-grid-origin);
 	pointer-events: none;
+	border-left: 1px solid var(--g5-active-grid);
+	border-right: 1px solid var(--g5-active-grid);
+}
+
+/*
+ * Turinio sekcijose gridas neina per tekstą: sekciją įrėmina tik dvi
+ * kraštinės linijos, o vidines gaires piešia .g5-section-head /
+ * .g5-cta-grid savo stulpeliuose. Pilnas 6 stulpelių gridas paliekamas
+ * tik hero zonose, kur jis yra fonas.
+ */
+.g5-grid-lines--full::after,
+.g5-grid-lines:is(
+	.g5-inner-hero,
+	.g5-experience-hero,
+	.g5-page-hero,
+	.inner-hero,
+	.service-hero,
+	.team-hero,
+	.profile-hero,
+	.ds-hero
+)::after {
+	border-left: 0;
 	background-image: repeating-linear-gradient(
 		90deg,
 		var(--g5-active-grid) 0,
@@ -1439,7 +1461,7 @@ svg {
 
 	.g5-site-header {
 		overflow: visible;
-		background: rgba(3, 31, 53, .97);
+		background: rgb(3, 31, 53);
 		-webkit-backdrop-filter: none;
 		backdrop-filter: none;
 	}
@@ -1706,6 +1728,8 @@ svg {
 	}
 
 	.g5-grid-lines::after,
+	.g5-grid-lines--full.g5-grid-lines::after,
+	.g5-grid-lines.g5-grid-lines::after,
 	.g5-section-head {
 		background: none;
 	}
@@ -1744,7 +1768,17 @@ svg {
 
 	.g5-display-xl {
 		font-size: clamp(2.25rem, 9.5vw, 2.75rem);
-		overflow-wrap: anywhere;
+	}
+
+	/*
+	 * Ilgi lietuviški žodžiai: pirmiausia skiemenuojama su brūkšneliu,
+	 * laužimas be brūkšnelio (break-word) — tik kraštutiniu atveju.
+	 * „anywhere" nenaudojamas, nes laužo žodžius per vidurį be reikalo.
+	 */
+	.g5-display-xl,
+	.g5-display-lg,
+	.g5-display-md {
+		overflow-wrap: break-word;
 		-webkit-hyphens: auto;
 		hyphens: auto;
 	}

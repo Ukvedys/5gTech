@@ -1058,6 +1058,14 @@ a.info-card:focus-visible p {
 }
 
 @media (max-width: 720px) {
+  /*
+   * Mobilėje hero antraštė derinama prie site.css dydžio, kad ilgi
+   * lietuviški žodžiai (pvz. „telekomunikacijų") tilptų nelaužomi.
+   */
+  .g5-display-xl {
+    font-size: clamp(2.25rem, 9.5vw, 2.75rem);
+  }
+
   .page-header__inner {
     min-height: 4.5rem;
   }
