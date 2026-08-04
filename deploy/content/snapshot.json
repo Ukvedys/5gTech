@@ -1,5 +1,5 @@
 {
-    "generated": "2026-08-04T07:18:51+00:00",
+    "generated": "2026-08-04T07:43:17+00:00",
     "source_home": "http://5gtech.test",
     "options": {
         "g5tech_about_content": {
@@ -1243,7 +1243,14 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": {
+                "category": [
+                    {
+                        "slug": "projektai",
+                        "name": "Projektai"
+                    }
+                ]
+            }
         },
         {
             "lang": "lt",
@@ -1263,7 +1270,14 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": {
+                "category": [
+                    {
+                        "slug": "komanda",
+                        "name": "Komanda"
+                    }
+                ]
+            }
         },
         {
             "lang": "lt",
@@ -1283,7 +1297,14 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": {
+                "category": [
+                    {
+                        "slug": "imone",
+                        "name": "Įmonė"
+                    }
+                ]
+            }
         },
         {
             "lang": "en",
@@ -1300,7 +1321,14 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": {
+                "category": [
+                    {
+                        "slug": "uncategorized",
+                        "name": "Uncategorized"
+                    }
+                ]
+            }
         },
         {
             "lang": "de",
@@ -1317,7 +1345,14 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": {
+                "category": [
+                    {
+                        "slug": "uncategorized",
+                        "name": "Uncategorized"
+                    }
+                ]
+            }
         },
         {
             "lang": "en",
@@ -1334,7 +1369,14 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": {
+                "category": [
+                    {
+                        "slug": "uncategorized",
+                        "name": "Uncategorized"
+                    }
+                ]
+            }
         },
         {
             "lang": "de",
@@ -1351,7 +1393,14 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": {
+                "category": [
+                    {
+                        "slug": "uncategorized",
+                        "name": "Uncategorized"
+                    }
+                ]
+            }
         },
         {
             "lang": "en",
@@ -1368,7 +1417,14 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": {
+                "category": [
+                    {
+                        "slug": "uncategorized",
+                        "name": "Uncategorized"
+                    }
+                ]
+            }
         },
         {
             "lang": "de",
@@ -1385,7 +1441,14 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": {
+                "category": [
+                    {
+                        "slug": "uncategorized",
+                        "name": "Uncategorized"
+                    }
+                ]
+            }
         },
         {
             "lang": "lt",

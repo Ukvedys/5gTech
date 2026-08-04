@@ -123,7 +123,10 @@ foreach ( $post_types as $post_type ) {
 		}
 
 		foreach ( get_object_taxonomies( $p->post_type ) as $taxonomy ) {
-			if ( 0 !== strpos( $taxonomy, 'g5_' ) ) {
+			$is_content_taxonomy = in_array( $taxonomy, array( 'category', 'post_tag' ), true )
+				|| 0 === strpos( $taxonomy, 'g5_' );
+
+			if ( ! $is_content_taxonomy ) {
 				continue;
 			}
 
