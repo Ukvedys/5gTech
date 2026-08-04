@@ -1,0 +1,3230 @@
+{
+    "generated": "2026-08-04T05:20:45+00:00",
+    "source_home": "http://127.0.0.1:8080",
+    "options": {
+        "g5tech_about_content": {
+            "story_image_1_id": 0,
+            "story_image_2_id": 0,
+            "hero_eyebrow": "Apie 5G TECH",
+            "hero_title": "5G TECH komanda ir veiklos kryptys.",
+            "hero_lead": "Nuo 2020 metų įgyvendiname telekomunikacijų, energetikos ir inžinerinės infrastruktūros projektus Lietuvoje bei kitose Europos šalyse.",
+            "story_eyebrow": "Kas esame",
+            "story_title": "Nuo planavimo iki dokumentacijos.",
+            "story_lead": "Veiklą pradėjome nuo telekomunikacijų infrastruktūros projektų. Šiandien sukauptą techninę patirtį taikome ir energetikos bei kitose inžinerinės infrastruktūros srityse.",
+            "story_body_1": "Dirbame su skirtingos apimties užduotimis: nuo konkretaus montavimo ar modernizavimo etapo iki darbų, kuriuose reikia suvaldyti planavimą, techninius sprendimus, rizikas, testavimą ir dokumentaciją.",
+            "story_body_2": "Prieš pradėdami susitariame dėl darbų eigos, atsakomybių ir rezultato vertinimo. Atliktus darbus testuojame bei dokumentuojame, o saugą, kokybę ir terminus valdome viso projekto metu.",
+            "story_body_3": "Procesai grindžiami ISO 9001, ISO 14001 ir ISO 45001 standartais. Įmonė taip pat turi SSVA ypatingojo statinio rangovo kvalifikacijos atestatą.",
+            "story_fact_1_label": "01 / Pradžia",
+            "story_fact_1_title": "Įsigiliname prieš pradėdami.",
+            "story_fact_1_text": "Techninė užduotis, objekto sąlygos, terminai ir atsakomybės.",
+            "story_fact_2_label": "02 / Vykdymas",
+            "story_fact_2_title": "Dirbame pagal aiškią eigą.",
+            "story_fact_2_text": "Komanda, įranga, saugos reikalavimai ir tiesioginis ryšys.",
+            "story_fact_3_label": "03 / Rezultatas",
+            "story_fact_3_title": "Patikriname ir dokumentuojame.",
+            "story_fact_3_text": "Testavimo duomenys, neatitikimų sprendimas ir aiškus perdavimas.",
+            "story_image_1_caption": "5G TECH komanda",
+            "story_image_2_caption": "Atsakomybė turi vardą",
+            "purpose_eyebrow": "Kryptis",
+            "purpose_title": "Misija ir vizija.",
+            "mission_label": "Misija",
+            "mission_title": "Patikimai įgyvendinti infrastruktūros projektus.",
+            "mission_text": "Aiški darbų eiga, saugus vykdymas ir patikrintas rezultatas.",
+            "vision_label": "Vizija",
+            "vision_title": "Būti pirmu pasirinkimu telekomunikacijų ir energetikos projektams.",
+            "vision_text": "Augti Europos rinkose stiprinant komandą ir technines kompetencijas.",
+            "values_eyebrow": "Mūsų vertybės",
+            "values_title": "Principai, kuriais vadovaujamės kasdieniame darbe.",
+            "value_1_number": "01",
+            "value_1_title": "Atsakomybė",
+            "value_1_text": "Prisiimame atsakomybę už sutartą darbų apimtį, terminus ir rezultatą.",
+            "value_2_number": "02",
+            "value_2_title": "Profesionalumas",
+            "value_2_text": "Laikomės susitarimų, dirbame tiksliai ir sprendžiame problemas nelaukdami.",
+            "value_3_number": "03",
+            "value_3_title": "Pagarba",
+            "value_3_text": "Atvirai bendraujame su klientais, partneriais ir kolegomis.",
+            "value_4_number": "04",
+            "value_4_title": "Prasmė",
+            "value_4_text": "Kuriame infrastruktūrą, kuria kasdien naudojasi žmonės ir organizacijos.",
+            "culture_label": "Darbo kultūra",
+            "culture_title": "Elgesio kodeksas.",
+            "culture_text": "Jis apibrėžia profesinio elgesio, atsakomybės, saugos, darbo drausmės ir bendradarbiavimo principus.",
+            "culture_button_label": "Peržiūrėti kodeksą ↗",
+            "culture_url": "https://5gtech.lt/wp-content/uploads/2025/04/5GTech_Kodeksas_Elgesys_Etika_2025_V1.1.pdf",
+            "strategy_eyebrow": "Strategija 2025–2028",
+            "strategy_title": "Kokybiškas ir tvarus augimas.",
+            "strategy_lead": "Siekiame stiprinti telekomunikacijų ir atsinaujinančios energetikos kompetencijas, plėsti veiklą Europoje ir nuosekliai gerinti darbo procesus.",
+            "strategy_1_label": "01 / KOKYBĖ",
+            "strategy_1_title": "Vienodi procesai visuose projektuose.",
+            "strategy_1_text": "Tobuliname darbų planavimo, kokybės kontrolės ir dokumentavimo metodiką.",
+            "strategy_2_label": "02 / EUROPA",
+            "strategy_2_title": "Daugiau projektų Europos rinkose.",
+            "strategy_2_text": "Plečiame komandos patirtį dirbdami pagal skirtingų šalių operatorių reikalavimus.",
+            "strategy_3_label": "03 / KOMANDA",
+            "strategy_3_title": "Mokymai, sauga ir profesinis augimas.",
+            "strategy_3_text": "Investuojame į darbui reikalingas kvalifikacijas ir praktinį komandos pasirengimą.",
+            "strategy_4_label": "04 / SANTYKIS",
+            "strategy_4_title": "Aiškūs įsipareigojimai ir tiesioginis ryšys.",
+            "strategy_4_text": "Klientas viso projekto metu žino darbų būklę, atsakomybes ir kitus veiksmus.",
+            "team_eyebrow": "Komanda",
+            "team_title": "Pagrindinė komanda.",
+            "competence_eyebrow": "Kompetencija",
+            "competence_title": "Patirtis, kvalifikacijos ir tiesioginiai kontaktai.",
+            "competence_1_number": "01",
+            "competence_1_title": "Srities patirtis",
+            "competence_1_text": "Darbo metai, atsakomybės ir projektų tipai.",
+            "competence_2_number": "02",
+            "competence_2_title": "Geografija ir operatoriai",
+            "competence_2_text": "Šalys ir operatorių projektai, kuriuose žmogus dalyvavo.",
+            "competence_3_number": "03",
+            "competence_3_title": "Kvalifikacijos",
+            "competence_3_text": "Galiojantys sertifikatai, atestatai ir darbų vadovo teisės.",
+            "competence_4_number": "04",
+            "competence_4_title": "Kontaktas",
+            "competence_4_text": "Tiesioginis ryšys su už projektą atsakingu žmogumi.",
+            "cta_eyebrow": "Aptarkime projektą",
+            "cta_title": "Aptarkime, kokios komandos reikia jūsų projektui.",
+            "cta_text": "Papasakokite apie projekto apimtį, techninius reikalavimus ir numatytus terminus.",
+            "cta_button_label": "Aptarkime jūsų projektą"
+        },
+        "g5tech_about_section_order": {
+            "story": 1,
+            "purpose": 2,
+            "values": 3,
+            "team": 4,
+            "strategy": 5,
+            "competence": 6
+        },
+        "g5tech_admin_translation_overrides": {
+            "en": [],
+            "de": []
+        },
+        "g5tech_builtin_modules_migrated_1": "1",
+        "g5tech_content_modules_migrated_1": "1",
+        "g5tech_content_pages_blocks_migrated": "1",
+        "g5tech_content_translation_overrides": {
+            "en": {
+                "Programa": "Program",
+                "Mokymų temos.": "Training topics.",
+                "Asmeninės apsaugos priemonės ir jų naudojimas": "Personal protective equipment and their use",
+                "Darbų aukštyje specifika ir saugos taisyklės": "Specifics and safety rules for work at height",
+                "2G, 3G, 4G-LTE ir 5G technologijų pagrindai": "Basics of 2G, 3G, 4G-LTE and 5G technologies",
+                "Antenų ir radijo modulių montavimas": "Installation of antennas and radio modules",
+                "Kabelių instaliacija ir prijungimas": "Cable installation and connection",
+                "Elektros instaliacijos principai": "Principles of electrical installation",
+                "Techninės dokumentacijos rengimas": "Preparation of technical documentation",
+                "Bazinės stoties konfigūravimo pagrindai": "Base station configuration basics",
+                "Techninė eiga": "Technical progress",
+                "Planavimas, darbų kontrolė ir dokumentacija.": "Planning, work control and documentation.",
+                "„Site Survey“ ir esamos situacijos įvertinimas": "Site Survey and Assessment of Existing Situation",
+                "Darbų, medžiagų ir komandos planavimas": "Work, material and team planning",
+                "Ericsson, Nokia, Huawei ir kitos įrangos montavimas": "Installation of Ericsson, Nokia, Huawei and other equipment",
+                "MW linijų konfigūravimas ir testavimas": "Configuration and testing of MW lines",
+                "„SiteMaster“ ir kiti kokybės matavimai": "SiteMaster and other quality metrics",
+                "Dokumentacija pagal užsakovo standartus": "Documentation according to customer standards",
+                "Tiesioginis ryšys su atsakingu projektų vadovu": "Direct communication with the responsible project manager",
+                "Neatitikimų valdymas iki patvirtinto rezultato": "Non-conformity management through to verified completion"
+            },
+            "de": {
+                "Programa": "Programm",
+                "Mokymų temos.": "Schulungsthemen.",
+                "Asmeninės apsaugos priemonės ir jų naudojimas": "Persönliche Schutzausrüstung und ihre Verwendung",
+                "Darbų aukštyje specifika ir saugos taisyklės": "Besonderheiten und Sicherheitsregeln für Arbeiten in der Höhe",
+                "2G, 3G, 4G-LTE ir 5G technologijų pagrindai": "Grundlagen der 2G-, 3G-, 4G-LTE- und 5G-Technologien",
+                "Antenų ir radijo modulių montavimas": "Installation von Antennen und Funkmodulen",
+                "Kabelių instaliacija ir prijungimas": "Kabelinstallation und Anschluss",
+                "Elektros instaliacijos principai": "Grundlagen der Elektroinstallation",
+                "Techninės dokumentacijos rengimas": "Erstellung technischer Dokumentation",
+                "Bazinės stoties konfigūravimo pagrindai": "Grundlagen der Basisstationskonfiguration",
+                "Techninė eiga": "Technischer Fortschritt",
+                "Planavimas, darbų kontrolė ir dokumentacija.": "Planung, Arbeitssteuerung und Dokumentation.",
+                "„Site Survey“ ir esamos situacijos įvertinimas": "Standortbesichtigung und Beurteilung der bestehenden Situation",
+                "Darbų, medžiagų ir komandos planavimas": "Arbeits-, Material- und Teamplanung",
+                "Ericsson, Nokia, Huawei ir kitos įrangos montavimas": "Installation von Ericsson, Nokia, Huawei und anderen Geräten",
+                "MW linijų konfigūravimas ir testavimas": "Konfiguration und Test von MW-Linien",
+                "„SiteMaster“ ir kiti kokybės matavimai": "SiteMaster und andere Qualitätsmetriken",
+                "Dokumentacija pagal užsakovo standartus": "Dokumentation nach Kundenstandards",
+                "Tiesioginis ryšys su atsakingu projektų vadovu": "Direkte Kommunikation mit dem verantwortlichen Projektleiter",
+                "Neatitikimų valdymas iki patvirtinto rezultato": "Abweichungsmanagement bis zum geprüften Ergebnis"
+            }
+        },
+        "g5tech_legal_pages_blocks_migrated": "1",
+        "g5tech_module_placements": {
+            "home": [],
+            "services": [
+                175,
+                176
+            ],
+            "projects": [
+                177
+            ],
+            "experience": [],
+            "about": [],
+            "career": [],
+            "academy": [],
+            "training": [],
+            "candidate_faq": [],
+            "leaders": [],
+            "project_managers": [],
+            "contact": [],
+            "news": []
+        },
+        "g5tech_settings": {
+            "stat_1_value": "6000+",
+            "stat_1_label": "įgyvendintų bazinių stočių",
+            "stat_2_value": "2G–5G",
+            "stat_2_label": "technologijų patirtis",
+            "stat_3_value": "6",
+            "stat_3_label": "Europos šalys",
+            "stat_4_value": "2020",
+            "stat_4_label": "veikiame nuo",
+            "process_1_title": "Įsigiliname",
+            "process_1_text": "Suprantame techninę užduotį, objekto sąlygas ir atsakomybes.",
+            "process_2_title": "Suplanuojame",
+            "process_2_text": "Suderiname sprendimus, terminus, komandą ir darbų saugą.",
+            "process_3_title": "Įgyvendiname",
+            "process_3_text": "Atliekame numatytus montavimo ir integravimo darbus.",
+            "process_4_title": "Patikriname",
+            "process_4_text": "Testuojame įrangą ir ištaisome nustatytus neatitikimus.",
+            "process_5_title": "Perduodame",
+            "process_5_text": "Pateikiame dokumentaciją ir perduodame užbaigtą sprendimą.",
+            "cta_title": "Aptarkime jūsų techninę užduotį.",
+            "cta_text": "Atsiųskite turimą informaciją – įvertinsime darbų apimtį ir pasiūlysime tolesnius veiksmus.",
+            "cta_button_label": "Susisiekti",
+            "hero_button_label": "Aptarkime projektą",
+            "home_hero_eyebrow": "Telekomunikacijų, energetikos ir inžinerinės infrastruktūros projektai",
+            "home_hero_title": "Kai svarbus ne tik atliktas darbas, bet ir ramybė dėl rezultato",
+            "home_hero_lead": "Techninis partneris nuo pasirengimo ir montavimo iki testavimo, dokumentacijos bei priežiūros.",
+            "home_show_intro": "1",
+            "home_order_intro": "1",
+            "home_show_services": "1",
+            "home_order_services": "2",
+            "home_show_standards": "1",
+            "home_order_standards": "3",
+            "home_show_process": "1",
+            "home_order_process": "4",
+            "home_show_experience": "1",
+            "home_order_experience": "5",
+            "home_show_equipment": "1",
+            "home_order_equipment": "6",
+            "home_show_team": "1",
+            "home_order_team": "7",
+            "home_show_audiences": "1",
+            "home_order_audiences": "8",
+            "home_show_news": "1",
+            "home_order_news": "9",
+            "contact_page_url": "/kontaktai/",
+            "phone": "+370 687 77155",
+            "email": "info@5gtech.lt",
+            "career_email": "Kristina@5gtech.lt",
+            "address": "Meistrų g. 8A\nLT-02189 Vilnius",
+            "company_code": "305547599",
+            "vat_code": "LT100013136617",
+            "countries": "Lietuva\r\nVokietija\r\nŠvedija\r\nNorvegija\r\nDanija\r\nSuomija",
+            "certifications": "ISO 9001 | Kokybės vadyba\r\nISO 14001 | Aplinkos apsaugos vadyba\r\nISO 45001 | Darbuotojų sveikata ir sauga\r\nSSVA | Ypatingojo statinio rangovo kvalifikacija"
+        },
+        "g5tech_training_page_content": {
+            "hero_eyebrow": "Mokymai",
+            "hero_title": "Praktiniai techniniai mokymai.",
+            "hero_lead": "Mokymų salė skirta naujų darbuotojų parengimui ir patyrusių specialistų kompetencijų tobulinimui.",
+            "topics_eyebrow": "Programa",
+            "topics_title": "Mokymų temos.",
+            "topics": "Asmeninės apsaugos priemonės ir jų naudojimas\r\nDarbų aukštyje specifika ir saugos taisyklės\r\n2G, 3G, 4G-LTE ir 5G technologijų pagrindai\r\nAntenų ir radijo modulių montavimas\r\nKabelių instaliacija ir prijungimas\r\nElektros instaliacijos principai\r\nTechninės dokumentacijos rengimas\r\nBazinės stoties konfigūravimo pagrindai",
+            "equipment_eyebrow": "Įranga",
+            "equipment_title": "Mokomės su realiuose projektuose naudojama įranga.",
+            "equipment_ids": [
+                22,
+                23,
+                24,
+                44,
+                45,
+                144
+            ],
+            "image_eyebrow": "Aplinka",
+            "image_title": "Mokymų salė.",
+            "image_id": 0,
+            "image_alt": "5G TECH praktinių mokymų aplinka",
+            "cta_eyebrow": "Karjera",
+            "cta_title": "Norite prisijungti prie komandos?",
+            "cta_button_label": "Peržiūrėti pozicijas",
+            "cta_button_url": "http://5gtech.test/karjera/",
+            "section_order": [
+                "topics",
+                "equipment",
+                "image"
+            ]
+        }
+    },
+    "posts": [
+        {
+            "type": "page",
+            "slug": "privacy-policy",
+            "title": "Privacy Policy",
+            "status": "draft",
+            "content": "<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Who we are</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>Our website address is: http://5gtech.test.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Comments</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor&#8217;s IP address and browser user agent string to help spam detection.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Media</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Cookies</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>If you visit our login page, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &quot;Remember Me&quot;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Embedded content from other websites</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Who we share your data with</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>If you request a password reset, your IP address will be included in the reset email.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">How long we retain your data</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">What rights you have over your data</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Where your data is sent</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>Visitor comments may be checked through an automated spam detection service.</p>\n<!-- /wp:paragraph -->\n",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "_wp_page_template": [
+                    "default"
+                ]
+            }
+        },
+        {
+            "type": "page",
+            "slug": "pagrindinis",
+            "title": "Pagrindinis",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/home-hero {\"eyebrow\":\"Telekomunikacijų, energetikos ir inžinerinės infrastruktūros projektai\",\"title\":\"Kai svarbus ne tik atliktas darbas, bet ir ramybė dėl rezultato\",\"lead\":\"Techninis partneris nuo pasirengimo ir montavimo iki testavimo, dokumentacijos bei priežiūros.\",\"lock\":{\"move\":true,\"remove\":true}} -->\n<!-- wp:g5tech/hero-slide {\"imageId\":97,\"themeFile\":\"assets/images/home/hero-sky-worker.png\",\"title\":\"Mobiliojo ryšio tinklai\",\"alt\":\"5G TECH specialistas dirba mobiliojo ryšio bokšte kalnų fone\"} /-->\n<!-- wp:g5tech/hero-slide {\"imageId\":0,\"themeFile\":\"assets/images/home/hero-indoor-networks.jpg\",\"title\":\"Vidinio ryšio tinklai\",\"alt\":\"Specialistas montuoja vidinio mobiliojo ryšio anteną prie modernaus pastato\"} /-->\n<!-- wp:g5tech/hero-slide {\"imageId\":0,\"themeFile\":\"assets/images/home/hero-fixed-networks.jpg\",\"title\":\"Fiksuoto ryšio tinklai\",\"alt\":\"Specialistas tvarko šviesolaidinio ryšio įrangą lauko skirstomojoje spintoje\"} /-->\n<!-- wp:g5tech/hero-slide {\"imageId\":0,\"themeFile\":\"assets/images/home/hero-electrical.jpg\",\"title\":\"Elektros darbai\",\"alt\":\"Elektrikas tikrina pramoninę elektros skirstomąją spintą\"} /-->\n<!-- wp:g5tech/hero-slide {\"imageId\":0,\"themeFile\":\"assets/images/home/hero-security.jpg\",\"title\":\"Apsaugos sistemos\",\"alt\":\"Specialistas montuoja lauko vaizdo stebėjimo kamerą\"} /-->\n<!-- wp:g5tech/hero-slide {\"imageId\":0,\"themeFile\":\"assets/images/home/hero-solar.jpg\",\"title\":\"Saulės elektrinės\",\"alt\":\"Specialistas montuoja saulės modulius ant komercinio objekto stogo\"} /-->\n<!-- /wp:g5tech/home-hero -->\n\n<!-- wp:g5tech/home-sections -->\n<!-- wp:g5tech/home-intro {\"eyebrow\":\"Nuo poreikio iki rezultato\",\"title\":\"Kiekvienas projektas prasideda nuo konkretaus poreikio.\",\"body\":\"Skiriasi objektai, šalys ir technologijos, tačiau užsakovui visada svarbu, kas prisiims atsakomybę už techninius sprendimus, terminus ir kokybę.\",\"imageAlt\":\"Telekomunikacijų, apsaugos, elektros ir saulės energetikos infrastruktūros linijinė iliustracija\"} /-->\n\n<!-- wp:g5tech/home-services {\"title\":\"Paslaugos\"} /-->\n\n<!-- wp:g5tech/home-standards {\"eyebrow\":\"Darbo standartas\",\"title\":\"ISO standartai ir SSVA kvalifikacija.\"} /-->\n\n<!-- wp:g5tech/home-process {\"eyebrow\":\"Kaip dirbame\",\"title\":\"Patikimas rezultatas kuriamas kiekviename projekto etape.\"} /-->\n\n<!-- wp:g5tech/home-experience {\"eyebrow\":\"Patirties geografija\",\"title\":\"Patirtis šešiose Europos šalyse.\"} /-->\n\n<!-- wp:g5tech/home-equipment {\"eyebrow\":\"Partneriai\",\"title\":\"Gamintojai, su kurių įranga dirbame.\"} /-->\n\n<!-- wp:g5tech/home-team {\"eyebrow\":\"Žmonės, kurie atsako už rezultatą\",\"title\":\"Patirtis turi vardą, kompetenciją ir atsakomybę.\",\"copy\":\"Susipažinkite su žmonėmis, kurie planuoja, įgyvendina ir tikrina projektus.\",\"linkLabel\":\"Susipažinti su visa komanda\"} /-->\n\n<!-- wp:g5tech/home-audiences {\"title\":\"Tas pats projektas – skirtingi prioritetai.\",\"lead\":\"Pasirinkite informaciją pagal savo vaidmenį projekte.\"} -->\n<!-- wp:g5tech/audience-item {\"label\":\"Vadovams\",\"title\":\"Projektų vykdymas su aiškiomis atsakomybėmis.\",\"text\":\"Sertifikuoti procesai, valdoma rizika ir tiesioginė komunikacija.\",\"url\":\"/vadovams/\"} /-->\n<!-- wp:g5tech/audience-item {\"label\":\"Projektų vadovams\",\"title\":\"Techninė projekto eiga ir dokumentacija.\",\"text\":\"Planavimas, darbų kontrolė, testavimas ir dokumentacija.\",\"url\":\"/projektu-vadovams/\"} /-->\n<!-- wp:g5tech/audience-item {\"label\":\"Specialistams\",\"title\":\"Profesinis augimas telekomunikacijų ir energetikos projektuose.\",\"text\":\"Europos projektai, mokymai, sertifikatai ir saugi aplinka.\",\"url\":\"/karjera/\"} /-->\n<!-- /wp:g5tech/home-audiences -->\n\n<!-- wp:g5tech/home-news {\"title\":\"Projektai, komanda ir techninės įžvalgos.\"} /-->\n<!-- /wp:g5tech/home-sections -->\n\n<!-- wp:g5tech/home-cta {\"eyebrow\":\"Pradėkime nuo pokalbio\",\"title\":\"Aptarkime jūsų projektą.\",\"body\":\"Trumpai aprašykite projektą arba techninę užduotį. Įvertinsime darbų apimtį ir pasiūlysime tolesnius veiksmus.\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "2026/07/hero-sky-worker.png",
+            "meta": []
+        },
+        {
+            "type": "page",
+            "slug": "kontaktai",
+            "title": "Kontaktai",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Kontaktai\",\"title\":\"Aptarkime jūsų projektą.\",\"lead\":\"Aprašykite užduotį arba susisiekite tiesiogiai – atsakysime ir nukreipsime pas tinkamą specialistą.\",\"compact\":true,\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Parašykite\",\"title\":\"Projekto užklausa.\",\"anchorId\":\"contact-title\"} -->\n<!-- wp:g5tech/contact-form-split /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Komanda\",\"title\":\"Tiesioginiai kontaktai.\",\"theme\":\"paper\",\"anchorId\":\"people-title\"} -->\n<!-- wp:g5tech/contact-people /-->\n<!-- /wp:g5tech/section -->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "page",
+            "slug": "privatumo-politika",
+            "title": "Privatumo politika",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/legal-hero {\"title\":\"Privatumo politika\",\"lead\":\"Kaip renkame, naudojame ir saugome jūsų asmens duomenis.\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:group {\"tagName\":\"article\",\"className\":\"g5-section g5-grid-lines\",\"templateLock\":\"contentOnly\",\"layout\":{\"type\":\"default\"}} -->\n<article class=\"wp-block-group g5-section g5-grid-lines\"><!-- wp:group {\"className\":\"g5-container article\",\"layout\":{\"type\":\"default\"}} -->\n<div class=\"wp-block-group g5-container article\"><!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Kas tvarko jūsų duomenis</h2>\n<!-- /wp:heading -->\n\n<!-- wp:g5tech/company-line /-->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Kokius duomenis renkame</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Kontaktų formose pateiktus duomenis, užklausų turinį, kandidatavimo informaciją ir gyvenimo aprašymą.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Kodėl juos naudojame</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Atsakyti į užklausas, vykdyti darbuotojų atranką ir administruoti svetainės veikimą.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Kiek laiko saugome</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Užklausų duomenis saugome tiek, kiek būtina atsakymui ir bendradarbiavimui. Kandidatų duomenų saugojimo terminą nustatome pagal atrankos tikslą ir taikomus teisės aktus.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Jūsų teisės</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Turite teisę susipažinti su duomenimis, juos ištaisyti, ištrinti, apriboti jų tvarkymą ar pateikti skundą.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Kontaktas</h2>\n<!-- /wp:heading -->\n\n<!-- wp:g5tech/contact-email {\"intro\":\"Dėl privatumo klausimų rašykite\"} /--></div>\n<!-- /wp:group --></article>\n<!-- /wp:group -->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "page",
+            "slug": "patirtis",
+            "title": "Patirtis",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Patirtis\",\"title\":\"Patirtis Europos infrastruktūros projektuose.\",\"lead\":\"Dirbame šešiose Europos šalyse, pagal skirtingų operatorių standartus ir su įvairių gamintojų įranga.\",\"dialect\":\"site\",\"anchorId\":\"g5-experience-title\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Skaičiai\",\"title\":\"Pagrindiniai skaičiai.\",\"theme\":\"dark\",\"dialect\":\"site\",\"anchorId\":\"g5-experience-numbers-title\"} -->\n<!-- wp:g5tech/stats-band /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/geo-section {\"eyebrow\":\"Geografija\",\"title\":\"Šešios Europos šalys.\",\"anchorId\":\"g5-countries-title\"} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Projektai\",\"title\":\"Atrinkti projektai.\",\"theme\":\"dark\",\"dialect\":\"site\",\"anchorId\":\"g5-projects-preview-title\"} -->\n<!-- wp:g5tech/projects-preview /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Patirtis\",\"title\":\"Partneriai.\",\"theme\":\"paper\",\"dialect\":\"site\",\"anchorId\":\"g5-operators-title\"} -->\n<!-- wp:g5tech/partner-tag-split /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Darbo standartas\",\"title\":\"ISO standartai ir SSVA kvalifikacija.\",\"theme\":\"dark\",\"dialect\":\"site\",\"anchorId\":\"g5-certifications-title\"} -->\n<!-- wp:g5tech/certification-grid /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/page-cta {\"eyebrow\":\"Naujas projektas\",\"title\":\"Aptarkime jūsų projektą.\",\"body\":\"Nurodykite rinką, operatorių ar įrangą – pateiksime aktualią patirtį.\",\"buttonLabel\":\"Susisiekti\",\"buttonUrl\":\"/kontaktai/\",\"dialect\":\"site\",\"anchorId\":\"g5-experience-cta-title\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "page",
+            "slug": "apie-mus",
+            "title": "Apie mus",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/about-hero {\"eyebrow\":\"Apie 5G TECH\",\"title\":\"5G TECH komanda ir veiklos kryptys.\",\"lead\":\"Nuo 2020 metų įgyvendiname telekomunikacijų, energetikos ir inžinerinės infrastruktūros projektus Lietuvoje bei kitose Europos šalyse.\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/about-story {\"eyebrow\":\"Kas esame\",\"title\":\"Nuo planavimo iki dokumentacijos.\",\"lead\":\"Veiklą pradėjome nuo telekomunikacijų infrastruktūros projektų. Šiandien sukauptą techninę patirtį taikome ir energetikos bei kitose inžinerinės infrastruktūros srityse.\",\"body1\":\"Dirbame su skirtingos apimties užduotimis: nuo konkretaus montavimo ar modernizavimo etapo iki darbų, kuriuose reikia suvaldyti planavimą, techninius sprendimus, rizikas, testavimą ir dokumentaciją.\",\"body2\":\"Prieš pradėdami susitariame dėl darbų eigos, atsakomybių ir rezultato vertinimo. Atliktus darbus testuojame bei dokumentuojame, o saugą, kokybę ir terminus valdome viso projekto metu.\",\"body3\":\"Procesai grindžiami ISO 9001, ISO 14001 ir ISO 45001 standartais. Įmonė taip pat turi SSVA ypatingojo statinio rangovo kvalifikacijos atestatą.\",\"image1Id\":0,\"image2Id\":0,\"caption1\":\"5G TECH komanda\",\"caption2\":\"Atsakomybė turi vardą\"} -->\n<!-- wp:g5tech/labeled-item {\"label\":\"Pradžia\",\"title\":\"Įsigiliname prieš pradėdami.\",\"text\":\"Techninė užduotis, objekto sąlygos, terminai ir atsakomybės.\"} /-->\n<!-- wp:g5tech/labeled-item {\"label\":\"Vykdymas\",\"title\":\"Dirbame pagal aiškią eigą.\",\"text\":\"Komanda, įranga, saugos reikalavimai ir tiesioginis ryšys.\"} /-->\n<!-- wp:g5tech/labeled-item {\"label\":\"Rezultatas\",\"title\":\"Patikriname ir dokumentuojame.\",\"text\":\"Testavimo duomenys, neatitikimų sprendimas ir aiškus perdavimas.\"} /-->\n<!-- /wp:g5tech/about-story -->\n\n<!-- wp:g5tech/about-purpose {\"eyebrow\":\"Kryptis\",\"title\":\"Misija ir vizija.\",\"missionLabel\":\"Misija\",\"missionTitle\":\"Patikimai įgyvendinti infrastruktūros projektus.\",\"missionText\":\"Aiški darbų eiga, saugus vykdymas ir patikrintas rezultatas.\",\"visionLabel\":\"Vizija\",\"visionTitle\":\"Būti pirmu pasirinkimu telekomunikacijų ir energetikos projektams.\",\"visionText\":\"Augti Europos rinkose stiprinant komandą ir technines kompetencijas.\"} /-->\n\n<!-- wp:g5tech/about-values {\"eyebrow\":\"Mūsų vertybės\",\"title\":\"Principai, kuriais vadovaujamės kasdieniame darbe.\",\"cultureLabel\":\"Darbo kultūra\",\"cultureTitle\":\"Elgesio kodeksas.\",\"cultureText\":\"Jis apibrėžia profesinio elgesio, atsakomybės, saugos, darbo drausmės ir bendradarbiavimo principus.\",\"cultureButtonLabel\":\"Peržiūrėti kodeksą ↗\",\"cultureUrl\":\"https://5gtech.lt/wp-content/uploads/2025/04/5GTech_Kodeksas_Elgesys_Etika_2025_V1.1.pdf\"} -->\n<!-- wp:g5tech/labeled-item {\"title\":\"Atsakomybė\",\"text\":\"Prisiimame atsakomybę už sutartą darbų apimtį, terminus ir rezultatą.\"} /-->\n<!-- wp:g5tech/labeled-item {\"title\":\"Profesionalumas\",\"text\":\"Laikomės susitarimų, dirbame tiksliai ir sprendžiame problemas nelaukdami.\"} /-->\n<!-- wp:g5tech/labeled-item {\"title\":\"Pagarba\",\"text\":\"Atvirai bendraujame su klientais, partneriais ir kolegomis.\"} /-->\n<!-- wp:g5tech/labeled-item {\"title\":\"Prasmė\",\"text\":\"Kuriame infrastruktūrą, kuria kasdien naudojasi žmonės ir organizacijos.\"} /-->\n<!-- /wp:g5tech/about-values -->\n\n<!-- wp:g5tech/about-team {\"eyebrow\":\"Komanda\",\"title\":\"Pagrindinė komanda.\"} /-->\n\n<!-- wp:g5tech/about-strategy {\"eyebrow\":\"Strategija 2025–2028\",\"title\":\"Kokybiškas ir tvarus augimas.\",\"lead\":\"Siekiame stiprinti telekomunikacijų ir atsinaujinančios energetikos kompetencijas, plėsti veiklą Europoje ir nuosekliai gerinti darbo procesus.\"} -->\n<!-- wp:g5tech/labeled-item {\"label\":\"KOKYBĖ\",\"title\":\"Vienodi procesai visuose projektuose.\",\"text\":\"Tobuliname darbų planavimo, kokybės kontrolės ir dokumentavimo metodiką.\"} /-->\n<!-- wp:g5tech/labeled-item {\"label\":\"EUROPA\",\"title\":\"Daugiau projektų Europos rinkose.\",\"text\":\"Plečiame komandos patirtį dirbdami pagal skirtingų šalių operatorių reikalavimus.\"} /-->\n<!-- wp:g5tech/labeled-item {\"label\":\"KOMANDA\",\"title\":\"Mokymai, sauga ir profesinis augimas.\",\"text\":\"Investuojame į darbui reikalingas kvalifikacijas ir praktinį komandos pasirengimą.\"} /-->\n<!-- wp:g5tech/labeled-item {\"label\":\"SANTYKIS\",\"title\":\"Aiškūs įsipareigojimai ir tiesioginis ryšys.\",\"text\":\"Klientas viso projekto metu žino darbų būklę, atsakomybes ir kitus veiksmus.\"} /-->\n<!-- /wp:g5tech/about-strategy -->\n\n<!-- wp:g5tech/about-competence {\"eyebrow\":\"Kompetencija\",\"title\":\"Patirtis, kvalifikacijos ir tiesioginiai kontaktai.\"} -->\n<!-- wp:g5tech/labeled-item {\"title\":\"Srities patirtis\",\"text\":\"Darbo metai, atsakomybės ir projektų tipai.\"} /-->\n<!-- wp:g5tech/labeled-item {\"title\":\"Geografija ir operatoriai\",\"text\":\"Šalys ir operatorių projektai, kuriuose žmogus dalyvavo.\"} /-->\n<!-- wp:g5tech/labeled-item {\"title\":\"Kvalifikacijos\",\"text\":\"Galiojantys sertifikatai, atestatai ir darbų vadovo teisės.\"} /-->\n<!-- wp:g5tech/labeled-item {\"title\":\"Kontaktas\",\"text\":\"Tiesioginis ryšys su už projektą atsakingu žmogumi.\"} /-->\n<!-- /wp:g5tech/about-competence -->\n\n<!-- wp:g5tech/page-cta {\"eyebrow\":\"Aptarkime projektą\",\"title\":\"Aptarkime, kokios komandos reikia jūsų projektui.\",\"body\":\"Papasakokite apie projekto apimtį, techninius reikalavimus ir numatytus terminus.\",\"buttonLabel\":\"Aptarkime jūsų projektą\",\"buttonUrl\":\"/kontaktai/\",\"dialect\":\"team\",\"anchorId\":\"team-cta-title\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "page",
+            "slug": "karjera",
+            "title": "Karjera",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Karjera\",\"title\":\"Karjera telekomunikacijų ir energetikos projektuose.\",\"lead\":\"Projektai Lietuvoje ir kitose Europos šalyse, praktiniai mokymai, darbui reikalingi sertifikatai bei saugi darbo aplinka.\",\"buttonLabel\":\"Peržiūrėti pozicijas\",\"buttonUrl\":\"#positions\",\"buttonIcon\":\"↓\",\"button2Label\":\"Palikti CV\",\"button2Url\":\"/kandidatuoti/\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Ką suteikiame\",\"title\":\"Darbo sąlygos.\",\"theme\":\"paper\",\"anchorId\":\"benefits-title\"} -->\n<!-- wp:g5tech/card-grid -->\n<!-- wp:g5tech/card {\"title\":\"Mokymai ir kvalifikacijos\",\"text\":\"Apmokame aukštalipio, elektrosaugos, pirmosios pagalbos ir kitus darbui reikalingus mokymus.\"} /-->\n<!-- wp:g5tech/card {\"title\":\"Darbo priemonės\",\"text\":\"Suteikiame darbo aprangą, įrankius ir sertifikuotas asmenines apsaugos priemones.\"} /-->\n<!-- wp:g5tech/card {\"title\":\"Europos projektai\",\"text\":\"Apmokame su darbu susijusias keliones, transportą ir apgyvendinimą komandiruočių metu.\"} /-->\n<!-- /wp:g5tech/card-grid -->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Pozicijos\",\"title\":\"Atviros pozicijos.\",\"anchorId\":\"positions-title\",\"sectionId\":\"positions\"} -->\n<!-- wp:g5tech/job-groups {\"emptyText\":\"Šiuo metu atvirų pozicijų nėra. Galite palikti CV – susisieksime atsiradus tinkamai pozicijai.\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Atranka\",\"title\":\"Kaip vyksta atranka.\",\"theme\":\"dark\",\"anchorId\":\"selection-title\"} -->\n<!-- wp:g5tech/steps -->\n<!-- wp:g5tech/step {\"title\":\"Kandidatavimas\",\"text\":\"Pasirinkite poziciją arba palikite CV.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Vertinimas\",\"text\":\"Peržiūrime patirtį ir tinkamumą pozicijai.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Pokalbis\",\"text\":\"Aptariame patirtį, lūkesčius ir darbo specifiką.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Įgūdžiai\",\"text\":\"Prireikus įvertiname technines žinias.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Pasiūlymas\",\"text\":\"Suderiname sąlygas ir prisijungimo datą.\"} /-->\n<!-- /wp:g5tech/steps -->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Augimas\",\"title\":\"Mokymai ir praktinis pasirengimas darbui.\",\"anchorId\":\"growth-title\"} -->\n<!-- wp:g5tech/card-grid -->\n<!-- wp:g5tech/link-card {\"label\":\"5GTECH Academy\",\"title\":\"Praktiniai mokymai būsimiems telekomunikacijų specialistams.\",\"linkText\":\"Apie programą →\",\"url\":\"/akademija/\"} /-->\n<!-- wp:g5tech/link-card {\"label\":\"Mokymai\",\"title\":\"Praktinė mokymų salė ir darbas su realia įranga.\",\"linkText\":\"Apie mokymus →\",\"url\":\"/mokymai/\"} /-->\n<!-- wp:g5tech/link-card {\"label\":\"DUK\",\"title\":\"Atsakymai apie komandiruotes, sąlygas ir saugą.\",\"linkText\":\"Peržiūrėti DUK →\",\"url\":\"/duk/\"} /-->\n<!-- /wp:g5tech/card-grid -->\n<!-- /wp:g5tech/section -->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "page",
+            "slug": "naujienos",
+            "title": "Naujienos",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Naujienos\",\"title\":\"Projektai, komanda ir techninės įžvalgos.\",\"compact\":true,\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Naujausia\",\"title\":\"Naujausi įrašai.\",\"theme\":\"paper\",\"anchorId\":\"news-title\"} -->\n<!-- wp:g5tech/news-grid /-->\n<!-- /wp:g5tech/section -->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "page",
+            "slug": "slapukai",
+            "title": "Slapukų politika",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/legal-hero {\"title\":\"Slapukų politika\",\"lead\":\"Kaip svetainėje naudojami slapukai ir kaip galite valdyti savo pasirinkimus.\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:group {\"tagName\":\"article\",\"className\":\"g5-section g5-grid-lines\",\"templateLock\":\"contentOnly\",\"layout\":{\"type\":\"default\"}} -->\n<article class=\"wp-block-group g5-section g5-grid-lines\"><!-- wp:group {\"className\":\"g5-container article\",\"layout\":{\"type\":\"default\"}} -->\n<div class=\"wp-block-group g5-container article\"><!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Kas yra slapukai</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Slapukai yra nedideli failai, išsaugomi jūsų įrenginyje lankantis svetainėje.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Būtinieji slapukai</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Jie reikalingi pagrindiniam svetainės veikimui, saugumui ir jūsų pasirinkimų išsaugojimui.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Analitiniai slapukai</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Juos naudojame tik gavę jūsų sutikimą. Šie slapukai padeda suprasti, kaip lankytojai naudojasi svetaine.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Kaip pakeisti pasirinkimą</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Slapukų nustatymus galite pakeisti sutikimų valdymo lange arba savo naršyklės nustatymuose.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Kontaktas</h2>\n<!-- /wp:heading -->\n\n<!-- wp:g5tech/contact-email {\"intro\":\"Dėl slapukų naudojimo rašykite\"} /--></div>\n<!-- /wp:group --></article>\n<!-- /wp:group -->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "page",
+            "slug": "kandidatuoti",
+            "title": "Kandidatuoti",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Kandidatavimas\",\"title\":\"Pateikite kandidatūrą.\",\"lead\":\"Įkelkite CV ir nurodykite dominančią poziciją. Jei tinkamos pozicijos šiuo metu nėra, galėsime susisiekti vėliau.\",\"compact\":true,\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Kandidatavimas\",\"title\":\"Kontaktai ir darbo patirtis.\",\"lead\":\"Žvaigždute pažymėti laukai yra privalomi.\",\"anchorId\":\"form-title\"} -->\n<!-- wp:g5tech/application-form /-->\n<!-- /wp:g5tech/section -->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "page",
+            "slug": "akademija",
+            "title": "5GTECH Academy",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"5GTECH Academy\",\"title\":\"Praktinis pasirengimas darbui telekomunikacijų projektuose.\",\"lead\":\"Programa norintiems įgyti techninių pagrindų ir išbandyti darbą mobiliojo ryšio infrastruktūros projekte.\",\"buttonLabel\":\"Kandidatuoti\",\"buttonUrl\":\"/kandidatuoti/\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Programa\",\"title\":\"Penki etapai nuo pokalbio iki darbo pasiūlymo.\",\"theme\":\"dark\",\"anchorId\":\"program-title\"} -->\n<!-- wp:g5tech/steps -->\n<!-- wp:g5tech/step {\"title\":\"Kandidatavimas\",\"text\":\"Forma ir pirminis susipažinimo pokalbis.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Įvadas\",\"text\":\"1 diena: darbų sauga, AAP ir ryšio įranga.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Praktika salėje\",\"text\":\"2 dienos: antenos, kabeliai ir bazinės stoties komponentai.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Realus objektas\",\"text\":\"5 dienos su patyrusia projekto komanda.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Pasiūlymas\",\"text\":\"Sėkmingai programą baigusiems kandidatams galime pasiūlyti darbą.\"} /-->\n<!-- /wp:g5tech/steps -->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Suteikiame\",\"title\":\"Pasirengimas saugiai darbo pradžiai.\",\"theme\":\"light\",\"anchorId\":\"included-title\"} -->\n<!-- wp:g5tech/check-list -->\n<!-- wp:g5tech/check-item {\"text\":\"Terminuotą darbo sutartį programos metu\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Apgyvendinimą kandidatams ne iš Vilniaus\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Darbo aprangą ir asmenines apsaugos priemones\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Darbui reikalingus įrankius\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Patyrusios komandos priežiūrą\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Galimybę gauti nuolatinio darbo pasiūlymą\"} /-->\n<!-- /wp:g5tech/check-list -->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/page-cta {\"eyebrow\":\"Pradėkite\",\"title\":\"Norite pradėti karjerą telekomunikacijose?\",\"body\":\"Techninė patirtis – privalumas. Svarbiausia atsakingas požiūris ir noras mokytis.\",\"buttonLabel\":\"Pildyti formą\",\"buttonUrl\":\"/kandidatuoti/\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "page",
+            "slug": "mokymai",
+            "title": "Mokymai",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Mokymai\",\"title\":\"Praktiniai techniniai mokymai.\",\"lead\":\"Mokymų salė skirta naujų darbuotojų parengimui ir patyrusių specialistų kompetencijų tobulinimui.\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Programa\",\"title\":\"Mokymų temos.\",\"theme\":\"light\",\"anchorId\":\"topics-title\"} -->\n<!-- wp:g5tech/check-list -->\n<!-- wp:g5tech/check-item {\"text\":\"Asmeninės apsaugos priemonės ir jų naudojimas\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Darbų aukštyje specifika ir saugos taisyklės\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"2G, 3G, 4G-LTE ir 5G technologijų pagrindai\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Antenų ir radijo modulių montavimas\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Kabelių instaliacija ir prijungimas\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Elektros instaliacijos principai\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Techninės dokumentacijos rengimas\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Bazinės stoties konfigūravimo pagrindai\"} /-->\n<!-- /wp:g5tech/check-list -->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Įranga\",\"title\":\"Mokomės su realiuose projektuose naudojama įranga.\",\"theme\":\"paper\",\"anchorId\":\"equipment-title\"} -->\n<!-- wp:g5tech/equipment-logos {\"partnerIds\":[22,23,24,44,45,144],\"names\":[\"Ericsson\",\"Nokia\",\"Huawei\",\"Sonel\",\"SiteMaster\",\"3Z-RFVision\"]} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Aplinka\",\"title\":\"Mokymų salė.\",\"theme\":\"dark\",\"anchorId\":\"training-room-title\"} -->\n<!-- wp:g5tech/media-frame {\"imageId\":0,\"alt\":\"5G TECH praktinių mokymų aplinka\",\"ratio\":\"16 / 8\",\"themeFallback\":\"assets/images/generated/training-technical-lab-v1.jpg\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/page-cta {\"eyebrow\":\"Karjera\",\"title\":\"Norite prisijungti prie komandos?\",\"buttonLabel\":\"Peržiūrėti pozicijas\",\"buttonUrl\":\"/karjera/\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "page",
+            "slug": "duk",
+            "title": "DUK kandidatams",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"DUK kandidatams\",\"title\":\"Dažniausi klausimai apie darbą 5G TECH.\",\"compact\":true,\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Darbo pradžia\",\"title\":\"Kandidatavimas ir pasirengimas.\",\"theme\":\"light\",\"anchorId\":\"start-title\"} -->\n<!-- wp:g5tech/faq-group {\"group\":\"start\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Komandiruotės\",\"title\":\"Darbas Europos projektuose.\",\"theme\":\"paper\",\"anchorId\":\"travel-title\"} -->\n<!-- wp:g5tech/faq-group {\"group\":\"travel\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Sauga ir priemonės\",\"title\":\"Darbas aukštyje ir sauga.\",\"theme\":\"light\",\"anchorId\":\"safety-title\"} -->\n<!-- wp:g5tech/faq-group {\"group\":\"safety\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Kasdienis darbas\",\"title\":\"Kasdienė darbo eiga.\",\"theme\":\"paper\",\"anchorId\":\"daily-title\"} -->\n<!-- wp:g5tech/faq-group {\"group\":\"daily\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/page-cta {\"eyebrow\":\"Neradote atsakymo?\",\"title\":\"Susisiekite su personalo komanda.\",\"bodySetting\":\"career_email\",\"buttonLabel\":\"Kandidatuoti\",\"buttonUrl\":\"/kandidatuoti/\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "page",
+            "slug": "vadovams",
+            "title": "Vadovams",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Informacija įmonių vadovams\",\"title\":\"Projektų vykdymas su aiškiomis atsakomybėmis.\",\"lead\":\"Telekomunikacijų, energetikos ir inžinerinių sistemų projektai Lietuvoje bei kitose Europos šalyse.\",\"buttonLabel\":\"Susisiekti su vadovu\",\"buttonUrl\":\"/kontaktai/\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Kodėl 5G TECH\",\"title\":\"Kodėl mumis pasitiki užsakovai.\",\"theme\":\"paper\",\"anchorId\":\"reasons-title\"} -->\n<!-- wp:g5tech/card-grid -->\n<!-- wp:g5tech/card {\"title\":\"Valdoma rizika\",\"text\":\"ISO 9001, ISO 14001, ISO 45001 ir SSVA kvalifikacija.\"} /-->\n<!-- wp:g5tech/card {\"title\":\"Įrodyta patirtis\",\"text\":\"6000+ stočių, 2G–5G technologijos ir šešios Europos šalys.\"} /-->\n<!-- wp:g5tech/card {\"title\":\"Kompetencijos vienoje komandoje\",\"text\":\"Telekomunikacijos, energetika ir inžinerinės sistemos.\"} /-->\n<!-- wp:g5tech/card {\"title\":\"Aiški atsakomybė\",\"text\":\"Planavimas, darbų kontrolė, testavimas ir dokumentuotas perdavimas.\"} /-->\n<!-- /wp:g5tech/card-grid -->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/page-cta {\"eyebrow\":\"Tiesioginis kontaktas\",\"title\":\"Aptarkime projekto apimtį, rizikas ir atsakomybes.\",\"body\":\"Aleksandras Iljinas · generalinis direktorius\",\"buttonLabel\":\"Susisiekti\",\"buttonUrl\":\"/kontaktai/\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "page",
+            "slug": "projektu-vadovams",
+            "title": "Projektų vadovams",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Projektų vadovams ir techniniam personalui\",\"title\":\"Techninė projekto eiga ir dokumentacija.\",\"lead\":\"Dirbame pagal užsakovo techninius standartus ir tiesiogiai informuojame apie darbų eigą, neatitikimus bei dokumentaciją.\",\"buttonLabel\":\"Atsiųsti techninę užduotį\",\"buttonUrl\":\"/kontaktai/\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Techninė eiga\",\"title\":\"Planavimas, darbų kontrolė ir dokumentacija.\",\"theme\":\"light\",\"anchorId\":\"technical-title\"} -->\n<!-- wp:g5tech/check-list -->\n<!-- wp:g5tech/check-item {\"text\":\"„Site Survey“ ir esamos situacijos įvertinimas\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Darbų, medžiagų ir komandos planavimas\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Ericsson, Nokia, Huawei ir kitos įrangos montavimas\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"MW linijų konfigūravimas ir testavimas\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"„SiteMaster“ ir kiti kokybės matavimai\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Dokumentacija pagal užsakovo standartus\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Tiesioginis ryšys su atsakingu projektų vadovu\"} /-->\n<!-- wp:g5tech/check-item {\"text\":\"Neatitikimų valdymas iki patvirtinto rezultato\"} /-->\n<!-- /wp:g5tech/check-list -->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Įrangos patirtis\",\"title\":\"Įranga, su kuria dirbame.\",\"theme\":\"dark\",\"anchorId\":\"equipment-title\"} -->\n<!-- wp:g5tech/partner-stats {\"partnerIds\":[22,23,24,28,29],\"names\":[\"Ericsson\",\"Nokia\",\"Huawei\",\"Eltek\",\"Delta\"]} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/page-cta {\"eyebrow\":\"Techninė užduotis\",\"title\":\"Atsiųskite turimą dokumentaciją arba darbų apimtį.\",\"buttonLabel\":\"Susisiekti\",\"buttonUrl\":\"/kontaktai/\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "page",
+            "slug": "paslaugos",
+            "title": "Paslaugos",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Paslaugos\",\"title\":\"Telekomunikacijų, energetikos ir inžinerinių sistemų paslaugos.\",\"dialect\":\"site\",\"anchorId\":\"g5-services-page-title\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"6 kryptys\",\"title\":\"Paslaugų sritys.\",\"theme\":\"paper\",\"dialect\":\"site\",\"anchorId\":\"g5-services-list-title\"} -->\n<!-- wp:g5tech/service-cards /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Darbo standartas\",\"title\":\"ISO standartai ir SSVA kvalifikacija.\",\"theme\":\"dark\",\"dialect\":\"site\",\"anchorId\":\"g5-services-standard-title\"} -->\n<!-- wp:g5tech/certification-grid /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/settings-cta {\"eyebrow\":\"Projektas\",\"anchorId\":\"g5-services-cta-title\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "page",
+            "slug": "projektai",
+            "title": "Projektai",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Projektai\",\"title\":\"Infrastruktūros projektai Europoje.\",\"lead\":\"Telekomunikacijų, energetikos ir inžinerinės infrastruktūros darbai Lietuvoje bei kitose Europos šalyse.\",\"dialect\":\"site\",\"anchorId\":\"g5-projects-title\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Patirtis\",\"title\":\"Atrinkti projektai.\",\"theme\":\"paper\",\"dialect\":\"site\",\"anchorId\":\"g5-projects-list-title\"} -->\n<!-- wp:g5tech/project-cards /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/page-cta {\"eyebrow\":\"Naujas projektas\",\"title\":\"Aptarkime jūsų projektą.\",\"body\":\"Atsiūskite turimą informaciją – įvertinsime darbų apimtį ir tolesnius veiksmus.\",\"buttonLabel\":\"Susisiekti\",\"buttonUrl\":\"/kontaktai/\",\"dialect\":\"site\",\"anchorId\":\"g5-projects-cta-title\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "post",
+            "slug": "baziniu-stociu-modernizavimo-projektas-vokietijoje",
+            "title": "Bazinių stočių modernizavimo projektas Vokietijoje",
+            "status": "publish",
+            "content": "<!-- wp:heading --><h2 class=\"wp-block-heading\">Projekto kontekstas</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Darbai vykdomi pagal operatoriaus techninius reikalavimus. Komanda atsakinga už įrangos montavimą, testavimą ir atliktų darbų dokumentaciją.</p><!-- /wp:paragraph --><!-- wp:heading --><h2 class=\"wp-block-heading\">Darbų eiga</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Prieš darbų pradžią suderinama techninė užduotis ir pasirengimas objektui. Sumontuota įranga testuojama, o rezultatai dokumentuojami ir perduodami užsakovui.</p><!-- /wp:paragraph -->",
+            "excerpt": "Darbai apima įrangos montavimą, testavimą ir dokumentaciją.",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "post",
+            "slug": "praktiniai-darbuotoju-mokymai",
+            "title": "Praktiniai darbuotojų mokymai",
+            "status": "publish",
+            "content": "<!-- wp:heading --><h2 class=\"wp-block-heading\">Praktinis pasirengimas</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Komandos mokymuose deriname darbų saugos reikalavimus, techninių užduočių analizę ir darbą su projektuose naudojama įranga.</p><!-- /wp:paragraph -->",
+            "excerpt": "Mokymuose daugiausia dėmesio skiriame darbų saugai, įrangai ir techninių užduočių vykdymui.",
+            "menu_order": 1,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "post",
+            "slug": "projektai-sesiose-europos-salyse",
+            "title": "Projektai šešiose Europos šalyse",
+            "status": "publish",
+            "content": "<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Tarptautinė projektų patirtis</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>5G TECH komanda yra vykdžiusi telekomunikacijų ir infrastruktūros projektus Lietuvoje, Vokietijoje, Švedijoje, Norvegijoje, Danijoje ir Suomijoje.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Pirmas mačas (rugpjūčio 4/5 d.) vyks Zagrebe, antrasis – Kaune (rugpjūčio 11 d.). Lemiamas UEFA Čempionų lygos atrankos etapas – rugpjūčio 18/19 d. ir 25/26 d. Toks scenarijus Lietuvos čempionams garantavo mažiausiai vietą UEFA Konferencijų lygoje bei užtikrino 3,17 mln. eurų UEFA premiją. Kroatijos čempionai Čempionų lygos antrame etape bendru rezultatu 4:3 pranoko „Thun“ (Šveicarija) klubą. Lemtingas įvartis Tikru vakaro didvyriu tapo Leonas Krekovičius. 85-ąją minutę po puikaus Amine'o Benchaibo perdavimo jis atsidūrė vienas prieš vartininką ir tiksliu smūgiu į dešinįjį vartų kampą pelnė pergalingą įvartį 1:0.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><!-- wp:paragraph -->\n<p>Tarptautinė projektų patirtis cia citata</p>\n<!-- /wp:paragraph --></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>Skaitykite daugiau: </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Tarptautinė projektų patirtis 2</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->",
+            "excerpt": "Lietuva, Vokietija, Švedija, Norvegija, Danija ir Suomija.",
+            "menu_order": 2,
+            "parent": "",
+            "thumbnail": "",
+            "meta": []
+        },
+        {
+            "type": "g5_team",
+            "slug": "aleksandras-iljinas",
+            "title": "Aleksandras Iljinas",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_team_role": [
+                    "Generalinis direktorius"
+                ],
+                "g5_team_summary": [
+                    "Telekomunikacijų srityje nuo 2012 m. Vadovauja 5G TECH komandai ir koordinuoja ryšio infrastruktūros projektus Lietuvoje bei kitose Europos šalyse."
+                ],
+                "g5_team_email": [
+                    "Aleksandras@5gtech.lt"
+                ],
+                "g5_team_phone": [
+                    "+370 687 77155"
+                ],
+                "g5_team_experience_since": [
+                    "2012"
+                ],
+                "g5_team_company_since": [
+                    "2020"
+                ],
+                "g5_team_primary_area": [
+                    "Mobiliojo ryšio infrastruktūra"
+                ],
+                "g5_team_responsibility": [
+                    "Projektų ir komandos koordinavimas"
+                ],
+                "g5_team_experience": [
+                    "Aleksandras dirbo ir vadovavo mobiliojo ryšio infrastruktūros diegimo, modernizavimo bei priežiūros projektams. Jo patirtis apima darbų planavimą, komandų koordinavimą, techninių sprendimų derinimą, kokybės kontrolę ir projektų perdavimą."
+                ],
+                "g5_team_countries": [
+                    "Lietuva\nVokietija\nŠvedija\nNorvegija\nDanija\nSuomija"
+                ],
+                "g5_team_competencies": [
+                    "Mobiliojo ryšio infrastruktūra\n2G–5G modernizavimas\nProjektų planavimas\nKomandų koordinavimas\nTechninių sprendimų derinimas\nKokybės kontrolė\nDokumentacija ir perdavimas"
+                ],
+                "g5_team_show_contact": [
+                    "1"
+                ],
+                "g5_team_show_profile": [
+                    "1"
+                ],
+                "g5_team_operators": [
+                    "31",
+                    "34",
+                    "35",
+                    "36",
+                    "37",
+                    "32",
+                    "33",
+                    "38",
+                    "39",
+                    "89",
+                    "40"
+                ]
+            }
+        },
+        {
+            "type": "g5_team",
+            "slug": "nerijus-bazinas",
+            "title": "Nerijus Bazinas",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 1,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_team_role": [
+                    "Projektų vadovas"
+                ],
+                "g5_team_summary": [
+                    ""
+                ],
+                "g5_team_email": [
+                    "Nerijus@5gtech.lt"
+                ],
+                "g5_team_phone": [
+                    "+370 605 47198"
+                ],
+                "g5_team_experience_since": [
+                    ""
+                ],
+                "g5_team_company_since": [
+                    ""
+                ],
+                "g5_team_primary_area": [
+                    ""
+                ],
+                "g5_team_responsibility": [
+                    ""
+                ],
+                "g5_team_experience": [
+                    ""
+                ],
+                "g5_team_countries": [
+                    ""
+                ],
+                "g5_team_competencies": [
+                    ""
+                ],
+                "g5_team_show_contact": [
+                    "1"
+                ],
+                "g5_team_show_profile": [
+                    "0"
+                ]
+            }
+        },
+        {
+            "type": "g5_team",
+            "slug": "eimantas-zemaitis",
+            "title": "Eimantas Žemaitis",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 2,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_team_role": [
+                    "Projektų vykdytojas"
+                ],
+                "g5_team_summary": [
+                    ""
+                ],
+                "g5_team_email": [
+                    "Eimantas@5gtech.lt"
+                ],
+                "g5_team_phone": [
+                    "+370 662 93845"
+                ],
+                "g5_team_experience_since": [
+                    ""
+                ],
+                "g5_team_company_since": [
+                    ""
+                ],
+                "g5_team_primary_area": [
+                    ""
+                ],
+                "g5_team_responsibility": [
+                    ""
+                ],
+                "g5_team_experience": [
+                    ""
+                ],
+                "g5_team_countries": [
+                    ""
+                ],
+                "g5_team_competencies": [
+                    ""
+                ],
+                "g5_team_show_contact": [
+                    "1"
+                ],
+                "g5_team_show_profile": [
+                    "0"
+                ]
+            }
+        },
+        {
+            "type": "g5_team",
+            "slug": "tadas-grabauskas",
+            "title": "Tadas Grabauskas",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 3,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_team_role": [
+                    "Projektų vykdytojas"
+                ],
+                "g5_team_summary": [
+                    ""
+                ],
+                "g5_team_email": [
+                    "Tadas@5gtech.lt"
+                ],
+                "g5_team_phone": [
+                    "+370 660 89077"
+                ],
+                "g5_team_experience_since": [
+                    ""
+                ],
+                "g5_team_company_since": [
+                    ""
+                ],
+                "g5_team_primary_area": [
+                    ""
+                ],
+                "g5_team_responsibility": [
+                    ""
+                ],
+                "g5_team_experience": [
+                    ""
+                ],
+                "g5_team_countries": [
+                    ""
+                ],
+                "g5_team_competencies": [
+                    ""
+                ],
+                "g5_team_show_contact": [
+                    "1"
+                ],
+                "g5_team_show_profile": [
+                    "0"
+                ]
+            }
+        },
+        {
+            "type": "g5_team",
+            "slug": "kristina-nagineviciene",
+            "title": "Kristina Naginevičienė",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 4,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_team_role": [
+                    "Administracijos ir personalo koordinatorė"
+                ],
+                "g5_team_summary": [
+                    ""
+                ],
+                "g5_team_email": [
+                    "Kristina@5gtech.lt"
+                ],
+                "g5_team_phone": [
+                    "+370 665 51934"
+                ],
+                "g5_team_experience_since": [
+                    ""
+                ],
+                "g5_team_company_since": [
+                    ""
+                ],
+                "g5_team_primary_area": [
+                    ""
+                ],
+                "g5_team_responsibility": [
+                    ""
+                ],
+                "g5_team_experience": [
+                    ""
+                ],
+                "g5_team_countries": [
+                    ""
+                ],
+                "g5_team_competencies": [
+                    ""
+                ],
+                "g5_team_show_contact": [
+                    "1"
+                ],
+                "g5_team_show_profile": [
+                    "0"
+                ]
+            }
+        },
+        {
+            "type": "g5_service",
+            "slug": "mobiliojo-rysio-tinklai",
+            "title": "Mobiliojo ryšio tinklai",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/service-hero /-->\n<!-- wp:g5tech/service-scope /-->\n<!-- wp:g5tech/service-process /-->\n<!-- wp:g5tech/service-equipment /-->\n<!-- wp:g5tech/service-faq /-->\n<!-- wp:g5tech/service-cta /-->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "2026/07/service-demo.png",
+            "meta": {
+                "g5_service_category": [
+                    "Telekomunikacijos"
+                ],
+                "g5_service_summary": [
+                    "Įrengiame, modernizuojame ir prižiūrime mobiliojo ryšio infrastruktūrą pagal operatorių techninius bei darbų saugos standartus."
+                ],
+                "g5_service_work": [
+                    "2G, 3G, 4G-LTE ir 5G ryšio įrangos montavimas bei modernizavimas\nAntenų, radijo modulių ir metalinių konstrukcijų montavimas\nBangolaidžių, fiderių ir kabelių instaliavimas\n„SiteMaster“ matavimai ir bangolaidžių kokybės testavimas\nRadiorelinių linijų įrengimas, konfigūravimas ir testavimas\nDuomenų perdavimo sistemų diegimas\nObjekto ir įrangos techninis įvertinimas („Site Survey“)\nDokumentacijos parengimas ir perdavimas užsakovui"
+                ],
+                "_wp_page_template": [
+                    "default"
+                ],
+                "g5_service_partners": [
+                    [
+                        22,
+                        23,
+                        24,
+                        25,
+                        28,
+                        29
+                    ]
+                ],
+                "g5_service_card_title": [
+                    "Mobiliojo ryšio tinklai"
+                ],
+                "g5_service_card_summary": [
+                    "Bazinių stočių diegimas, modernizavimas, integravimas ir priežiūra."
+                ],
+                "g5_service_faq": [
+                    "Kokiuose objektuose atliekate darbus? | Dirbame mobiliųjų operatorių bokštuose, ant pastatų, stiebų, televizijos ir vandens bokštų bei kituose ryšio infrastruktūros objektuose.\nAr parengiate projekto dokumentaciją? | Taip. Dokumentacijos apimtį ir formatą suderiname pagal konkretaus užsakovo bei projekto reikalavimus.\nAr galite atlikti tik dalį projekto darbų? | Taip. Galime prisijungti prie atskiro projekto etapo arba įgyvendinti visą sutartą darbų apimtį."
+                ]
+            }
+        },
+        {
+            "type": "g5_service",
+            "slug": "vidinio-rysio-tinklai",
+            "title": "Vidinio ryšio tinklai",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/service-hero /-->\n<!-- wp:g5tech/service-scope /-->\n<!-- wp:g5tech/service-process /-->\n<!-- wp:g5tech/service-equipment /-->\n<!-- wp:g5tech/service-faq /-->\n<!-- wp:g5tech/service-cta /-->",
+            "excerpt": "",
+            "menu_order": 1,
+            "parent": "",
+            "thumbnail": "2026/07/service-team.jpg",
+            "meta": {
+                "g5_service_category": [
+                    "Telekomunikacijos"
+                ],
+                "g5_service_summary": [
+                    "Projektuojame ir įrengiame mobiliojo bei belaidžio ryšio sprendimus dideliuose ir techniškai sudėtinguose pastatuose."
+                ],
+                "g5_service_work": [
+                    "Vidaus mobiliojo ryšio tinklų projektavimas\nVidinių antenų ir signalo stiprinimo sistemų montavimas\nWi-Fi infrastruktūros diegimas pastatuose\nRyšio sprendimai prekybos centruose, ligoninėse ir viešbučiuose\nSprendimai tuneliuose, požeminėse aikštelėse ir kituose objektuose\nSistemos matavimai, optimizavimas ir testavimas\nTechninės dokumentacijos rengimas\nĮrengto sprendimo perdavimas užsakovui"
+                ],
+                "g5_service_partners": [
+                    [
+                        22,
+                        23,
+                        24,
+                        43,
+                        25,
+                        45
+                    ]
+                ],
+                "g5_service_card_title": [
+                    "Vidinio ryšio tinklai"
+                ],
+                "g5_service_card_summary": [
+                    "Ryšio sprendimai dideliuose ir techniškai sudėtinguose pastatuose."
+                ]
+            }
+        },
+        {
+            "type": "g5_service",
+            "slug": "fiksuoto-rysio-tinklai",
+            "title": "Fiksuoto ryšio tinklai",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/service-hero /-->\n<!-- wp:g5tech/service-scope /-->\n<!-- wp:g5tech/service-process /-->\n<!-- wp:g5tech/service-equipment /-->\n<!-- wp:g5tech/service-faq /-->\n<!-- wp:g5tech/service-cta /-->",
+            "excerpt": "",
+            "menu_order": 2,
+            "parent": "",
+            "thumbnail": "2026/07/service-demo.png",
+            "meta": {
+                "g5_service_category": [
+                    "Telekomunikacijos"
+                ],
+                "g5_service_summary": [
+                    "Įrengiame šviesolaidinio ir varinio ryšio infrastruktūrą nuo magistralinių linijų iki galutinio vartotojo prijungimo."
+                ],
+                "g5_service_work": [
+                    "Magistralinių ir skirstomųjų ryšio linijų projektavimas\nŠviesolaidinių kabelių montavimas\nVarinių kabelių montavimas ir priežiūra\nOptinių kabelių virinimas ir movų montavimas\nRyšio linijų testavimas ir gedimų diagnostika\nVartotojų paslaugų diegimas ir prijungimas\nODF spintų įrengimas centralėse\nDokumentacijos parengimas ir tinklo perdavimas užsakovui"
+                ],
+                "g5_service_partners": [
+                    [
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51
+                    ]
+                ],
+                "g5_service_card_title": [
+                    "Fiksuoto ryšio tinklai"
+                ],
+                "g5_service_card_summary": [
+                    "Šviesolaidinio ir varinio ryšio infrastruktūros įrengimas."
+                ]
+            }
+        },
+        {
+            "type": "g5_service",
+            "slug": "elektros-darbai",
+            "title": "Elektros darbai",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/service-hero /-->\n<!-- wp:g5tech/service-scope /-->\n<!-- wp:g5tech/service-process /-->\n<!-- wp:g5tech/service-equipment /-->\n<!-- wp:g5tech/service-faq /-->\n<!-- wp:g5tech/service-cta /-->",
+            "excerpt": "",
+            "menu_order": 3,
+            "parent": "",
+            "thumbnail": "2026/07/service-team.jpg",
+            "meta": {
+                "g5_service_category": [
+                    "Energetika"
+                ],
+                "g5_service_summary": [
+                    "Projektuojame, įrengiame ir prižiūrime elektros sistemas naujuose bei rekonstruojamuose objektuose."
+                ],
+                "g5_service_work": [
+                    "Vidaus elektros instaliacijos montavimas\nVidaus ir lauko apšvietimo sistemų įrengimas\nElektros tinklų ir įvadų projektavimas\nElektros įrangos montavimas ir prijungimas\nElektrinio šildymo sistemų įrengimas\nProfilaktinė elektros sistemų priežiūra\nVaržų matavimai ir bandymai\nDokumentacijos parengimas tinklams perduoti ESO"
+                ],
+                "g5_service_partners": [
+                    [
+                        44,
+                        28,
+                        29,
+                        26,
+                        27,
+                        52
+                    ]
+                ],
+                "g5_service_card_title": [
+                    "Elektros darbai"
+                ],
+                "g5_service_card_summary": [
+                    "Elektros sistemų projektavimas, montavimas, bandymai ir priežiūra."
+                ]
+            }
+        },
+        {
+            "type": "g5_service",
+            "slug": "apsaugos-ir-stebejimo-sistemos",
+            "title": "Apsaugos ir stebėjimo sistemos",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/service-hero /-->\n<!-- wp:g5tech/service-scope /-->\n<!-- wp:g5tech/service-process /-->\n<!-- wp:g5tech/service-equipment /-->\n<!-- wp:g5tech/service-faq /-->\n<!-- wp:g5tech/service-cta /-->",
+            "excerpt": "",
+            "menu_order": 4,
+            "parent": "",
+            "thumbnail": "2026/07/service-demo.png",
+            "meta": {
+                "g5_service_category": [
+                    "Inžinerinės sistemos"
+                ],
+                "g5_service_summary": [
+                    "Projektuojame, montuojame ir integruojame vaizdo stebėjimo, signalizacijos bei patekimo kontrolės sprendimus."
+                ],
+                "g5_service_work": [
+                    "IP, HD-SDI ir analoginių kamerų sistemų diegimas\nApsaugos ir gaisro signalizacijos montavimas\nPerimetro apsaugos sprendimai\nPatekimo kontrolės sistemos\nTelefonspynių ir vaizdo telefonspynių įrengimas\nAutomobilių numerių atpažinimo sistemos\nStebėjimo postų ir vaizdo archyvavimo sprendimai\nDokumentacijos parengimas eksploatacijai"
+                ],
+                "g5_service_partners": [
+                    [
+                        53,
+                        54,
+                        55,
+                        56,
+                        57,
+                        58
+                    ]
+                ],
+                "g5_service_card_title": [
+                    "Apsaugos sistemos"
+                ],
+                "g5_service_card_summary": [
+                    "Stebėjimo, signalizacijos ir patekimo kontrolės sprendimai."
+                ]
+            }
+        },
+        {
+            "type": "g5_service",
+            "slug": "saules-elektrines",
+            "title": "Saulės elektrinės",
+            "status": "publish",
+            "content": "<!-- wp:g5tech/service-hero /-->\n<!-- wp:g5tech/service-scope /-->\n<!-- wp:g5tech/service-process /-->\n<!-- wp:g5tech/service-equipment /-->\n<!-- wp:g5tech/service-faq /-->\n<!-- wp:g5tech/service-cta /-->",
+            "excerpt": "",
+            "menu_order": 5,
+            "parent": "",
+            "thumbnail": "2026/07/service-team.jpg",
+            "meta": {
+                "g5_service_category": [
+                    "Atsinaujinanti energetika"
+                ],
+                "g5_service_summary": [
+                    "Projektuojame, montuojame ir prižiūrime saulės elektrines verslo, infrastruktūros ir gyvenamuosiuose objektuose."
+                ],
+                "g5_service_work": [
+                    "Techninis sprendimo įvertinimas ir projektavimas\nSaulės modulių montavimas\nInverterių montavimas ir prijungimas\nKonstrukcijų įrengimas ant stogų\nAntžeminių konstrukcijų įrengimas\nElektrinės testavimas ir paleidimas\nTechninė priežiūra ir gedimų diagnostika\nDokumentacijos parengimas atsakingoms institucijoms"
+                ],
+                "g5_service_partners": [
+                    [
+                        59,
+                        60,
+                        61,
+                        62,
+                        52,
+                        63
+                    ]
+                ],
+                "g5_service_card_title": [
+                    "Saulės elektrinės"
+                ],
+                "g5_service_card_summary": [
+                    "Projektavimas, konstrukcijos, montavimas, paleidimas ir priežiūra."
+                ]
+            }
+        },
+        {
+            "type": "g5_project",
+            "slug": "baziniu-stociu-modernizavimas-vokietijoje",
+            "title": "Bazinių stočių modernizavimo projektas Vokietijoje",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "2026/07/service-demo.png",
+            "meta": {
+                "g5_project_summary": [
+                    "Darbai apima ryšio įrangos montavimą, testavimą ir dokumentaciją."
+                ],
+                "g5_project_year": [
+                    ""
+                ],
+                "g5_project_location": [
+                    ""
+                ],
+                "g5_project_scope": [
+                    "Ryšio įrangos montavimas\nSumontuotos įrangos testavimas\nAtliktų darbų dokumentacija"
+                ],
+                "g5_project_result": [
+                    "Sumontuota įranga testuojama, o rezultatai dokumentuojami ir perduodami užsakovui."
+                ],
+                "g5_project_visible": [
+                    "1"
+                ],
+                "g5_project_service": [
+                    "8"
+                ]
+            }
+        },
+        {
+            "type": "g5_job",
+            "slug": "telekomunikaciju-specialistas",
+            "title": "Telekomunikacijų specialistas (-ė)",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "europe"
+                ],
+                "g5_job_level": [
+                    "Pradinis lygis"
+                ],
+                "g5_job_location": [
+                    "Europa"
+                ],
+                "g5_job_salary": [
+                    "2 500–2 750+ €"
+                ],
+                "g5_job_rotation": [
+                    "6–8 sav."
+                ],
+                "g5_job_driving": [
+                    "B"
+                ],
+                "g5_job_summary": [
+                    "Darbas mobiliojo ryšio infrastruktūros montavimo projektuose Vokietijoje, Švedijoje, Norvegijoje ir kitose Europos šalyse."
+                ],
+                "g5_job_responsibilities": [
+                    "Montuosite antenas ir radijo modulius\nInstaliuosite kabelius ir kitą infrastruktūrą\nPadėsite atlikti testavimo darbus\nLaikysitės techninių ir saugos reikalavimų\nPildysite atliktų darbų informaciją\nDirbsite kartu su patyrusiu komandos nariu"
+                ],
+                "g5_job_requirements": [
+                    "Atsakingo požiūrio į darbų saugą\nNoro mokytis techninio darbo\nGalimybės dirbti komandiruočių principu\nB kategorijos vairuotojo pažymėjimo\nAnglų kalbos pagrindų – privalumas"
+                ],
+                "g5_job_offer": [
+                    "Darbo sutartį Lietuvoje ir socialines garantijas\nApmokamą apgyvendinimą ir keliones\nDarbo aprangą, įrankius ir saugos priemones\nDarbui reikalingus mokymus ir kvalifikacijas\nMentoriaus palaikymą projekto pradžioje\nGalimybę augti pagal Grow2Go modelį"
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "kokiuose-objektuose-atliekate-darbus",
+            "title": "Kokiuose objektuose atliekate darbus?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Dirbame mobiliųjų operatorių bokštuose, ant pastatų, stiebų, televizijos ir vandens bokštų bei kituose ryšio infrastruktūros objektuose."
+                ],
+                "g5_faq_topic": [
+                    "client"
+                ],
+                "g5_faq_group": [
+                    ""
+                ],
+                "g5_faq_service": [
+                    "8"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "ar-parengiate-projekto-dokumentacija",
+            "title": "Ar parengiate projekto dokumentaciją?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 1,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Taip. Dokumentacijos apimtį ir formatą suderiname pagal konkretaus užsakovo bei projekto reikalavimus."
+                ],
+                "g5_faq_topic": [
+                    "client"
+                ],
+                "g5_faq_group": [
+                    ""
+                ],
+                "g5_faq_service": [
+                    "8"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "ar-galite-atlikti-tik-dali-projekto-darbu",
+            "title": "Ar galite atlikti tik dalį projekto darbų?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 2,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Taip. Galime prisijungti prie atskiro projekto etapo arba įgyvendinti visą sutartą darbų apimtį."
+                ],
+                "g5_faq_topic": [
+                    "client"
+                ],
+                "g5_faq_group": [
+                    ""
+                ],
+                "g5_faq_service": [
+                    "8"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "ar-butina-ankstesne-patirtis-telekomunikacijose",
+            "title": "Ar būtina ankstesnė patirtis telekomunikacijose?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Patirtis yra privalumas, tačiau pradinio lygio pozicijose svarbiausia atsakingas požiūris, motyvacija ir noras mokytis."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "start"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "ar-reikalingi-sertifikatai",
+            "title": "Ar reikalingi sertifikatai?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 1,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Turimi sertifikatai yra privalumas. Darbui reikalingus aukštalipio, elektrosaugos, pirmosios pagalbos ir kitus mokymus gali apmokėti įmonė."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "start"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "kiek-trunka-mokymai-pradejus-dirbti",
+            "title": "Kiek trunka mokymai pradėjus dirbti?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 2,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Nuo kelių dienų iki kelių savaičių – priklauso nuo patirties ir konkretaus projekto."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "start"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "ar-svarbi-anglu-kalba",
+            "title": "Ar svarbi anglų kalba?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 3,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Ji yra privalumas, nes dalis techninės informacijos pateikiama anglų kalba. Komandoje bendraujama lietuviškai."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "start"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "ar-butinas-vairuotojo-pazymejimas",
+            "title": "Ar būtinas vairuotojo pažymėjimas?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 4,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "B kategorija dažnai reikalinga darbui projektuose, tačiau kiekviena situacija vertinama individualiai."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "start"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "kiek-trunka-komandiruotes",
+            "title": "Kiek trunka komandiruotės?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 5,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Įprastai 6–8 savaites. Trukmė ir grįžimo laikotarpiai derinami pagal projekto sąlygas."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "travel"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "kuriose-salyse-vyksta-projektai",
+            "title": "Kuriose šalyse vyksta projektai?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 6,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Lietuvoje, Vokietijoje, Švedijoje, Norvegijoje, Danijoje, Suomijoje ir kitose Europos rinkose."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "travel"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "kas-organizuoja-apgyvendinima",
+            "title": "Kas organizuoja apgyvendinimą?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 7,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Apgyvendinimą organizuoja ir apmoka įmonė."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "travel"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "ar-apmokamos-keliones-ir-transportas",
+            "title": "Ar apmokamos kelionės ir transportas?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 8,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Taip. Su projektu susijusias keliones, transportą, degalus ir kelių mokesčius apmoka įmonė."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "travel"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "kokia-darbo-sutarti-pasirasau",
+            "title": "Kokią darbo sutartį pasirašau?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 9,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Pasirašoma Lietuvoje galiojanti darbo sutartis su Lietuvos socialinėmis garantijomis."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "travel"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "kaip-uztikrinamas-saugumas-dirbant-aukstyje",
+            "title": "Kaip užtikrinamas saugumas dirbant aukštyje?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 10,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Naudojama sertifikuota ir reguliariai tikrinama įranga, vykdomi mokymai, o saugos reikalavimų pažeidimams taikoma nulinė tolerancija."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "safety"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "ar-suteikiami-darbo-rubai-ir-apsaugos-priemones",
+            "title": "Ar suteikiami darbo rūbai ir apsaugos priemonės?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 11,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Taip. Suteikiama sezoninė darbo apranga, specializuota avalynė ir visos darbui reikalingos apsaugos priemonės."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "safety"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "kaip-iranga-pakeliama-i-auksti",
+            "title": "Kaip įranga pakeliama į aukštį?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 12,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Naudojamos kėlimo gervės, virvės, o prireikus – kranai."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "safety"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "kur-vyksta-darbai-aukstyje",
+            "title": "Kur vyksta darbai aukštyje?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 13,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Ryšio bokštuose, ant pastatų stogų, pramoninių konstrukcijų ir kituose infrastruktūros objektuose."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "safety"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "ar-dirbama-individualiai-ar-komandoje",
+            "title": "Ar dirbama individualiai, ar komandoje?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 14,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Priklausomai nuo projekto, darbai atliekami individualiai arba 2–3 specialistų komandoje."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "daily"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "kaip-atrodo-tipine-darbo-diena",
+            "title": "Kaip atrodo tipinė darbo diena?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 15,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Komanda paruošia medžiagas, objekte atlieka saugos įvertinimą, numatytus darbus ir dokumentuoja rezultatus."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "daily"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "ka-daryti-kilus-techniniam-klausimui",
+            "title": "Ką daryti kilus techniniam klausimui?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 16,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Projektų vykdytojai ir patyrę komandos nariai padeda spręsti techninius klausimus projekto metu."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "daily"
+                ]
+            }
+        },
+        {
+            "type": "g5_faq",
+            "slug": "ar-galima-keisti-projekta-ar-komanda",
+            "title": "Ar galima keisti projektą ar komandą?",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 17,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_faq_answer": [
+                    "Dėl projekto ar komandos keitimo tariamasi su tiesioginiu arba projekto vadovu."
+                ],
+                "g5_faq_topic": [
+                    "candidate"
+                ],
+                "g5_faq_group": [
+                    "daily"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "ericsson",
+            "title": "Ericsson",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "2026/07/Screenshot-2026-07-29-at-10.40.12.png",
+            "meta": {
+                "g5_partner_type": [
+                    "manufacturer"
+                ],
+                "g5_partner_show_home": [
+                    "1"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "nokia",
+            "title": "Nokia",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 1,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "manufacturer"
+                ],
+                "g5_partner_show_home": [
+                    "1"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "huawei",
+            "title": "Huawei",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 2,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "manufacturer"
+                ],
+                "g5_partner_show_home": [
+                    "1"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "zte",
+            "title": "ZTE",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 3,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "manufacturer"
+                ],
+                "g5_partner_show_home": [
+                    "1"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "fiamm",
+            "title": "FIAMM",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 6,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "manufacturer"
+                ],
+                "g5_partner_show_home": [
+                    "1"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "enersys",
+            "title": "Enersys",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 7,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "manufacturer"
+                ],
+                "g5_partner_show_home": [
+                    "1"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "eltek",
+            "title": "Eltek",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 8,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "manufacturer"
+                ],
+                "g5_partner_show_home": [
+                    "1"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "delta",
+            "title": "Delta",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 9,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "manufacturer"
+                ],
+                "g5_partner_show_home": [
+                    "1"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "dantherm",
+            "title": "Dantherm",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 10,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "manufacturer"
+                ],
+                "g5_partner_show_home": [
+                    "1"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "telia",
+            "title": "Telia",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "operator"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "tele2",
+            "title": "Tele2",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 1,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "operator"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "bite",
+            "title": "Bitė",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 2,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "operator"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "deutsche-telekom",
+            "title": "Deutsche Telekom",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 3,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "operator"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "vodafone",
+            "title": "Vodafone",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 4,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "operator"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "telefonica-o2",
+            "title": "Telefónica / O2",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 5,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "operator"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "telenor",
+            "title": "Telenor",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 6,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "operator"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "elisa",
+            "title": "Elisa",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 7,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "operator"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "tdc",
+            "title": "TDC",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 8,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "operator"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "450connect",
+            "title": "450connect",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 9,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "operator"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "commscope",
+            "title": "CommScope",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 4,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "manufacturer"
+                ],
+                "g5_partner_show_home": [
+                    ""
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "sonel",
+            "title": "Sonel",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 5,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "manufacturer"
+                ],
+                "g5_partner_show_home": [
+                    ""
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "sitemaster",
+            "title": "SiteMaster",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "optiniai-tinklai",
+            "title": "Optiniai tinklai",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 1,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "odf",
+            "title": "ODF",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 2,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "otdr",
+            "title": "OTDR",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 3,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "sviesolaidis",
+            "title": "Šviesolaidis",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 4,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "variniai-kabeliai",
+            "title": "Variniai kabeliai",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 5,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "testavimo-iranga",
+            "title": "Testavimo įranga",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 6,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "matavimo-iranga",
+            "title": "Matavimo įranga",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 7,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "ip-cctv",
+            "title": "IP CCTV",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 8,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "patekimo-kontrole",
+            "title": "Patekimo kontrolė",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 9,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "gaisro-signalizacija",
+            "title": "Gaisro signalizacija",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 10,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "perimetro-apsauga",
+            "title": "Perimetro apsauga",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 11,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "lpr",
+            "title": "LPR",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 12,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "vaizdo-archyvai",
+            "title": "Vaizdo archyvai",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 13,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "saules-moduliai",
+            "title": "Saulės moduliai",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 14,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "inverteriai",
+            "title": "Inverteriai",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 15,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "konstrukcijos",
+            "title": "Konstrukcijos",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 16,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "apsaugos-iranga",
+            "title": "Apsaugos įranga",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 17,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "stebesena",
+            "title": "Stebėsena",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 18,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "11",
+            "title": "1&1",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 9,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "operator"
+                ]
+            }
+        },
+        {
+            "type": "g5_partner",
+            "slug": "3z-rfvision",
+            "title": "3Z-RFVision",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 1,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_partner_type": [
+                    "equipment"
+                ],
+                "g5_partner_show_home": [
+                    ""
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "mokymu-temos",
+            "title": "Mokymų temos",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "list"
+                ],
+                "g5_module_eyebrow": [
+                    "Programa"
+                ],
+                "g5_module_heading": [
+                    "Mokymų temos."
+                ],
+                "g5_module_lead": [
+                    ""
+                ],
+                "g5_module_content": [
+                    "Asmeninės apsaugos priemonės ir jų naudojimas\r\nDarbų aukštyje specifika ir saugos taisyklės\r\n2G, 3G, 4G-LTE ir 5G technologijų pagrindai\r\nAntenų ir radijo modulių montavimas\r\nKabelių instaliacija ir prijungimas\r\nElektros instaliacijos principai\r\nTechninės dokumentacijos rengimas\r\nBazinės stoties konfigūravimo pagrindai"
+                ],
+                "g5_module_theme": [
+                    "light"
+                ],
+                "g5_module_source_key": [
+                    "training_topics"
+                ],
+                "_g5tech_module_translations": [
+                    {
+                        "en": {
+                            "fields": {
+                                "eyebrow": "Program",
+                                "heading": "Training topics.",
+                                "lead": "",
+                                "content": "Personal protective equipment and their use\r\nSpecifics and safety rules for work at height\r\nBasics of 2G, 3G, 4G-LTE and 5G technologies\r\nInstallation of antennas and radio modules\r\nCable installation and connection\r\nPrinciples of electrical installation\r\nPreparation of technical documentation\r\nBase station configuration basics"
+                            },
+                            "pairs": [],
+                            "updated": 1785411784
+                        },
+                        "de": {
+                            "fields": {
+                                "eyebrow": "Programm",
+                                "heading": "Schulungsthemen.",
+                                "lead": "",
+                                "content": "Persönliche Schutzausrüstung und ihre Verwendung\r\nBesonderheiten und Sicherheitsregeln für Arbeiten in der Höhe\r\nGrundlagen der 2G-, 3G-, 4G-LTE- und 5G-Technologien\r\nInstallation von Antennen und Funkmodulen\r\nKabelinstallation und Anschluss\r\nGrundlagen der Elektroinstallation\r\nErstellung technischer Dokumentation\r\nGrundlagen der Basisstationskonfiguration"
+                            },
+                            "pairs": [],
+                            "updated": 1785411784
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "titulinis-%c2%b7-ivadas",
+            "title": "Titulinis · Įvadas",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Titulinis · Įvadas"
+                ],
+                "g5_module_dynamic_key": [
+                    "home_intro"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "titulinis-%c2%b7-paslaugos",
+            "title": "Titulinis · Paslaugos",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Titulinis · Paslaugos"
+                ],
+                "g5_module_dynamic_key": [
+                    "home_services"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "titulinis-%c2%b7-darbo-standartas",
+            "title": "Titulinis · Darbo standartas",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Titulinis · Darbo standartas"
+                ],
+                "g5_module_dynamic_key": [
+                    "home_standards"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "titulinis-%c2%b7-kaip-dirbame",
+            "title": "Titulinis · Kaip dirbame",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Titulinis · Kaip dirbame"
+                ],
+                "g5_module_dynamic_key": [
+                    "home_process"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "titulinis-%c2%b7-patirtis-ir-geografija",
+            "title": "Titulinis · Patirtis ir geografija",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Titulinis · Patirtis ir geografija"
+                ],
+                "g5_module_dynamic_key": [
+                    "home_experience"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "titulinis-%c2%b7-irangos-gamintojai",
+            "title": "Titulinis · Įrangos gamintojai",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Titulinis · Įrangos gamintojai"
+                ],
+                "g5_module_dynamic_key": [
+                    "home_equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "titulinis-%c2%b7-komanda",
+            "title": "Titulinis · Komanda",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Titulinis · Komanda"
+                ],
+                "g5_module_dynamic_key": [
+                    "home_team"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "titulinis-%c2%b7-karjeros-kryptys",
+            "title": "Titulinis · Karjeros kryptys",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Titulinis · Karjeros kryptys"
+                ],
+                "g5_module_dynamic_key": [
+                    "home_audiences"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "titulinis-%c2%b7-naujienos",
+            "title": "Titulinis · Naujienos",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Titulinis · Naujienos"
+                ],
+                "g5_module_dynamic_key": [
+                    "home_news"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "paslaugos-%c2%b7-paslaugu-tinklelis",
+            "title": "Paslaugos · Paslaugų tinklelis",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Paslaugos · Paslaugų tinklelis"
+                ],
+                "g5_module_dynamic_key": [
+                    "services_list"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "paslaugos-%c2%b7-darbo-standartas",
+            "title": "Paslaugos · Darbo standartas",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Paslaugos · Darbo standartas"
+                ],
+                "g5_module_dynamic_key": [
+                    "services_standard"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "projektai-%c2%b7-projektu-tinklelis",
+            "title": "Projektai · Projektų tinklelis",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Projektai · Projektų tinklelis"
+                ],
+                "g5_module_dynamic_key": [
+                    "projects_list"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "patirtis-%c2%b7-pagrindiniai-skaiciai",
+            "title": "Patirtis · Pagrindiniai skaičiai",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Patirtis · Pagrindiniai skaičiai"
+                ],
+                "g5_module_dynamic_key": [
+                    "experience_numbers"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "patirtis-%c2%b7-geografija",
+            "title": "Patirtis · Geografija",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Patirtis · Geografija"
+                ],
+                "g5_module_dynamic_key": [
+                    "experience_geography"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "patirtis-%c2%b7-projektai",
+            "title": "Patirtis · Projektai",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Patirtis · Projektai"
+                ],
+                "g5_module_dynamic_key": [
+                    "experience_projects"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "patirtis-%c2%b7-operatoriai-ir-gamintojai",
+            "title": "Patirtis · Operatoriai ir gamintojai",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Patirtis · Operatoriai ir gamintojai"
+                ],
+                "g5_module_dynamic_key": [
+                    "experience_partners"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "patirtis-%c2%b7-sertifikatai",
+            "title": "Patirtis · Sertifikatai",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Patirtis · Sertifikatai"
+                ],
+                "g5_module_dynamic_key": [
+                    "experience_certifications"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "apie-mus-%c2%b7-kas-esame",
+            "title": "Apie mus · Kas esame",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Apie mus · Kas esame"
+                ],
+                "g5_module_dynamic_key": [
+                    "about_story"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "apie-mus-%c2%b7-misija-ir-vizija",
+            "title": "Apie mus · Misija ir vizija",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Apie mus · Misija ir vizija"
+                ],
+                "g5_module_dynamic_key": [
+                    "about_purpose"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "apie-mus-%c2%b7-vertybes",
+            "title": "Apie mus · Vertybės",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Apie mus · Vertybės"
+                ],
+                "g5_module_dynamic_key": [
+                    "about_values"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "apie-mus-%c2%b7-pagrindine-komanda",
+            "title": "Apie mus · Pagrindinė komanda",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Apie mus · Pagrindinė komanda"
+                ],
+                "g5_module_dynamic_key": [
+                    "about_team"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "apie-mus-%c2%b7-kokybiskas-ir-tvarus-augimas",
+            "title": "Apie mus · Kokybiškas ir tvarus augimas",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Apie mus · Kokybiškas ir tvarus augimas"
+                ],
+                "g5_module_dynamic_key": [
+                    "about_strategy"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "apie-mus-%c2%b7-kompetencijos",
+            "title": "Apie mus · Kompetencijos",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Apie mus · Kompetencijos"
+                ],
+                "g5_module_dynamic_key": [
+                    "about_competence"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "karjera-%c2%b7-kodel-verta-rinktis",
+            "title": "Karjera · Kodėl verta rinktis",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Karjera · Kodėl verta rinktis"
+                ],
+                "g5_module_dynamic_key": [
+                    "career_benefits"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "karjera-%c2%b7-atviros-pozicijos",
+            "title": "Karjera · Atviros pozicijos",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Karjera · Atviros pozicijos"
+                ],
+                "g5_module_dynamic_key": [
+                    "career_positions"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "karjera-%c2%b7-atrankos-eiga",
+            "title": "Karjera · Atrankos eiga",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Karjera · Atrankos eiga"
+                ],
+                "g5_module_dynamic_key": [
+                    "career_selection"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "karjera-%c2%b7-augimas",
+            "title": "Karjera · Augimas",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Karjera · Augimas"
+                ],
+                "g5_module_dynamic_key": [
+                    "career_growth"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "academy-%c2%b7-programa",
+            "title": "Academy · Programa",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Academy · Programa"
+                ],
+                "g5_module_dynamic_key": [
+                    "academy_program"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "academy-%c2%b7-kas-itraukta",
+            "title": "Academy · Kas įtraukta",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Academy · Kas įtraukta"
+                ],
+                "g5_module_dynamic_key": [
+                    "academy_included"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "mokymai-%c2%b7-naudojama-iranga",
+            "title": "Mokymai · Naudojama įranga",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Mokymai · Naudojama įranga"
+                ],
+                "g5_module_dynamic_key": [
+                    "training_equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "mokymai-%c2%b7-mokymu-aplinka",
+            "title": "Mokymai · Mokymų aplinka",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Mokymai · Mokymų aplinka"
+                ],
+                "g5_module_dynamic_key": [
+                    "training_room"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "duk-kandidatams-%c2%b7-klausimu-grupes",
+            "title": "DUK kandidatams · Klausimų grupės",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "DUK kandidatams · Klausimų grupės"
+                ],
+                "g5_module_dynamic_key": [
+                    "candidate_faq_groups"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "vadovams-%c2%b7-kodel-5g-tech",
+            "title": "Vadovams · Kodėl 5G TECH",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Vadovams · Kodėl 5G TECH"
+                ],
+                "g5_module_dynamic_key": [
+                    "leaders_reasons"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "projektu-vadovams-%c2%b7-technine-apimtis",
+            "title": "Projektų vadovams · Techninė apimtis",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Projektų vadovams · Techninė apimtis"
+                ],
+                "g5_module_dynamic_key": [
+                    "project_managers_scope"
+                ],
+                "_g5tech_module_translations": [
+                    {
+                        "en": {
+                            "fields": [],
+                            "pairs": {
+                                "Techninė eiga": "Technical progress",
+                                "Planavimas, darbų kontrolė ir dokumentacija.": "Planning, work control and documentation.",
+                                "„Site Survey“ ir esamos situacijos įvertinimas": "Site Survey and Assessment of Existing Situation",
+                                "Darbų, medžiagų ir komandos planavimas": "Work, material and team planning",
+                                "Ericsson, Nokia, Huawei ir kitos įrangos montavimas": "Installation of Ericsson, Nokia, Huawei and other equipment",
+                                "MW linijų konfigūravimas ir testavimas": "Configuration and testing of MW lines",
+                                "„SiteMaster“ ir kiti kokybės matavimai": "SiteMaster and other quality metrics",
+                                "Dokumentacija pagal užsakovo standartus": "Documentation according to customer standards",
+                                "Tiesioginis ryšys su atsakingu projektų vadovu": "Direct communication with the responsible project manager",
+                                "Neatitikimų valdymas iki patvirtinto rezultato": "Non-conformity management through to verified completion"
+                            },
+                            "updated": 1785412151
+                        },
+                        "de": {
+                            "fields": [],
+                            "pairs": {
+                                "Techninė eiga": "Technischer Fortschritt",
+                                "Planavimas, darbų kontrolė ir dokumentacija.": "Planung, Arbeitssteuerung und Dokumentation.",
+                                "„Site Survey“ ir esamos situacijos įvertinimas": "Standortbesichtigung und Beurteilung der bestehenden Situation",
+                                "Darbų, medžiagų ir komandos planavimas": "Arbeits-, Material- und Teamplanung",
+                                "Ericsson, Nokia, Huawei ir kitos įrangos montavimas": "Installation von Ericsson, Nokia, Huawei und anderen Geräten",
+                                "MW linijų konfigūravimas ir testavimas": "Konfiguration und Test von MW-Linien",
+                                "„SiteMaster“ ir kiti kokybės matavimai": "SiteMaster und andere Qualitätsmetriken",
+                                "Dokumentacija pagal užsakovo standartus": "Dokumentation nach Kundenstandards",
+                                "Tiesioginis ryšys su atsakingu projektų vadovu": "Direkte Kommunikation mit dem verantwortlichen Projektleiter",
+                                "Neatitikimų valdymas iki patvirtinto rezultato": "Abweichungsmanagement bis zum geprüften Ergebnis"
+                            },
+                            "updated": 1785412151
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "projektu-vadovams-%c2%b7-iranga",
+            "title": "Projektų vadovams · Įranga",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Projektų vadovams · Įranga"
+                ],
+                "g5_module_dynamic_key": [
+                    "project_managers_equipment"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "kontaktai-%c2%b7-projekto-uzklausa",
+            "title": "Kontaktai · Projekto užklausa",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Kontaktai · Projekto užklausa"
+                ],
+                "g5_module_dynamic_key": [
+                    "contact_form"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "kontaktai-%c2%b7-tiesioginiai-kontaktai",
+            "title": "Kontaktai · Tiesioginiai kontaktai",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Kontaktai · Tiesioginiai kontaktai"
+                ],
+                "g5_module_dynamic_key": [
+                    "contact_people"
+                ]
+            }
+        },
+        {
+            "type": "g5_module",
+            "slug": "naujienos-%c2%b7-naujienu-tinklelis",
+            "title": "Naujienos · Naujienų tinklelis",
+            "status": "publish",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_module_type": [
+                    "dynamic"
+                ],
+                "g5_module_heading": [
+                    "Naujienos · Naujienų tinklelis"
+                ],
+                "g5_module_dynamic_key": [
+                    "news_list"
+                ]
+            }
+        }
+    ],
+    "attachments": {
+        "97": {
+            "file": "2026/07/hero-sky-worker.png",
+            "title": "5G TECH titulinio puslapio nuotrauka",
+            "alt": "",
+            "mime": "image/png"
+        },
+        "16": {
+            "file": "2026/07/service-demo.png",
+            "title": "5G bokšto darbai",
+            "alt": "",
+            "mime": "image/png"
+        },
+        "64": {
+            "file": "2026/07/service-team.jpg",
+            "title": "5G TECH komandos darbai",
+            "alt": "",
+            "mime": "image/jpeg"
+        },
+        "42": {
+            "file": "2026/07/Screenshot-2026-07-29-at-10.40.12.png",
+            "title": "Screenshot 2026-07-29 at 10.40.12",
+            "alt": "",
+            "mime": "image/png"
+        }
+    }
+}
