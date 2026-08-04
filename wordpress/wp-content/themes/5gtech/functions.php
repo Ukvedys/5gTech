@@ -21,6 +21,7 @@ function g5tech_theme_setup() {
 		'assets/css/home/home.css',
 		'assets/css/team/tokens.css',
 		'assets/css/team/components.css',
+		'assets/css/team/team.css',
 		'assets/css/internal/shared.css',
 	);
 
