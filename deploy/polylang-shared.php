@@ -124,9 +124,10 @@ function g5pll_content( $content, $lang ) {
 	return serialize_blocks( g5pll_blocks( parse_blocks( (string) $content ), $lang ) );
 }
 
-function g5pll_generate_copies() {
+function g5pll_generate_copies( $only_source_slugs = array() ) {
 	$page_slugs   = g5pll_page_slugs();
 	$single_slugs = g5pll_single_slugs();
+	$only_source_slugs = array_fill_keys( array_map( 'sanitize_title', (array) $only_source_slugs ), true );
 	$types = array( 'page', 'post', 'g5_service', 'g5_project', 'g5_job', 'g5_team' );
 	$made  = 0;
 
@@ -136,6 +137,7 @@ function g5pll_generate_copies() {
 		foreach ( $items as $item ) {
 			$item_lang = pll_get_post_language( $item->ID );
 			if ( $item_lang && 'lt' !== $item_lang ) continue;
+			if ( $only_source_slugs && ! isset( $only_source_slugs[ $item->post_name ] ) ) continue;
 			pll_set_post_language( $item->ID, 'lt' );
 
 			$translations = array( 'lt' => $item->ID );

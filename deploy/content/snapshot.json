@@ -1,5 +1,5 @@
 {
-    "generated": "2026-08-04T07:43:17+00:00",
+    "generated": "2026-08-04T07:48:54+00:00",
     "source_home": "http://5gtech.test",
     "options": {
         "g5tech_about_content": {
@@ -1193,7 +1193,10 @@
         },
         {
             "lang": "lt",
-            "translations": [],
+            "translations": {
+                "en": "services",
+                "de": "leistungen"
+            },
             "type": "page",
             "slug": "paslaugos",
             "title": "Paslaugos",
@@ -1223,6 +1226,48 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
+            "terms": []
+        },
+        {
+            "lang": "en",
+            "translations": [],
+            "type": "page",
+            "slug": "services",
+            "title": "Services",
+            "status": "publish",
+            "date": "2026-08-04 07:48:20",
+            "date_gmt": "2026-08-04 07:48:20",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Services\",\"title\":\"Services for telecommunications, energy and engineering systems.\",\"dialect\":\"site\",\"anchorId\":\"g5-services-page-title\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"6 service areas\",\"title\":\"Service areas.\",\"theme\":\"paper\",\"dialect\":\"site\",\"anchorId\":\"g5-services-list-title\"} -->\n<!-- wp:g5tech/service-cards /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Delivery standard\",\"title\":\"ISO standards and SSVA qualification.\",\"theme\":\"dark\",\"dialect\":\"site\",\"anchorId\":\"g5-services-standard-title\"} -->\n<!-- wp:g5tech/certification-grid /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/settings-cta {\"eyebrow\":\"Project\",\"anchorId\":\"g5-services-cta-title\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "_wp_page_template": [
+                    "page-paslaugos"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "lang": "de",
+            "translations": [],
+            "type": "page",
+            "slug": "leistungen",
+            "title": "Dienstleistungen",
+            "status": "publish",
+            "date": "2026-08-04 07:48:20",
+            "date_gmt": "2026-08-04 07:48:20",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Dienstleistungen\",\"title\":\"Dienstleistungen für Telekommunikation, Energie und technische Systeme.\",\"dialect\":\"site\",\"anchorId\":\"g5-services-page-title\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"6 Leistungsbereiche\",\"title\":\"Leistungsbereiche.\",\"theme\":\"paper\",\"dialect\":\"site\",\"anchorId\":\"g5-services-list-title\"} -->\n<!-- wp:g5tech/service-cards /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Ausführungsstandard\",\"title\":\"ISO-Standards und SSVA-Qualifikation.\",\"theme\":\"dark\",\"dialect\":\"site\",\"anchorId\":\"g5-services-standard-title\"} -->\n<!-- wp:g5tech/certification-grid /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/settings-cta {\"eyebrow\":\"Projekt\",\"anchorId\":\"g5-services-cta-title\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
+            "excerpt": "",
+            "menu_order": 0,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "_wp_page_template": [
+                    "page-paslaugos"
+                ]
+            },
             "terms": []
         },
         {
