@@ -46,6 +46,19 @@ jobs:
             | xargs -0 -n1 php -l > /dev/null
           echo "PHP sintaksė švari"
 
+      - name: Paruošti Polylang autoload
+        run: |
+          set -e
+          composer install \
+            --working-dir=wordpress/wp-content/plugins/polylang \
+            --no-dev \
+            --optimize-autoloader \
+            --classmap-authoritative \
+            --no-interaction \
+            --no-progress
+          test -f wordpress/wp-content/plugins/polylang/vendor/autoload.php
+          echo "Polylang autoload paruoštas"
+
       - name: Paruošti Node
         uses: actions/setup-node@v4
         with:
