@@ -254,13 +254,36 @@ jobs:
           TARGET_PATH="$1"
 
           set +e
-          php "$TARGET_PATH/wp-content/g5-deploy/sync-content.php"
+          php \
+            -d display_errors=1 \
+            -d display_startup_errors=1 \
+            -d error_reporting=-1 \
+            "$TARGET_PATH/wp-content/g5-deploy/sync-content.php"
           SYNC_RESULT=$?
           set -e
 
           if [ "$SYNC_RESULT" -eq 75 ]; then
-            php "$TARGET_PATH/wp-content/g5-deploy/sync-content.php"
-          elif [ "$SYNC_RESULT" -ne 0 ]; then
+            set +e
+            php \
+              -d display_errors=1 \
+              -d display_startup_errors=1 \
+              -d error_reporting=-1 \
+              "$TARGET_PATH/wp-content/g5-deploy/sync-content.php"
+            SYNC_RESULT=$?
+            set -e
+          fi
+
+          if [ "$SYNC_RESULT" -ne 0 ]; then
+            echo "Sinchronizavimo diagnostika (paskutinės žurnalo eilutės):"
+
+            if [ -f "$TARGET_PATH/wp-content/debug.log" ]; then
+              tail -n 80 "$TARGET_PATH/wp-content/debug.log" || true
+            elif [ -f "$TARGET_PATH/error_log" ]; then
+              tail -n 80 "$TARGET_PATH/error_log" || true
+            else
+              echo "WordPress klaidų žurnalas nerastas"
+            fi
+
             exit "$SYNC_RESULT"
           fi
 
