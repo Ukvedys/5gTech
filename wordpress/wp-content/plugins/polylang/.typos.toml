@@ -1,0 +1,32 @@
+[files]
+extend-exclude = [
+	".git/",
+	".phpunit.result.cache",
+	"flags/??.png",
+	"install/plugin-updater.php",
+	"node_modules/",
+	"settings/flags.php",
+	"settings/languages.php",
+	"tmp/",
+	"vendor/",
+	".typos.toml",
+	"*.xml",
+]
+ignore-hidden = false
+
+[default]
+extend-ignore-re = [
+	"'bs_BA'",
+	"Jani Alha",
+	"olt-manager\\.php",
+	# En français dans le texte.
+	"Etiquette exemple",
+	"<!\\[CDATA\\[non-classe\\]\\]>",
+]
+
+[default.extend-identifiers]
+"captin411" = "captin411"
+"get_post_stati" = "get_post_stati"
+"OLT_Manager_Test" = "OLT_Manager_Test"
+"PLL_OLT" = "PLL_OLT"
+"PLL_OLT_Manager" = "PLL_OLT_Manager"

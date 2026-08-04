@@ -81,6 +81,24 @@ function g5tech_editor_style_group( $post_id ) {
 function g5tech_enqueue_assets() {
 	$stylesheet_path = get_theme_file_path( 'assets/css/site.css' );
 
+	// Puslapio LT atitikmens slug: vertimų kopijos (EN/DE) gauna tuos pačius
+	// stilius kaip jų lietuviškas originalas.
+	$g5_page_slug = '';
+
+	if ( is_page() ) {
+		$g5_page_id = get_queried_object_id();
+
+		if ( function_exists( 'pll_get_post' ) ) {
+			$g5_lt_id = pll_get_post( $g5_page_id, 'lt' );
+
+			if ( $g5_lt_id ) {
+				$g5_page_id = $g5_lt_id;
+			}
+		}
+
+		$g5_page_slug = (string) get_post_field( 'post_name', $g5_page_id );
+	}
+
 	wp_enqueue_style(
 		'g5tech-fonts',
 		'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap',
@@ -112,7 +130,7 @@ function g5tech_enqueue_assets() {
 			true
 		);
 		wp_script_add_data( 'g5tech-home', 'strategy', 'defer' );
-	} elseif ( is_page( 'apie-mus' ) || is_singular( 'g5_team' ) ) {
+	} elseif ( 'apie-mus' === $g5_page_slug || is_singular( 'g5_team' ) ) {
 		$team_styles = array(
 			'g5tech-team-tokens'     => 'assets/css/team/tokens.css',
 			'g5tech-team-components' => 'assets/css/team/components.css',
@@ -133,7 +151,7 @@ function g5tech_enqueue_assets() {
 			$dependencies = array( $handle );
 		}
 	} elseif (
-		is_page( array( 'karjera', 'naujienos', 'kontaktai', 'kandidatuoti', 'privatumo-politika', 'slapukai', 'akademija', 'mokymai', 'duk', 'vadovams', 'projektu-vadovams' ) )
+		in_array( $g5_page_slug, array( 'karjera', 'naujienos', 'kontaktai', 'kandidatuoti', 'privatumo-politika', 'slapukai', 'akademija', 'mokymai', 'duk', 'vadovams', 'projektu-vadovams' ), true )
 		|| is_singular( 'g5_job' )
 		|| is_singular( 'post' )
 	) {

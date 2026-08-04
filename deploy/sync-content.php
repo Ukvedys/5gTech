@@ -10,9 +10,40 @@
  * perrašys. Paleidus svetainę gyvai — ištrinti deploy/content/SYNC-ON.
  */
 
+// Skriptas savarankiškas: WP užkraunamas su Polylang administravimo
+// konstantomis (kitaip CLI kontekste Polylang API nepasiekiama).
+// Diegime kviečiamas: wp eval-file ... --skip-wordpress
 if ( ! defined( 'ABSPATH' ) ) {
+	define( 'PLL_SETTINGS', true );
+	define( 'PLL_ADMIN', true );
+	$_SERVER['HTTP_HOST'] = $_SERVER['HTTP_HOST'] ?? 'localhost';
 	require dirname( __DIR__, 2 ) . '/wp-load.php';
+	require_once ABSPATH . 'wp-admin/includes/plugin.php';
+	$g5_admins = get_users( array( 'role' => 'administrator', 'number' => 1 ) );
+	if ( $g5_admins ) wp_set_current_user( $g5_admins[0]->ID );
 }
+
+// Polylang: aktyvavimas ir kalbos (jei papildinys įdiegtas faile).
+if ( file_exists( WP_PLUGIN_DIR . '/polylang/polylang.php' ) ) {
+	if ( ! is_plugin_active( 'polylang/polylang.php' ) ) {
+		activate_plugin( 'polylang/polylang.php' );
+
+		if ( empty( $GLOBALS['g5_sync_reexec'] ) ) {
+			// Ką tik aktyvuotas — paleidžiama iš naujo, kad Polylang pasikrautų.
+			echo "Polylang aktyvuotas, paleidžiama iš naujo...\n";
+			putenv( 'G5_SYNC_REEXEC=1' );
+			passthru( escapeshellarg( PHP_BINARY ) . ' ' . escapeshellarg( __FILE__ ), $g5_code );
+			exit( $g5_code );
+		}
+	}
+
+	if ( function_exists( 'PLL' ) && PLL() ) {
+		require __DIR__ . '/polylang-shared.php';
+		g5pll_ensure_languages();
+		g5pll_apply_options();
+	}
+}
+$GLOBALS['g5_sync_reexec'] = getenv( 'G5_SYNC_REEXEC' );
 
 $g5_sync_dir  = defined( 'G5_SYNC_DIR' ) ? G5_SYNC_DIR : __DIR__;
 $g5_flag      = $g5_sync_dir . '/content/SYNC-ON';
@@ -190,6 +221,38 @@ foreach ( $parents as $post_id => $ref ) {
 	}
 }
 
+// 3b. Kalbos ir vertimų ryšiai (Polylang).
+if ( function_exists( 'pll_set_post_language' ) && function_exists( 'PLL' ) && PLL() ) {
+	$by_key = array();
+
+	foreach ( $data['posts'] as $item ) {
+		$p = $find_post( (string) $item['type'], (string) $item['slug'] );
+		if ( $p ) $by_key[ $item['type'] . '|' . $item['slug'] ] = $p->ID;
+	}
+
+	foreach ( $data['posts'] as $item ) {
+		$id = $by_key[ $item['type'] . '|' . $item['slug'] ] ?? 0;
+		if ( ! $id || empty( $item['lang'] ) ) continue;
+		pll_set_post_language( $id, (string) $item['lang'] );
+	}
+
+	foreach ( $data['posts'] as $item ) {
+		if ( ( $item['lang'] ?? '' ) !== 'lt' || empty( $item['translations'] ) ) continue;
+		$id = $by_key[ $item['type'] . '|' . $item['slug'] ] ?? 0;
+		if ( ! $id ) continue;
+		$group = array( 'lt' => $id );
+
+		foreach ( (array) $item['translations'] as $tr_lang => $tr_slug ) {
+			$tr_id = $by_key[ $item['type'] . '|' . $tr_slug ] ?? 0;
+			if ( $tr_id ) $group[ $tr_lang ] = $tr_id;
+		}
+
+		pll_save_post_translations( $group );
+	}
+
+	echo "Kalbos priskirtos\n";
+}
+
 // 4. Nustatymai.
 foreach ( (array) ( $data['options'] ?? array() ) as $name => $value ) {
 	update_option( $name, $value );
@@ -203,6 +266,10 @@ if ( $front ) {
 	update_option( 'page_on_front', $front->ID );
 }
 
-flush_rewrite_rules();
+// Nuorodų taisyklės atnaujinamos VIEŠAME kontekste (administravimo
+// kontekste CPT taisyklės būtų be kalbos prefikso).
+delete_transient( 'pll_languages_list' );
+$g5_flush = '$_SERVER["HTTP_HOST"]="localhost"; require "' . ABSPATH . 'wp-load.php"; flush_rewrite_rules(); echo "flush OK\n";';
+passthru( escapeshellarg( PHP_BINARY ) . ' -r ' . escapeshellarg( $g5_flush ) );
 
 echo 'Baigta: atnaujinta ' . $updated . ', sukurta ' . $created . ', nuotrauku susieta ' . count( $id_map ) . ".\n";

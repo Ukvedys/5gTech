@@ -17,6 +17,24 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @return array<string,array<string,string>>
  */
+/**
+ * Ar kalbas valdo Polylang.
+ *
+ * Kai Polylang sukonfigūruotas, senasis maršrutų / nukreipimų / lokalės
+ * sluoksnis užleidžia jam vietą, o vertimų katalogas lieka tik dinaminių
+ * tekstų (nustatymų, katalogų įrašų) vertimui išvesties buferyje.
+ */
+function g5tech_polylang_ready() {
+	static $ready = null;
+
+	if ( null === $ready ) {
+		$options = get_option( 'polylang' );
+		$ready   = is_array( $options ) && ! empty( $options['version'] );
+	}
+
+	return $ready;
+}
+
 function g5tech_languages() {
 	return array(
 		'lt' => array(
@@ -292,12 +310,26 @@ function g5tech_i18n_bootstrap_request() {
 	}
 }
 
-g5tech_i18n_bootstrap_request();
+if ( g5tech_polylang_ready() ) {
+	// Maršrutus valdo Polylang; senasis prefikso išėmimas nebevykdomas.
+	$GLOBALS['g5tech_language']       = 'lt';
+	$GLOBALS['g5tech_i18n_base_path'] = '/';
+} else {
+	g5tech_i18n_bootstrap_request();
+}
 
 /**
  * Current public language.
  */
 function g5tech_current_language() {
+	if ( g5tech_polylang_ready() && ! is_admin() && function_exists( 'pll_current_language' ) ) {
+		$pll = pll_current_language();
+
+		if ( $pll && isset( g5tech_languages()[ $pll ] ) ) {
+			return $pll;
+		}
+	}
+
 	$language = isset( $GLOBALS['g5tech_language'] ) ? sanitize_key( $GLOBALS['g5tech_language'] ) : 'lt';
 
 	return isset( g5tech_languages()[ $language ] ) ? $language : 'lt';
@@ -395,6 +427,10 @@ function g5tech_i18n_localize_url( $url, $language = null ) {
  * Prefix all generated front-end home URLs with the current language.
  */
 function g5tech_i18n_filter_home_url( $url, $path, $orig_scheme, $blog_id ) {
+	if ( g5tech_polylang_ready() ) {
+		return $url;
+	}
+
 	unset( $path, $orig_scheme, $blog_id );
 
 	if ( is_admin() || 'lt' === g5tech_current_language() ) {
@@ -476,6 +512,10 @@ function g5tech_i18n_set_cookie( $language ) {
  * Handle explicit choices and first-visit browser-language detection.
  */
 function g5tech_i18n_handle_language_request() {
+	if ( g5tech_polylang_ready() ) {
+		return;
+	}
+
 	if ( is_admin() || wp_doing_ajax() || is_feed() || is_robots() ) {
 		return;
 	}
@@ -669,6 +709,10 @@ add_action( 'template_redirect', 'g5tech_i18n_start_buffer', 0 );
  * Use the public locale for WordPress-provided front-end strings and dates.
  */
 function g5tech_i18n_locale( $locale ) {
+	if ( g5tech_polylang_ready() ) {
+		return $locale;
+	}
+
 	if ( is_admin() || wp_doing_ajax() ) {
 		return $locale;
 	}
@@ -690,9 +734,23 @@ function g5tech_render_language_switcher( $attributes = array() ) {
 			continue;
 		}
 
+		$switch_url = g5tech_language_url( $code, null, true );
+
+		if ( g5tech_polylang_ready() && function_exists( 'pll_home_url' ) ) {
+			$switch_url = pll_home_url( $code );
+
+			if ( is_singular() && function_exists( 'pll_get_post' ) ) {
+				$translation_id = pll_get_post( get_queried_object_id(), $code );
+
+				if ( $translation_id && 'publish' === get_post_status( $translation_id ) ) {
+					$switch_url = get_permalink( $translation_id );
+				}
+			}
+		}
+
 		$links[] = sprintf(
 			'<a class="g5-language-switcher__link" href="%s" lang="%s" hreflang="%s">%s</a>',
-			esc_url( g5tech_language_url( $code, null, true ) ),
+			esc_url( $switch_url ),
 			esc_attr( $code ),
 			esc_attr( str_replace( '_', '-', g5tech_languages()[ $code ]['locale'] ) ),
 			esc_html( $language['label'] )
@@ -761,6 +819,10 @@ add_action( 'wp_enqueue_scripts', 'g5tech_i18n_assets', 30 );
  * Add complete alternate-language signals for search engines.
  */
 function g5tech_i18n_hreflang() {
+	if ( g5tech_polylang_ready() ) {
+		return;
+	}
+
 	if ( is_admin() || is_404() || is_search() ) {
 		return;
 	}

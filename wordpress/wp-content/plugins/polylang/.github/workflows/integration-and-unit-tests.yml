@@ -1,0 +1,24 @@
+name: Integration and Unit Tests
+
+on:
+  push:
+    branches: master
+    paths:
+      - '**.php'
+      - 'phpunit.xml'
+      - 'composer.json'
+      - '**.yml'
+      - '**.sh'
+  pull_request:
+    branches: master
+    paths:
+      - '**.php'
+      - 'phpunit.xml'
+      - 'composer.json'
+      - '**.yml'
+      - '**.sh'
+  workflow_dispatch:
+
+jobs:
+  testing:
+    uses: polylang/.github/.github/workflows/reusable-integration-and-unit-tests.yml@main

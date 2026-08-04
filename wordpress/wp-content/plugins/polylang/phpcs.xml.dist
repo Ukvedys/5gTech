@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<ruleset name="Polylang">
+	<description>Coding standards for Polylang</description>
+
+	<arg name="extensions" value="php,js" />
+	<arg name="colors"/>
+	<arg value="ps"/>
+	<arg name="parallel" value="20"/>
+	<arg name="cache"/>
+
+	<file>.</file>
+
+	<config name="testVersion" value="7.2-"/><!-- PHPCompatibilityWP -->
+	<config name="minimum_supported_wp_version" value="6.2"/>
+
+	<rule ref="PHPCompatibilityWP"/>
+
+	<rule ref="WordPress">
+		<exclude name="Generic.CodeAnalysis.AssignmentInCondition.Found"/>
+		<exclude name="Generic.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition"/>
+		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter" /><!-- Included in WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid -->
+		<exclude name="Generic.Commenting.DocComment.MissingShort" />
+		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning"/>
+		<exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
+		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
+		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar"/>
+		<exclude name="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace"/>
+		<exclude name="Squiz.PHP.DisallowMultipleAssignments.Found"/>
+		<exclude name="Squiz.PHP.DisallowMultipleAssignments.FoundInControlStructure"/>
+		<exclude name="Universal.NamingConventions.NoReservedKeywordParameterNames" />
+		<exclude name="Universal.Operators.StrictComparisons" />
+		<exclude name="Universal.Operators.DisallowShortTernary.Found" />
+		<exclude name="WordPress.Arrays.ArrayDeclarationSpacing.AssociativeArrayFound"/>
+		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned"/>
+		<exclude name="WordPress.CodeAnalysis.AssignmentInTernaryCondition.FoundInTernaryCondition"/>
+		<exclude name="WordPress.DB.DirectDatabaseQuery.DirectQuery"/>
+		<exclude name="WordPress.DB.DirectDatabaseQuery.NoCaching"/>
+		<exclude name="WordPress.DB.SlowDBQuery.slow_db_query_meta_key"/>
+		<exclude name="WordPress.DB.SlowDBQuery.slow_db_query_tax_query"/>
+		<exclude name="WordPress.Files.FileName"/>
+		<exclude name="WordPress.PHP.DiscouragedPHPFunctions.urlencode_urlencode" />
+		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
+		<exclude name="WordPress.WP.EnqueuedResources.NonEnqueuedScript" />
+		<exclude name="WordPress.WP.EnqueuedResourceParameters.NotInFooter" />
+		<exclude name="WordPress.WP.GlobalVariablesOverride.Prohibited" />
+	</rule>
+
+	<rule ref="WordPressVIPMinimum">
+		<exclude name="WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant"/>
+		<exclude name="WordPressVIPMinimum.Functions.CheckReturnValue.NonCheckedVariable"/>
+		<exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions"/>
+		<exclude name="WordPressVIPMinimum.Hooks.PreGetPosts.PreGetPosts"/>
+		<exclude name="WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown"/>
+		<exclude name="WordPressVIPMinimum.Performance.NoPaging.nopaging_nopaging"/>
+		<exclude name="WordPressVIPMinimum.Performance.TaxonomyMetaInOptions.PossibleTermMetaInOptions"/>
+		<exclude name="WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___COOKIE"/>
+	</rule>
+
+	<!--
+	#############################################################################
+	Customized properties.
+	#############################################################################
+	-->
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="polylang"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.Security.ValidatedSanitizedInput">
+		<properties>
+			<property name="customUnslashingSanitizingFunctions" type="array">
+				<element value="wp_verify_nonce"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!--
+	#############################################################################
+	Global exclusions for tests.
+	#############################################################################
+	-->
+
+	<rule ref="Generic.Commenting.Fixme.CommentFound">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<rule ref="Generic.Files.OneObjectStructurePerFile.MultipleFound">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<rule ref="Generic.PHP.NoSilencedErrors.Forbidden">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<rule ref="Squiz.Commenting.ClassComment.Missing">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<rule ref="Squiz.Commenting.FileComment">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<rule ref="Squiz.Commenting.FunctionComment.Missing">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<rule ref="Squiz.Commenting.FunctionComment.MissingParamComment">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<rule ref="Squiz.Commenting.VariableComment.Missing">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<rule ref="Squiz.PHP.CommentedOutCode.Found">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid">
+		<exclude-pattern>*/tests/phpunit/includes/testcase-trait.php</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.ValidHookName.UseUnderscores">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.PHP.NoSilencedErrors.Discouraged">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.Security">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPressVIPMinimum.Files.IncludingFile.UsingVariable">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<!--
+	#############################################################################
+	Global exclusions for js files.
+	#############################################################################
+	-->
+
+	<rule ref="PEAR.Functions.FunctionCallSignature">
+		<exclude-pattern>*/*.js</exclude-pattern>
+	</rule>
+
+	<rule ref="Generic.WhiteSpace.ScopeIndent">
+		<exclude-pattern>*/*.js</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.WhiteSpace.OperatorSpacing">
+		<exclude-pattern>*/*.js</exclude-pattern>
+	</rule>
+
+	<rule ref="Generic.Formatting.MultipleStatementAlignment">
+		<exclude-pattern>*/*.js</exclude-pattern>
+	</rule>
+
+	<!--
+	#############################################################################
+	Excluded files.
+	#############################################################################
+	-->
+
+	<exclude-pattern>js/*.min.js</exclude-pattern>
+	<exclude-pattern>js/build</exclude-pattern>
+	<exclude-pattern>node_modules/*</exclude-pattern>
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>tmp/*</exclude-pattern>
+	<exclude-pattern>webpack.config.js</exclude-pattern>
+	<exclude-pattern>rector.php</exclude-pattern>
+
+	<!-- Specific to Polylang -->
+	<exclude-pattern>install/plugin-updater.php</exclude-pattern>
+	<exclude-pattern>include/widget-calendar.php</exclude-pattern>
+</ruleset>

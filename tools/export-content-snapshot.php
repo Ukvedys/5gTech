@@ -71,6 +71,7 @@ foreach ( $post_types as $post_type ) {
 			'posts_per_page' => -1,
 			'orderby'        => 'ID',
 			'order'          => 'ASC',
+			'lang'           => '', // visos kalbos, ne tik dabartinė
 		)
 	);
 
@@ -104,7 +105,20 @@ foreach ( $post_types as $post_type ) {
 			}
 		}
 
+		$entry_lang         = function_exists( 'pll_get_post_language' ) ? ( pll_get_post_language( $p->ID ) ?: '' ) : '';
+		$entry_translations = array();
+
+		if ( 'lt' === $entry_lang && function_exists( 'pll_get_post_translations' ) ) {
+			foreach ( pll_get_post_translations( $p->ID ) as $tr_lang => $tr_id ) {
+				if ( 'lt' !== $tr_lang && $tr_id ) {
+					$entry_translations[ $tr_lang ] = get_post_field( 'post_name', $tr_id );
+				}
+			}
+		}
+
 		$snapshot['posts'][] = array(
+			'lang'         => $entry_lang,
+			'translations' => $entry_translations,
 			'type'       => $p->post_type,
 			'slug'       => $p->post_name,
 			'title'      => $p->post_title,
