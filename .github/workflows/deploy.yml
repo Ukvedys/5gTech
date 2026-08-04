@@ -127,18 +127,70 @@ jobs:
           set -eu
           TARGET_PATH="$1"
 
-          if ! command -v wp >/dev/null 2>&1; then
-            echo "WP-CLI serveryje nerastas — turinys nebus perrašomas be atsarginės kopijos"
+          if command -v mariadb-dump >/dev/null 2>&1; then
+            DUMP_COMMAND=$(command -v mariadb-dump)
+          elif command -v mysqldump >/dev/null 2>&1; then
+            DUMP_COMMAND=$(command -v mysqldump)
+          else
+            echo "Duomenų bazės kopijavimo programa serveryje nerasta — turinys nebus perrašomas"
             exit 1
+          fi
+
+          mapfile -t DB_CONFIG < <(
+            php -r '
+              define( "SHORTINIT", true );
+              $_SERVER["HTTP_HOST"] = "localhost";
+              require rtrim( $argv[1], "/" ) . "/wp-load.php";
+              foreach ( array( "DB_NAME", "DB_USER", "DB_PASSWORD", "DB_HOST" ) as $name ) {
+                echo base64_encode( (string) constant( $name ) ) . PHP_EOL;
+              }
+            ' "$TARGET_PATH"
+          )
+
+          test "${#DB_CONFIG[@]}" -eq 4
+          DB_NAME_VALUE=$(printf '%s' "${DB_CONFIG[0]}" | base64 --decode)
+          DB_USER_VALUE=$(printf '%s' "${DB_CONFIG[1]}" | base64 --decode)
+          DB_PASSWORD_VALUE=$(printf '%s' "${DB_CONFIG[2]}" | base64 --decode)
+          DB_HOST_VALUE=$(printf '%s' "${DB_CONFIG[3]}" | base64 --decode)
+
+          DB_SERVER_VALUE="$DB_HOST_VALUE"
+          DB_PORT_VALUE=""
+          DB_SOCKET_VALUE=""
+
+          if [[ "$DB_HOST_VALUE" =~ ^([^:]+):([0-9]+)$ ]]; then
+            DB_SERVER_VALUE="${BASH_REMATCH[1]}"
+            DB_PORT_VALUE="${BASH_REMATCH[2]}"
+          elif [[ "$DB_HOST_VALUE" =~ ^([^:]+):(.+)$ ]]; then
+            DB_SERVER_VALUE="${BASH_REMATCH[1]}"
+            DB_SOCKET_VALUE="${BASH_REMATCH[2]}"
           fi
 
           BACKUP_PARENT=$(dirname "$TARGET_PATH")
           BACKUP_DIR="$BACKUP_PARENT/.g5tech-backups"
           BACKUP_FILE="$BACKUP_DIR/pre-local-sync-$(date -u +%Y%m%dT%H%M%SZ).sql"
+          BACKUP_PARTIAL="$BACKUP_FILE.partial"
 
           mkdir -p "$BACKUP_DIR"
-          wp db export "$BACKUP_FILE" --path="$TARGET_PATH" --quiet
-          test -s "$BACKUP_FILE"
+
+          DUMP_ARGS=(
+            --host="$DB_SERVER_VALUE"
+            --user="$DB_USER_VALUE"
+            --single-transaction
+            --skip-lock-tables
+            --default-character-set=utf8mb4
+          )
+
+          if [ -n "$DB_PORT_VALUE" ]; then
+            DUMP_ARGS+=( --port="$DB_PORT_VALUE" )
+          fi
+
+          if [ -n "$DB_SOCKET_VALUE" ]; then
+            DUMP_ARGS+=( --socket="$DB_SOCKET_VALUE" )
+          fi
+
+          MYSQL_PWD="$DB_PASSWORD_VALUE" "$DUMP_COMMAND" "${DUMP_ARGS[@]}" "$DB_NAME_VALUE" > "$BACKUP_PARTIAL"
+          test -s "$BACKUP_PARTIAL"
+          mv "$BACKUP_PARTIAL" "$BACKUP_FILE"
           echo "Duomenų bazės kopija sukurta: $(basename "$BACKUP_FILE")"
           REMOTE
 
@@ -191,7 +243,17 @@ jobs:
           set -eu
           TARGET_PATH="$1"
 
+          set +e
           php "$TARGET_PATH/wp-content/g5-deploy/sync-content.php"
+          SYNC_RESULT=$?
+          set -e
+
+          if [ "$SYNC_RESULT" -eq 75 ]; then
+            php "$TARGET_PATH/wp-content/g5-deploy/sync-content.php"
+          elif [ "$SYNC_RESULT" -ne 0 ]; then
+            exit "$SYNC_RESULT"
+          fi
+
           wp cache flush --path="$TARGET_PATH" || true
 
           if wp plugin is-active litespeed-cache --path="$TARGET_PATH" >/dev/null 2>&1; then

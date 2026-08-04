@@ -28,12 +28,11 @@ if ( file_exists( WP_PLUGIN_DIR . '/polylang/polylang.php' ) ) {
 	if ( ! is_plugin_active( 'polylang/polylang.php' ) ) {
 		activate_plugin( 'polylang/polylang.php' );
 
-		if ( empty( $GLOBALS['g5_sync_reexec'] ) ) {
-			// Ką tik aktyvuotas — paleidžiama iš naujo, kad Polylang pasikrautų.
-			echo "Polylang aktyvuotas, paleidžiama iš naujo...\n";
-			putenv( 'G5_SYNC_REEXEC=1' );
-			passthru( escapeshellarg( PHP_BINARY ) . ' ' . escapeshellarg( __FILE__ ), $g5_code );
-			exit( $g5_code );
+		if ( ! function_exists( 'PLL' ) ) {
+			// Hostinger draudžia PHP procesų paleidimo funkcijas. Specialus kodas
+			// liepia deploy.yml scenarijų paleisti dar kartą naujame PHP procese.
+			echo "Polylang aktyvuotas, reikalingas antras sinchronizavimo paleidimas.\n";
+			exit( 75 );
 		}
 	}
 
@@ -43,7 +42,6 @@ if ( file_exists( WP_PLUGIN_DIR . '/polylang/polylang.php' ) ) {
 		g5pll_apply_options();
 	}
 }
-$GLOBALS['g5_sync_reexec'] = getenv( 'G5_SYNC_REEXEC' );
 
 $g5_sync_dir  = defined( 'G5_SYNC_DIR' ) ? G5_SYNC_DIR : __DIR__;
 $g5_flag      = $g5_sync_dir . '/content/SYNC-ON';
@@ -361,10 +359,10 @@ if ( $front ) {
 	update_option( 'page_on_front', $front->ID );
 }
 
-// Nuorodų taisyklės atnaujinamos VIEŠAME kontekste (administravimo
-// kontekste CPT taisyklės būtų be kalbos prefikso).
+// Kitas viešas WordPress užklausimas sugeneruos taisykles jau su aktyviu
+// Polylang. Taip nereikia Hostinger išjungtų PHP procesų paleidimo funkcijų.
 delete_transient( 'pll_languages_list' );
-$g5_flush = '$_SERVER["HTTP_HOST"]="localhost"; require "' . ABSPATH . 'wp-load.php"; flush_rewrite_rules(); echo "flush OK\n";';
-passthru( escapeshellarg( PHP_BINARY ) . ' -r ' . escapeshellarg( $g5_flush ) );
+delete_option( 'rewrite_rules' );
+echo "Nuorodu taisykles pazymetos atnaujinti.\n";
 
 echo 'Baigta: atnaujinta ' . $updated . ', sukurta ' . $created . ', pasalinta ' . $deleted . ', nuotrauku susieta ' . count( $id_map ) . ".\n";

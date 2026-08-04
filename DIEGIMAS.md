@@ -79,7 +79,7 @@ Būtent jį (be pabaigos brūkšnio) įrašai į `REMOTE_PATH_LIVE`. Staging apl
 
 1. Patikrina **visų** projekto PHP failų sintaksę — jei kur nors klaida, diegimas nutrūksta ir serveris lieka nepaliestas.
 2. Sukompiliuoja blokus (`npm ci && npm run build`) ir patikrina, ar rezultatas atsirado.
-3. Patikrina WordPress katalogą ir per WP-CLI padaro duomenų bazės kopiją už viešo svetainės katalogo.
+3. Patikrina WordPress katalogą ir per `mariadb-dump` arba `mysqldump` padaro duomenų bazės kopiją už viešo svetainės katalogo.
 4. Per `rsync` įkelia temą, `5gtech-core` ir `Polylang`.
 5. Įkelia `deploy/content/snapshot.json`, sinchronizavimo scenarijų ir momentiniame įraše naudojamas nuotraukas.
 6. Jei yra `deploy/content/SYNC-ON`, serveryje pritaiko vietinį turinį ir išvalo kešą.
