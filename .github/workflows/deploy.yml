@@ -136,22 +136,32 @@ jobs:
             exit 1
           fi
 
-          mapfile -t DB_CONFIG < <(
-            php -r '
-              define( "SHORTINIT", true );
-              $_SERVER["HTTP_HOST"] = "localhost";
-              require rtrim( $argv[1], "/" ) . "/wp-load.php";
-              foreach ( array( "DB_NAME", "DB_USER", "DB_PASSWORD", "DB_HOST" ) as $name ) {
-                echo base64_encode( (string) constant( $name ) ) . PHP_EOL;
-              }
-            ' "$TARGET_PATH"
-          )
+          DB_CONFIG_OUTPUT=$(php -r '
+            define( "SHORTINIT", true );
+            $_SERVER["HTTP_HOST"] = "localhost";
+            require rtrim( $argv[1], "/" ) . "/wp-load.php";
+            $values = array();
+            foreach ( array( "DB_NAME", "DB_USER", "DB_PASSWORD", "DB_HOST" ) as $name ) {
+              $values[] = base64_encode( (string) constant( $name ) );
+            }
+            echo implode( "|", $values );
+          ' "$TARGET_PATH")
 
-          test "${#DB_CONFIG[@]}" -eq 4
-          DB_NAME_VALUE=$(printf '%s' "${DB_CONFIG[0]}" | base64 --decode)
-          DB_USER_VALUE=$(printf '%s' "${DB_CONFIG[1]}" | base64 --decode)
-          DB_PASSWORD_VALUE=$(printf '%s' "${DB_CONFIG[2]}" | base64 --decode)
-          DB_HOST_VALUE=$(printf '%s' "${DB_CONFIG[3]}" | base64 --decode)
+          DB_NAME_ENCODED=${DB_CONFIG_OUTPUT%%|*}
+          DB_CONFIG_REST=${DB_CONFIG_OUTPUT#*|}
+          DB_USER_ENCODED=${DB_CONFIG_REST%%|*}
+          DB_CONFIG_REST=${DB_CONFIG_REST#*|}
+          DB_PASSWORD_ENCODED=${DB_CONFIG_REST%%|*}
+          DB_HOST_ENCODED=${DB_CONFIG_REST#*|}
+
+          test -n "$DB_NAME_ENCODED"
+          test -n "$DB_USER_ENCODED"
+          test -n "$DB_HOST_ENCODED"
+
+          DB_NAME_VALUE=$(printf '%s' "$DB_NAME_ENCODED" | base64 --decode)
+          DB_USER_VALUE=$(printf '%s' "$DB_USER_ENCODED" | base64 --decode)
+          DB_PASSWORD_VALUE=$(printf '%s' "$DB_PASSWORD_ENCODED" | base64 --decode)
+          DB_HOST_VALUE=$(printf '%s' "$DB_HOST_ENCODED" | base64 --decode)
 
           DB_SERVER_VALUE="$DB_HOST_VALUE"
           DB_PORT_VALUE=""
