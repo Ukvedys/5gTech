@@ -152,6 +152,8 @@ $find_post = static function ( $type, $slug ) {
 
 $created = 0;
 $updated = 0;
+$deleted = 0;
+$expected_posts = array();
 
 // Tėviniai priskiriami antru praėjimu, kai visi įrašai jau egzistuoja.
 $parents = array();
@@ -164,11 +166,15 @@ foreach ( $data['posts'] as $item ) {
 		continue;
 	}
 
+	$expected_posts[ $type ][ $slug ] = true;
+
 	$payload = array(
 		'post_type'    => $type,
 		'post_name'    => $slug,
 		'post_title'   => (string) $item['title'],
 		'post_status'  => (string) $item['status'],
+		'post_date'    => (string) ( $item['date'] ?? '' ),
+		'post_date_gmt' => (string) ( $item['date_gmt'] ?? '' ),
 		'post_content' => $g5_adapt_content( (string) $item['content'] ),
 		'post_excerpt' => (string) $item['excerpt'],
 		'menu_order'   => (int) $item['menu_order'],
@@ -196,6 +202,34 @@ foreach ( $data['posts'] as $item ) {
 		foreach ( (array) $values as $value ) {
 			add_post_meta( $post_id, $key, is_string( $value ) ? wp_slash( $value ) : $value );
 		}
+	}
+
+	foreach ( get_object_taxonomies( $type ) as $taxonomy ) {
+		if ( 0 !== strpos( $taxonomy, 'g5_' ) || ! taxonomy_exists( $taxonomy ) ) {
+			continue;
+		}
+
+		$term_slugs = array();
+
+		foreach ( (array) ( $item['terms'][ $taxonomy ] ?? array() ) as $term_data ) {
+			$term_slug = sanitize_title( (string) ( $term_data['slug'] ?? '' ) );
+
+			if ( '' === $term_slug ) {
+				continue;
+			}
+
+			if ( ! term_exists( $term_slug, $taxonomy ) ) {
+				wp_insert_term(
+					(string) ( $term_data['name'] ?? $term_slug ),
+					$taxonomy,
+					array( 'slug' => $term_slug )
+				);
+			}
+
+			$term_slugs[] = $term_slug;
+		}
+
+		wp_set_object_terms( $post_id, $term_slugs, $taxonomy, false );
 	}
 
 	if ( ! empty( $item['thumbnail'] ) ) {
@@ -253,9 +287,70 @@ if ( function_exists( 'pll_set_post_language' ) && function_exists( 'PLL' ) && P
 	echo "Kalbos priskirtos\n";
 }
 
+// 3c. Vietinė kopija yra turinio šaltinis: pašalinami serveryje likę
+// bandomieji ar pasenę valdomų tipų įrašai, kurių momentiniame įraše nėra.
+foreach ( array_keys( $expected_posts ) as $type ) {
+	$server_posts = get_posts(
+		array(
+			'post_type'        => $type,
+			'post_status'      => array( 'publish', 'draft', 'private', 'pending', 'future' ),
+			'posts_per_page'   => -1,
+			'suppress_filters' => true,
+			'lang'             => '',
+		)
+	);
+
+	foreach ( $server_posts as $server_post ) {
+		if ( isset( $expected_posts[ $type ][ $server_post->post_name ] ) ) {
+			continue;
+		}
+
+		if ( wp_delete_post( $server_post->ID, true ) ) {
+			$deleted++;
+		}
+	}
+}
+
 // 4. Nustatymai.
 foreach ( (array) ( $data['options'] ?? array() ) as $name => $value ) {
+	if ( 'g5tech_about_content' === $name && is_array( $value ) ) {
+		foreach ( array( 'story_image_1_id', 'story_image_2_id' ) as $key ) {
+			$old_id = (int) ( $value[ $key ] ?? 0 );
+			$value[ $key ] = $old_id ? ( $id_map[ $old_id ] ?? 0 ) : 0;
+		}
+	}
+
+	if ( 'g5tech_training_page_content' === $name && is_array( $value ) ) {
+		$old_id = (int) ( $value['image_id'] ?? 0 );
+		$value['image_id'] = $old_id ? ( $id_map[ $old_id ] ?? 0 ) : 0;
+		$value['equipment_ids'] = array_values(
+			array_filter(
+				array_map(
+					static fn( $attachment_id ) => $id_map[ (int) $attachment_id ] ?? 0,
+					(array) ( $value['equipment_ids'] ?? array() )
+				)
+			)
+		);
+	}
+
 	update_option( $name, $value );
+}
+
+// Pašalinami tik seni 5G TECH nustatymai. WordPress, vartotojų ir kitų
+// papildinių nustatymai neliečiami.
+global $wpdb;
+$expected_options = array_fill_keys( array_keys( (array) ( $data['options'] ?? array() ) ), true );
+$server_options = $wpdb->get_col(
+	$wpdb->prepare(
+		"SELECT option_name FROM {$wpdb->options} WHERE option_name LIKE %s",
+		$wpdb->esc_like( 'g5tech_' ) . '%'
+	)
+);
+
+foreach ( $server_options as $option_name ) {
+	if ( 'g5tech_roles_version' !== $option_name && ! isset( $expected_options[ $option_name ] ) ) {
+		delete_option( $option_name );
+	}
 }
 
 // 5. Pradinis puslapis pagal slug (ID skiriasi tarp aplinkų).
@@ -272,4 +367,4 @@ delete_transient( 'pll_languages_list' );
 $g5_flush = '$_SERVER["HTTP_HOST"]="localhost"; require "' . ABSPATH . 'wp-load.php"; flush_rewrite_rules(); echo "flush OK\n";';
 passthru( escapeshellarg( PHP_BINARY ) . ' -r ' . escapeshellarg( $g5_flush ) );
 
-echo 'Baigta: atnaujinta ' . $updated . ', sukurta ' . $created . ', nuotrauku susieta ' . count( $id_map ) . ".\n";
+echo 'Baigta: atnaujinta ' . $updated . ', sukurta ' . $created . ', pasalinta ' . $deleted . ', nuotrauku susieta ' . count( $id_map ) . ".\n";

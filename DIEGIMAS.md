@@ -1,6 +1,8 @@
 # Diegimas iš GitHub į Hostinger
 
-Kaip veikia: kiekvienas `push` į `main`, palietęs temą arba papildinį, automatiškai sukompiliuoja blokus ir įkelia **tik** temą ir papildinį. WordPress branduolys, svetimi papildiniai, `uploads/` ir duomenų bazė nepaliečiami niekada.
+Kaip veikia: kiekvienas `push` į `main`, palietęs temą, papildinius arba `deploy/` turinį, automatiškai sukompiliuoja blokus ir atnaujina **staging** svetainę. Prieš turinio sinchronizavimą sukuriama duomenų bazės atsarginė kopija, tada įkeliama tema, `5gtech-core`, `Polylang`, naudojamos nuotraukos ir vietinio WordPress turinio momentinis įrašas.
+
+WordPress branduolys, vartotojai ir kiti papildiniai neliečiami. Į `live` vis dar diegiama tik rankiniu būdu.
 
 ---
 
@@ -65,7 +67,7 @@ Būtent jį (be pabaigos brūkšnio) įrašai į `REMOTE_PATH_LIVE`. Staging apl
 
 ## 2. Kasdienis naudojimas
 
-**Automatiškai:** bet koks `push` į `main`, palietęs temą ar papildinį, diegia į **staging**.
+**Automatiškai:** bet koks `push` į `main`, palietęs temą, papildinius arba `deploy/`, diegia į **staging**.
 
 **Rankiniu būdu:** GitHub → **Actions → Diegimas į serverį → Run workflow** → pasirink `staging` arba `live`.
 
@@ -75,41 +77,43 @@ Būtent jį (be pabaigos brūkšnio) įrašai į `REMOTE_PATH_LIVE`. Staging apl
 
 ## 3. Ką daro kiekvienas diegimas
 
-1. Patikrina **visų** PHP failų sintaksę — jei kur nors klaida, diegimas nutrūksta ir serveris lieka nepaliestas.
+1. Patikrina **visų** projekto PHP failų sintaksę — jei kur nors klaida, diegimas nutrūksta ir serveris lieka nepaliestas.
 2. Sukompiliuoja blokus (`npm ci && npm run build`) ir patikrina, ar rezultatas atsirado.
-3. Per `rsync` įkelia temą ir papildinį.
+3. Patikrina WordPress katalogą ir per WP-CLI padaro duomenų bazės kopiją už viešo svetainės katalogo.
+4. Per `rsync` įkelia temą, `5gtech-core` ir `Polylang`.
+5. Įkelia `deploy/content/snapshot.json`, sinchronizavimo scenarijų ir momentiniame įraše naudojamas nuotraukas.
+6. Jei yra `deploy/content/SYNC-ON`, serveryje pritaiko vietinį turinį ir išvalo kešą.
 
 Į serverį **nekeliama:** `node_modules/`, `blocks-src/` (šaltiniai — serveryje jų nereikia), `package-lock.json`.
 
-`--delete` reiškia, kad serveryje ištrinami failai, kurių repozitorijoje nebėra. Todėl temos ir papildinio katalogų **serveryje ranka redaguoti negalima** — pakeitimai dings per kitą diegimą. Visi pakeitimai eina tik per git.
+`--delete` reiškia, kad temos, `5gtech-core`, `Polylang` ir `g5-deploy` kataloguose ištrinami failai, kurių repozitorijoje nebėra. Todėl šių katalogų **serveryje ranka redaguoti negalima** — pakeitimai dings per kitą diegimą. Kiti `uploads/` failai automatiškai netrinami.
 
 ---
 
-## 4. Pirmasis turinio perkėlimas
+## 4. Turinio perkėlimas
 
-Kodas keliauja per git, o turinys — atskirai, vieną kartą:
+Kol repozitorijoje yra `deploy/content/SYNC-ON`, vietinė WordPress svetainė yra turinio šaltinis:
 
-1. Hostinger'yje įdiegiamas švarus WordPress (MySQL).
-2. Paleidžiamas diegimas — atsiranda tema ir papildinys.
-3. WordPress administracijoje: **Įrankiai → Importavimas → WordPress**, įkeliamas `demo/content.xml`.
-4. Į `wp-content/mu-plugins/` įkeliamas `demo/demo-seed.php` — jis užpildo visus 5G TECH nustatymus ir atkuria modulių priskyrimus.
-5. Patikrinama, ar puslapiai atsidaro, ir nustatoma nuolatinių nuorodų struktūra `/%postname%/`.
+1. Turinys redaguojamas vietinėje WordPress kopijoje.
+2. Paleidžiama `php tools/export-content-snapshot.php`.
+3. Atnaujintas `deploy/content/snapshot.json` ir `deploy/uploads/` įrašomi į Git.
+4. `push` į `main` automatiškai atnaujina staging svetainę.
 
-Duomenų bazė iš SQLite į MySQL **neperkeliama tiesiogiai** — nereikia. Turinys pereina per eksportą, o nustatymai per seed failą. Taip išvengiama formatų konvertavimo.
+Sinchronizuojami puslapiai, naujienos, komanda, paslaugos, projektai, darbo pozicijos, DUK, partneriai, turinio moduliai, jų kalbos, vertimų ryšiai, turinio laukai ir naudojamos nuotraukos. Serverio bandomieji valdomų tipų įrašai, kurių vietinėje kopijoje nėra, pašalinami.
+
+Duomenų bazė iš SQLite į MySQL tiesiogiai nekopijuojama. Turinys perkeliamas aplinkoms neutraliu JSON momentiniu įrašu.
 
 ---
 
-## 5. Serverio užduotys be terminalo
+## 5. Kada išjungti turinio perrašymą
 
-Failas `scripts/server-tasks.sh` vykdomas serveryje kiekvieno diegimo pabaigoje, WordPress šakniniame kataloge. Tai kanalas serverio komandoms (wp-cli, failų tvarkymas, kešo valymas) be rankinio SSH.
+Kol yra `deploy/content/SYNC-ON`, serveryje per WordPress administravimą atlikti turinio pakeitimai per kitą diegimą bus perrašyti vietine versija.
 
-Darbo eiga: Claude įrašo užduotis į šį failą → tu GitHub Desktop'e spaudi **Commit → Push** → GitHub Actions jas įvykdo serveryje. Rezultatas matomas diegimo žurnale, žingsnyje „Vykdyti serverio užduotis".
+Kai `5gtech.lt` paleidžiama gyvai ir turinys pradedamas redaguoti tiesiogiai serveryje:
 
-Taisyklės:
-
-- Kiekviena užduotis privalo būti **idempotentiška** — saugu paleisti daug kartų, nes failas vykdomas per kiekvieną diegimą.
-- Vienkartinės užduotys, kai atliktos, iš failo ištrinamos.
-- Papildomai kiekvienas diegimas automatiškai atnaujina `demo/demo-seed.php` kopiją serverio `mu-plugins/` kataloge.
+1. Ištrinamas `deploy/content/SYNC-ON`.
+2. Pakeitimas įrašomas ir išsiunčiamas į Git.
+3. Toliau diegimas atnaujina kodą bei `Polylang`, bet turinio nebepakeičia.
 
 ---
 

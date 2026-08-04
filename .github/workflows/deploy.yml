@@ -1,12 +1,14 @@
 name: Diegimas į serverį
 
-# Paleidžiama tik tada, kai keičiasi tema arba papildinys.
+# Push į main atnaujina staging kodą ir, kol yra SYNC-ON, WordPress turinį.
 on:
   push:
     branches: [ main ]
     paths:
       - 'wordpress/wp-content/themes/5gtech/**'
       - 'wordpress/wp-content/plugins/5gtech-core/**'
+      - 'wordpress/wp-content/plugins/polylang/**'
+      - 'deploy/**'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
     inputs:
@@ -118,6 +120,28 @@ jobs:
             "test -d '${{ steps.target.outputs.path }}/wp-content' || { echo 'Nerastas wp-content — kelias neteisingas'; exit 1; }"
           echo "Katalogas patvirtintas"
 
+      - name: Padaryti duomenų bazės atsarginę kopiją
+        run: |
+          ssh -p ${{ secrets.SSH_PORT }} "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "bash -s -- '${{ steps.target.outputs.path }}'" <<'REMOTE'
+          set -eu
+          TARGET_PATH="$1"
+
+          if ! command -v wp >/dev/null 2>&1; then
+            echo "WP-CLI serveryje nerastas — turinys nebus perrašomas be atsarginės kopijos"
+            exit 1
+          fi
+
+          BACKUP_PARENT=$(dirname "$TARGET_PATH")
+          BACKUP_DIR="$BACKUP_PARENT/.g5tech-backups"
+          BACKUP_FILE="$BACKUP_DIR/pre-local-sync-$(date -u +%Y%m%dT%H%M%SZ).sql"
+
+          mkdir -p "$BACKUP_DIR"
+          wp db export "$BACKUP_FILE" --path="$TARGET_PATH" --quiet
+          test -s "$BACKUP_FILE"
+          echo "Duomenų bazės kopija sukurta: $(basename "$BACKUP_FILE")"
+          REMOTE
+
       - name: Įkelti temą
         run: |
           rsync -az --delete \
@@ -137,10 +161,51 @@ jobs:
             wordpress/wp-content/plugins/5gtech-core/ \
             "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ steps.target.outputs.path }}/wp-content/plugins/5gtech-core/"
 
+      - name: Įkelti Polylang
+        run: |
+          rsync -az --delete \
+            --exclude '.DS_Store' \
+            -e "ssh -p ${{ secrets.SSH_PORT }}" \
+            wordpress/wp-content/plugins/polylang/ \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ steps.target.outputs.path }}/wp-content/plugins/polylang/"
+
+      - name: Įkelti vietinio turinio momentinį įrašą
+        run: |
+          rsync -az --delete \
+            --exclude 'uploads/' \
+            --exclude '*.md' \
+            -e "ssh -p ${{ secrets.SSH_PORT }}" \
+            deploy/ \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ steps.target.outputs.path }}/wp-content/g5-deploy/"
+
+          rsync -az \
+            --exclude '.DS_Store' \
+            -e "ssh -p ${{ secrets.SSH_PORT }}" \
+            deploy/uploads/ \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ steps.target.outputs.path }}/wp-content/uploads/"
+
+      - name: Pritaikyti vietinį WordPress turinį
+        run: |
+          ssh -p ${{ secrets.SSH_PORT }} "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "bash -s -- '${{ steps.target.outputs.path }}'" <<'REMOTE'
+          set -eu
+          TARGET_PATH="$1"
+
+          php "$TARGET_PATH/wp-content/g5-deploy/sync-content.php"
+          wp cache flush --path="$TARGET_PATH" || true
+
+          if wp plugin is-active litespeed-cache --path="$TARGET_PATH" >/dev/null 2>&1; then
+            wp litespeed-purge all --path="$TARGET_PATH" || true
+          fi
+          REMOTE
+
       - name: Santrauka
         run: |
           echo "### Diegimas baigtas" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- Tema: \`wp-content/themes/5gtech\`" >> $GITHUB_STEP_SUMMARY
           echo "- Papildinys: \`wp-content/plugins/5gtech-core\` (su sukompiliuotais blokais)" >> $GITHUB_STEP_SUMMARY
-          echo "- Nepaliesta: WordPress branduolys, svetimi papildiniai, \`uploads/\`, duomenų bazė" >> $GITHUB_STEP_SUMMARY
+          echo "- Kalbos: \`Polylang\` iš repozitorijos" >> $GITHUB_STEP_SUMMARY
+          echo "- Turinys: vietinis momentinis įrašas pritaikytas, jei yra \`deploy/content/SYNC-ON\`" >> $GITHUB_STEP_SUMMARY
+          echo "- Atsarginė kopija: prieš turinio keitimą išsaugota už viešo WordPress katalogo" >> $GITHUB_STEP_SUMMARY
+          echo "- Nepaliesta: WordPress branduolys ir kiti papildiniai" >> $GITHUB_STEP_SUMMARY

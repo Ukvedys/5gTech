@@ -29,13 +29,17 @@ $snapshot = array(
 	'attachments' => array(),
 );
 
-// 1. g5tech_* nustatymai (be rolių versijos — ji priklauso nuo aplinkos kodo).
+// 1. Svetainės nustatymai (be rolių versijos — ji priklauso nuo aplinkos kodo).
 global $wpdb;
 foreach ( $wpdb->get_results( "SELECT option_name FROM {$wpdb->options} WHERE option_name LIKE 'g5tech\\_%'" ) as $row ) {
 	if ( 'g5tech_roles_version' === $row->option_name ) {
 		continue;
 	}
 	$snapshot['options'][ $row->option_name ] = get_option( $row->option_name );
+}
+
+foreach ( array( 'blogname', 'blogdescription', 'timezone_string', 'date_format', 'time_format', 'start_of_week', 'posts_per_page', 'permalink_structure' ) as $option_name ) {
+	$snapshot['options'][ $option_name ] = get_option( $option_name );
 }
 
 $uploads     = wp_get_upload_dir();
@@ -62,6 +66,18 @@ $register_attachment = static function ( $attachment_id ) use ( &$snapshot, &$at
 	$att_paths[] = $file;
 };
 
+// Nuotraukos, kurios saugomos ne blokuose, o svetainės nustatymuose.
+$about_media = (array) ( $snapshot['options']['g5tech_about_content'] ?? array() );
+foreach ( array( 'story_image_1_id', 'story_image_2_id' ) as $key ) {
+	$register_attachment( $about_media[ $key ] ?? 0 );
+}
+
+$training_media = (array) ( $snapshot['options']['g5tech_training_page_content'] ?? array() );
+$register_attachment( $training_media['image_id'] ?? 0 );
+foreach ( (array) ( $training_media['equipment_ids'] ?? array() ) as $attachment_id ) {
+	$register_attachment( $attachment_id );
+}
+
 // 2. Įrašai su meta.
 foreach ( $post_types as $post_type ) {
 	$posts = get_posts(
@@ -77,6 +93,7 @@ foreach ( $post_types as $post_type ) {
 
 	foreach ( $posts as $p ) {
 		$meta_out = array();
+		$terms_out = array();
 
 		foreach ( get_post_meta( $p->ID ) as $key => $values ) {
 			// Sinchronizuojami tik svetainės turinio laukai, ne WP vidiniai.
@@ -105,6 +122,26 @@ foreach ( $post_types as $post_type ) {
 			}
 		}
 
+		foreach ( get_object_taxonomies( $p->post_type ) as $taxonomy ) {
+			if ( 0 !== strpos( $taxonomy, 'g5_' ) ) {
+				continue;
+			}
+
+			$terms = wp_get_object_terms( $p->ID, $taxonomy );
+
+			if ( is_wp_error( $terms ) || ! $terms ) {
+				continue;
+			}
+
+			$terms_out[ $taxonomy ] = array_map(
+				static fn( $term ) => array(
+					'slug' => $term->slug,
+					'name' => $term->name,
+				),
+				$terms
+			);
+		}
+
 		$entry_lang         = function_exists( 'pll_get_post_language' ) ? ( pll_get_post_language( $p->ID ) ?: '' ) : '';
 		$entry_translations = array();
 
@@ -123,12 +160,15 @@ foreach ( $post_types as $post_type ) {
 			'slug'       => $p->post_name,
 			'title'      => $p->post_title,
 			'status'     => $p->post_status,
+			'date'       => $p->post_date,
+			'date_gmt'   => $p->post_date_gmt,
 			'content'    => $p->post_content,
 			'excerpt'    => $p->post_excerpt,
 			'menu_order' => (int) $p->menu_order,
 			'parent'     => $p->post_parent ? get_post_field( 'post_name', $p->post_parent ) : '',
 			'thumbnail'  => $thumbnail_id ? (string) get_post_meta( $thumbnail_id, '_wp_attached_file', true ) : '',
 			'meta'       => $meta_out,
+			'terms'      => $terms_out,
 		);
 	}
 }
