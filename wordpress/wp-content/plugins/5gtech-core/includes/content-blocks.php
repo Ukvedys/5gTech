@@ -1410,21 +1410,12 @@ function g5tech_render_home_team_block( $attributes = array() ) {
 		return '';
 	}
 
-	$stat_1 = g5tech_stat( 1, '6000+', 'bazinių stočių' );
-	$stat_3 = g5tech_stat( 3, '6', 'Europos šalys' );
-
 	ob_start();
 	?>
 	<section class="team" id="team" aria-labelledby="team-title">
 		<div class="container">
 			<div class="team-head"><div class="eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div><div class="team-head-copy"><h2 id="team-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2><p class="team-copy"><?php echo esc_html( (string) ( $attributes['copy'] ?? '' ) ); ?></p></div></div>
 			<?php echo $team_cards; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			<div class="team-summary" aria-label="Bendri komandos rodikliai">
-				<div class="team-metric"><strong><?php echo esc_html( $stat_1['value'] ); ?></strong><span><?php echo esc_html( $stat_1['label'] ); ?></span></div>
-				<div class="team-metric"><strong><?php echo esc_html( $stat_3['value'] ); ?></strong><span><?php echo esc_html( $stat_3['label'] ); ?></span></div>
-				<div class="team-metric"><strong><?php echo esc_html( (string) ( $attributes['metric3Value'] ?? '' ) ); ?></strong><span><?php echo esc_html( (string) ( $attributes['metric3Label'] ?? '' ) ); ?></span></div>
-				<div class="team-metric"><strong><?php echo esc_html( (string) ( $attributes['metric4Value'] ?? '' ) ); ?></strong><span><?php echo esc_html( (string) ( $attributes['metric4Label'] ?? '' ) ); ?></span></div>
-			</div>
 			<a class="link-line team-link" href="<?php echo esc_url( home_url( '/apie-mus/#komanda' ) ); ?>"><?php echo esc_html( (string) ( $attributes['linkLabel'] ?? '' ) ); ?> <span>→</span></a>
 		</div>
 	</section>

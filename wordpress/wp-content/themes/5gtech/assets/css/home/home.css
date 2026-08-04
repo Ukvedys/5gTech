@@ -972,6 +972,8 @@
       padding: 17px 13px;
     }
     .team-metric + .team-metric { border-left: 1px solid var(--line); }
+    /* Pirmas rodiklis lygiuojasi su kortelės tekstu (vienodas atitraukimas nuo krašto). */
+    .team-card-metrics .team-metric:first-child { padding-left: calc(var(--layout-grid-unit) * .2); }
     .team-card:hover .team-metric + .team-metric { border-color: rgba(255,255,255,.28); }
     .team-metric strong {
       display: block;
@@ -1267,6 +1269,7 @@
       .equipment-note { padding-inline: 16px; }
       .team-grid { grid-template-columns: 1fr; }
       .team-card-body { padding-inline: 20px; }
+      .team-card-metrics .team-metric:first-child { padding-left: 20px; }
       .team-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .team-summary .team-metric { min-height: 118px; padding-inline: 18px; }
       .team-link { margin-left: 0; padding-inline: 16px; }
