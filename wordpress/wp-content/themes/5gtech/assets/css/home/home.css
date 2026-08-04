@@ -254,7 +254,7 @@
       transform-origin: left center;
     }
     .hero.is-rotating .hero-rotator__progress-fill {
-      animation: hero-rotation-progress 7s linear forwards;
+      animation: hero-rotation-progress 5s linear forwards;
     }
     @keyframes hero-rotation-progress {
       to { transform: scaleX(1); }

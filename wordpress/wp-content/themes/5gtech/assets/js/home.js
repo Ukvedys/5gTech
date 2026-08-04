@@ -114,7 +114,7 @@
 
       const startRotation = () => {
         if (reducedMotion || rotationTimer || document.hidden) return;
-        rotationTimer = window.setInterval(() => showSlide(activeSlide + 1), 7000);
+        rotationTimer = window.setInterval(() => showSlide(activeSlide + 1), 5000);
         restartProgress();
       };
 
@@ -138,15 +138,9 @@
         startRotation();
       });
 
-      hero.addEventListener('mouseenter', stopRotation);
-      hero.addEventListener('mouseleave', startRotation);
-      hero.addEventListener('focusin', stopRotation);
-      hero.addEventListener('focusout', () => {
-        window.setTimeout(() => {
-          if (!hero.contains(document.activeElement)) startRotation();
-        }, 0);
-      });
-
+      // Kliento sprendimas: skaidrės sukasi visada, net kai pelė virš jų —
+      // taip nuo pat pradžių matosi paslaugų įvairovė. Stabdoma tik tada,
+      // kai skirtukas nematomas.
       document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
           stopRotation();
