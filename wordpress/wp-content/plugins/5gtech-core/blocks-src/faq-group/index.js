@@ -1,32 +1,22 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, SelectControl } from '@wordpress/components';
+import { Disabled, PanelBody, SelectControl } from '@wordpress/components';
+import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
-
-const GROUPS = [
-	{ value: 'start', label: 'Darbo pradžia' },
-	{ value: 'travel', label: 'Komandiruotės' },
-	{ value: 'safety', label: 'Sauga ir priemonės' },
-	{ value: 'daily', label: 'Kasdienis darbas' },
-];
 
 registerBlockType( metadata.name, {
 	edit( { attributes, setAttributes } ) {
-		const current = GROUPS.find( ( g ) => g.value === attributes.group );
 		return (
-			<div { ...useBlockProps( { className: 'g5-editor-partners' } ) }>
+			<div { ...useBlockProps() }>
 				<InspectorControls>
-					<PanelBody title="DUK grupė">
-						<SelectControl
-							label="Klausimų grupė"
-							value={ attributes.group }
-							options={ GROUPS }
-							onChange={ ( group ) => setAttributes( { group } ) }
-						/>
+					<PanelBody title="Sekcijos nustatymai">
+						<SelectControl label="DUK grupė" value={ attributes.group } options={ [ { label: 'Darbo pradžia', value: 'start' }, { label: 'Komandiruotės', value: 'travel' }, { label: 'Sauga ir priemonės', value: 'safety' }, { label: 'Kasdienis darbas', value: 'daily' } ] } onChange={ ( v ) => setAttributes( { group: v } ) } />
+						<p className="components-base-control__help">Klausimai valdomi skiltyje „Dažniausi klausimai”.</p>
 					</PanelBody>
 				</InspectorControls>
-				<p><strong>DUK grupė: { current ? current.label : attributes.group }</strong></p>
-				<p><em>Klausimai valdomi skiltyje „Dažniausi klausimai“, priskiriant grupę.</em></p>
+				<Disabled>
+					<ServerSideRender block={ metadata.name } attributes={ attributes } />
+				</Disabled>
 			</div>
 		);
 	},

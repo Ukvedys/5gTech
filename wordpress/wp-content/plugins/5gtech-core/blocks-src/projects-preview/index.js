@@ -1,21 +1,23 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, RangeControl, TextControl } from '@wordpress/components';
+import { Disabled, PanelBody, TextControl } from '@wordpress/components';
+import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
+
 registerBlockType( metadata.name, {
 	edit( { attributes, setAttributes } ) {
 		return (
-			<div { ...useBlockProps( { className: 'g5-editor-partners' } ) }>
+			<div { ...useBlockProps() }>
 				<InspectorControls>
-					<PanelBody title="Projektų peržiūra">
-						<RangeControl label="Kiek projektų rodyti" value={ attributes.limit } min={ 1 } max={ 6 }
-							onChange={ ( limit ) => setAttributes( { limit } ) } />
-						<TextControl label="Mygtuko tekstas" value={ attributes.buttonLabel }
-							onChange={ ( buttonLabel ) => setAttributes( { buttonLabel } ) } />
+					<PanelBody title="Sekcijos nustatymai">
+						<TextControl type="number" label="Kiek projektų rodyti" value={ attributes.limit } onChange={ ( v ) => setAttributes( { limit: parseInt( v, 10 ) || 0 } ) } />
+<TextControl label="Mygtuko tekstas" value={ attributes.buttonLabel } onChange={ ( v ) => setAttributes( { buttonLabel: v } ) } />
+						<p className="components-base-control__help">Projektai imami iš skilties „Projektai”.</p>
 					</PanelBody>
 				</InspectorControls>
-				<p><strong>Atrinkti projektai ({ attributes.limit })</strong></p>
-				<p><em>Projektai valdomi skiltyje „Projektai“.</em></p>
+				<Disabled>
+					<ServerSideRender block={ metadata.name } attributes={ attributes } />
+				</Disabled>
 			</div>
 		);
 	},

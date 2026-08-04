@@ -5,21 +5,20 @@ import metadata from './block.json';
 
 registerBlockType( metadata.name, {
 	edit( { attributes, setAttributes } ) {
-		const { label, title, linkText, url } = attributes;
 		return (
-			<div { ...useBlockProps( { className: 'g5-editor-card' } ) }>
+			<div { ...useBlockProps( { className: 'info-card' } ) }>
 				<InspectorControls>
 					<PanelBody title="Nuoroda">
-						<TextControl label="Adresas (pvz. /akademija/)" value={ url }
+						<TextControl label="Adresas" value={ attributes.url } help="Pvz. /mokymai/"
 							onChange={ ( v ) => setAttributes( { url: v } ) } />
 					</PanelBody>
 				</InspectorControls>
-				<RichText tagName="span" allowedFormats={ [] } value={ label }
+				<RichText tagName="span" className="info-card__number" allowedFormats={ [] } value={ attributes.label }
 					onChange={ ( v ) => setAttributes( { label: v } ) } placeholder="Žyma" />
-				<RichText tagName="h3" className="g5-heading-md" allowedFormats={ [] } value={ title }
-					onChange={ ( v ) => setAttributes( { title: v } ) } placeholder="Kortelės antraštė" />
-				<RichText tagName="span" allowedFormats={ [] } value={ linkText }
-					onChange={ ( v ) => setAttributes( { linkText: v } ) } placeholder="Nuorodos tekstas →" />
+				<RichText tagName="h3" className="g5-heading-md" allowedFormats={ [] } value={ attributes.title }
+					onChange={ ( v ) => setAttributes( { title: v } ) } placeholder="Antraštė" />
+				<RichText tagName="span" className="info-card__link" allowedFormats={ [] } value={ attributes.linkText }
+					onChange={ ( v ) => setAttributes( { linkText: v } ) } placeholder="Nuorodos tekstas" />
 			</div>
 		);
 	},

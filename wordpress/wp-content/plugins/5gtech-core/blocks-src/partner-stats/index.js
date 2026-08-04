@@ -1,17 +1,21 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { Disabled } from '@wordpress/components';
+import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
 
 registerBlockType( metadata.name, {
 	edit( { attributes } ) {
-		const names = attributes.names || [];
 		return (
-			<div { ...useBlockProps( { className: 'g5-editor-partners' } ) }>
-				<p><strong>Įranga ir gamintojai</strong></p>
-				{ names.length
-					? <p>{ names.join( ' · ' ) }</p>
-					: <p>Įranga nepasirinkta.</p> }
-				<p><em>Sąrašas imamas iš skilties „Partneriai ir įranga“.</em></p>
+			<div { ...useBlockProps() }>
+				<InspectorControls>
+					<PanelBody title="Apie šią sekciją">
+						<p className="components-base-control__help">Sąrašas valdomas skiltyje „Partneriai ir įranga”; čia rodomi pasirinkti įrašai.</p>
+					</PanelBody>
+				</InspectorControls>
+				<Disabled>
+					<ServerSideRender block={ metadata.name } attributes={ attributes } />
+				</Disabled>
 			</div>
 		);
 	},

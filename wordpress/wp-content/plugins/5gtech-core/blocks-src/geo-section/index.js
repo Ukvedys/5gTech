@@ -1,34 +1,28 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps, RichText, InspectorControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
-import { PanelBody, Button } from '@wordpress/components';
+import { useBlockProps, InspectorControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { Button, Disabled, PanelBody, TextControl } from '@wordpress/components';
+import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
+
 registerBlockType( metadata.name, {
 	edit( { attributes, setAttributes } ) {
-		const { eyebrow, title, imageId } = attributes;
 		return (
-			<section { ...useBlockProps( { className: 'g5-editor-section g5-editor-section--light' } ) }>
+			<div { ...useBlockProps() }>
 				<InspectorControls>
-					<PanelBody title="Žemėlapis">
+					<PanelBody title="Sekcijos nustatymai">
+						<TextControl label="Trumpa žyma" value={ attributes.eyebrow } onChange={ ( v ) => setAttributes( { eyebrow: v } ) } />
+<TextControl label="Antraštė" value={ attributes.title } onChange={ ( v ) => setAttributes( { title: v } ) } />
 						<MediaUploadCheck>
-							<MediaUpload
-								onSelect={ ( media ) => setAttributes( { imageId: media.id } ) }
-								allowedTypes={ [ 'image' ] }
-								value={ imageId }
-								render={ ( { open } ) => (
-									<Button variant="secondary" onClick={ open }>
-										{ imageId ? 'Pakeisti žemėlapį' : 'Pasirinkti žemėlapį (kitaip — temos)' }
-									</Button>
-								) }
-							/>
+							<MediaUpload onSelect={ ( m ) => setAttributes( { imageId: m.id } ) } allowedTypes={ [ 'image' ] } value={ attributes.imageId }
+								render={ ( { open } ) => <Button variant="secondary" onClick={ open }>{ attributes.imageId ? 'Pakeisti nuotrauką' : 'Pasirinkti nuotrauką' }</Button> } />
 						</MediaUploadCheck>
+						<p className="components-base-control__help">Šalių sąrašas imamas iš 5G TECH nustatymų.</p>
 					</PanelBody>
 				</InspectorControls>
-				<RichText tagName="div" className="g5-eyebrow" allowedFormats={ [] } value={ eyebrow }
-					onChange={ ( v ) => setAttributes( { eyebrow: v } ) } placeholder="Žyma" />
-				<RichText tagName="h2" className="g5-display-md" allowedFormats={ [] } value={ title }
-					onChange={ ( v ) => setAttributes( { title: v } ) } placeholder="Sekcijos antraštė" />
-				<p><em>Šalių sąrašas imamas iš „5G TECH nustatymų“, žemėlapis — iš temos arba pasirinktas.</em></p>
-			</section>
+				<Disabled>
+					<ServerSideRender block={ metadata.name } attributes={ attributes } />
+				</Disabled>
+			</div>
 		);
 	},
 	save() { return null; },

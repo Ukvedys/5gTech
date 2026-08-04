@@ -1,26 +1,25 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl, TextareaControl } from '@wordpress/components';
+import { Disabled, PanelBody, TextControl } from '@wordpress/components';
+import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
 
 registerBlockType( metadata.name, {
 	edit( { attributes, setAttributes } ) {
 		return (
-			<div { ...useBlockProps( { className: 'g5-editor-partners' } ) }>
+			<div { ...useBlockProps() }>
 				<InspectorControls>
-					<PanelBody title="Grupių pavadinimai">
-						<TextControl label="Lietuvos grupė" value={ attributes.lithuaniaLabel }
-							onChange={ ( lithuaniaLabel ) => setAttributes( { lithuaniaLabel } ) } />
-						<TextControl label="Europos grupė" value={ attributes.europeLabel }
-							onChange={ ( europeLabel ) => setAttributes( { europeLabel } ) } />
-						<TextControl label="Biuro grupė" value={ attributes.officeLabel }
-							onChange={ ( officeLabel ) => setAttributes( { officeLabel } ) } />
-						<TextareaControl label="Tekstas, kai pozicijų nėra" value={ attributes.emptyText }
-							onChange={ ( emptyText ) => setAttributes( { emptyText } ) } />
+					<PanelBody title="Sekcijos nustatymai">
+						<TextControl label="Lietuvos grupės antraštė" value={ attributes.lithuaniaLabel } onChange={ ( v ) => setAttributes( { lithuaniaLabel: v } ) } />
+<TextControl label="Europos grupės antraštė" value={ attributes.europeLabel } onChange={ ( v ) => setAttributes( { europeLabel: v } ) } />
+<TextControl label="Biuro grupės antraštė" value={ attributes.officeLabel } onChange={ ( v ) => setAttributes( { officeLabel: v } ) } />
+<TextControl label="Tekstas, kai pozicijų nėra" value={ attributes.emptyText } onChange={ ( v ) => setAttributes( { emptyText: v } ) } />
+						<p className="components-base-control__help">Pozicijos imamos iš skilties „Darbo pozicijos”.</p>
 					</PanelBody>
 				</InspectorControls>
-				<p><strong>Darbo pozicijų sąrašas</strong></p>
-				<p><em>Pozicijos valdomos skiltyje „Karjera · skelbimai“. Rodomos tik aktyvios.</em></p>
+				<Disabled>
+					<ServerSideRender block={ metadata.name } attributes={ attributes } />
+				</Disabled>
 			</div>
 		);
 	},

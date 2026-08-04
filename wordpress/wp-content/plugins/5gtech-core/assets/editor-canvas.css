@@ -38,3 +38,29 @@
 /* --- Sertifikatų antraštė: viešai ją paryškina slinkties efektas, redaktoriuje
    rodoma iš karto pilno ryškumo. --- */
 .editor-styles-wrapper .bridge{--bridge-reveal:100%}
+
+/* --- Automatinė numeracija drobėje (viešame puslapyje numerius sudeda PHP) --- */
+.editor-styles-wrapper .g5-editor-card-grid{counter-reset:g5card}
+.editor-styles-wrapper .g5-editor-card-grid > .info-card{counter-increment:g5card}
+.editor-styles-wrapper .g5-editor-card-grid .g5-editor-auto-number::before{content:counter(g5card,decimal-leading-zero)}
+.editor-styles-wrapper .g5-editor-steps{counter-reset:g5step}
+.editor-styles-wrapper .g5-editor-steps > li{counter-increment:g5step}
+.editor-styles-wrapper .g5-editor-steps .g5-editor-auto-number::before{content:counter(g5step,decimal-leading-zero)}
+
+/* Kartotinių sąrašų įterpimo mygtukas netrikdo tinklelio. */
+.editor-styles-wrapper .g5-editor-card-grid > .block-list-appender,
+.editor-styles-wrapper .g5-editor-value-grid > .block-list-appender,
+.editor-styles-wrapper .g5-editor-strategy-grid > .block-list-appender,
+.editor-styles-wrapper .g5-editor-competence-list > .block-list-appender{align-self:center;justify-self:start;margin:8px}
+
+/* --- Žymos/antraštės/teksto įrašai (faktai, vertybės, strategija, kompetencijos) --- */
+.editor-styles-wrapper .g5-editor-labeled-item{display:flex;flex-direction:column;gap:6px;padding:18px;border:1px solid rgba(3,31,53,.16);background:rgba(255,255,255,.72)}
+.editor-styles-wrapper .g5-editor-labeled-item small{font-size:11px;letter-spacing:.09em;opacity:.65;text-transform:uppercase}
+.editor-styles-wrapper .g5-editor-labeled-item strong{font-size:17px}
+.editor-styles-wrapper .g5-editor-labeled-item p{margin:0;font-size:14px;line-height:1.6}
+.editor-styles-wrapper .g5-section--dark .g5-editor-labeled-item,
+.editor-styles-wrapper .competence-section .g5-editor-labeled-item{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:#fff}
+
+/* --- Smulkios drobės būsenos --- */
+.editor-styles-wrapper .g5-editor-muted{opacity:.6;font-style:italic}
+.editor-styles-wrapper .g5-editor-media-empty{display:grid;place-items:center;min-height:180px;background:#eef1f5;color:#50575e;font-size:13px}

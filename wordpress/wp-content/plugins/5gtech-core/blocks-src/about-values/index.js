@@ -2,35 +2,40 @@ import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, useInnerBlocksProps, RichText, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, TextControl } from '@wordpress/components';
 import metadata from './block.json';
+
 registerBlockType( metadata.name, {
 	edit( { attributes, setAttributes } ) {
-		const a = attributes;
-		const innerProps = useInnerBlocksProps( { className: 'g5-editor-section__body' }, {
-			allowedBlocks: [ 'g5tech/labeled-item' ],
-			template: [ [ 'g5tech/labeled-item' ] ],
-		} );
+		const set = ( key ) => ( v ) => setAttributes( { [ key ]: v } );
+		const innerProps = useInnerBlocksProps( { className: 'value-grid g5-editor-value-grid' }, { allowedBlocks: [ 'g5tech/labeled-item' ] } );
 		return (
-			<section { ...useBlockProps( { className: 'g5-editor-section g5-editor-section--light' } ) }>
+			<section { ...useBlockProps( { className: 'g5-section values-section g5-grid-lines' } ) }>
 				<InspectorControls>
 					<PanelBody title="Kultūros kvietimas">
-						<TextControl label="Mygtuko tekstas" value={ a.cultureButtonLabel }
-							onChange={ ( v ) => setAttributes( { cultureButtonLabel: v } ) } />
-						<TextControl label="Mygtuko nuoroda" value={ a.cultureUrl }
-							onChange={ ( v ) => setAttributes( { cultureUrl: v } ) } />
+						<TextControl label="Mygtuko nuoroda" value={ attributes.cultureUrl } onChange={ set( 'cultureUrl' ) } />
 					</PanelBody>
 				</InspectorControls>
-				<RichText tagName="div" className="g5-eyebrow" allowedFormats={ [] } value={ a.eyebrow }
-					onChange={ ( v ) => setAttributes( { eyebrow: v } ) } placeholder="Žyma" />
-				<RichText tagName="h2" className="g5-display-md" allowedFormats={ [] } value={ a.title }
-					onChange={ ( v ) => setAttributes( { title: v } ) } placeholder="Antraštė" />
-				<div { ...innerProps } />
-				<div className="g5-editor-card">
-					<RichText tagName="span" allowedFormats={ [] } value={ a.cultureLabel }
-						onChange={ ( v ) => setAttributes( { cultureLabel: v } ) } placeholder="Kultūros žyma" />
-					<RichText tagName="h3" allowedFormats={ [] } value={ a.cultureTitle }
-						onChange={ ( v ) => setAttributes( { cultureTitle: v } ) } placeholder="Kultūros antraštė" />
-					<RichText tagName="p" allowedFormats={ [] } value={ a.cultureText }
-						onChange={ ( v ) => setAttributes( { cultureText: v } ) } placeholder="Kultūros tekstas" />
+				<div className="g5-container">
+					<div className="editorial-head">
+						<RichText tagName="div" className="g5-eyebrow" allowedFormats={ [] } value={ attributes.eyebrow }
+							onChange={ set( 'eyebrow' ) } placeholder="Žyma" />
+						<div className="editorial-head__copy">
+							<RichText tagName="h2" className="g5-display-lg" allowedFormats={ [] } value={ attributes.title }
+								onChange={ set( 'title' ) } placeholder="Antraštė" />
+						</div>
+					</div>
+					<div { ...innerProps } />
+					<div className="culture-callout">
+						<div className="culture-callout__copy">
+							<div>
+								<RichText tagName="span" className="purpose-card__label" allowedFormats={ [] } value={ attributes.cultureLabel } onChange={ set( 'cultureLabel' ) } placeholder="Žyma" />
+								<RichText tagName="h3" className="g5-heading-lg" allowedFormats={ [] } value={ attributes.cultureTitle } onChange={ set( 'cultureTitle' ) } placeholder="Antraštė" />
+							</div>
+							<RichText tagName="p" className="g5-body" allowedFormats={ [] } value={ attributes.cultureText } onChange={ set( 'cultureText' ) } placeholder="Tekstas" />
+						</div>
+						<div className="culture-callout__action">
+							<RichText tagName="span" className="g5-button g5-button--primary" allowedFormats={ [] } value={ attributes.cultureButtonLabel } onChange={ set( 'cultureButtonLabel' ) } placeholder="Mygtukas" />
+						</div>
+					</div>
 				</div>
 			</section>
 		);

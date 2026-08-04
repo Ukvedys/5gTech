@@ -4,13 +4,13 @@ import metadata from './block.json';
 
 registerBlockType( metadata.name, {
 	edit( { attributes, setAttributes } ) {
-		const { title, text } = attributes;
 		return (
-			<div { ...useBlockProps( { className: 'g5-editor-card' } ) }>
-				<RichText tagName="h3" className="g5-heading-sm" allowedFormats={ [] } value={ title }
+			<div { ...useBlockProps( { className: 'info-card' } ) }>
+				<span className="info-card__number g5-editor-auto-number"></span>
+				<RichText tagName="h3" className="g5-heading-sm" allowedFormats={ [] } value={ attributes.title }
 					onChange={ ( v ) => setAttributes( { title: v } ) } placeholder="Kortelės antraštė" />
-				<RichText tagName="p" allowedFormats={ [] } value={ text }
-					onChange={ ( v ) => setAttributes( { text: v } ) } placeholder="Kortelės tekstas" />
+				<RichText tagName="p" allowedFormats={ [] } value={ attributes.text }
+					onChange={ ( v ) => setAttributes( { text: v } ) } placeholder="Tekstas" />
 			</div>
 		);
 	},

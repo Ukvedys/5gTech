@@ -1,21 +1,23 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl } from '@wordpress/components';
+import { Disabled, PanelBody, TextControl } from '@wordpress/components';
+import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
+
 registerBlockType( metadata.name, {
 	edit( { attributes, setAttributes } ) {
 		return (
-			<div { ...useBlockProps( { className: 'g5-editor-partners' } ) }>
+			<div { ...useBlockProps() }>
 				<InspectorControls>
-					<PanelBody title="Stulpelių antraštės">
-						<TextControl label="Kairysis stulpelis" value={ attributes.leftTitle }
-							onChange={ ( leftTitle ) => setAttributes( { leftTitle } ) } />
-						<TextControl label="Dešinysis stulpelis" value={ attributes.rightTitle }
-							onChange={ ( rightTitle ) => setAttributes( { rightTitle } ) } />
+					<PanelBody title="Sekcijos nustatymai">
+						<TextControl label="Kairės pusės antraštė" value={ attributes.leftTitle } onChange={ ( v ) => setAttributes( { leftTitle: v } ) } />
+<TextControl label="Dešinės pusės antraštė" value={ attributes.rightTitle } onChange={ ( v ) => setAttributes( { rightTitle: v } ) } />
+						<p className="components-base-control__help">Sąrašai imami iš skilties „Partneriai ir įranga”.</p>
 					</PanelBody>
 				</InspectorControls>
-				<p><strong>Partnerių sąrašai: { attributes.leftTitle } · { attributes.rightTitle }</strong></p>
-				<p><em>Sąrašai valdomi skiltyje „Partneriai ir įranga“.</em></p>
+				<Disabled>
+					<ServerSideRender block={ metadata.name } attributes={ attributes } />
+				</Disabled>
 			</div>
 		);
 	},

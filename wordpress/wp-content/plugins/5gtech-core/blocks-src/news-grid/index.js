@@ -1,24 +1,23 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, RangeControl } from '@wordpress/components';
+import { Disabled, PanelBody, TextControl } from '@wordpress/components';
+import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
+
 registerBlockType( metadata.name, {
 	edit( { attributes, setAttributes } ) {
 		return (
-			<div { ...useBlockProps( { className: 'g5-editor-partners' } ) }>
+			<div { ...useBlockProps() }>
 				<InspectorControls>
-					<PanelBody title="Naujienų tinklelis">
-						<RangeControl
-							label="Kiek įrašų rodyti"
-							value={ attributes.limit }
-							onChange={ ( limit ) => setAttributes( { limit } ) }
-							min={ 3 }
-							max={ 24 }
-						/>
+					<PanelBody title="Sekcijos nustatymai">
+						<TextControl type="number" label="Kiek naujienų rodyti" value={ attributes.limit } onChange={ ( v ) => setAttributes( { limit: parseInt( v, 10 ) || 0 } ) } />
+<TextControl label="Tekstas, kai naujienų nėra" value={ attributes.emptyText } onChange={ ( v ) => setAttributes( { emptyText: v } ) } />
+						<p className="components-base-control__help">Įrašai imami iš skilties „Naujienos”.</p>
 					</PanelBody>
 				</InspectorControls>
-				<p><strong>Naujienų tinklelis</strong></p>
-				<p><em>Rodomi { attributes.limit } naujausi įrašai iš skilties „Naujienos“.</em></p>
+				<Disabled>
+					<ServerSideRender block={ metadata.name } attributes={ attributes } />
+				</Disabled>
 			</div>
 		);
 	},

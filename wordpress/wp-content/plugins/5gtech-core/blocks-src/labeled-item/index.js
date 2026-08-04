@@ -1,16 +1,16 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 import metadata from './block.json';
+
 registerBlockType( metadata.name, {
 	edit( { attributes, setAttributes } ) {
-		const { label, title, text } = attributes;
 		return (
-			<div { ...useBlockProps( { className: 'g5-editor-card' } ) }>
-				<RichText tagName="small" allowedFormats={ [] } value={ label }
-					onChange={ ( v ) => setAttributes( { label: v } ) } placeholder="Žyma (nebūtina)" />
-				<RichText tagName="h3" className="g5-heading-sm" allowedFormats={ [] } value={ title }
-					onChange={ ( v ) => setAttributes( { title: v } ) } placeholder="Antraštė" />
-				<RichText tagName="p" allowedFormats={ [] } value={ text }
+			<div { ...useBlockProps( { className: 'g5-editor-labeled-item' } ) }>
+				<RichText tagName="small" allowedFormats={ [] } value={ attributes.label }
+					onChange={ ( v ) => setAttributes( { label: v } ) } placeholder="Žyma" />
+				<RichText tagName="strong" allowedFormats={ [] } value={ attributes.title }
+					onChange={ ( v ) => setAttributes( { title: v } ) } placeholder="Pavadinimas" />
+				<RichText tagName="p" allowedFormats={ [] } value={ attributes.text }
 					onChange={ ( v ) => setAttributes( { text: v } ) } placeholder="Tekstas" />
 			</div>
 		);

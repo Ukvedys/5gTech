@@ -1,12 +1,22 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { Disabled, PanelBody, TextControl } from '@wordpress/components';
+import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
+
 registerBlockType( metadata.name, {
-	edit() {
+	edit( { attributes, setAttributes } ) {
 		return (
-			<div { ...useBlockProps( { className: 'g5-editor-partners' } ) }>
-				<p><strong>Kvietimas iš nustatymų</strong></p>
-				<p><em>Antraštė, tekstas ir mygtukas valdomi „5G TECH nustatymuose“.</em></p>
+			<div { ...useBlockProps() }>
+				<InspectorControls>
+					<PanelBody title="Sekcijos nustatymai">
+						<TextControl label="Trumpa žyma" value={ attributes.eyebrow } onChange={ ( v ) => setAttributes( { eyebrow: v } ) } />
+						<p className="components-base-control__help">Antraštė ir kontaktai imami iš 5G TECH nustatymų.</p>
+					</PanelBody>
+				</InspectorControls>
+				<Disabled>
+					<ServerSideRender block={ metadata.name } attributes={ attributes } />
+				</Disabled>
 			</div>
 		);
 	},
