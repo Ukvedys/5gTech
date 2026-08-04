@@ -1,15 +1,21 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps } from '@wordpress/block-editor';
-import { Disabled } from '@wordpress/components';
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { Button, Disabled, PanelBody } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
 
 registerBlockType( metadata.name, {
-	edit() {
+	edit( { attributes } ) {
 		return (
 			<div { ...useBlockProps() }>
+				<InspectorControls>
+					<PanelBody title="Turinys">
+						<p className="components-base-control__help">Etapai valdomi bendruose duomenyse.</p>
+						<Button variant="primary" href="admin.php?page=g5tech-settings" target="_blank" className="g5-editor-action">Atidaryti bendrus duomenis ↗</Button>
+					</PanelBody>
+				</InspectorControls>
 				<Disabled>
-					<ServerSideRender block={ metadata.name } />
+					<ServerSideRender block={ metadata.name } attributes={ attributes } />
 				</Disabled>
 			</div>
 		);

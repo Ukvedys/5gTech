@@ -16,7 +16,10 @@ registerBlockType( metadata.name, {
 							<MediaUpload onSelect={ ( m ) => setAttributes( { imageId: m.id } ) } allowedTypes={ [ 'image' ] } value={ attributes.imageId }
 								render={ ( { open } ) => <Button variant="secondary" onClick={ open }>{ attributes.imageId ? 'Pakeisti nuotrauką' : 'Pasirinkti nuotrauką' }</Button> } />
 						</MediaUploadCheck>
-						<p className="components-base-control__help">Šalių sąrašas imamas iš 5G TECH nustatymų.</p>
+					</PanelBody>
+					<PanelBody title="Turinys">
+						<p className="components-base-control__help">Šalių sąrašas imamas iš bendrų duomenų.</p>
+						<Button variant="primary" href="admin.php?page=g5tech-settings" target="_blank" className="g5-editor-action">Atidaryti bendrus duomenis ↗</Button>
 					</PanelBody>
 				</InspectorControls>
 				<Disabled>

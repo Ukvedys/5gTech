@@ -1,6 +1,6 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { Disabled } from '@wordpress/components';
+import { Button, Disabled, PanelBody } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
 
@@ -9,8 +9,10 @@ registerBlockType( metadata.name, {
 		return (
 			<div { ...useBlockProps() }>
 				<InspectorControls>
-					<PanelBody title="Apie šią sekciją">
-						<p className="components-base-control__help">Sąrašas valdomas skiltyje „Partneriai ir įranga”; čia rodomi pasirinkti įrašai.</p>
+					<PanelBody title="Turinys">
+						<p className="components-base-control__help">Rodomi pasirinkti katalogo įrašai; pavadinimai atsinaujina iš katalogo.</p>
+						<Button variant="primary" href="post-new.php?post_type=g5_partner" target="_blank" className="g5-editor-action">Pridėti partnerį/įrangą ↗</Button>
+						<Button variant="secondary" href="edit.php?post_type=g5_partner" target="_blank" className="g5-editor-action">Visas katalogas ↗</Button>
 					</PanelBody>
 				</InspectorControls>
 				<Disabled>

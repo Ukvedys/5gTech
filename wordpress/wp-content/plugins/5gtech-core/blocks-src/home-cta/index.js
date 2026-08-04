@@ -1,6 +1,6 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { Disabled, PanelBody, TextControl, TextareaControl } from '@wordpress/components';
+import { Button, Disabled, PanelBody, TextControl, TextareaControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
 
@@ -9,10 +9,14 @@ registerBlockType( metadata.name, {
 		return (
 			<div { ...useBlockProps() }>
 				<InspectorControls>
-					<PanelBody title="Baigiamasis kvietimas">
+					<PanelBody title="Sekcijos nustatymai">
 						<TextControl label="Žyma" value={ attributes.eyebrow } onChange={ ( v ) => setAttributes( { eyebrow: v } ) } />
-						<TextControl label="Antraštė" value={ attributes.title } onChange={ ( v ) => setAttributes( { title: v } ) } />
-						<TextareaControl label="Tekstas" value={ attributes.body } onChange={ ( v ) => setAttributes( { body: v } ) } />
+<TextControl label="Antraštė" value={ attributes.title } onChange={ ( v ) => setAttributes( { title: v } ) } />
+<TextareaControl label="Tekstas" value={ attributes.body } onChange={ ( v ) => setAttributes( { body: v } ) } />
+					</PanelBody>
+					<PanelBody title="Turinys">
+						<p className="components-base-control__help">El. paštas ir telefonas imami iš bendrų duomenų.</p>
+						<Button variant="primary" href="admin.php?page=g5tech-settings" target="_blank" className="g5-editor-action">Atidaryti bendrus duomenis ↗</Button>
 					</PanelBody>
 				</InspectorControls>
 				<Disabled>

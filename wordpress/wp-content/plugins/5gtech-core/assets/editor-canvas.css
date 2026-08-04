@@ -64,3 +64,6 @@
 /* --- Smulkios drobės būsenos --- */
 .editor-styles-wrapper .g5-editor-muted{opacity:.6;font-style:italic}
 .editor-styles-wrapper .g5-editor-media-empty{display:grid;place-items:center;min-height:180px;background:#eef1f5;color:#50575e;font-size:13px}
+
+/* Vienodi katalogo veiksmų mygtukai šoninėje juostoje. */
+.components-panel__body .g5-editor-action{display:flex;justify-content:center;width:100%;margin-bottom:8px}

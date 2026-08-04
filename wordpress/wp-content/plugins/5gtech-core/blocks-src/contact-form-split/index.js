@@ -1,6 +1,6 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { Disabled } from '@wordpress/components';
+import { Button, Disabled, PanelBody } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
 
@@ -9,8 +9,9 @@ registerBlockType( metadata.name, {
 		return (
 			<div { ...useBlockProps() }>
 				<InspectorControls>
-					<PanelBody title="Apie šią sekciją">
-						<p className="components-base-control__help">Formos laukai ir kontaktai imami iš 5G TECH nustatymų.</p>
+					<PanelBody title="Turinys">
+						<p className="components-base-control__help">Formos laukai fiksuoti; kontaktai ir laiškų adresas — bendruose duomenyse.</p>
+						<Button variant="primary" href="admin.php?page=g5tech-settings" target="_blank" className="g5-editor-action">Atidaryti bendrus duomenis ↗</Button>
 					</PanelBody>
 				</InspectorControls>
 				<Disabled>
