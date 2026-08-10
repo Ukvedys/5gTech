@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "g5tech/landing-story",
+  "title": "Landing puslapis · istorija",
+  "category": "theme",
+  "icon": "align-wide",
+  "description": "Išplėstas pasakojimas su nuotrauka ir trimis projekto momentais.",
+  "supports": { "html": false, "reusable": false },
+  "attributes": {
+    "eyebrow": { "type": "string", "default": "" },
+    "title": { "type": "string", "default": "" },
+    "lead": { "type": "string", "default": "" },
+    "body1": { "type": "string", "default": "" },
+    "body2": { "type": "string", "default": "" },
+    "body3": { "type": "string", "default": "" },
+    "imageId": { "type": "integer", "default": 0 },
+    "imageFallback": { "type": "string", "default": "" },
+    "imageAlt": { "type": "string", "default": "" },
+    "caption": { "type": "string", "default": "" },
+    "anchorId": { "type": "string", "default": "" }
+  },
+  "textdomain": "5gtech-core",
+  "editorScript": "file:./index.js"
+}

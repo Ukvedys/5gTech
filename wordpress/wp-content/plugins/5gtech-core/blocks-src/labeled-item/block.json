@@ -5,7 +5,7 @@
   "title": "Sąrašo įrašas",
   "category": "theme",
   "icon": "editor-ul",
-  "parent": [ "g5tech/about-story", "g5tech/about-values", "g5tech/about-strategy", "g5tech/about-competence" ],
+  "parent": [ "g5tech/about-story", "g5tech/landing-story", "g5tech/about-values", "g5tech/about-strategy", "g5tech/about-competence" ],
   "supports": { "html": false, "reusable": false },
   "attributes": {
     "label": { "type": "string", "default": "" },

@@ -220,58 +220,76 @@ function g5tech_cards_block_markup( $rows, $title_key = 'title', $text_key = 'te
 }
 
 /**
+ * Išplėsto landing puslapio pasakojimo blokas.
+ */
+function g5tech_landing_story_block_markup( $attributes, $moments ) {
+	$items = array();
+
+	foreach ( (array) $moments as $moment ) {
+		$items[] = g5tech_block_markup(
+			'g5tech/labeled-item',
+			array(
+				'label' => (string) ( $moment['label'] ?? '' ),
+				'title' => (string) ( $moment['title'] ?? '' ),
+				'text'  => (string) ( $moment['text'] ?? '' ),
+			)
+		);
+	}
+
+	return g5tech_block_markup( 'g5tech/landing-story', $attributes, implode( "\n", $items ) );
+}
+
+/**
  * Vadovų puslapio turinys blokais.
  */
 function g5tech_leaders_page_block_content() {
-	$decision_cards = array(
+	$benefit_cards = array(
 		array(
-			'title' => 'Viena atsakinga komanda',
-			'text'  => 'Suderiname techninę užduotį, suplanuojame darbus, vykdome montavimą, testuojame ir parengiame perdavimo dokumentaciją.',
+			'title' => 'Mažiau koordinavimo tarp atskirų rangovų',
+			'text'  => 'Pagal sutartą apimtį sujungiame techninį vertinimą, darbų planavimą, montavimą, bandymus ir dokumentaciją.',
 		),
 		array(
-			'title' => 'Patikrinta darbų tvarka',
-			'text'  => 'Kokybės, aplinkosaugos ir darbų saugos procesus pagrindžia ISO 9001, ISO 14001, ISO 45001 ir SSVA kvalifikacija.',
+			'title' => 'Sprendimai priimami anksčiau',
+			'text'  => 'Apie trūkstamą informaciją, techninius apribojimus ir neatitikimus kalbame tada, kai dar galima koreguoti planą.',
 		),
 		array(
-			'title' => 'Patirtis sudėtinguose objektuose',
-			'text'  => 'Komandos patirtis apima daugiau kaip 6000 bazinių stočių, 2G–5G technologijas ir projektus šešiose Europos šalyse.',
-		),
-		array(
-			'title' => 'Aiški komunikacija',
-			'text'  => 'Užsakovas žino, kas atsako už projektą, kokia darbų eiga, kokie neatitikimai nustatyti ir kokių sprendimų reikia.',
+			'title' => 'Perdavimas be spėlionių',
+			'text'  => 'Atliktus darbus patikriname, rezultatus užfiksuojame ir perduodame su sutarta projekto dokumentacija.',
 		),
 	);
-	$decision_links = array(
-		g5tech_block_markup(
-			'g5tech/link-card',
-			array(
-				'label'    => 'Paslaugos',
-				'title'    => 'Peržiūrėkite darbų kryptis ir apimtį.',
-				'linkText' => 'Paslaugų sąrašas →',
-				'url'      => '/paslaugos/',
-			)
+	$project_scenarios = array(
+		array(
+			'title' => 'Projektas dar planuojamas',
+			'text'  => 'Peržiūrime techninę užduotį, objekto sąlygas ir pageidaujamą terminą. Išsiaiškiname trūkstamus klausimus, kad būtų galima tiksliau susitarti dėl darbų apimties.',
 		),
-		g5tech_block_markup(
-			'g5tech/link-card',
-			array(
-				'label'    => 'Patirtis',
-				'title'    => 'Patikrinkite geografiją, technologijas ir kvalifikacijas.',
-				'linkText' => 'Patirties faktai →',
-				'url'      => '/patirtis/',
-			)
+		array(
+			'title' => 'Darbai jau vyksta',
+			'text'  => 'Galime prisijungti prie konkretaus etapo, perimti sutartą darbų dalį arba sustiprinti esamą komandą ten, kur reikia techninės kompetencijos.',
 		),
-		g5tech_block_markup(
-			'g5tech/link-card',
-			array(
-				'label'    => 'Techninė apimtis',
-				'title'    => 'Perduokite techninį vertinimą projekto komandai.',
-				'linkText' => 'Projektų vadovams →',
-				'url'      => '/projektu-vadovams/',
-			)
+		array(
+			'title' => 'Reikia užbaigti likusią apimtį',
+			'text'  => 'Įvertiname esamą būklę, sutariame, ką reikia ištaisyti ar patikrinti, ir suplanuojame kelią iki dokumentuoto perdavimo.',
+		),
+	);
+	$story_moments = array(
+		array(
+			'label' => 'Pradžia',
+			'title' => 'Aiški darbų apimtis',
+			'text'  => 'Sutarta, kas įeina į projektą, kas atsakingas ir ko reikia sklandžiam startui.',
+		),
+		array(
+			'label' => 'Vykdymas',
+			'title' => 'Matoma projekto būklė',
+			'text'  => 'Atsakingas kontaktas, darbų statusas ir laiku sprendžiami neatitikimai.',
+		),
+		array(
+			'label' => 'Perdavimas',
+			'title' => 'Rezultatas su dokumentais',
+			'text'  => 'Bandymų duomenys, ataskaitos ir sutartos darbų apimties perdavimas.',
 		),
 	);
 	$brief_items = array(
-		array( 'text' => 'Techninė užduotis arba preliminari darbų apimtis' ),
+		array( 'text' => 'Turima techninė užduotis arba preliminari darbų apimtis' ),
 		array( 'text' => 'Objekto vieta, esama būklė ir prieigos sąlygos' ),
 		array( 'text' => 'Pageidaujamas darbų terminas arba projekto grafikas' ),
 		array( 'text' => 'Užsakovo dokumentacijos ir darbų saugos reikalavimai' ),
@@ -283,27 +301,55 @@ function g5tech_leaders_page_block_content() {
 			g5tech_block_markup(
 				'g5tech/page-hero',
 				array(
-					'eyebrow'     => 'Partnerystė generaliniams rangovams ir operatoriams',
-					'title'       => 'Vienas techninis partneris nuo užduoties iki dokumentuoto perdavimo.',
-					'lead'        => 'Mobiliojo ir fiksuoto ryšio, elektros, apsaugos bei saulės energetikos darbus vykdome Lietuvoje ir kitose Europos šalyse.',
+					'eyebrow'      => 'Generaliniams rangovams ir operatoriams',
+					'title'        => 'Kai projektas sudėtingas, atsakomybė turi likti aiški.',
+					'lead'         => '5G TECH sujungia techninį vertinimą, montavimą, bandymus ir dokumentaciją į vieną valdomą darbų eigą – Lietuvoje ir kitose Europos šalyse.',
 					'buttonLabel' => 'Aptarti projektą',
 					'buttonUrl'   => '/kontaktai/',
+					'button2Label' => 'Peržiūrėti patirtį',
+					'button2Url'   => '/patirtis/',
 					'lock'        => array(
 						'move'   => true,
 						'remove' => true,
 					),
 				)
 			),
+			g5tech_landing_story_block_markup(
+				array(
+					'eyebrow'       => 'Nuo pirmo pokalbio',
+					'title'         => 'Į projektą įsitraukiame dar prieš prasidedant darbams objekte.',
+					'lead'          => 'Užsakovui reikia ne dar vieno rangovo sąraše, o komandos, kuri supranta bendrą rezultatą ir laiku pasako, ko dar trūksta jam pasiekti.',
+					'body1'         => 'Pirmiausia peržiūrime techninę užduotį, objekto sąlygas, terminus ir atsakomybių ribas. Jei informacijos trūksta, įvardijame tai prieš planuojant komandą ir medžiagas.',
+					'body2'         => 'Vykdymo metu užsakovas turi tiesioginį ryšį su atsakingu žmogumi. Apie darbų eigą, neatitikimus ir sprendimus informuojame tada, kai dar galima veikti, o ne projekto pabaigoje.',
+					'body3'         => 'Užbaigtus darbus patikriname, užfiksuojame rezultatus ir parengiame sutarto formato dokumentaciją. Taip projektas perduodamas ne žodžiu, o patikrinamu rezultatu.',
+					'imageFallback' => 'assets/images/from-live-site/training-room-wide.jpg',
+					'imageAlt'      => '5G TECH mokymų ir techninio pasirengimo erdvė',
+					'caption'       => 'Techninis pasirengimas 5G TECH mokymų salėje',
+					'anchorId'      => 'kaip-dirbame-title',
+				),
+				$story_moments
+			),
 			g5tech_block_markup(
 				'g5tech/section',
 				array(
-					'eyebrow'  => 'Užsakovo kontrolė',
-					'title'    => 'Mažiau rangovų sąsajų, aiškesnė atsakomybė.',
-					'lead'     => 'Sutartą darbų apimtį koordinuoja viena komanda, o sprendimai, patikros ir perdavimas lieka atsekami.',
+					'eyebrow'  => 'Ką gauna užsakovas',
+					'title'    => 'Mažiau neaiškumo kiekviename projekto etape.',
+					'lead'     => 'Aiški atsakomybė svarbi ne kaip principas dokumente, o kaip kasdienė projekto darbo tvarka.',
 					'theme'    => 'paper',
-					'anchorId' => 'reasons-title',
+					'anchorId' => 'benefits-title',
 				),
-				g5tech_cards_block_markup( $decision_cards )
+				g5tech_cards_block_markup( $benefit_cards )
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Kada galime prisijungti',
+					'title'    => 'Nebūtina laukti, kol techninė užduotis bus tobula.',
+					'lead'     => 'Pradėti galime nuo turimos informacijos ir kartu aiškiai įvardyti, ko dar reikia sprendimui.',
+					'theme'    => 'light',
+					'anchorId' => 'scenarios-title',
+				),
+				g5tech_cards_block_markup( $project_scenarios )
 			),
 			g5tech_block_markup(
 				'g5tech/section',
@@ -331,21 +377,12 @@ function g5tech_leaders_page_block_content() {
 			g5tech_block_markup(
 				'g5tech/section',
 				array(
-					'eyebrow'  => 'Informacija sprendimui',
-					'title'    => 'Patikrinkite tai, kas svarbu prieš pasirenkant partnerį.',
-					'theme'    => 'light',
-					'anchorId' => 'decision-links-title',
-				),
-				g5tech_block_markup( 'g5tech/card-grid', array(), implode( "\n", $decision_links ) )
-			),
-			g5tech_block_markup(
-				'g5tech/section',
-				array(
-					'eyebrow'  => 'Pirmasis įvertinimas',
-					'title'    => 'Ko reikia pokalbio pradžiai.',
-					'lead'     => 'Jei dalies informacijos dar neturite, pradėkime nuo turimos projekto medžiagos.',
+					'eyebrow'  => 'Pirmas pokalbis',
+					'title'    => 'Pradžiai pakanka to, ką jau turite.',
+					'lead'     => 'Jei dalies informacijos dar nėra, tai netrukdo pradėti. Peržiūrėsime turimą medžiagą ir įvardysime kitus reikalingus duomenis.',
 					'theme'    => 'paper',
-					'anchorId' => 'brief-title',
+					'anchorId' => 'first-conversation-title',
+					'sectionId' => 'pirmas-pokalbis',
 				),
 				g5tech_list_block_markup( $brief_items, 'g5tech/check-list', 'g5tech/check-item', array( 'text' => 'text' ) )
 			),
@@ -353,10 +390,10 @@ function g5tech_leaders_page_block_content() {
 				'g5tech/page-cta',
 				array(
 					'eyebrow'     => 'Tiesioginis kontaktas',
-					'title'       => 'Aptarkime projekto apimtį ir atsakomybes.',
-					'body'        => 'Aleksandras Iljinas · generalinis direktorius',
-					'buttonLabel' => 'Aptarti projektą',
-					'buttonUrl'   => '/kontaktai/',
+					'title'       => 'Papasakokite, ką planuojate – nuo to ir pradėsime.',
+					'body'        => 'Aleksandras Iljinas · generalinis direktorius. Pirmam pokalbiui pakanka turimos projekto medžiagos.',
+					'buttonLabel' => 'Rašyti Aleksandrui',
+					'buttonUrl'   => 'mailto:Aleksandras@5gtech.lt',
 					'lock'        => array(
 						'move'   => true,
 						'remove' => true,
@@ -484,22 +521,57 @@ function g5tech_project_managers_page_block_content() {
 		$names[] = get_the_title( $partner );
 	}
 
-	$scope_cards = array(
+	$change_cards = array(
 		array(
-			'title' => 'Objekto įvertinimas',
-			'text'  => 'Atliekame „Site Survey“, įvertiname esamą infrastruktūrą, prieigą, darbų saugos sąlygas ir techninius apribojimus.',
+			'title' => 'Objekte randame neatitikimą',
+			'text'  => 'Užfiksuojame faktinę situaciją, įvertiname poveikį darbams ir pateikiame informaciją sprendimui, kol komanda dar gali koreguoti eigą.',
 		),
 		array(
-			'title' => 'Darbų planas',
-			'text'  => 'Suderiname darbų seką, terminus, medžiagas, komandos poreikį ir atsakomybių ribas.',
+			'title' => 'Keičiasi darbų seka',
+			'text'  => 'Perskirstome užduotis, įvardijame priklausomybes ir suderiname, ką galima tęsti nelaukiant kitų projekto dalių.',
 		),
 		array(
-			'title' => 'Montavimas ir patikra',
-			'text'  => 'Montuojame ir konfigūruojame įrangą, atliekame matavimus bei valdome neatitikimus iki patvirtinto rezultato.',
+			'title' => 'Trūksta duomenų ar medžiagų',
+			'text'  => 'Aiškiai įvardijame, ko trūksta, kokią projekto dalį tai stabdo ir kokio sprendimo reikia iš užsakovo ar kito rangovo.',
+		),
+	);
+	$project_steps = array(
+		array(
+			'title' => 'Peržiūrime užduotį',
+			'text'  => 'Sutikriname darbų apimtį, techninius reikalavimus ir trūkstamą informaciją.',
 		),
 		array(
-			'title' => 'Dokumentuotas perdavimas',
-			'text'  => 'Parengiame sutarto formato dokumentaciją, užfiksuojame bandymų rezultatus ir perduodame užbaigtą darbų apimtį.',
+			'title' => 'Įvertiname objektą',
+			'text'  => 'Atliekame „Site Survey“, patikriname prieigą, esamą infrastruktūrą ir techninius apribojimus.',
+		),
+		array(
+			'title' => 'Suderiname planą',
+			'text'  => 'Numatome darbų seką, komandą, medžiagas, saugos reikalavimus ir atsakomybių ribas.',
+		),
+		array(
+			'title' => 'Vykdome ir tikriname',
+			'text'  => 'Montuojame, konfigūruojame, matuojame ir valdome neatitikimus iki sutarto rezultato.',
+		),
+		array(
+			'title' => 'Dokumentuojame ir perduodame',
+			'text'  => 'Parengiame sutarto formato dokumentus, bandymų rezultatus ir užbaigtos apimties perdavimą.',
+		),
+	);
+	$story_moments = array(
+		array(
+			'label' => 'Prieš objektą',
+			'title' => 'Užduotis ir pasirengimas',
+			'text'  => 'Darbų apimtis, techniniai apribojimai, medžiagos, prieiga ir saugos sąlygos.',
+		),
+		array(
+			'label' => 'Objekte',
+			'title' => 'Būklė ir sprendimai',
+			'text'  => 'Atsakingas kontaktas, vykdomi darbai, nustatyti neatitikimai ir reikalingi sprendimai.',
+		),
+		array(
+			'label' => 'Perduodant',
+			'title' => 'Matavimai ir dokumentai',
+			'text'  => 'Bandymų duomenys, ataskaitos ir užbaigtos darbų apimties perdavimas.',
 		),
 	);
 	$brief_items = array(
@@ -516,48 +588,60 @@ function g5tech_project_managers_page_block_content() {
 			g5tech_block_markup(
 				'g5tech/page-hero',
 				array(
-					'eyebrow'     => 'Projektų vadovams ir techninei komandai',
-					'title'       => 'Aiški techninė eiga nuo „Site Survey“ iki dokumentacijos.',
-					'lead'        => 'Suplanuojame darbus, montuojame, konfigūruojame ir testuojame įrangą, valdome neatitikimus bei ruošiame dokumentaciją pagal užsakovo standartą.',
-					'buttonLabel' => 'Atsiųsti techninę užduotį',
-					'buttonUrl'   => '/kontaktai/',
+					'eyebrow'      => 'Projektų vadovams ir techninei komandai',
+					'title'        => 'Nuo objekto apžiūros iki perdavimo – viena aiški techninė eiga.',
+					'lead'         => 'Prisijungiame prie viso projekto arba konkretaus etapo. Sutariame darbų seką, atsakomybes ir informacijos ritmą, kad projekto būklė būtų matoma ne tik ataskaitos dieną.',
+					'buttonLabel'  => 'Siųsti projekto medžiagą',
+					'buttonUrl'    => 'mailto:Nerijus@5gtech.lt',
+					'button2Label' => 'Peržiūrėti darbų eigą',
+					'button2Url'   => '#projekto-eiga',
 					'lock'        => array( 'move' => true, 'remove' => true ),
 				)
 			),
+			g5tech_landing_story_block_markup(
+				array(
+					'eyebrow'       => 'Kas vyksta objekte',
+					'title'         => 'Projektų vadovui svarbu ne tik kas padaryta, bet ir kas vyksta dabar.',
+					'lead'          => 'Techninį darbą organizuojame taip, kad užsakovas turėtų aiškų kontaktą, žinotų dabartinę būklę ir gautų informaciją, reikalingą kitam sprendimui.',
+					'body1'         => 'Prieš darbų pradžią sutikriname techninę užduotį, objekto sąlygas, medžiagas ir atsakomybių ribas. Taip klausimai iškeliami dar prieš komandai atvykstant į objektą.',
+					'body2'         => 'Objekte montuojame ir konfigūruojame įrangą, atliekame matavimus ir fiksuojame faktinę situaciją. Jei planas nebeatitinka realybės, projektų vadovas gauna aiškią informaciją apie poveikį ir reikalingą sprendimą.',
+					'body3'         => 'Baigę sutartą apimtį parengiame bandymų duomenis, ataskaitas ir perdavimo dokumentus. Neišspręsti klausimai nelieka paslėpti galutinėje ataskaitoje.',
+					'imageFallback' => 'assets/images/from-live-site/training-room-wide.jpg',
+					'imageAlt'      => '5G TECH techninė mokymų erdvė su ryšio įranga ir konstrukcijomis',
+					'caption'       => 'Komandos pasirengimas darbui su realia įranga',
+					'anchorId'      => 'projekto-kasdienybe-title',
+				),
+				$story_moments
+			),
 			g5tech_block_markup(
 				'g5tech/section',
 				array(
-					'eyebrow'  => 'Ką perimame',
-					'title'    => 'Keturi aiškūs atsakomybės blokai.',
-					'lead'     => 'Galime perimti visą sutartą ciklą arba prisijungti prie konkretaus projekto etapo.',
+					'eyebrow'   => 'Projekto eiga',
+					'title'     => 'Penki etapai nuo užduoties iki perdavimo.',
+					'lead'      => 'Kiekviename etape aišku, kokią informaciją tikriname, ką atliekame ir kas turi būti perduota toliau.',
+					'theme'     => 'dark',
+					'anchorId'  => 'project-flow-title',
+					'sectionId' => 'projekto-eiga',
+				),
+				g5tech_list_block_markup( $project_steps, 'g5tech/steps', 'g5tech/step', array( 'title' => 'title', 'text' => 'text' ) )
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Kai planas keičiasi',
+					'title'    => 'Problema objekte neturi tapti staigmena projekto pabaigoje.',
+					'lead'     => 'Nukrypimus valdome kaip projekto informaciją: fiksuojame faktą, poveikį ir sprendimą, kurio reikia tolesniam darbui.',
 					'theme'    => 'light',
-					'anchorId' => 'scope-title',
+					'anchorId' => 'changes-title',
 				),
-				g5tech_cards_block_markup( $scope_cards )
+				g5tech_cards_block_markup( $change_cards )
 			),
 			g5tech_block_markup(
 				'g5tech/section',
 				array(
-					'eyebrow'  => 'Techninė bazė',
-					'title'    => 'Įrangą ir darbo veiksmus tikriname dar prieš objektą.',
-					'lead'     => '5G TECH mokymų salėje komanda dirba su realia ryšio įranga, konstrukcijomis ir darbų aukštyje saugos priemonėmis.',
-					'theme'    => 'dark',
-					'anchorId' => 'technical-base-title',
-				),
-				g5tech_block_markup(
-					'g5tech/media-frame',
-					array(
-						'alt'           => '5G TECH praktinių mokymų salė su mobiliojo ryšio įranga',
-						'ratio'         => '16 / 8',
-						'themeFallback' => 'assets/images/from-live-site/training-room-wide.jpg',
-					)
-				)
-			),
-			g5tech_block_markup(
-				'g5tech/section',
-				array(
-					'eyebrow'  => (string) $content['scope_eyebrow'],
-					'title'    => (string) $content['scope_title'],
+					'eyebrow'  => 'Atliekami darbai',
+					'title'    => 'Techninė apimtis, kurią galime perimti.',
+					'lead'     => 'Galutinę apimtį deriname pagal projektą, tačiau komanda gali prisijungti prie šių techninių darbų ir jų dokumentavimo.',
 					'theme'    => 'paper',
 					'anchorId' => 'technical-title',
 				),
@@ -566,8 +650,9 @@ function g5tech_project_managers_page_block_content() {
 			g5tech_block_markup(
 				'g5tech/section',
 				array(
-					'eyebrow'  => (string) $content['equipment_eyebrow'],
-					'title'    => (string) $content['equipment_title'],
+					'eyebrow'  => 'Įrangos patirtis',
+					'title'    => 'Komandai pažįstama projektuose naudojama įranga.',
+					'lead'     => 'Dirbame su skirtingų gamintojų ryšio ir maitinimo įranga, todėl galime prisitaikyti prie užsakovo techninio standarto.',
 					'theme'    => 'dark',
 					'anchorId' => 'equipment-title',
 				),
@@ -576,8 +661,9 @@ function g5tech_project_managers_page_block_content() {
 			g5tech_block_markup(
 				'g5tech/section',
 				array(
-					'eyebrow'  => 'Pirmasis įvertinimas',
-					'title'    => 'Ką atsiųsti, kad galėtume įvertinti darbus.',
+					'eyebrow'  => 'Pirmas įvertinimas',
+					'title'    => 'Atsiųskite tai, ką jau turite.',
+					'lead'     => 'Nebūtina surinkti tobulo dokumentų paketo. Peržiūrėsime turimą medžiagą ir grįšime su konkrečiais trūkstamos informacijos klausimais.',
 					'theme'    => 'light',
 					'anchorId' => 'brief-title',
 				),
@@ -586,11 +672,11 @@ function g5tech_project_managers_page_block_content() {
 			g5tech_block_markup(
 				'g5tech/page-cta',
 				array(
-					'eyebrow'     => 'Techninė užduotis',
-					'title'       => 'Atsiųskite turimą dokumentaciją arba darbų apimtį.',
-					'body'        => 'Peržiūrėsime medžiagą ir susisieksime dėl trūkstamų duomenų bei tolesnių veiksmų.',
-					'buttonLabel' => 'Aptarti techninę užduotį',
-					'buttonUrl'   => '/kontaktai/',
+					'eyebrow'     => 'Tiesioginis techninis kontaktas',
+					'title'       => 'Turite objekto informaciją? Pradėkime nuo jos.',
+					'body'        => 'Nerijus Bazinas · projektų vadovas. Atsiųskite techninę užduotį, brėžinius arba trumpą darbų aprašymą.',
+					'buttonLabel' => 'Rašyti Nerijui',
+					'buttonUrl'   => 'mailto:Nerijus@5gtech.lt',
 					'lock'        => array( 'move' => true, 'remove' => true ),
 				)
 			),
