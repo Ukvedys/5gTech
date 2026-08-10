@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
 @font-face {
   font-family: "DM Sans Local";
   src: url("../../../wordpress/wp-content/themes/twentytwentythree/assets/fonts/dm-sans/DMSans-Regular.woff2") format("woff2");
@@ -12,9 +14,16 @@
   font-display: swap;
 }
 
+/*
+ * Šriftai kaip tikroje svetainėje: Poppins iš Google Fonts.
+ * :root, kad perrašytų design-system/tokens.css (ten "Gilroy", kurio nėra).
+ */
+:root {
+  --5g-font-display: "Poppins", "DM Sans Local", Arial, sans-serif;
+  --5g-font-body: "Poppins", "DM Sans Local", Arial, sans-serif;
+}
+
 html {
-  --5g-font-display: "DM Sans Local", "Poppins", Arial, sans-serif;
-  --5g-font-body: "DM Sans Local", "Poppins", Arial, sans-serif;
   background: var(--5g-color-navy-950);
 }
 
