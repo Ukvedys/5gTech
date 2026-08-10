@@ -571,6 +571,7 @@ a.info-card:focus-visible p {
 }
 
 .check-list {
+  margin-inline: auto;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   border-top: var(--5g-border-width) solid var(--5g-line-light);

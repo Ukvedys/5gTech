@@ -103,6 +103,44 @@
       border-radius: 999px; color: var(--navy); background: white;
       font-size: 13px; font-weight: 700;
     }
+    .brand-cluster {
+      display: flex; align-items: center; gap: clamp(11px, 1.25vw, 20px); flex: 0 0 auto;
+    }
+    .language-switcher {
+      position: relative; z-index: 3; flex: 0 0 auto;
+      color: white; font-size: 11px; font-weight: 700; line-height: 1;
+      letter-spacing: .1em; text-transform: uppercase;
+    }
+    .language-switcher summary {
+      min-width: 60px; height: 40px; padding-inline: 11px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+      color: inherit; border: 1px solid rgba(255,255,255,.3); border-radius: 999px;
+      cursor: pointer; list-style: none;
+    }
+    .language-switcher summary::-webkit-details-marker { display: none; }
+    .language-switcher summary::marker { content: ""; }
+    .language-switcher summary:hover,
+    .language-switcher summary:focus-visible,
+    .language-switcher details[open] summary {
+      border-color: rgba(255,255,255,.72); background: rgba(255,255,255,.1);
+    }
+    .language-switcher__chevron { font-size: 14px; transform: translateY(-1px); }
+    .language-switcher__menu {
+      position: absolute; top: calc(100% + 7px); left: 50%; min-width: 76px;
+      padding: 5px; display: none; flex-direction: column; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.18); border-radius: 12px;
+      background: var(--navy); box-shadow: 0 16px 40px rgba(0,12,24,.28);
+      transform: translateX(-50%);
+    }
+    .language-switcher details[open] .language-switcher__menu { display: flex; }
+    .language-switcher__menu a {
+      min-height: 36px; padding: 9px 12px; display: flex; align-items: center;
+      justify-content: center; border-radius: 8px; color: white;
+    }
+    .language-switcher__menu a:hover,
+    .language-switcher__menu a:focus-visible { background: rgba(255,255,255,.1); }
+    .language-switcher__menu a[aria-current="page"] { color: var(--pink); }
+    .language-switcher__menu a[aria-disabled="true"] { opacity: .45; cursor: not-allowed; }
     .menu-toggle {
       width: 48px; height: 48px; padding: 0; display: none; place-items: center;
       color: white; border: 1px solid rgba(255,255,255,.42); border-radius: 50%;
@@ -1058,6 +1096,9 @@
         --page: calc(100% - 44px);
       }
       .menu-toggle { position: relative; z-index: 2; display: inline-grid; }
+      .brand-cluster { gap: 10px; }
+      .language-switcher { font-size: 10px; }
+      .language-switcher summary { min-width: 54px; height: 36px; padding-inline: 9px; }
       .main-nav {
         position: fixed; z-index: 1; top: 86px; right: 0; bottom: 0; left: 0;
         padding: 42px var(--page-gutter, 22px); display: none; align-items: stretch;
@@ -1214,9 +1255,21 @@
 
   <header class="site-header" id="header">
     <div class="nav-wrap">
-      <a href="index.html" aria-label="5G TECH pradžia">
-        <img class="brand-logo" src="../client-ready-v4/assets/5gtech-logo-white.png" alt="5G TECH">
-      </a>
+      <div class="brand-cluster">
+        <a href="index.html" aria-label="5G TECH pradžia">
+          <img class="brand-logo" src="../client-ready-v4/assets/5gtech-logo-white.png" alt="5G TECH">
+        </a>
+        <nav class="language-switcher" aria-label="Pasirinkite kalbą">
+          <details>
+            <summary aria-label="Pasirinkite kalbą: LT"><span>LT</span><span class="language-switcher__chevron" aria-hidden="true">⌄</span></summary>
+            <div class="language-switcher__menu">
+              <a href="index.html" lang="lt" hreflang="lt" aria-current="page">LT</a>
+              <a href="#" lang="en" hreflang="en" aria-disabled="true" data-placeholder-link title="Veikia WordPress versijoje">EN</a>
+              <a href="#" lang="de" hreflang="de" aria-disabled="true" data-placeholder-link title="Veikia WordPress versijoje">DE</a>
+            </div>
+          </details>
+        </nav>
+      </div>
       <button class="menu-toggle" type="button" aria-label="Atverti meniu" aria-expanded="false" aria-controls="main-nav">
         <span class="menu-toggle__icon" aria-hidden="true"><span></span></span>
       </button>
@@ -1623,6 +1676,20 @@
         if (event.matches) closeMenu();
       });
     }
+
+    document.addEventListener('click', (event) => {
+      document.querySelectorAll('.language-switcher details[open]').forEach((details) => {
+        if (!details.contains(event.target)) details.removeAttribute('open');
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      document.querySelectorAll('.language-switcher details[open]').forEach((details) => {
+        details.removeAttribute('open');
+        details.querySelector('summary')?.focus();
+      });
+    });
 
     document.querySelectorAll('[data-placeholder-link]').forEach((link) => {
       link.addEventListener('click', (event) => event.preventDefault());

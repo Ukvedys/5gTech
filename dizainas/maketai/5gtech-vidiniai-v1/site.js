@@ -15,9 +15,21 @@
       <a class="skip-link" href="#content">Pereiti prie turinio</a>
       <header class="page-header">
         <div class="g5-container page-header__inner">
-          <a href="../5gtech-titulinis-v1/index.html" aria-label="5G TECH pagrindinis puslapis">
-            <img class="page-logo" src="../client-ready-v4/assets/5gtech-logo-white.png" alt="5G TECH">
-          </a>
+          <div class="page-brand-cluster">
+            <a href="../5gtech-titulinis-v1/index.html" aria-label="5G TECH pagrindinis puslapis">
+              <img class="page-logo" src="../client-ready-v4/assets/5gtech-logo-white.png" alt="5G TECH">
+            </a>
+            <nav class="language-switcher" aria-label="Pasirinkite kalbą">
+              <details>
+                <summary aria-label="Pasirinkite kalbą: LT"><span>LT</span><span class="language-switcher__chevron" aria-hidden="true">⌄</span></summary>
+                <div class="language-switcher__menu">
+                  <a href="${window.location.pathname}" lang="lt" hreflang="lt" aria-current="page">LT</a>
+                  <a href="#" lang="en" hreflang="en" aria-disabled="true" title="Veikia WordPress versijoje">EN</a>
+                  <a href="#" lang="de" hreflang="de" aria-disabled="true" title="Veikia WordPress versijoje">DE</a>
+                </div>
+              </details>
+            </nav>
+          </div>
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Meniu</button>
           <nav class="page-nav" id="site-nav" aria-label="Pagrindinė navigacija">
             ${navItems.map(([key, label, url]) => `<a href="${url}"${section === key ? ' aria-current="page"' : ""}>${label}</a>`).join("")}
@@ -33,7 +45,25 @@
       toggle.setAttribute("aria-expanded", String(!open));
       nav.classList.toggle("is-open", !open);
     });
+
+    headerTarget.querySelectorAll('.language-switcher a[aria-disabled="true"]').forEach((link) => {
+      link.addEventListener("click", (event) => event.preventDefault());
+    });
   }
+
+  document.addEventListener("click", (event) => {
+    document.querySelectorAll(".language-switcher details[open]").forEach((details) => {
+      if (!details.contains(event.target)) details.removeAttribute("open");
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    document.querySelectorAll(".language-switcher details[open]").forEach((details) => {
+      details.removeAttribute("open");
+      details.querySelector("summary")?.focus();
+    });
+  });
 
   if (footerTarget) {
     footerTarget.innerHTML = `
