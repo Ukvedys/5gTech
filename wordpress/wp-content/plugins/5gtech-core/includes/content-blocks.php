@@ -304,10 +304,14 @@ function g5tech_render_card_grid_block( $attributes, $content, $block = null ) {
 	}
 
 	$number = 0;
+	$grid_classes = 'g5-container card-grid';
+	if ( 4 === count( $cards ) ) {
+		$grid_classes .= ' card-grid--four';
+	}
 
 	ob_start();
 	?>
-	<div class="g5-container card-grid"><?php foreach ( $cards as $card ) : ?><?php if ( 'link' === $card['type'] ) : ?><a class="info-card" href="<?php echo esc_url( $card['url'] ); ?>"><span class="info-card__number"><?php echo esc_html( wp_strip_all_tags( $card['label'] ) ); ?></span><h3 class="g5-heading-md"><?php echo esc_html( wp_strip_all_tags( $card['title'] ) ); ?></h3><span class="info-card__link"><?php echo esc_html( wp_strip_all_tags( $card['link'] ) ); ?></span></a><?php else : ?><?php $number++; ?><div class="info-card"><span class="info-card__number"><?php echo esc_html( str_pad( (string) $number, 2, '0', STR_PAD_LEFT ) ); ?></span><h3 class="g5-heading-sm"><?php echo esc_html( wp_strip_all_tags( $card['title'] ) ); ?></h3><p><?php echo esc_html( wp_strip_all_tags( $card['text'] ) ); ?></p></div><?php endif; ?><?php endforeach; ?></div>
+	<div class="<?php echo esc_attr( $grid_classes ); ?>"><?php foreach ( $cards as $card ) : ?><?php if ( 'link' === $card['type'] ) : ?><a class="info-card" href="<?php echo esc_url( $card['url'] ); ?>"><span class="info-card__number"><?php echo esc_html( wp_strip_all_tags( $card['label'] ) ); ?></span><h3 class="g5-heading-md"><?php echo esc_html( wp_strip_all_tags( $card['title'] ) ); ?></h3><span class="info-card__link"><?php echo esc_html( wp_strip_all_tags( $card['link'] ) ); ?></span></a><?php else : ?><?php $number++; ?><div class="info-card"><span class="info-card__number"><?php echo esc_html( str_pad( (string) $number, 2, '0', STR_PAD_LEFT ) ); ?></span><h3 class="g5-heading-sm"><?php echo esc_html( wp_strip_all_tags( $card['title'] ) ); ?></h3><p><?php echo esc_html( wp_strip_all_tags( $card['text'] ) ); ?></p></div><?php endif; ?><?php endforeach; ?></div>
 	<?php
 
 	return (string) ob_get_clean();
@@ -1569,8 +1573,16 @@ function g5tech_render_service_cards_block() {
 			$card_title   = get_post_meta( $service->ID, 'g5_service_card_title', true ) ?: get_the_title( $service );
 			$card_summary = get_post_meta( $service->ID, 'g5_service_card_summary', true )
 				?: get_post_meta( $service->ID, 'g5_service_summary', true );
+			$visual       = function_exists( 'g5tech_service_generated_visual' )
+				? g5tech_service_generated_visual( $service->ID )
+				: array();
 			?>
 			<a class="g5-service-card" href="<?php echo esc_url( get_permalink( $service ) ); ?>">
+				<?php if ( ! empty( $visual['url'] ) ) : ?>
+					<figure class="g5-service-card__media">
+						<img src="<?php echo esc_url( $visual['url'] ); ?>" alt="<?php echo esc_attr( (string) ( $visual['alt'] ?? '' ) ); ?>" loading="lazy">
+					</figure>
+				<?php endif; ?>
 				<span class="g5-service-card__number"><?php echo esc_html( str_pad( (string) ( $index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
 				<h3 class="g5-heading-md"><?php echo esc_html( $card_title ); ?></h3>
 				<?php if ( $card_summary ) : ?>

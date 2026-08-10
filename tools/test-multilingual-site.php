@@ -240,23 +240,23 @@ g5_test_assert(
 	'Generated service visuals must not be used in the homepage hero.'
 );
 
-$generated_asset_pages = array(
-	'/paslaugos/mobiliojo-rysio-tinklai/'            => 'service-mobile-networks-v1.jpg',
-	'/paslaugos/vidinio-rysio-tinklai/'              => 'service-indoor-networks-v1.jpg',
-	'/paslaugos/fiksuoto-rysio-tinklai/'             => 'service-fixed-networks-v1.jpg',
-	'/paslaugos/elektros-darbai/'                    => 'service-electrical-v1.jpg',
-	'/paslaugos/apsaugos-ir-stebejimo-sistemos/'     => 'service-security-v1.jpg',
-	'/paslaugos/saules-elektrines/'                  => 'service-solar-v1.jpg',
-	'/mokymai/'                                      => 'training-technical-lab-v1.jpg',
-	'/projektai/baziniu-stociu-modernizavimas-vokietijoje/' => 'project-telecom-site-v1.jpg',
+$visual_asset_pages = array(
+	'/paslaugos/mobiliojo-rysio-tinklai/'            => 'from-live-site/service-mobile-networks.png',
+	'/paslaugos/vidinio-rysio-tinklai/'              => 'from-live-site/service-indoor-networks.png',
+	'/paslaugos/fiksuoto-rysio-tinklai/'             => 'generated/service-fixed-networks-v1.jpg',
+	'/paslaugos/elektros-darbai/'                    => 'generated/service-electrical-v1.jpg',
+	'/paslaugos/apsaugos-ir-stebejimo-sistemos/'     => 'generated/service-security-v1.jpg',
+	'/paslaugos/saules-elektrines/'                  => 'from-live-site/service-solar.png',
+	'/mokymai/'                                      => 'from-live-site/training-room-wide.jpg',
+	'/projektai/baziniu-stociu-modernizavimas-vokietijoje/' => 'generated/project-telecom-site-v1.jpg',
 );
 
-foreach ( $generated_asset_pages as $path => $asset ) {
+foreach ( $visual_asset_pages as $path => $asset ) {
 	$response = g5_test_request( $base_url . $path, array( 'Cookie: g5tech_language=lt' ) );
 	g5_test_assert( 200 === $response['status'], $path . ' returned HTTP ' . $response['status'] . ' during asset verification.' );
 	g5_test_assert(
-		false !== strpos( $response['body'], '/assets/images/generated/' . $asset ),
-		$path . ' is missing its assigned generated visual: ' . $asset
+		false !== strpos( $response['body'], '/assets/images/' . $asset ),
+		$path . ' is missing its assigned visual: ' . $asset
 	);
 }
 

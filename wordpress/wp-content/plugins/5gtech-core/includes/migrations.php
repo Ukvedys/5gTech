@@ -223,7 +223,59 @@ function g5tech_cards_block_markup( $rows, $title_key = 'title', $text_key = 'te
  * Vadovų puslapio turinys blokais.
  */
 function g5tech_leaders_page_block_content() {
-	$content = g5tech_structured_section( 'leaders' );
+	$decision_cards = array(
+		array(
+			'title' => 'Viena atsakinga komanda',
+			'text'  => 'Suderiname techninę užduotį, suplanuojame darbus, vykdome montavimą, testuojame ir parengiame perdavimo dokumentaciją.',
+		),
+		array(
+			'title' => 'Patikrinta darbų tvarka',
+			'text'  => 'Kokybės, aplinkosaugos ir darbų saugos procesus pagrindžia ISO 9001, ISO 14001, ISO 45001 ir SSVA kvalifikacija.',
+		),
+		array(
+			'title' => 'Patirtis sudėtinguose objektuose',
+			'text'  => 'Komandos patirtis apima daugiau kaip 6000 bazinių stočių, 2G–5G technologijas ir projektus šešiose Europos šalyse.',
+		),
+		array(
+			'title' => 'Aiški komunikacija',
+			'text'  => 'Užsakovas žino, kas atsako už projektą, kokia darbų eiga, kokie neatitikimai nustatyti ir kokių sprendimų reikia.',
+		),
+	);
+	$decision_links = array(
+		g5tech_block_markup(
+			'g5tech/link-card',
+			array(
+				'label'    => 'Paslaugos',
+				'title'    => 'Peržiūrėkite darbų kryptis ir apimtį.',
+				'linkText' => 'Paslaugų sąrašas →',
+				'url'      => '/paslaugos/',
+			)
+		),
+		g5tech_block_markup(
+			'g5tech/link-card',
+			array(
+				'label'    => 'Patirtis',
+				'title'    => 'Patikrinkite geografiją, technologijas ir kvalifikacijas.',
+				'linkText' => 'Patirties faktai →',
+				'url'      => '/patirtis/',
+			)
+		),
+		g5tech_block_markup(
+			'g5tech/link-card',
+			array(
+				'label'    => 'Techninė apimtis',
+				'title'    => 'Perduokite techninį vertinimą projekto komandai.',
+				'linkText' => 'Projektų vadovams →',
+				'url'      => '/projektu-vadovams/',
+			)
+		),
+	);
+	$brief_items = array(
+		array( 'text' => 'Techninė užduotis arba preliminari darbų apimtis' ),
+		array( 'text' => 'Objekto vieta, esama būklė ir prieigos sąlygos' ),
+		array( 'text' => 'Pageidaujamas darbų terminas arba projekto grafikas' ),
+		array( 'text' => 'Užsakovo dokumentacijos ir darbų saugos reikalavimai' ),
+	);
 
 	return implode(
 		"\n\n",
@@ -231,10 +283,10 @@ function g5tech_leaders_page_block_content() {
 			g5tech_block_markup(
 				'g5tech/page-hero',
 				array(
-					'eyebrow'     => 'Informacija įmonių vadovams',
-					'title'       => 'Projektų vykdymas su aiškiomis atsakomybėmis.',
-					'lead'        => 'Telekomunikacijų, energetikos ir inžinerinių sistemų projektai Lietuvoje bei kitose Europos šalyse.',
-					'buttonLabel' => 'Susisiekti su vadovu',
+					'eyebrow'     => 'Partnerystė generaliniams rangovams ir operatoriams',
+					'title'       => 'Vienas techninis partneris nuo užduoties iki dokumentuoto perdavimo.',
+					'lead'        => 'Mobiliojo ir fiksuoto ryšio, elektros, apsaugos bei saulės energetikos darbus vykdome Lietuvoje ir kitose Europos šalyse.',
+					'buttonLabel' => 'Aptarti projektą',
 					'buttonUrl'   => '/kontaktai/',
 					'lock'        => array(
 						'move'   => true,
@@ -245,20 +297,65 @@ function g5tech_leaders_page_block_content() {
 			g5tech_block_markup(
 				'g5tech/section',
 				array(
-					'eyebrow'  => (string) $content['reasons_eyebrow'],
-					'title'    => (string) $content['reasons_title'],
+					'eyebrow'  => 'Užsakovo kontrolė',
+					'title'    => 'Mažiau rangovų sąsajų, aiškesnė atsakomybė.',
+					'lead'     => 'Sutartą darbų apimtį koordinuoja viena komanda, o sprendimai, patikros ir perdavimas lieka atsekami.',
 					'theme'    => 'paper',
 					'anchorId' => 'reasons-title',
 				),
-				g5tech_cards_block_markup( $content['reasons'] )
+				g5tech_cards_block_markup( $decision_cards )
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Įrodymai prieš pažadus',
+					'title'    => 'Patirtis, kurią galima patikrinti.',
+					'theme'    => 'dark',
+					'anchorId' => 'proof-title',
+				),
+				implode(
+					"\n",
+					array(
+						g5tech_block_markup( 'g5tech/stats-band' ),
+						g5tech_block_markup(
+							'g5tech/media-frame',
+							array(
+								'alt'           => 'Mobiliojo ryšio bokštas kalnuotoje vietovėje',
+								'ratio'         => '16 / 6',
+								'themeFallback' => 'assets/images/from-live-site/services-header.jpg',
+							)
+						),
+					)
+				)
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Informacija sprendimui',
+					'title'    => 'Patikrinkite tai, kas svarbu prieš pasirenkant partnerį.',
+					'theme'    => 'light',
+					'anchorId' => 'decision-links-title',
+				),
+				g5tech_block_markup( 'g5tech/card-grid', array(), implode( "\n", $decision_links ) )
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Pirmasis įvertinimas',
+					'title'    => 'Ko reikia pokalbio pradžiai.',
+					'lead'     => 'Jei dalies informacijos dar neturite, pradėkime nuo turimos projekto medžiagos.',
+					'theme'    => 'paper',
+					'anchorId' => 'brief-title',
+				),
+				g5tech_list_block_markup( $brief_items, 'g5tech/check-list', 'g5tech/check-item', array( 'text' => 'text' ) )
 			),
 			g5tech_block_markup(
 				'g5tech/page-cta',
 				array(
 					'eyebrow'     => 'Tiesioginis kontaktas',
-					'title'       => 'Aptarkime projekto apimtį, rizikas ir atsakomybes.',
+					'title'       => 'Aptarkime projekto apimtį ir atsakomybes.',
 					'body'        => 'Aleksandras Iljinas · generalinis direktorius',
-					'buttonLabel' => 'Susisiekti',
+					'buttonLabel' => 'Aptarti projektą',
 					'buttonUrl'   => '/kontaktai/',
 					'lock'        => array(
 						'move'   => true,
@@ -387,15 +484,41 @@ function g5tech_project_managers_page_block_content() {
 		$names[] = get_the_title( $partner );
 	}
 
+	$scope_cards = array(
+		array(
+			'title' => 'Objekto įvertinimas',
+			'text'  => 'Atliekame „Site Survey“, įvertiname esamą infrastruktūrą, prieigą, darbų saugos sąlygas ir techninius apribojimus.',
+		),
+		array(
+			'title' => 'Darbų planas',
+			'text'  => 'Suderiname darbų seką, terminus, medžiagas, komandos poreikį ir atsakomybių ribas.',
+		),
+		array(
+			'title' => 'Montavimas ir patikra',
+			'text'  => 'Montuojame ir konfigūruojame įrangą, atliekame matavimus bei valdome neatitikimus iki patvirtinto rezultato.',
+		),
+		array(
+			'title' => 'Dokumentuotas perdavimas',
+			'text'  => 'Parengiame sutarto formato dokumentaciją, užfiksuojame bandymų rezultatus ir perduodame užbaigtą darbų apimtį.',
+		),
+	);
+	$brief_items = array(
+		array( 'text' => 'Techninė užduotis, brėžiniai arba darbų apimties žiniaraštis' ),
+		array( 'text' => 'Objekto adresas, prieigos ir darbų aukštyje sąlygos' ),
+		array( 'text' => 'Naudojama įranga ir užsakovo techniniai standartai' ),
+		array( 'text' => 'Reikalingi matavimai, ataskaitos ir perdavimo dokumentai' ),
+		array( 'text' => 'Pageidaujamas darbų grafikas ir svarbiausi terminai' ),
+	);
+
 	return implode(
 		"\n\n",
 		array(
 			g5tech_block_markup(
 				'g5tech/page-hero',
 				array(
-					'eyebrow'     => 'Projektų vadovams ir techniniam personalui',
-					'title'       => 'Techninė projekto eiga ir dokumentacija.',
-					'lead'        => 'Dirbame pagal užsakovo techninius standartus ir tiesiogiai informuojame apie darbų eigą, neatitikimus bei dokumentaciją.',
+					'eyebrow'     => 'Projektų vadovams ir techninei komandai',
+					'title'       => 'Aiški techninė eiga nuo „Site Survey“ iki dokumentacijos.',
+					'lead'        => 'Suplanuojame darbus, montuojame, konfigūruojame ir testuojame įrangą, valdome neatitikimus bei ruošiame dokumentaciją pagal užsakovo standartą.',
 					'buttonLabel' => 'Atsiųsti techninę užduotį',
 					'buttonUrl'   => '/kontaktai/',
 					'lock'        => array( 'move' => true, 'remove' => true ),
@@ -404,9 +527,38 @@ function g5tech_project_managers_page_block_content() {
 			g5tech_block_markup(
 				'g5tech/section',
 				array(
+					'eyebrow'  => 'Ką perimame',
+					'title'    => 'Keturi aiškūs atsakomybės blokai.',
+					'lead'     => 'Galime perimti visą sutartą ciklą arba prisijungti prie konkretaus projekto etapo.',
+					'theme'    => 'light',
+					'anchorId' => 'scope-title',
+				),
+				g5tech_cards_block_markup( $scope_cards )
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Techninė bazė',
+					'title'    => 'Įrangą ir darbo veiksmus tikriname dar prieš objektą.',
+					'lead'     => '5G TECH mokymų salėje komanda dirba su realia ryšio įranga, konstrukcijomis ir darbų aukštyje saugos priemonėmis.',
+					'theme'    => 'dark',
+					'anchorId' => 'technical-base-title',
+				),
+				g5tech_block_markup(
+					'g5tech/media-frame',
+					array(
+						'alt'           => '5G TECH praktinių mokymų salė su mobiliojo ryšio įranga',
+						'ratio'         => '16 / 8',
+						'themeFallback' => 'assets/images/from-live-site/training-room-wide.jpg',
+					)
+				)
+			),
+			g5tech_block_markup(
+				'g5tech/section',
+				array(
 					'eyebrow'  => (string) $content['scope_eyebrow'],
 					'title'    => (string) $content['scope_title'],
-					'theme'    => 'light',
+					'theme'    => 'paper',
 					'anchorId' => 'technical-title',
 				),
 				g5tech_list_block_markup( $content['tasks'], 'g5tech/check-list', 'g5tech/check-item', array( 'text' => 'text' ) )
@@ -422,11 +574,22 @@ function g5tech_project_managers_page_block_content() {
 				g5tech_block_markup( 'g5tech/partner-stats', array( 'partnerIds' => $ids, 'names' => $names ) )
 			),
 			g5tech_block_markup(
+				'g5tech/section',
+				array(
+					'eyebrow'  => 'Pirmasis įvertinimas',
+					'title'    => 'Ką atsiųsti, kad galėtume įvertinti darbus.',
+					'theme'    => 'light',
+					'anchorId' => 'brief-title',
+				),
+				g5tech_list_block_markup( $brief_items, 'g5tech/check-list', 'g5tech/check-item', array( 'text' => 'text' ) )
+			),
+			g5tech_block_markup(
 				'g5tech/page-cta',
 				array(
 					'eyebrow'     => 'Techninė užduotis',
 					'title'       => 'Atsiųskite turimą dokumentaciją arba darbų apimtį.',
-					'buttonLabel' => 'Susisiekti',
+					'body'        => 'Peržiūrėsime medžiagą ir susisieksime dėl trūkstamų duomenų bei tolesnių veiksmų.',
+					'buttonLabel' => 'Aptarti techninę užduotį',
 					'buttonUrl'   => '/kontaktai/',
 					'lock'        => array( 'move' => true, 'remove' => true ),
 				)
@@ -494,7 +657,7 @@ function g5tech_training_page_block_content() {
 					'imageUrl'      => $image_url,
 					'alt'           => (string) ( $content['image_alt'] ?? '' ),
 					'ratio'         => '16 / 8',
-					'themeFallback' => 'assets/images/generated/training-technical-lab-v1.jpg',
+					'themeFallback' => 'assets/images/from-live-site/training-room-wide.jpg',
 				)
 			)
 		),
