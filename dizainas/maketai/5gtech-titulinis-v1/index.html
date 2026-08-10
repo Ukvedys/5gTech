@@ -103,6 +103,31 @@
       border-radius: 999px; color: var(--navy); background: white;
       font-size: 13px; font-weight: 700;
     }
+    .menu-toggle {
+      width: 48px; height: 48px; padding: 0; display: none; place-items: center;
+      color: white; border: 1px solid rgba(255,255,255,.42); border-radius: 50%;
+      background: rgba(255,255,255,.045); cursor: pointer;
+      transition: border-color .2s, background .2s, transform .2s;
+    }
+    .menu-toggle:hover, .menu-toggle:focus-visible {
+      border-color: white; background: rgba(255,255,255,.12); transform: scale(1.04);
+    }
+    .menu-toggle__icon {
+      position: relative; width: 22px; height: 16px; display: block;
+    }
+    .menu-toggle__icon::before,
+    .menu-toggle__icon::after,
+    .menu-toggle__icon span {
+      position: absolute; left: 0; width: 100%; height: 2px;
+      border-radius: 2px; background: currentColor;
+      transition: top .2s, transform .2s, opacity .2s;
+    }
+    .menu-toggle__icon::before { content: ""; top: 0; }
+    .menu-toggle__icon span { top: 7px; }
+    .menu-toggle__icon::after { content: ""; top: 14px; }
+    .menu-toggle[aria-expanded="true"] .menu-toggle__icon::before { top: 7px; transform: rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .menu-toggle__icon span { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] .menu-toggle__icon::after { top: 7px; transform: rotate(-45deg); }
 
     /* Hero */
     .hero {
@@ -1032,7 +1057,27 @@
       :root {
         --page: calc(100% - 44px);
       }
-      .main-nav > a:not(.nav-cta) { display: none; }
+      .menu-toggle { position: relative; z-index: 2; display: inline-grid; }
+      .main-nav {
+        position: fixed; z-index: 1; top: 86px; right: 0; bottom: 0; left: 0;
+        padding: 42px var(--page-gutter, 22px); display: none; align-items: stretch;
+        flex-direction: column; gap: 0; overflow-y: auto;
+        border-top: 1px solid rgba(255,255,255,.13);
+        background:
+          radial-gradient(circle at 88% 12%, rgba(236,0,98,.14), transparent 30rem),
+          var(--navy-deep);
+      }
+      .main-nav.is-open { display: flex; }
+      .main-nav > a:not(.nav-cta),
+      .main-nav > .nav-cta {
+        min-height: 66px; padding: 0; display: flex; align-items: center;
+        color: white; border-bottom: 1px solid rgba(255,255,255,.18);
+        border-radius: 0; background: transparent;
+        font-size: 15px; font-weight: 600;
+      }
+      .main-nav > a::after { display: none !important; }
+      .site-header.menu-open { background: var(--navy-deep); backdrop-filter: none; }
+      body.menu-open { overflow: hidden; }
       .hero h1 { max-width: 690px; }
       .meta-item { padding-inline: 14px; }
       .meta-item:nth-child(3) strong { font-size: clamp(9px, 1.25vw, 12px); }
@@ -1172,7 +1217,10 @@
       <a href="index.html" aria-label="5G TECH pradžia">
         <img class="brand-logo" src="../client-ready-v4/assets/5gtech-logo-white.png" alt="5G TECH">
       </a>
-      <nav class="main-nav" aria-label="Pagrindinė navigacija">
+      <button class="menu-toggle" type="button" aria-label="Atverti meniu" aria-expanded="false" aria-controls="main-nav">
+        <span class="menu-toggle__icon" aria-hidden="true"><span></span></span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Pagrindinė navigacija">
         <a href="../5gtech-vidiniai-v1/paslaugos.html">Paslaugos</a>
         <a href="../5gtech-vidiniai-v1/patirtis.html">Patirtis</a>
         <a href="../5gtech-komanda-v1/index.html">Apie mus</a>
@@ -1539,11 +1587,42 @@
 
   <script>
     const header = document.getElementById('header');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.getElementById('main-nav');
     const hero = document.querySelector('.hero');
     const heroImage = document.getElementById('hero-image');
     const bridgeSection = document.querySelector('.bridge');
     const processSection = document.querySelector('.process');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function closeMenu(restoreFocus = false) {
+      if (!menuToggle || !mainNav) return;
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Atverti meniu');
+      mainNav.classList.remove('is-open');
+      header.classList.remove('menu-open');
+      document.body.classList.remove('menu-open');
+      if (restoreFocus) menuToggle.focus();
+    }
+
+    if (menuToggle && mainNav) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = menuToggle.getAttribute('aria-expanded') !== 'true';
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Uždaryti meniu' : 'Atverti meniu');
+        mainNav.classList.toggle('is-open', isOpen);
+        header.classList.toggle('menu-open', isOpen);
+        document.body.classList.toggle('menu-open', isOpen);
+      });
+
+      mainNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => closeMenu()));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mainNav.classList.contains('is-open')) closeMenu(true);
+      });
+      window.matchMedia('(min-width: 1051px)').addEventListener('change', (event) => {
+        if (event.matches) closeMenu();
+      });
+    }
 
     document.querySelectorAll('[data-placeholder-link]').forEach((link) => {
       link.addEventListener('click', (event) => event.preventDefault());
