@@ -2104,3 +2104,56 @@ body.editor-styles-wrapper .wp-block-quote {
 	padding-left: 1.5rem;
 	border-left: 4px solid var(--g5-pink);
 }
+
+/*
+ * Pilno pločio paralakso nuotrauka (Nuotrauka rėmelyje blokas).
+ * Globalu, kad veiktų visuose puslapiuose, ne tik vidiniuose.
+ */
+.media-frame--parallax {
+  width: 100%;
+  max-width: none;
+  height: clamp(340px, 72vh, 860px);
+  margin: 0;
+  border-left: 0;
+  border-right: 0;
+  background-size: cover;
+  background-position: center 30%;
+  background-attachment: fixed;
+}
+
+/* iOS/Android fixed fono nepalaiko — ten rodoma statiškai. */
+@media (hover: none), (max-width: 720px) {
+  .media-frame--parallax {
+    height: clamp(260px, 48vh, 520px);
+    background-attachment: scroll;
+  }
+}
+
+/* Video variantas: paralaksą daro media-parallax.js transformacija. */
+.media-frame__video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.media-frame--parallax.media-frame--video {
+  position: relative;
+  overflow: hidden;
+  background: var(--g5-navy-950);
+}
+
+.media-frame--parallax .media-frame__video {
+  position: absolute;
+  top: -15%;
+  left: 0;
+  height: 130%;
+  will-change: transform;
+}
+
+.media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+

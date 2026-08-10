@@ -94,6 +94,21 @@ function g5tech_register_content_blocks() {
 add_action( 'init', 'g5tech_register_content_blocks' );
 
 /**
+ * Video paralakso skriptas. Registruojamas visada, o užkraunamas tik
+ * tada, kai puslapyje atvaizduojamas video variantas.
+ */
+function g5tech_register_media_parallax_script() {
+	wp_register_script(
+		'g5tech-media-parallax',
+		G5TECH_CORE_URL . 'assets/media-parallax.js',
+		array(),
+		G5TECH_CORE_VERSION,
+		array( 'in_footer' => true )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'g5tech_register_media_parallax_script' );
+
+/**
  * Santykinė nuoroda paverčiama pilnu adresu, kad turinys nebūtų pririštas
  * prie konkrečios aplinkos (lokali, staging, produkcija).
  */
@@ -488,21 +503,54 @@ function g5tech_render_media_frame_block( $attributes = array() ) {
 		$url = get_theme_file_uri( ltrim( (string) $attributes['themeFallback'], '/' ) );
 	}
 
-	if ( ! $url ) {
-		return '';
-	}
-
 	$alt = (string) ( $attributes['alt'] ?? '' );
 
-	// Pilno pločio paralakso variantas: nuotrauka fiksuota fone, todėl
-	// skrolinant ji atsidengia palaipsniui.
+	// Video: iš medijos bibliotekos arba temos failo. Visada be garso,
+	// kartojasi ir paleidžiamas automatiškai.
+	$video_id  = absint( $attributes['videoId'] ?? 0 );
+	$video_url = $video_id ? (string) wp_get_attachment_url( $video_id ) : '';
+
+	if ( ! $video_url && ! empty( $attributes['videoFallback'] ) ) {
+		$video_url = get_theme_file_uri( ltrim( (string) $attributes['videoFallback'], '/' ) );
+	}
+
+	if ( $video_url ) {
+		wp_enqueue_script( 'g5tech-media-parallax' );
+	}
+
+	$video_markup = $video_url
+		? '<video class="media-frame__video" src="' . esc_url( $video_url ) . '" autoplay muted loop playsinline preload="metadata" aria-label="' . esc_attr( $alt ) . '"></video>'
+		: '';
+
+	// Pilno pločio paralakso variantas: nuotrauka fiksuota fone (o video
+	// stumdomas skriptu), todėl skrolinant vaizdas atsidengia palaipsniui.
 	if ( ! empty( $attributes['parallax'] ) ) {
+		if ( ! $video_markup && ! $url ) {
+			return '';
+		}
+
 		ob_start();
-		?>
-		<figure class="media-frame media-frame--parallax" role="img" aria-label="<?php echo esc_attr( $alt ); ?>" style="background-image: url('<?php echo esc_url( $url ); ?>')"></figure>
-		<?php
+		if ( $video_markup ) {
+			?>
+			<figure class="media-frame media-frame--parallax media-frame--video"><?php echo $video_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></figure>
+			<?php
+		} else {
+			?>
+			<figure class="media-frame media-frame--parallax" role="img" aria-label="<?php echo esc_attr( $alt ); ?>" style="background-image: url('<?php echo esc_url( $url ); ?>')"></figure>
+			<?php
+		}
 
 		return (string) ob_get_clean();
+	}
+
+	if ( $video_markup ) {
+		$ratio = trim( (string) ( $attributes['ratio'] ?? '16 / 8' ) ) ?: '16 / 8';
+
+		return '<figure class="g5-container media-frame media-frame--video" style="aspect-ratio: ' . esc_attr( $ratio ) . '">' . $video_markup . '</figure>';
+	}
+
+	if ( ! $url ) {
+		return '';
 	}
 
 	$ratio = trim( (string) ( $attributes['ratio'] ?? '16 / 8' ) ) ?: '16 / 8';

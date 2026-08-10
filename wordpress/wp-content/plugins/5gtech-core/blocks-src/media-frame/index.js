@@ -6,22 +6,33 @@ import metadata from './block.json';
 
 registerBlockType( metadata.name, {
 	edit( { attributes, setAttributes } ) {
-		const { imageId, imageUrl, alt, ratio, themeFallback, parallax } = attributes;
+		const { imageId, imageUrl, alt, ratio, themeFallback, parallax, videoId, videoFallback } = attributes;
 		const media = useSelect( ( select ) => ( imageId ? select( 'core' ).getMedia( imageId ) : null ), [ imageId ] );
+		const videoMedia = useSelect( ( select ) => ( videoId ? select( 'core' ).getMedia( videoId ) : null ), [ videoId ] );
 		const themeUri = window.g5tech && window.g5tech.themeUri ? window.g5tech.themeUri : '';
-		const url = ( media && media.source_url ) || imageUrl || ( themeFallback && themeUri ? themeUri + '/' + themeFallback.replace( /^\//, '' ) : '' );
+		const themePath = ( p ) => ( p && themeUri ? themeUri + '/' + p.replace( /^\//, '' ) : '' );
+		const url = ( media && media.source_url ) || imageUrl || themePath( themeFallback );
+		const videoUrl = ( videoMedia && videoMedia.source_url ) || themePath( videoFallback );
 
 		const controls = (
 			<InspectorControls>
-				<PanelBody title="Nuotrauka">
+				<PanelBody title="Nuotrauka arba video">
 					<MediaUploadCheck>
 						<MediaUpload onSelect={ ( m ) => setAttributes( { imageId: m.id } ) } allowedTypes={ [ 'image' ] } value={ imageId }
 							render={ ( { open } ) => <Button variant="secondary" onClick={ open }>{ imageId ? 'Pakeisti nuotrauką' : 'Pasirinkti nuotrauką' }</Button> } />
 					</MediaUploadCheck>
+					<div style={ { height: '8px' } } />
+					<MediaUploadCheck>
+						<MediaUpload onSelect={ ( m ) => setAttributes( { videoId: m.id } ) } allowedTypes={ [ 'video' ] } value={ videoId }
+							render={ ( { open } ) => <Button variant="secondary" onClick={ open }>{ videoId ? 'Pakeisti video' : 'Pasirinkti video' }</Button> } />
+					</MediaUploadCheck>
+					{ ( videoId || videoFallback ) && (
+						<Button variant="link" isDestructive onClick={ () => setAttributes( { videoId: 0, videoFallback: '' } ) }>Pašalinti video</Button>
+					) }
 					<TextControl label="Alternatyvusis tekstas" value={ alt } onChange={ ( v ) => setAttributes( { alt: v } ) } />
 					<ToggleControl
 						label="Per visą plotį su paralakso efektu"
-						help="Nuotrauka užima visą ekrano plotį, o skrolinant lėtai atsidengia."
+						help="Užima visą ekrano plotį, o skrolinant lėtai atsidengia. Video visada be garso ir kartojasi."
 						checked={ !! parallax }
 						onChange={ ( v ) => setAttributes( { parallax: v } ) }
 					/>
@@ -32,22 +43,26 @@ registerBlockType( metadata.name, {
 			</InspectorControls>
 		);
 
+		const videoEl = videoUrl ? <video className="media-frame__video" src={ videoUrl } muted loop autoPlay playsInline /> : null;
+
 		if ( parallax ) {
 			return (
 				<figure { ...useBlockProps( {
-					className: 'media-frame media-frame--parallax',
-					style: url ? { backgroundImage: 'url(' + url + ')' } : undefined,
+					className: 'media-frame media-frame--parallax' + ( videoUrl ? ' media-frame--video' : '' ),
+					style: ! videoUrl && url ? { backgroundImage: 'url(' + url + ')' } : undefined,
 				} ) }>
 					{ controls }
-					{ ! url && <div className="g5-editor-media-empty">Nuotrauka nepasirinkta</div> }
+					{ videoEl }
+					{ ! videoUrl && ! url && <div className="g5-editor-media-empty">Nuotrauka ar video nepasirinkti</div> }
 				</figure>
 			);
 		}
 
 		return (
-			<figure { ...useBlockProps( { className: 'g5-container media-frame', style: { aspectRatio: ( ratio || '16 / 8' ) } } ) }>
+			<figure { ...useBlockProps( { className: 'g5-container media-frame' + ( videoUrl ? ' media-frame--video' : '' ), style: { aspectRatio: ( ratio || '16 / 8' ) } } ) }>
 				{ controls }
-				{ url ? <img src={ url } alt="" /> : <div className="g5-editor-media-empty">Nuotrauka nepasirinkta</div> }
+				{ videoEl }
+				{ ! videoUrl && ( url ? <img src={ url } alt="" /> : <div className="g5-editor-media-empty">Nuotrauka ar video nepasirinkti</div> ) }
 			</figure>
 		);
 	},

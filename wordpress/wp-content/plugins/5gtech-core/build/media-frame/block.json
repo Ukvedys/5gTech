@@ -33,6 +33,14 @@
     "parallax": {
       "type": "boolean",
       "default": false
+    },
+    "videoId": {
+      "type": "number",
+      "default": 0
+    },
+    "videoFallback": {
+      "type": "string",
+      "default": ""
     }
   },
   "textdomain": "5gtech-core",
