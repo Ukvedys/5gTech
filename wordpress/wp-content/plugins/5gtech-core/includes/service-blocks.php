@@ -46,48 +46,6 @@ function g5tech_service_post_id( $block = array() ) {
 	return get_the_ID();
 }
 
-/**
- * Paslaugos hero akcentai. Telekomunikacijų puslapiuose rodome patirties
- * skaičius, o kitose kryptyse — tai paslaugai aktualią darbų apimtį.
- */
-function g5tech_service_proof_items( $post_id ) {
-	$slug = get_post_field( 'post_name', $post_id );
-
-	if ( 'mobiliojo-rysio-tinklai' === $slug ) {
-		return array_slice( g5tech_stats(), 0, 3 );
-	}
-
-	$items = array(
-		'vidinio-rysio-tinklai' => array(
-			array( 'value' => '2G–5G', 'label' => 'technologijų patirtis' ),
-			array( 'value' => 'Projektavimas', 'label' => 'iki perdavimo' ),
-			array( 'value' => '6', 'label' => 'Europos šalys' ),
-		),
-		'fiksuoto-rysio-tinklai' => array(
-			array( 'value' => 'Projektavimas', 'label' => 'ryšio linijos' ),
-			array( 'value' => 'Montavimas', 'label' => 'kabeliai ir spintos' ),
-			array( 'value' => 'Testavimas', 'label' => 'ir dokumentacija' ),
-		),
-		'elektros-darbai' => array(
-			array( 'value' => 'Projektavimas', 'label' => 'elektros sistemos' ),
-			array( 'value' => 'Montavimas', 'label' => 'ir prijungimas' ),
-			array( 'value' => 'Matavimai', 'label' => 'bandymai ir perdavimas' ),
-		),
-		'apsaugos-ir-stebejimo-sistemos' => array(
-			array( 'value' => 'Projektavimas', 'label' => 'sistemos ir sprendimai' ),
-			array( 'value' => 'Integravimas', 'label' => 'į bendrą infrastruktūrą' ),
-			array( 'value' => 'Priežiūra', 'label' => 'ir dokumentacija' ),
-		),
-		'saules-elektrines' => array(
-			array( 'value' => 'Projektavimas', 'label' => 'techninis sprendimas' ),
-			array( 'value' => 'Paleidimas', 'label' => 'testavimas ir dokumentai' ),
-			array( 'value' => 'Priežiūra', 'label' => 'ir gedimų diagnostika' ),
-		),
-	);
-
-	return $items[ $slug ] ?? array_slice( g5tech_stats(), 0, 3 );
-}
-
 function g5tech_render_service_hero( $attributes, $content, $block ) {
 	$post_id  = g5tech_service_post_id( $block );
 	$title    = get_the_title( $post_id );
@@ -155,8 +113,8 @@ function g5tech_render_service_hero( $attributes, $content, $block ) {
 			<figure class="g5-service-hero__media">
 				<?php echo $image ? wp_kses_post( $image ) : ''; ?>
 			</figure>
-			<div class="g5-service-proof" aria-label="Paslaugos apimties akcentai">
-				<?php foreach ( g5tech_service_proof_items( $post_id ) as $stat ) : ?>
+			<div class="g5-service-proof" aria-label="5G TECH patirties rodikliai">
+				<?php foreach ( array_slice( g5tech_stats(), 0, 3 ) as $stat ) : ?>
 					<div class="g5-service-proof__item">
 						<strong><?php echo esc_html( $stat['value'] ); ?></strong>
 						<span><?php echo esc_html( $stat['label'] ); ?></span>

@@ -130,7 +130,7 @@ function g5tech_render_training_page_legacy() {
 		: '';
 
 	if ( ! $image_url ) {
-		$image_url = get_theme_file_uri( 'assets/images/from-live-site/training-room-wide.jpg' );
+		$image_url = get_theme_file_uri( 'assets/images/generated/training-technical-lab-v1.jpg' );
 	}
 
 	$sections = array();

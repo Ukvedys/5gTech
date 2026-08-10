@@ -317,10 +317,6 @@ body {
   border-left: var(--5g-border-width) solid var(--5g-line-light);
 }
 
-.card-grid--four {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
 .info-card {
   min-height: 20rem;
   padding: var(--5g-space-7) var(--5g-grid-inset);
@@ -428,118 +424,6 @@ a.info-card:focus-visible p {
   border-left: var(--5g-border-width) solid var(--5g-line-light);
 }
 
-.landing-story {
-  background: var(--5g-color-white);
-}
-
-.landing-story__head {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  margin-bottom: var(--5g-space-12);
-}
-
-.landing-story__head > .g5-eyebrow {
-  grid-column: 1;
-  padding-left: var(--5g-grid-inset);
-}
-
-.landing-story__head-copy {
-  grid-column: 2 / 6;
-  padding-inline: var(--5g-grid-inset);
-}
-
-.landing-story__head-copy .g5-body-lg {
-  max-width: 52rem;
-  margin-top: var(--5g-space-6);
-  color: var(--5g-color-text-muted);
-}
-
-.landing-story__layout {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  border-top: var(--5g-border-width) solid var(--5g-line-light);
-  border-left: var(--5g-border-width) solid var(--5g-line-light);
-}
-
-.landing-story__copy {
-  grid-column: 1 / 4;
-  padding: var(--5g-space-10) calc(2 * var(--5g-grid-inset));
-  border-right: var(--5g-border-width) solid var(--5g-line-light);
-  border-bottom: var(--5g-border-width) solid var(--5g-line-light);
-}
-
-.landing-story__copy .g5-body + .g5-body {
-  margin-top: var(--5g-space-6);
-}
-
-.landing-story__media {
-  position: relative;
-  grid-column: 4 / 7;
-  min-height: 32rem;
-  margin: 0;
-  overflow: hidden;
-  border-right: var(--5g-border-width) solid var(--5g-line-light);
-  border-bottom: var(--5g-border-width) solid var(--5g-line-light);
-  background: var(--5g-color-navy-900);
-}
-
-.landing-story__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.landing-story__media figcaption {
-  position: absolute;
-  right: var(--5g-space-4);
-  bottom: var(--5g-space-4);
-  max-width: calc(100% - 2 * var(--5g-space-4));
-  padding: var(--5g-space-2) var(--5g-space-3);
-  color: var(--5g-color-white);
-  background: rgba(3, 31, 53, .82);
-  font-size: var(--5g-text-micro);
-  font-weight: var(--5g-weight-bold);
-  letter-spacing: var(--5g-tracking-label);
-  text-transform: uppercase;
-}
-
-.landing-story__moments {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-left: var(--5g-border-width) solid var(--5g-line-light);
-}
-
-.landing-story__moment {
-  min-height: 15rem;
-  padding: var(--5g-space-7) var(--5g-grid-inset);
-  display: flex;
-  flex-direction: column;
-  border-right: var(--5g-border-width) solid var(--5g-line-light);
-  border-bottom: var(--5g-border-width) solid var(--5g-line-light);
-}
-
-.landing-story__moment small {
-  color: var(--5g-color-pink);
-  font-size: var(--5g-text-label);
-  font-weight: var(--5g-weight-bold);
-  letter-spacing: var(--5g-tracking-label);
-  text-transform: uppercase;
-}
-
-.landing-story__moment strong {
-  margin-top: auto;
-  font-size: var(--5g-text-heading-sm);
-  font-weight: var(--5g-weight-medium);
-  line-height: 1.2;
-}
-
-.landing-story__moment span {
-  margin-top: var(--5g-space-4);
-  color: var(--5g-color-text-muted);
-  font-size: var(--5g-text-body-sm);
-  line-height: 1.6;
-}
-
 .plain-list,
 .tag-list,
 .check-list {
@@ -571,7 +455,6 @@ a.info-card:focus-visible p {
 }
 
 .check-list {
-  margin-inline: auto;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   border-top: var(--5g-border-width) solid var(--5g-line-light);
@@ -1261,39 +1144,13 @@ a.info-card:focus-visible p {
 
   .inner-hero__copy,
   .section-head > .g5-eyebrow,
-  .section-head__copy,
-  .landing-story__head > .g5-eyebrow,
-  .landing-story__head-copy {
+  .section-head__copy {
     grid-column: 1 / 7;
     padding-inline: var(--5g-space-4);
   }
 
-  .section-head__copy,
-  .landing-story__head-copy {
+  .section-head__copy {
     margin-top: var(--5g-space-6);
-  }
-
-  .landing-story__layout,
-  .landing-story__moments {
-    grid-template-columns: 1fr;
-  }
-
-  .landing-story__copy,
-  .landing-story__media {
-    grid-column: 1;
-  }
-
-  .landing-story__copy {
-    padding: var(--5g-space-8) var(--5g-space-4);
-  }
-
-  .landing-story__media {
-    min-height: 23rem;
-  }
-
-  .landing-story__moment {
-    min-height: 12rem;
-    padding: var(--5g-space-6) var(--5g-space-4);
   }
 
   .card-grid,

@@ -56,7 +56,6 @@ function g5tech_register_content_blocks() {
 		'geo-section'        => 'g5tech_render_geo_section_block',
 		'about-hero'         => 'g5tech_render_about_hero_block',
 		'about-story'        => 'g5tech_render_about_story_block',
-		'landing-story'      => 'g5tech_render_landing_story_block',
 		'about-purpose'      => 'g5tech_render_about_purpose_block',
 		'about-values'       => 'g5tech_render_about_values_block',
 		'about-team'         => 'g5tech_render_about_team_block',
@@ -305,14 +304,10 @@ function g5tech_render_card_grid_block( $attributes, $content, $block = null ) {
 	}
 
 	$number = 0;
-	$grid_classes = 'g5-container card-grid';
-	if ( 4 === count( $cards ) ) {
-		$grid_classes .= ' card-grid--four';
-	}
 
 	ob_start();
 	?>
-	<div class="<?php echo esc_attr( $grid_classes ); ?>"><?php foreach ( $cards as $card ) : ?><?php if ( 'link' === $card['type'] ) : ?><a class="info-card" href="<?php echo esc_url( $card['url'] ); ?>"><span class="info-card__number"><?php echo esc_html( wp_strip_all_tags( $card['label'] ) ); ?></span><h3 class="g5-heading-md"><?php echo esc_html( wp_strip_all_tags( $card['title'] ) ); ?></h3><span class="info-card__link"><?php echo esc_html( wp_strip_all_tags( $card['link'] ) ); ?></span></a><?php else : ?><?php $number++; ?><div class="info-card"><span class="info-card__number"><?php echo esc_html( str_pad( (string) $number, 2, '0', STR_PAD_LEFT ) ); ?></span><h3 class="g5-heading-sm"><?php echo esc_html( wp_strip_all_tags( $card['title'] ) ); ?></h3><p><?php echo esc_html( wp_strip_all_tags( $card['text'] ) ); ?></p></div><?php endif; ?><?php endforeach; ?></div>
+	<div class="g5-container card-grid"><?php foreach ( $cards as $card ) : ?><?php if ( 'link' === $card['type'] ) : ?><a class="info-card" href="<?php echo esc_url( $card['url'] ); ?>"><span class="info-card__number"><?php echo esc_html( wp_strip_all_tags( $card['label'] ) ); ?></span><h3 class="g5-heading-md"><?php echo esc_html( wp_strip_all_tags( $card['title'] ) ); ?></h3><span class="info-card__link"><?php echo esc_html( wp_strip_all_tags( $card['link'] ) ); ?></span></a><?php else : ?><?php $number++; ?><div class="info-card"><span class="info-card__number"><?php echo esc_html( str_pad( (string) $number, 2, '0', STR_PAD_LEFT ) ); ?></span><h3 class="g5-heading-sm"><?php echo esc_html( wp_strip_all_tags( $card['title'] ) ); ?></h3><p><?php echo esc_html( wp_strip_all_tags( $card['text'] ) ); ?></p></div><?php endif; ?><?php endforeach; ?></div>
 	<?php
 
 	return (string) ob_get_clean();
@@ -330,67 +325,6 @@ function g5tech_render_link_card_block() {
  */
 function g5tech_render_card_block() {
 	return '';
-}
-
-/**
- * Pasakojimo sekcija auditoriniams landing puslapiams.
- *
- * Ilgesnis tekstas ir realus vaizdas pateikiami greta, o trys projekto
- * momentai apačioje padeda greitai nuskenuoti svarbiausią eigą.
- */
-function g5tech_render_landing_story_block( $attributes, $content, $block = null ) {
-	$moments       = g5tech_labeled_items_from_block( $block );
-	$image_id      = absint( $attributes['imageId'] ?? 0 );
-	$image         = $image_id ? wp_get_attachment_image_url( $image_id, 'full' ) : '';
-	$image_fallback = ltrim( (string) ( $attributes['imageFallback'] ?? '' ), '/' );
-
-	if ( ! $image && $image_fallback ) {
-		$image = get_theme_file_uri( $image_fallback );
-	}
-
-	$alt = $image_id ? (string) get_post_meta( $image_id, '_wp_attachment_image_alt', true ) : '';
-	$alt = $alt ?: (string) ( $attributes['imageAlt'] ?? '' );
-
-	ob_start();
-	?>
-	<section class="g5-section landing-story g5-grid-lines" aria-labelledby="<?php echo esc_attr( sanitize_title( (string) ( $attributes['anchorId'] ?? '' ) ) ?: 'landing-story-title' ); ?>">
-		<div class="g5-container">
-			<div class="landing-story__head">
-				<div class="g5-eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div>
-				<div class="landing-story__head-copy">
-					<h2 class="g5-display-lg" id="<?php echo esc_attr( sanitize_title( (string) ( $attributes['anchorId'] ?? '' ) ) ?: 'landing-story-title' ); ?>"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2>
-					<?php if ( ! empty( $attributes['lead'] ) ) : ?><p class="g5-body-lg"><?php echo esc_html( (string) $attributes['lead'] ); ?></p><?php endif; ?>
-				</div>
-			</div>
-			<div class="landing-story__layout">
-				<div class="landing-story__copy">
-					<?php foreach ( array( 'body1', 'body2', 'body3' ) as $body_key ) : ?>
-						<?php if ( ! empty( $attributes[ $body_key ] ) ) : ?><p class="g5-body"><?php echo esc_html( (string) $attributes[ $body_key ] ); ?></p><?php endif; ?>
-					<?php endforeach; ?>
-				</div>
-				<?php if ( $image ) : ?>
-					<figure class="landing-story__media">
-						<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $alt ); ?>">
-						<?php if ( ! empty( $attributes['caption'] ) ) : ?><figcaption><?php echo esc_html( (string) $attributes['caption'] ); ?></figcaption><?php endif; ?>
-					</figure>
-				<?php endif; ?>
-			</div>
-			<?php if ( $moments ) : ?>
-				<div class="landing-story__moments">
-					<?php foreach ( $moments as $index => $moment ) : ?>
-						<article class="landing-story__moment">
-							<small><?php echo esc_html( str_pad( (string) ( $index + 1 ), 2, '0', STR_PAD_LEFT ) . ' / ' . $moment['label'] ); ?></small>
-							<strong><?php echo esc_html( $moment['title'] ); ?></strong>
-							<span><?php echo esc_html( $moment['text'] ); ?></span>
-						</article>
-					<?php endforeach; ?>
-				</div>
-			<?php endif; ?>
-		</div>
-	</section>
-	<?php
-
-	return (string) ob_get_clean();
 }
 
 /**
@@ -1635,16 +1569,8 @@ function g5tech_render_service_cards_block() {
 			$card_title   = get_post_meta( $service->ID, 'g5_service_card_title', true ) ?: get_the_title( $service );
 			$card_summary = get_post_meta( $service->ID, 'g5_service_card_summary', true )
 				?: get_post_meta( $service->ID, 'g5_service_summary', true );
-			$visual       = function_exists( 'g5tech_service_generated_visual' )
-				? g5tech_service_generated_visual( $service->ID )
-				: array();
 			?>
 			<a class="g5-service-card" href="<?php echo esc_url( get_permalink( $service ) ); ?>">
-				<?php if ( ! empty( $visual['url'] ) ) : ?>
-					<figure class="g5-service-card__media">
-						<img src="<?php echo esc_url( $visual['url'] ); ?>" alt="<?php echo esc_attr( (string) ( $visual['alt'] ?? '' ) ); ?>" loading="lazy">
-					</figure>
-				<?php endif; ?>
 				<span class="g5-service-card__number"><?php echo esc_html( str_pad( (string) ( $index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
 				<h3 class="g5-heading-md"><?php echo esc_html( $card_title ); ?></h3>
 				<?php if ( $card_summary ) : ?>

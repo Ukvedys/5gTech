@@ -354,7 +354,7 @@ function g5tech_render_training_content_page() {
 	$section_map   = g5tech_training_sortable_sections();
 	$section_order = array( 'topics', 'equipment', 'image' );
 	$topics_module = g5tech_get_source_module( 'training_topics' );
-	$fallback_url  = get_theme_file_uri( 'assets/images/from-live-site/training-room-wide.jpg' );
+	$fallback_url  = get_theme_file_uri( 'assets/images/generated/training-technical-lab-v1.jpg' );
 	$attachment_id = absint( $content['image_id'] );
 	$preview_url   = $attachment_id ? wp_get_attachment_image_url( $attachment_id, 'medium_large' ) : $fallback_url;
 	$page_url      = home_url( '/mokymai/' );

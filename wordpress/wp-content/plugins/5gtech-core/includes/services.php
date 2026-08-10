@@ -368,12 +368,12 @@ function g5tech_is_demo_attachment( $attachment_id ) {
 function g5tech_service_generated_visual( $post_id ) {
 	$visuals = array(
 		'mobiliojo-rysio-tinklai' => array(
-			'file' => 'from-live-site/service-mobile-networks.png',
-			'alt'  => 'Mobiliojo ryšio bazinė stotis lauko objekte',
+			'file' => 'service-mobile-networks-v1.jpg',
+			'alt'  => 'Mobiliojo ryšio bazinės stoties antenos, radijo moduliai ir lauko įrangos spinta',
 		),
 		'vidinio-rysio-tinklai' => array(
-			'file' => 'from-live-site/service-indoor-networks.png',
-			'alt'  => 'Ryšio įranga ir šviesolaidžio jungtys techninėje spintoje',
+			'file' => 'service-indoor-networks-v1.jpg',
+			'alt'  => 'Pastato vidinio ryšio antena, kabelių trasa ir telekomunikacijų spinta',
 		),
 		'fiksuoto-rysio-tinklai' => array(
 			'file' => 'service-fixed-networks-v1.jpg',
@@ -388,8 +388,8 @@ function g5tech_service_generated_visual( $post_id ) {
 			'alt'  => 'Vaizdo stebėjimo kameros, įeigos kontrolė ir apsaugos sistemų spinta',
 		),
 		'saules-elektrines' => array(
-			'file' => 'from-live-site/service-solar.png',
-			'alt'  => 'Antžeminė saulės elektrinė',
+			'file' => 'service-solar-v1.jpg',
+			'alt'  => 'Komercinio pastato saulės moduliai, inverteriai ir kabelių trasos',
 		),
 	);
 	$slug    = get_post_field( 'post_name', $post_id );
@@ -399,7 +399,7 @@ function g5tech_service_generated_visual( $post_id ) {
 	}
 
 	return array(
-		'url' => get_theme_file_uri( 'assets/images/' . ( false !== strpos( $visuals[ $slug ]['file'], '/' ) ? '' : 'generated/' ) . $visuals[ $slug ]['file'] ),
+		'url' => get_theme_file_uri( 'assets/images/generated/' . $visuals[ $slug ]['file'] ),
 		'alt' => $visuals[ $slug ]['alt'],
 	);
 }

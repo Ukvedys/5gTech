@@ -58,12 +58,12 @@ function g5tech_structured_content_defaults() {
 			'equipment_ids'     => array(),
 		),
 		'home_audiences' => array(
-			'title' => 'Informacija, kurios reikia prieš priimant sprendimą.',
-			'lead'  => 'Patirties įrodymai, techninė apimtis ir darbo sąlygos – atskirai, be bendrų pažadų.',
+			'title' => 'Tas pats projektas – skirtingi prioritetai.',
+			'lead'  => 'Pasirinkite informaciją pagal savo vaidmenį projekte.',
 			'cards' => array(
-				array( '_id' => 'audience-1', 'label' => 'Vadovams', 'title' => 'Rizika, atsakomybė ir partnerio pajėgumas.', 'text' => 'Patirties skaičiai, sertifikatai, darbų valdymas ir tiesioginis kontaktas su vadovu.', 'url' => '/vadovams/' ),
-				array( '_id' => 'audience-2', 'label' => 'Projektų vadovams', 'title' => 'Darbų apimtis, įranga ir dokumentacija.', 'text' => 'Nuo „Site Survey“ ir planavimo iki matavimų, neatitikimų valdymo ir perdavimo.', 'url' => '/projektu-vadovams/' ),
-				array( '_id' => 'audience-3', 'label' => 'Specialistams', 'title' => 'Darbo sąlygos, mokymai ir augimo kelias.', 'text' => 'Atviros pozicijos, projektų geografija, kvalifikacijos ir 5GTECH Academy.', 'url' => '/karjera/' ),
+				array( '_id' => 'audience-1', 'label' => 'Vadovams', 'title' => 'Projektų vykdymas su aiškiomis atsakomybėmis.', 'text' => 'Sertifikuoti procesai, valdoma rizika ir tiesioginė komunikacija.', 'url' => '/vadovams/' ),
+				array( '_id' => 'audience-2', 'label' => 'Projektų vadovams', 'title' => 'Techninė projekto eiga ir dokumentacija.', 'text' => 'Planavimas, darbų kontrolė, testavimas ir dokumentacija.', 'url' => '/projektu-vadovams/' ),
+				array( '_id' => 'audience-3', 'label' => 'Specialistams', 'title' => 'Profesinis augimas telekomunikacijų ir energetikos projektuose.', 'text' => 'Europos projektai, mokymai, sertifikatai ir saugi aplinka.', 'url' => '/karjera/' ),
 			),
 		),
 	);
