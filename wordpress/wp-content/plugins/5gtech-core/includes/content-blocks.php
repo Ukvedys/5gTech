@@ -492,11 +492,24 @@ function g5tech_render_media_frame_block( $attributes = array() ) {
 		return '';
 	}
 
+	$alt = (string) ( $attributes['alt'] ?? '' );
+
+	// Pilno pločio paralakso variantas: nuotrauka fiksuota fone, todėl
+	// skrolinant ji atsidengia palaipsniui.
+	if ( ! empty( $attributes['parallax'] ) ) {
+		ob_start();
+		?>
+		<figure class="media-frame media-frame--parallax" role="img" aria-label="<?php echo esc_attr( $alt ); ?>" style="background-image: url('<?php echo esc_url( $url ); ?>')"></figure>
+		<?php
+
+		return (string) ob_get_clean();
+	}
+
 	$ratio = trim( (string) ( $attributes['ratio'] ?? '16 / 8' ) ) ?: '16 / 8';
 
 	ob_start();
 	?>
-	<figure class="g5-container media-frame" style="aspect-ratio: <?php echo esc_attr( $ratio ); ?>"><img src="<?php echo esc_url( $url ); ?>" alt="<?php echo esc_attr( (string) ( $attributes['alt'] ?? '' ) ); ?>"></figure>
+	<figure class="g5-container media-frame" style="aspect-ratio: <?php echo esc_attr( $ratio ); ?>"><img src="<?php echo esc_url( $url ); ?>" alt="<?php echo esc_attr( $alt ); ?>"></figure>
 	<?php
 
 	return (string) ob_get_clean();

@@ -546,9 +546,34 @@ a.info-card:focus-visible p {
 .media-frame {
   position: relative;
   margin: 0;
+  margin-inline: auto; /* g5-container centravimas — margin:0 jį užmuštų */
   overflow: hidden;
   border: var(--5g-border-width) solid var(--5g-line-light);
   background: var(--5g-color-navy-900);
+}
+
+/*
+ * Pilno pločio paralaksas: nuotrauka fiksuota lango fone, todėl
+ * įkėlus matosi dalis, o skrolinant atsidengia likusi.
+ */
+.media-frame--parallax {
+  width: 100%;
+  max-width: none;
+  height: clamp(340px, 72vh, 860px);
+  margin: 0;
+  border-left: 0;
+  border-right: 0;
+  background-size: cover;
+  background-position: center 30%;
+  background-attachment: fixed;
+}
+
+/* iOS/Android fixed fono nepalaiko — ten rodoma statiškai. */
+@media (hover: none), (max-width: 720px) {
+  .media-frame--parallax {
+    height: clamp(260px, 48vh, 520px);
+    background-attachment: scroll;
+  }
 }
 
 .media-frame img {

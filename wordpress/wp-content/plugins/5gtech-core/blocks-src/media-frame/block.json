@@ -5,9 +5,6 @@
  "title": "Nuotrauka rėmelyje",
  "category": "theme",
  "icon": "format-image",
- "parent": [
-  "g5tech/section"
- ],
  "supports": {
   "html": false,
   "reusable": false
@@ -32,6 +29,10 @@
   "themeFallback": {
    "type": "string",
    "default": ""
+  },
+  "parallax": {
+   "type": "boolean",
+   "default": false
   }
  },
  "textdomain": "5gtech-core",
