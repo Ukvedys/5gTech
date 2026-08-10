@@ -1511,7 +1511,7 @@
             "excerpt": "",
             "menu_order": 0,
             "parent": "",
-            "thumbnail": "2026/08/komanda-aleksandras-iljinas.jpg",
+            "thumbnail": "",
             "meta": {
                 "g5_team_role": [
                     "Generalinis direktorius"
@@ -1584,7 +1584,7 @@
             "excerpt": "",
             "menu_order": 1,
             "parent": "",
-            "thumbnail": "2026/08/komanda-nerijus-bazinas.jpg",
+            "thumbnail": "",
             "meta": {
                 "g5_team_role": [
                     "Projektų vadovas"
@@ -1644,7 +1644,7 @@
             "excerpt": "",
             "menu_order": 2,
             "parent": "",
-            "thumbnail": "2026/08/komanda-eimantas-zemaitis.jpg",
+            "thumbnail": "",
             "meta": {
                 "g5_team_role": [
                     "Projektų vykdytojas"
@@ -1704,7 +1704,7 @@
             "excerpt": "",
             "menu_order": 3,
             "parent": "",
-            "thumbnail": "",
+            "thumbnail": "2026/08/komanda-tadas-grabauskas.jpg",
             "meta": {
                 "g5_team_role": [
                     "Projektų vykdytojas"
@@ -1764,7 +1764,7 @@
             "excerpt": "",
             "menu_order": 4,
             "parent": "",
-            "thumbnail": "2026/08/komanda-kristina-nagineviciene.jpg",
+            "thumbnail": "",
             "meta": {
                 "g5_team_role": [
                     "Administracijos ir personalo koordinatorė"
@@ -1821,7 +1821,7 @@
             "excerpt": "",
             "menu_order": 0,
             "parent": "",
-            "thumbnail": "2026/08/komanda-aleksandras-iljinas.jpg",
+            "thumbnail": "",
             "meta": {
                 "g5_team_role": [
                     "Managing Director"
@@ -1891,7 +1891,7 @@
             "excerpt": "",
             "menu_order": 0,
             "parent": "",
-            "thumbnail": "2026/08/komanda-aleksandras-iljinas.jpg",
+            "thumbnail": "",
             "meta": {
                 "g5_team_role": [
                     "Geschäftsführer"
@@ -1961,7 +1961,7 @@
             "excerpt": "",
             "menu_order": 1,
             "parent": "",
-            "thumbnail": "2026/08/komanda-nerijus-bazinas.jpg",
+            "thumbnail": "",
             "meta": {
                 "g5_team_role": [
                     "Project Manager"
@@ -2018,7 +2018,7 @@
             "excerpt": "",
             "menu_order": 1,
             "parent": "",
-            "thumbnail": "2026/08/komanda-nerijus-bazinas.jpg",
+            "thumbnail": "",
             "meta": {
                 "g5_team_role": [
                     "Projektleiter"
@@ -2075,7 +2075,7 @@
             "excerpt": "",
             "menu_order": 2,
             "parent": "",
-            "thumbnail": "2026/08/komanda-eimantas-zemaitis.jpg",
+            "thumbnail": "",
             "meta": {
                 "g5_team_role": [
                     "Project manager"
@@ -2132,7 +2132,7 @@
             "excerpt": "",
             "menu_order": 2,
             "parent": "",
-            "thumbnail": "2026/08/komanda-eimantas-zemaitis.jpg",
+            "thumbnail": "",
             "meta": {
                 "g5_team_role": [
                     "Projektmanager"
@@ -2189,7 +2189,7 @@
             "excerpt": "",
             "menu_order": 3,
             "parent": "",
-            "thumbnail": "",
+            "thumbnail": "2026/08/komanda-tadas-grabauskas.jpg",
             "meta": {
                 "g5_team_role": [
                     "Project manager"
@@ -2246,7 +2246,7 @@
             "excerpt": "",
             "menu_order": 3,
             "parent": "",
-            "thumbnail": "",
+            "thumbnail": "2026/08/komanda-tadas-grabauskas.jpg",
             "meta": {
                 "g5_team_role": [
                     "Projektmanager"
@@ -2303,7 +2303,7 @@
             "excerpt": "",
             "menu_order": 4,
             "parent": "",
-            "thumbnail": "2026/08/komanda-kristina-nagineviciene.jpg",
+            "thumbnail": "",
             "meta": {
                 "g5_team_role": [
                     "Administration and HR Coordinator"
@@ -2360,7 +2360,7 @@
             "excerpt": "",
             "menu_order": 4,
             "parent": "",
-            "thumbnail": "2026/08/komanda-kristina-nagineviciene.jpg",
+            "thumbnail": "",
             "meta": {
                 "g5_team_role": [
                     "Koordinatorin Administration und Personal"
@@ -6151,28 +6151,10 @@
             "alt": "",
             "mime": "image/png"
         },
-        "384": {
-            "file": "2026/08/komanda-aleksandras-iljinas.jpg",
-            "title": "Aleksandras Iljinas",
-            "alt": "Aleksandras Iljinas",
-            "mime": "image/jpeg"
-        },
-        "385": {
-            "file": "2026/08/komanda-nerijus-bazinas.jpg",
-            "title": "Nerijus Bazinas",
-            "alt": "Nerijus Bazinas",
-            "mime": "image/jpeg"
-        },
-        "386": {
-            "file": "2026/08/komanda-eimantas-zemaitis.jpg",
-            "title": "Eimantas Žemaitis",
-            "alt": "Eimantas Žemaitis",
-            "mime": "image/jpeg"
-        },
-        "387": {
-            "file": "2026/08/komanda-kristina-nagineviciene.jpg",
-            "title": "Kristina Naginevičienė",
-            "alt": "Kristina Naginevičienė",
+        "388": {
+            "file": "2026/08/komanda-tadas-grabauskas.jpg",
+            "title": "Tadas Grabauskas",
+            "alt": "Tadas Grabauskas",
             "mime": "image/jpeg"
         }
     }

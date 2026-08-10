@@ -54,6 +54,13 @@ function g5tech_home_certifications() {
 }
 
 function g5tech_home_process_media( $index ) {
+	// Tikra nuotrauka iš temos failų, jei ji įdėta (assets/images/home/process-0N.jpg).
+	$photo_rel = sprintf( 'assets/images/home/process-%02d.jpg', max( 1, absint( $index ) ) );
+
+	if ( file_exists( get_theme_file_path( $photo_rel ) ) ) {
+		return '<img src="' . esc_url( get_theme_file_uri( $photo_rel ) ) . '" alt="" loading="lazy">';
+	}
+
 	$media = array(
 		1 => '<svg viewBox="0 0 520 270" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="48" y="42" width="424" height="186"/><circle cx="151" cy="135" r="58"/><path d="M151 77v116M93 135h116M280 79h139M280 113h109M280 147h139M280 181h84"/><path d="m132 134 15 15 31-36" stroke="#ec0062" stroke-width="4"/></svg>',
 		2 => '<svg viewBox="0 0 520 270" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M48 219h424M82 219V61h107v158M220 219V95h110v124M361 219V42h77v177"/><path d="M103 87h65M103 113h65M103 139h43M243 122h63M243 148h63M243 174h42M380 69h39M380 95h39M380 121h39"/><circle cx="82" cy="219" r="7" fill="#ec0062" stroke="none"/><circle cx="220" cy="219" r="7" fill="#ec0062" stroke="none"/><circle cx="361" cy="219" r="7" fill="#ec0062" stroke="none"/></svg>',

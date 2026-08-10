@@ -697,6 +697,9 @@
       object-fit: cover;
       filter: saturate(.78) contrast(1.03);
     }
+    /* Tikra nuotrauka: be DEMO žymos, be blueprint tinklelio ir paddingo. */
+    .step-media.step-media--photo { padding: 0; background-image: none; }
+    .step-media.step-media--photo::before { content: none; }
     .step-media::before {
       content: "DEMO IMAGE";
       position: absolute;
