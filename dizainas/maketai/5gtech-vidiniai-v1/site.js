@@ -23,9 +23,9 @@
               <details>
                 <summary aria-label="Pasirinkite kalbą: LT"><span>LT</span><span class="language-switcher__chevron" aria-hidden="true">⌄</span></summary>
                 <div class="language-switcher__menu">
-                  <a href="${window.location.pathname}" lang="lt" hreflang="lt" aria-current="page">LT</a>
-                  <a href="#" lang="en" hreflang="en" aria-disabled="true" title="Veikia WordPress versijoje">EN</a>
-                  <a href="#" lang="de" hreflang="de" aria-disabled="true" title="Veikia WordPress versijoje">DE</a>
+                  <a href="${window.location.pathname}" data-language="lt" lang="lt" hreflang="lt" aria-current="page">LT</a>
+                  <a href="?lang=en" data-language="en" lang="en" hreflang="en">EN</a>
+                  <a href="?lang=de" data-language="de" lang="de" hreflang="de">DE</a>
                 </div>
               </details>
             </nav>
@@ -46,9 +46,6 @@
       nav.classList.toggle("is-open", !open);
     });
 
-    headerTarget.querySelectorAll('.language-switcher a[aria-disabled="true"]').forEach((link) => {
-      link.addEventListener("click", (event) => event.preventDefault());
-    });
   }
 
   document.addEventListener("click", (event) => {
@@ -111,4 +108,8 @@
       }
     });
   });
+
+  const prototypeI18n = document.createElement("script");
+  prototypeI18n.src = "prototype-i18n.js";
+  document.body.appendChild(prototypeI18n);
 })();

@@ -814,7 +814,7 @@
     }
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 1fr));
       border-top: 1px solid var(--line);
       border-left: 1px solid var(--line);
     }
@@ -1263,9 +1263,9 @@
           <details>
             <summary aria-label="Pasirinkite kalbą: LT"><span>LT</span><span class="language-switcher__chevron" aria-hidden="true">⌄</span></summary>
             <div class="language-switcher__menu">
-              <a href="index.html" lang="lt" hreflang="lt" aria-current="page">LT</a>
-              <a href="#" lang="en" hreflang="en" aria-disabled="true" data-placeholder-link title="Veikia WordPress versijoje">EN</a>
-              <a href="#" lang="de" hreflang="de" aria-disabled="true" data-placeholder-link title="Veikia WordPress versijoje">DE</a>
+              <a href="index.html" data-language="lt" lang="lt" hreflang="lt" aria-current="page">LT</a>
+              <a href="?lang=en" data-language="en" lang="en" hreflang="en">EN</a>
+              <a href="?lang=de" data-language="de" lang="de" hreflang="de">DE</a>
             </div>
           </details>
         </nav>
@@ -1537,43 +1537,24 @@
         </div>
 
         <div class="team-grid">
-          <a class="team-card" href="../5gtech-komanda-v1/profilis.html" aria-label="Peržiūrėti technikos vadovo profilį">
+          <a class="team-card" href="../5gtech-komanda-v1/profilis.html" aria-label="Peržiūrėti: Aleksandras Iljinas">
             <div class="team-portrait" aria-hidden="true"></div>
             <div class="team-card-body">
-              <span class="team-role">Technikos vadovas</span>
-              <h3>Vardas Pavardė</h3>
-              <p class="team-card-copy">Telekomunikacijų infrastruktūros srityje nuo 2012 m.</p>
+              <span class="team-role">Generalinis direktorius</span>
+              <h3>Aleksandras Iljinas</h3>
+              <p class="team-card-copy">Telekomunikacijų srityje nuo 2012 m. Vadovauja 5G TECH komandai ir koordinuoja ryšio infrastruktūros projektus Lietuvoje bei kitose Europos šalyse.</p>
             </div>
             <div class="team-card-metrics" aria-label="Patirties rodikliai">
-              <div class="team-metric"><strong>13 m.</strong><span>patirties</span></div>
+              <div class="team-metric"><strong>14+ m.</strong><span>patirties</span></div>
               <div class="team-metric"><strong>6</strong><span>šalys</span></div>
-              <div class="team-metric"><strong>8</strong><span>kvalifikacijos</span></div>
+              <div class="team-metric"><strong>11</strong><span>operatorių</span></div>
             </div>
           </a>
-          <a class="team-card" href="../5gtech-komanda-v1/profilis.html" aria-label="Peržiūrėti projektų vadovo profilį">
+          <a class="team-card" href="../5gtech-komanda-v1/index.html" aria-label="Peržiūrėti: Nerijus Bazinas">
             <div class="team-portrait" aria-hidden="true"></div>
             <div class="team-card-body">
               <span class="team-role">Projektų vadovas</span>
-              <h3>Vardas Pavardė</h3>
-              <p class="team-card-copy">Tarptautinių ryšio infrastruktūros projektų valdymas.</p>
-            </div>
-            <div class="team-card-metrics" aria-label="Patirties rodikliai">
-              <div class="team-metric"><strong>11 m.</strong><span>patirties</span></div>
-              <div class="team-metric"><strong>9</strong><span>operatoriai</span></div>
-              <div class="team-metric"><strong>5</strong><span>kvalifikacijos</span></div>
-            </div>
-          </a>
-          <a class="team-card" href="../5gtech-komanda-v1/profilis.html" aria-label="Peržiūrėti darbų vadovo profilį">
-            <div class="team-portrait" aria-hidden="true"></div>
-            <div class="team-card-body">
-              <span class="team-role">Darbų vadovas</span>
-              <h3>Vardas Pavardė</h3>
-              <p class="team-card-copy">Montavimo, saugos ir darbų kokybės priežiūra objektuose.</p>
-            </div>
-            <div class="team-card-metrics" aria-label="Patirties rodikliai">
-              <div class="team-metric"><strong>10 m.</strong><span>patirties</span></div>
-              <div class="team-metric"><strong>6</strong><span>šalys</span></div>
-              <div class="team-metric"><strong>7</strong><span>kvalifikacijos</span></div>
+              <h3>Nerijus Bazinas</h3>
             </div>
           </a>
         </div>
@@ -1785,5 +1766,6 @@
       revealElements.forEach((element) => revealObserver.observe(element));
     }
   </script>
+  <script src="../5gtech-vidiniai-v1/prototype-i18n.js"></script>
 </body>
 </html>
