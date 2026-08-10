@@ -428,6 +428,7 @@ a.info-card:focus-visible p {
 .tag-list,
 .check-list {
   margin: 0;
+  margin-inline: auto; /* .g5-container centravimas — be šito lentelė nuvažiuoja į kairę */
   padding: 0;
   list-style: none;
 }
@@ -519,6 +520,27 @@ a.info-card:focus-visible p {
   color: var(--5g-color-on-dark-muted);
   font-size: var(--5g-text-body-sm);
   line-height: 1.6;
+}
+
+/*
+ * 4 žingsnių lentelė: pastumiama per vieną grido stulpelį į dešinę,
+ * o rėmelio linijos piešiamos ant langelių, kad virš tuščios zonos
+ * neliktų kabančios linijos.
+ */
+@media (min-width: 65.6875rem) {
+  .steps--offset {
+    border-top: 0;
+    border-left: 0;
+  }
+
+  .steps--offset li {
+    border-top: var(--5g-border-width) solid var(--5g-line-dark);
+  }
+
+  .steps--offset li:first-child {
+    grid-column: 2 / span 2;
+    border-left: var(--5g-border-width) solid var(--5g-line-dark);
+  }
 }
 
 .media-frame {

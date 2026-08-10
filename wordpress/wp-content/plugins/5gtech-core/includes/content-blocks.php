@@ -350,9 +350,13 @@ function g5tech_render_steps_block( $attributes, $content, $block = null ) {
 		return '';
 	}
 
+	// Keturių žingsnių lentelė užima 5 iš 6 stulpelių — pastumiama per
+	// vieną stulpelį į dešinę, kad neliktų tuščio langelio su linija.
+	$steps_class = 4 === count( $steps ) ? 'g5-container steps steps--offset' : 'g5-container steps';
+
 	ob_start();
 	?>
-	<ol class="g5-container steps"><?php foreach ( $steps as $index => $step ) : ?><li><span><?php echo esc_html( str_pad( (string) ( $index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span><strong><?php echo esc_html( wp_strip_all_tags( $step['title'] ) ); ?></strong><p><?php echo esc_html( wp_strip_all_tags( $step['text'] ) ); ?></p></li><?php endforeach; ?></ol>
+	<ol class="<?php echo esc_attr( $steps_class ); ?>"><?php foreach ( $steps as $index => $step ) : ?><li><span><?php echo esc_html( str_pad( (string) ( $index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span><strong><?php echo esc_html( wp_strip_all_tags( $step['title'] ) ); ?></strong><p><?php echo esc_html( wp_strip_all_tags( $step['text'] ) ); ?></p></li><?php endforeach; ?></ol>
 	<?php
 
 	return (string) ob_get_clean();
