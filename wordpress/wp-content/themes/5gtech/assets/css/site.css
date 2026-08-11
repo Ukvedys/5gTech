@@ -1147,6 +1147,18 @@ svg {
 	grid-column: span 2;
 }
 
+/*
+ * Lygus tinklelis (sertifikatams): visi langeliai vienodo pločio
+ * vienoje eilutėje, nesvarbu kiek jų — 4 ar 5.
+ */
+.g5-stats-grid--even {
+	grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+}
+
+.g5-stats-grid--even .g5-stat:nth-child(n) {
+	grid-column: auto;
+}
+
 .g5-stat {
 	min-height: 11rem;
 	padding: 1.5rem var(--g5-grid-inset);

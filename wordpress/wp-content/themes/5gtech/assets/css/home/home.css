@@ -508,7 +508,8 @@
     .bridge-standards {
       grid-column: 2 / 6;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      /* auto-fit: 4 ar 5 sertifikatai — visada viena lygi eilutė */
+      grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
       margin-top: 88px;
       border-top: 1px solid rgba(255,255,255,.28);
     }
@@ -697,9 +698,6 @@
       object-fit: cover;
       filter: saturate(.78) contrast(1.03);
     }
-    /* Tikra nuotrauka: be DEMO žymos, be blueprint tinklelio ir paddingo. */
-    .step-media.step-media--photo { padding: 0; background-image: none; }
-    .step-media.step-media--photo::before { content: none; }
     .step-media::before {
       content: "DEMO IMAGE";
       position: absolute;

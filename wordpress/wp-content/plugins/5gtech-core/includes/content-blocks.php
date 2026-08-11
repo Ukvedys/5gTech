@@ -781,7 +781,7 @@ function g5tech_render_certification_grid_block() {
 
 	ob_start();
 	?>
-	<div class="g5-container g5-stats-grid">
+	<div class="g5-container g5-stats-grid g5-stats-grid--even">
 		<?php foreach ( $certifications as $certification ) : ?>
 			<?php $parts = array_map( 'trim', explode( '|', $certification, 2 ) ); ?>
 			<div class="g5-stat">
@@ -1395,8 +1395,7 @@ function g5tech_render_home_process_block( $attributes = array() ) {
 						<div class="step-label"><?php echo esc_html( str_pad( (string) $index, 2, '0', STR_PAD_LEFT ) ); ?> / <?php echo esc_html( $step['title'] ); ?></div>
 						<h3><?php echo esc_html( $step['heading'] ); ?></h3>
 						<p><?php echo esc_html( $step['text'] ); ?></p>
-						<?php $g5_step_media = g5tech_home_process_media( $index ); ?>
-					<div class="step-media blueprint<?php echo 0 === strpos( $g5_step_media, '<img' ) ? ' step-media--photo' : ''; ?>" aria-hidden="true"><?php echo $g5_step_media; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+						<div class="step-media blueprint" aria-hidden="true"><?php echo g5tech_home_process_media( $index ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
 					</article>
 				<?php endforeach; ?>
 			</div>
