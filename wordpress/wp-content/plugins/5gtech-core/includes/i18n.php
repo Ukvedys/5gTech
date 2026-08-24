@@ -727,10 +727,22 @@ add_filter( 'locale', 'g5tech_i18n_locale', 20 );
 function g5tech_render_language_switcher( $attributes = array() ) {
 	$location = isset( $attributes['location'] ) ? sanitize_html_class( $attributes['location'] ) : 'header';
 	$current  = g5tech_current_language();
-	$links    = array();
+	$flags    = array( 'lt' => 'lt', 'en' => 'gb', 'de' => 'de' );
+	$items    = array();
 
 	foreach ( g5tech_languages() as $code => $language ) {
+		$flag = sprintf(
+			'<img class="g5-language-switcher__flag" src="%s" alt="" width="16" height="11">',
+			esc_url( G5TECH_CORE_URL . 'assets/flags/' . ( $flags[ $code ] ?? $code ) . '.png' )
+		);
+
 		if ( $current === $code ) {
+			$items[] = sprintf(
+				'<span class="g5-language-switcher__item is-current" lang="%s" aria-current="true">%s%s</span>',
+				esc_attr( $code ),
+				$flag,
+				esc_html( $language['label'] )
+			);
 			continue;
 		}
 
@@ -748,22 +760,21 @@ function g5tech_render_language_switcher( $attributes = array() ) {
 			}
 		}
 
-		$links[] = sprintf(
-			'<a class="g5-language-switcher__link" href="%s" lang="%s" hreflang="%s">%s</a>',
+		$items[] = sprintf(
+			'<a class="g5-language-switcher__item" href="%s" lang="%s" hreflang="%s">%s%s</a>',
 			esc_url( $switch_url ),
 			esc_attr( $code ),
 			esc_attr( str_replace( '_', '-', g5tech_languages()[ $code ]['locale'] ) ),
+			$flag,
 			esc_html( $language['label'] )
 		);
 	}
 
 	return sprintf(
-		'<nav class="g5-language-switcher g5-language-switcher--%1$s" aria-label="%2$s"><details class="g5-language-switcher__details"><summary class="g5-language-switcher__current" lang="%3$s" aria-label="%2$s: %4$s"><span>%4$s</span><span class="g5-language-switcher__chevron" aria-hidden="true">⌄</span></summary><div class="g5-language-switcher__menu">%5$s</div></details></nav>',
+		'<nav class="g5-language-switcher g5-language-switcher--%1$s" aria-label="%2$s">%3$s</nav>',
 		esc_attr( $location ),
 		esc_attr( g5tech_t( 'Pasirinkite kalbą' ) ),
-		esc_attr( $current ),
-		esc_html( g5tech_languages()[ $current ]['label'] ),
-		implode( '', $links )
+		implode( '', $items )
 	);
 }
 

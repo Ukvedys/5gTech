@@ -508,8 +508,7 @@
     .bridge-standards {
       grid-column: 2 / 6;
       display: grid;
-      /* auto-fit: 4 ar 5 sertifikatai — visada viena lygi eilutė */
-      grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       margin-top: 88px;
       border-top: 1px solid rgba(255,255,255,.28);
     }
@@ -873,7 +872,8 @@
     }
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      /* Visi nariai vienoje eilutėje — stulpelių tiek, kiek kortelių. */
+      grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
       border-top: 1px solid var(--line);
       border-left: 1px solid var(--line);
     }
@@ -976,6 +976,11 @@
       line-height: 1.6;
     }
     .team-card:hover .team-card-copy { color: rgba(255,255,255,.66); }
+    /* Kompaktiška kortelė: tik nuotrauka, pareigos ir vardas. */
+    .team-card--compact .team-portrait { aspect-ratio: 1 / 1; padding: 14px; }
+    .team-card--compact .team-card-body { padding: 16px 16px 20px; }
+    .team-card--compact .team-role { margin-bottom: 7px; font-size: 9px; letter-spacing: .1em; }
+    .team-card--compact h3 { font-size: clamp(15px, 1.2vw, 19px); line-height: 1.2; }
     .team-card-metrics {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1174,7 +1179,7 @@
       .meta-item { padding-inline: 14px; }
       .meta-item:nth-child(3) strong { font-size: clamp(9px, 1.25vw, 12px); }
       .experience-grid, .audiences-head, .final-grid { grid-template-columns: 1fr; gap: 40px; }
-      .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .team-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .team-summary .team-metric:first-child,
       .team-summary .team-metric:last-child { grid-column: auto; }
@@ -1289,7 +1294,7 @@
       }
       .equipment-name { min-width: 156px; min-height: 96px; padding: 18px; }
       .equipment-note { padding-inline: 16px; }
-      .team-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .team-card-body { padding-inline: 20px; }
       .team-card-metrics .team-metric:first-child { padding-left: 20px; }
       .team-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }

@@ -781,7 +781,7 @@ function g5tech_render_certification_grid_block() {
 
 	ob_start();
 	?>
-	<div class="g5-container g5-stats-grid g5-stats-grid--even">
+	<div class="g5-container g5-stats-grid">
 		<?php foreach ( $certifications as $certification ) : ?>
 			<?php $parts = array_map( 'trim', explode( '|', $certification, 2 ) ); ?>
 			<div class="g5-stat">
@@ -1489,7 +1489,6 @@ function g5tech_render_home_team_block( $attributes = array() ) {
 		<div class="container">
 			<div class="team-head"><div class="eyebrow"><?php echo esc_html( (string) ( $attributes['eyebrow'] ?? '' ) ); ?></div><div class="team-head-copy"><h2 id="team-title"><?php echo esc_html( (string) ( $attributes['title'] ?? '' ) ); ?></h2><p class="team-copy"><?php echo esc_html( (string) ( $attributes['copy'] ?? '' ) ); ?></p></div></div>
 			<?php echo $team_cards; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			<a class="link-line team-link" href="<?php echo esc_url( home_url( '/apie-mus/#komanda' ) ); ?>"><?php echo esc_html( (string) ( $attributes['linkLabel'] ?? '' ) ); ?> <span>→</span></a>
 		</div>
 	</section>
 	<?php
