@@ -93,7 +93,7 @@
     calc(100vw - (var(--5g-page-gutter) * 2))
   );
   --5g-grid-columns: 6;
-  --5g-grid-origin: calc((100vw - var(--5g-page)) / 2);
+  --5g-grid-origin: calc((100% - var(--5g-page)) / 2); /* 100%, ne 100vw */
   --5g-grid-column: calc(var(--5g-page) / var(--5g-grid-columns));
   --5g-grid-inset: calc(var(--5g-grid-column) * .2);
 

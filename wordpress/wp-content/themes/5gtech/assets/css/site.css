@@ -31,7 +31,7 @@
 	--g5-page-gutter: 2.5rem;
 	--g5-page: min(90rem, calc(100vw - (var(--g5-page-gutter) * 2)));
 	--g5-grid-column: calc(var(--g5-page) / 6);
-	--g5-grid-origin: calc((100vw - var(--g5-page)) / 2);
+	--g5-grid-origin: calc((100% - var(--g5-page)) / 2); /* 100%, ne 100vw: kad nesislinktu nuo slinkties juostos */
 	--g5-grid-inset: calc(var(--g5-grid-column) * .2);
 	--g5-white: #fff;
 	--g5-on-dark-muted: rgba(255, 255, 255, .66);

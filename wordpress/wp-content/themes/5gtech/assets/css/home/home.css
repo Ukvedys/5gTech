@@ -12,7 +12,7 @@
       --berry: #bf0763;
       --accent: linear-gradient(120deg, var(--orange), var(--red) 42%, var(--pink) 76%, var(--berry));
       --page: min(1440px, calc(100vw - 80px));
-      --layout-grid-origin: calc((100vw - var(--page)) / 2);
+      --layout-grid-origin: calc((100% - var(--page)) / 2); /* 100%, ne 100vw: kad nesislinktu nuo slinkties juostos */
       --layout-grid-unit: calc(var(--page) / 6);
       --layout-grid-half: calc(var(--page) / 2);
       --layout-grid-third: calc(var(--page) / 3);
