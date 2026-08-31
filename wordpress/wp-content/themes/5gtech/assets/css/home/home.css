@@ -657,7 +657,8 @@
       top: 0;
       height: 100vh;
       min-height: 720px;
-      padding: 140px clamp(28px, 4vw, 64px) 80px calc(var(--layout-grid-origin) + var(--layout-grid-unit) * .2);
+      /* Grid item: 100% cia = puses plocio sritis, tad kraštine = 100% - page/2 */
+      padding: 140px clamp(28px, 4vw, 64px) 80px calc(100% - var(--page) / 2 + var(--layout-grid-unit) * .2);
       border-right: 1px solid rgba(255,255,255,.15); display: flex; flex-direction: column;
       justify-content: space-between;
     }
@@ -667,7 +668,7 @@
     .progress-fill { display: block; height: 100%; width: 20%; background: var(--accent); transition: width .45s ease; }
     .progress-label { min-width: 60px; color: rgba(255,255,255,.62); font-size: 12px; letter-spacing: .12em; }
     .process-steps {
-      padding: 0 var(--layout-grid-origin) 0 calc(var(--layout-grid-unit) * .2);
+      padding: 0 calc(100% - var(--page) / 2) 0 calc(var(--layout-grid-unit) * .2);
     }
     .process-step {
       min-height: 100vh; padding: 105px 0 70px; display: flex; flex-direction: column; justify-content: center;
@@ -1191,7 +1192,7 @@
       .service-tile:not(:nth-child(2n + 1)) { border-left: 1px solid var(--line); }
       .process-grid { grid-template-columns: 50% 50%; }
       .process-intro {
-        padding-left: calc(var(--layout-grid-origin) + var(--layout-grid-unit) * .2);
+        padding-left: calc(100% - var(--page) / 2 + var(--layout-grid-unit) * .2);
         padding-right: 28px;
       }
       .map-card { min-height: 0; }
