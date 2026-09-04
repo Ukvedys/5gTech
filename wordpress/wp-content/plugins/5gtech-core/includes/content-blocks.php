@@ -781,7 +781,7 @@ function g5tech_render_certification_grid_block() {
 
 	ob_start();
 	?>
-	<div class="g5-container g5-stats-grid">
+	<div class="g5-container g5-stats-grid g5-stats-grid--even">
 		<?php foreach ( $certifications as $certification ) : ?>
 			<?php $parts = array_map( 'trim', explode( '|', $certification, 2 ) ); ?>
 			<div class="g5-stat">
