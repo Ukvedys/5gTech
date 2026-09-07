@@ -1,4 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
+import { InnerBlocks } from '@wordpress/block-editor';
 import { useBlockProps, useInnerBlocksProps, RichText, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, TextControl } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
@@ -7,6 +8,7 @@ import metadata from './block.json';
 registerBlockType( metadata.name, {
 	edit( { attributes, setAttributes, clientId } ) {
 		const { eyebrow, title, lead, button1Label, button2Label, metaValue3, metaLabel3 } = attributes;
+		const stats = window.g5tech?.heroStats || [];
 		const firstSlide = useSelect(
 			( select ) => {
 				const children = select( 'core/block-editor' ).getBlocks( clientId );
@@ -56,8 +58,7 @@ registerBlockType( metadata.name, {
 							</div>
 						</div>
 						<div className="hero-meta">
-							<div className="meta-item"><strong>6000+</strong><span>bazinių stočių</span></div>
-							<div className="meta-item"><strong>6</strong><span>Europos šalys</span></div>
+							{ stats.map( ( stat, index ) => <div className="meta-item" key={ index }><strong>{ stat.value }</strong><span>{ stat.label }</span></div> ) }
 							<div className="meta-item"><strong>{ metaValue3 }</strong><span>{ metaLabel3 }</span></div>
 						</div>
 					</div>
@@ -69,5 +70,5 @@ registerBlockType( metadata.name, {
 			</div>
 		);
 	},
-	save() { return null; },
+	save() { return <InnerBlocks.Content />; },
 } );

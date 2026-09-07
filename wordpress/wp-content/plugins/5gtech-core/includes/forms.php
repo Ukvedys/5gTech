@@ -40,8 +40,8 @@ function g5tech_register_form_blocks() {
 }
 add_action( 'init', 'g5tech_register_form_blocks' );
 
-function g5tech_form_status_message( $form ) {
-	$status = isset( $_GET['forma'] ) ? sanitize_key( wp_unslash( $_GET['forma'] ) ) : '';
+function g5tech_form_status_message( $form, $requested_status = null ) {
+	$status = $requested_status ?? ( isset( $_GET['forma'] ) ? sanitize_key( wp_unslash( $_GET['forma'] ) ) : '' );
 
 	if ( 'success' === $status ) {
 		return array(
@@ -72,6 +72,15 @@ function g5tech_form_status_message( $form ) {
 function g5tech_form_redirect( $path, $status ) {
 	$language = sanitize_key( wp_unslash( $_POST['g5tech_form_language'] ?? $_COOKIE['pll_language'] ?? 'lt' ) );
 	$language = in_array( $language, array( 'lt', 'en', 'de' ), true ) ? $language : 'lt';
+	if ( '1' === ( $_POST['g5tech_async'] ?? '' ) ) {
+		$form = '/kontaktai/' === $path ? 'contact' : 'application';
+		$message = g5tech_form_status_message( $form, $status );
+		wp_send_json( array(
+			'success' => 'success' === $status,
+			'message' => g5tech_t( $message['text'] ?? '', $language ),
+			'nonce' => wp_create_nonce( 'contact' === $form ? 'g5tech_contact' : 'g5tech_application' ),
+		) );
+	}
 	$url = home_url( $path );
 	if ( function_exists( 'pll_get_post' ) ) {
 		$page = get_page_by_path( trim( $path, '/' ) );
@@ -84,11 +93,35 @@ function g5tech_form_redirect( $path, $status ) {
 		add_query_arg(
 			'forma',
 			$status,
-			$url
+			$url . '#g5tech-form-status'
 		)
 	);
 	exit;
 }
+
+/** One feedback target for both native POST redirects and enhanced submissions. */
+function g5tech_render_form_status( $status ) {
+	$error = isset( $status['type'] ) && 'error' === $status['type'];
+	printf(
+		'<p id="g5tech-form-status" class="form-status field--full%s" tabindex="-1" role="%s" %s>%s</p>',
+		$error ? ' form-status--error' : '',
+		$error ? 'alert' : 'status',
+		$status ? '' : 'hidden',
+		esc_html( $status['text'] ?? '' )
+	);
+}
+
+function g5tech_enqueue_form_feedback() {
+	if ( is_admin() ) {
+		return;
+	}
+	$path = G5TECH_CORE_DIR . 'assets/form-feedback.js';
+	wp_enqueue_script( 'g5tech-form-feedback', G5TECH_CORE_URL . 'assets/form-feedback.js', array(), (string) filemtime( $path ), true );
+	wp_localize_script( 'g5tech-form-feedback', 'g5techFormMessages', array(
+		'networkError' => g5tech_t( 'Nepavyko patvirtinti, ar forma išsiųsta. Įvesti duomenys liko formoje. Patikrinkite ryšį arba susisiekite el. paštu.' ),
+	) );
+}
+add_action( 'wp_enqueue_scripts', 'g5tech_enqueue_form_feedback' );
 
 /** Keep the language explicit even when admin-post.php runs without a language cookie. */
 function g5tech_form_language_field() {
@@ -206,7 +239,7 @@ function g5tech_render_contact_page_legacy() {
 					<div class="field field--full"><label for="contact-message">Trumpai aprašykite užduotį *</label><textarea id="contact-message" name="message" required></textarea></div>
 					<label class="consent field--full"><input type="checkbox" name="consent" value="1" required><span>Sutinku, kad mano duomenys būtų naudojami atsakymui į užklausą. <a href="<?php echo esc_url( home_url( '/privatumo-politika/' ) ); ?>">Privatumo politika</a>.</span></label>
 					<div class="field--full"><button class="g5-button g5-button--dark" type="submit">Siųsti užklausą <span class="g5-button__icon" aria-hidden="true">→</span></button></div>
-					<?php if ( $status ) : ?><p class="form-status field--full <?php echo 'error' === $status['type'] ? 'form-status--error' : ''; ?>" tabindex="-1"><?php echo esc_html( $status['text'] ); ?></p><?php endif; ?>
+					<?php g5tech_render_form_status( $status ); ?>
 				</form>
 			</div>
 			<aside class="split-layout__side">
@@ -282,7 +315,7 @@ function g5tech_render_application_page() {
 			<div class="field field--full"><label for="apply-motivation">Kodėl norėtumėte prisijungti?</label><textarea id="apply-motivation" name="motivation"></textarea></div>
 			<label class="consent field--full"><input type="checkbox" name="consent" value="1" required><span>Sutinku, kad mano duomenys ir CV būtų naudojami atrankos tikslais. <a href="<?php echo esc_url( home_url( '/privatumo-politika/' ) ); ?>">Privatumo politika</a>.</span></label>
 			<div class="field--full"><button class="g5-button g5-button--dark" type="submit">Pateikti kandidatūrą <span class="g5-button__icon" aria-hidden="true">→</span></button></div>
-			<?php if ( $status ) : ?><p class="form-status field--full <?php echo 'error' === $status['type'] ? 'form-status--error' : ''; ?>" tabindex="-1"><?php echo esc_html( $status['text'] ); ?></p><?php endif; ?>
+			<?php g5tech_render_form_status( $status ); ?>
 		</form>
 	</section>
 	<?php

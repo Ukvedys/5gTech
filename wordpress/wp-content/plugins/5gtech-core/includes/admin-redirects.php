@@ -36,11 +36,17 @@ function g5tech_page_key_slug_map() {
 /**
  * Puslapio blokų redaktoriaus adresas pagal slug.
  */
-function g5tech_page_editor_url( $slug ) {
+function g5tech_page_editor_url( $slug, $language = 'lt' ) {
 	$page = get_page_by_path( sanitize_title( $slug ) );
 
 	if ( $page instanceof WP_Post ) {
-		return admin_url( 'post.php?post=' . (int) $page->ID . '&action=edit' );
+		$id = $page->ID;
+		if ( function_exists( 'pll_get_post' ) && in_array( $language, array( 'lt', 'en', 'de' ), true ) ) {
+			$id = pll_get_post( $id, $language );
+		}
+		if ( $id ) {
+			return admin_url( 'post.php?post=' . (int) $id . '&action=edit' );
+		}
 	}
 
 	return admin_url( 'edit.php?post_type=page' );

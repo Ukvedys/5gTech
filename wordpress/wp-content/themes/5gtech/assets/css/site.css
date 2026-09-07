@@ -1161,6 +1161,9 @@ svg {
 }
 
 .g5-stat {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 	min-height: 11rem;
 	padding: 1.5rem var(--g5-grid-inset);
 	border-right: 1px solid var(--g5-line-dark);

@@ -600,7 +600,7 @@ function g5tech_render_guide_page() {
 	?>
 	<div class="wrap g5tech-guide">
 		<h1>5G TECH darbo atmintinė</h1>
-		<p class="g5tech-guide__lead">Pasirinkite norimą veiksmą. Puslapių struktūra ir dizainas keičiant turinį išlieka vienodi.</p>
+		<p class="g5tech-guide__lead">Puslapių tekstai ir nuotraukos keičiami blokų redaktoriuje. Bendri kontaktai ir rodikliai — skiltyje „Bendri duomenys“.</p>
 
 		<?php if ( $show_content ) : ?>
 			<h2>Svetainės turinys</h2>
@@ -610,7 +610,6 @@ function g5tech_render_guide_page() {
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_service' ), 'Paslaugos', 'Paslaugų aprašymai, darbai, vaizdai ir susijusi įranga.' ); ?>
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_project' ), 'Projektai', 'Šalys, technologijos, darbų apimtis ir viešumo būsena.' ); ?>
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_partner' ), 'Partneriai ir įranga', 'Vienoje vietoje tvarkomi pavadinimai, logotipai ir rodymo būsena.' ); ?>
-				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_module' ), 'Turinio moduliai', 'Pakartotinai naudojamos sekcijos, susietos versijos ir nepriklausomos kopijos.' ); ?>
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php' ), 'Naujienos', 'Naujo įrašo parengimas, peržiūra ir publikavimas.' ); ?>
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_faq' ), 'Dažniausi klausimai', 'Klausimai paslaugų puslapiams ir kandidatams.' ); ?>
 			</div>
@@ -619,6 +618,7 @@ function g5tech_render_guide_page() {
 		<?php if ( $show_hr ) : ?>
 			<h2>Komanda ir karjera</h2>
 			<div class="g5tech-guide-grid">
+				<?php g5tech_admin_guide_link( g5tech_page_editor_url( 'karjera' ), 'Karjeros puslapis', 'Darbo sąlygų, mokymų ir atrankos pristatymas.' ); ?>
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_team' ), 'Komanda', 'Pareigos, kontaktai, patirtis ir viešas profilis.' ); ?>
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_job' ), 'Darbo pozicijos', 'Naujos pozicijos, galiojimo data ir aktyvi būsena.' ); ?>
 				<?php g5tech_admin_guide_link( admin_url( 'edit.php?post_type=g5_faq' ), 'DUK kandidatams', 'Centralizuoti klausimai apie darbą, komandiruotes ir saugą.' ); ?>
@@ -627,6 +627,8 @@ function g5tech_render_guide_page() {
 
 
 		<div class="g5tech-guide-steps">
+			<h2>Kaip redaguoti vertimą</h2>
+			<p>Puslapių sąraše pasirinkite kalbą arba puslapio skydelyje „Languages“ spauskite pieštuką prie EN ar DE vertimo. Nekeiskite esamo puslapio kalbos norėdami atverti jo vertimą.</p>
 			<h2>Saugi publikavimo eiga</h2>
 			<ol>
 				<li>Atidarykite esamą įrašą arba pasirinkite „Pridėti naują“.</li>
@@ -693,7 +695,6 @@ function g5tech_simplify_admin_menu() {
 
 	if ( g5tech_user_has_role( 'g5_hr_editor' ) ) {
 		remove_menu_page( 'edit.php' );
-		remove_menu_page( 'edit.php?post_type=page' );
 		remove_menu_page( 'edit-comments.php' );
 		remove_menu_page( 'themes.php' );
 		remove_menu_page( 'plugins.php' );
@@ -701,6 +702,10 @@ function g5tech_simplify_admin_menu() {
 		remove_menu_page( 'tools.php' );
 		remove_menu_page( 'options-general.php' );
 		remove_menu_page( 'g5tech-settings' );
+	}
+	// Preserve legacy records without advertising the retired composer to clients.
+	if ( g5tech_user_has_role( 'g5_content_editor' ) || g5tech_user_has_role( 'g5_hr_editor' ) ) {
+		remove_menu_page( 'edit.php?post_type=g5_module' );
 	}
 }
 add_action( 'admin_menu', 'g5tech_simplify_admin_menu', 999 );

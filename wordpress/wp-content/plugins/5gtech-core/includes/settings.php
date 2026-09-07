@@ -161,11 +161,17 @@ function g5tech_settings_repeater_configs() {
 
 function g5tech_sanitize_settings( $input ) {
 	$defaults  = g5tech_default_settings();
+	$existing  = g5tech_settings();
 	$sanitized = array();
 
 	g5tech_save_admin_content_translations( 'settings' );
 
 	foreach ( $defaults as $key => $default ) {
+		// Preserve retired controls when the remaining global settings are saved.
+		if ( str_starts_with( $key, 'home_' ) ) {
+			$sanitized[ $key ] = $existing[ $key ] ?? $default;
+			continue;
+		}
 		$value = isset( $input[ $key ] ) ? wp_unslash( $input[ $key ] ) : '';
 
 		if ( in_array( $key, array( 'contact_page_url' ), true ) ) {
@@ -335,23 +341,11 @@ function g5tech_render_settings_page() {
 			</table>
 
 			<h2>Titulinis puslapis</h2>
-			<p>Hero nuotrauka keičiama redaguojant puslapį „Pagrindinis“ ir pasirenkant pagrindinį paveikslėlį.</p>
-			<table class="form-table" role="presentation">
-				<?php
-				g5tech_settings_text_field( $settings, 'home_hero_eyebrow', 'Hero krypties tekstas' );
-				g5tech_settings_textarea( $settings, 'home_hero_title', 'Hero antraštė', '', 2 );
-				g5tech_settings_textarea( $settings, 'home_hero_lead', 'Hero paaiškinimas', '', 2 );
-				g5tech_settings_home_section_row( $settings, 'intro', 'Įžanga' );
-				g5tech_settings_home_section_row( $settings, 'services', 'Paslaugos' );
-				g5tech_settings_home_section_row( $settings, 'standards', 'ISO ir SSVA' );
-				g5tech_settings_home_section_row( $settings, 'process', 'Kaip dirbame' );
-				g5tech_settings_home_section_row( $settings, 'experience', 'Patirties geografija' );
-				g5tech_settings_home_section_row( $settings, 'equipment', 'Gamintojai' );
-				g5tech_settings_home_section_row( $settings, 'team', 'Komanda' );
-				g5tech_settings_home_section_row( $settings, 'audiences', 'Auditorijos' );
-				g5tech_settings_home_section_row( $settings, 'news', 'Naujienos' );
-				?>
-			</table>
+			<p>Antraštė, įžanga ir sekcijos keičiamos puslapio blokų redaktoriuje. Pradinio ekrano nuotraukas rasite jo bloke, skiltyje „Skaidrės“.</p>
+			<p>Pasirinkite redaguojamo titulinio puslapio kalbą:</p>
+			<p><?php foreach ( array( 'lt' => 'Lietuvių', 'en' => 'Anglų', 'de' => 'Vokiečių' ) as $home_language => $home_language_label ) : ?>
+				<a class="button" href="<?php echo esc_url( g5tech_page_editor_url( 'pagrindinis', $home_language ) ); ?>"><?php echo esc_html( $home_language_label ); ?></a>
+			<?php endforeach; ?></p>
 
 			<h2>Kontaktai ir rekvizitai</h2>
 			<table class="form-table" role="presentation">

@@ -4,6 +4,10 @@
  */
 
 return array(
+	'Pristabdyti skaidres' => 'Diashow pausieren',
+	'Tęsti skaidres' => 'Diashow fortsetzen',
+	'Nepavyko patvirtinti, ar forma išsiųsta. Įvesti duomenys liko formoje. Patikrinkite ryšį arba susisiekite el. paštu.' => 'Der Versand konnte nicht bestätigt werden. Ihre Angaben stehen weiterhin im Formular. Prüfen Sie Ihre Verbindung oder kontaktieren Sie uns per E-Mail.',
+	'Formos išsiųsti nepavyko. Bandykite dar kartą arba susisiekite el. paštu.' => 'Das Formular konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns per E-Mail.',
 	'Peržiūrėti profilį' => 'Profil ansehen',
 	'Close menu' => 'Menü schließen',
 	'Open menu' => 'Menü öffnen',

@@ -47,6 +47,8 @@
     if (hero && heroMedia && heroSlides.length > 1) {
       const previousButton = hero.querySelector('[data-hero-previous]');
       const nextButton = hero.querySelector('[data-hero-next]');
+      const pauseButton = hero.querySelector('[data-hero-pause]');
+      let isPaused = false;
       let activeSlide = 0;
       let rotationTimer = 0;
       let transitionTimer = 0;
@@ -100,7 +102,7 @@
       };
 
       const restartProgress = () => {
-        if (!heroProgress || reducedMotion) return;
+        if (!heroProgress || reducedMotion || isPaused) return;
         hero.classList.remove('is-rotating');
         void heroProgress.offsetWidth;
         hero.classList.add('is-rotating');
@@ -113,7 +115,7 @@
       };
 
       const startRotation = () => {
-        if (reducedMotion || rotationTimer || document.hidden) return;
+        if (reducedMotion || isPaused || rotationTimer || document.hidden) return;
         rotationTimer = window.setInterval(() => showSlide(activeSlide + 1), 5000);
         restartProgress();
       };
@@ -138,9 +140,16 @@
         startRotation();
       });
 
-      // Kliento sprendimas: skaidrės sukasi visada, net kai pelė virš jų —
-      // taip nuo pat pradžių matosi paslaugų įvairovė. Stabdoma tik tada,
-      // kai skirtukas nematomas.
+      if (pauseButton && !reducedMotion) {
+        pauseButton.hidden = false;
+        pauseButton.addEventListener('click', () => {
+          isPaused = !isPaused;
+          pauseButton.setAttribute('aria-label', isPaused ? pauseButton.dataset.playLabel : pauseButton.dataset.pauseLabel);
+          pauseButton.textContent = isPaused ? '▶' : 'Ⅱ';
+          if (isPaused) stopRotation(); else startRotation();
+        });
+      }
+      // Keep the visitor's pause choice when returning to the tab.
       document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
           stopRotation();

@@ -662,7 +662,7 @@ function g5tech_render_contact_form_split_block() {
 				<div class="field field--full"><label for="contact-message">Trumpai aprašykite užduotį *</label><textarea id="contact-message" name="message" required></textarea></div>
 				<label class="consent field--full"><input type="checkbox" name="consent" value="1" required><span>Sutinku, kad mano duomenys būtų naudojami atsakymui į užklausą. <a href="<?php echo esc_url( home_url( '/privatumo-politika/' ) ); ?>">Privatumo politika</a>.</span></label>
 				<div class="field--full"><button class="g5-button g5-button--dark" type="submit">Siųsti užklausą <span class="g5-button__icon" aria-hidden="true">→</span></button></div>
-				<?php if ( $status ) : ?><p class="form-status field--full <?php echo 'error' === $status['type'] ? 'form-status--error' : ''; ?>" tabindex="-1"><?php echo esc_html( $status['text'] ); ?></p><?php endif; ?>
+				<?php g5tech_render_form_status( $status ); ?>
 			</form>
 		</div>
 		<aside class="split-layout__side">
@@ -729,7 +729,7 @@ function g5tech_render_application_form_block() {
 		<div class="field field--full"><label for="apply-motivation">Kodėl norėtumėte prisijungti?</label><textarea id="apply-motivation" name="motivation"></textarea></div>
 		<label class="consent field--full"><input type="checkbox" name="consent" value="1" required><span>Sutinku, kad mano duomenys ir CV būtų naudojami atrankos tikslais. <a href="<?php echo esc_url( home_url( '/privatumo-politika/' ) ); ?>">Privatumo politika</a>.</span></label>
 		<div class="field--full"><button class="g5-button g5-button--dark" type="submit">Pateikti kandidatūrą <span class="g5-button__icon" aria-hidden="true">→</span></button></div>
-		<?php if ( $status ) : ?><p class="form-status field--full <?php echo 'error' === $status['type'] ? 'form-status--error' : ''; ?>" tabindex="-1"><?php echo esc_html( $status['text'] ); ?></p><?php endif; ?>
+		<?php g5tech_render_form_status( $status ); ?>
 	</form>
 	<?php
 
@@ -1243,6 +1243,7 @@ function g5tech_render_home_hero_block( $attributes, $content, $block = null ) {
 				<span class="hero-rotator__progress"><span class="hero-rotator__progress-fill" id="hero-rotator-progress"></span></span>
 			</div>
 			<div class="hero-rotator__controls">
+				<button class="hero-rotator__arrow" type="button" data-hero-pause data-pause-label="<?php echo esc_attr( g5tech_t( 'Pristabdyti skaidres' ) ); ?>" data-play-label="<?php echo esc_attr( g5tech_t( 'Tęsti skaidres' ) ); ?>" aria-label="<?php echo esc_attr( g5tech_t( 'Pristabdyti skaidres' ) ); ?>" hidden>Ⅱ</button>
 				<button class="hero-rotator__arrow" type="button" data-hero-previous aria-label="Ankstesnė paslauga">←</button>
 				<div class="hero-rotator__dots" role="group" aria-label="Pasirinkti paslaugą">
 					<?php foreach ( $slides as $index => $slide ) : ?>
@@ -1315,13 +1316,13 @@ function g5tech_render_home_services_block( $attributes = array() ) {
 	<section class="services" id="services" aria-labelledby="services-title">
 		<div class="container">
 			<div class="services-heading"><h2 id="services-title"><?php echo esc_html( (string) ( $attributes['title'] ?? 'Paslaugos' ) ); ?></h2></div>
-			<div class="service-grid" role="list" aria-label="Paslaugų kryptys">
+			<div class="service-grid" role="group" aria-label="Paslaugų kryptys">
 				<?php foreach ( $services as $index => $service ) : ?>
 					<?php
 					$title   = get_post_meta( $service->ID, 'g5_service_card_title', true ) ?: get_the_title( $service );
 					$summary = get_post_meta( $service->ID, 'g5_service_card_summary', true ) ?: get_post_meta( $service->ID, 'g5_service_summary', true );
 					?>
-					<a class="service-tile" href="<?php echo esc_url( get_permalink( $service ) ); ?>" role="listitem">
+					<a class="service-tile" href="<?php echo esc_url( get_permalink( $service ) ); ?>">
 						<div class="service-tile-top"><span class="num"><?php echo esc_html( str_pad( (string) ( $index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span><span class="mini-arrow">→</span></div>
 						<h3><?php echo esc_html( $title ); ?></h3>
 						<?php if ( $summary ) : ?><p><?php echo esc_html( $summary ); ?></p><?php endif; ?>

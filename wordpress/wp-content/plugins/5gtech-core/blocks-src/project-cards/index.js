@@ -1,4 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
+import AdminLink from '../shared/admin-link';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import { Button, Disabled, PanelBody, TextControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
@@ -14,8 +15,8 @@ registerBlockType( metadata.name, {
 					</PanelBody>
 					<PanelBody title="Turinys">
 						<p className="components-base-control__help">Kortelės imamos iš skilties „Projektai”.</p>
-						<Button variant="primary" href="post-new.php?post_type=g5_project" target="_blank" className="g5-editor-action">Pridėti projektą ↗</Button>
-						<Button variant="secondary" href="edit.php?post_type=g5_project" target="_blank" className="g5-editor-action">Visi projektai ↗</Button>
+						<AdminLink variant="primary" href="post-new.php?post_type=g5_project" target="_blank" className="g5-editor-action">Pridėti projektą ↗</AdminLink>
+						<AdminLink variant="secondary" href="edit.php?post_type=g5_project" target="_blank" className="g5-editor-action">Visi projektai ↗</AdminLink>
 					</PanelBody>
 				</InspectorControls>
 				<Disabled>

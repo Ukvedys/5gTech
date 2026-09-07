@@ -4,6 +4,10 @@
  */
 
 return array(
+	'Pristabdyti skaidres' => 'Pause slideshow',
+	'Tęsti skaidres' => 'Resume slideshow',
+	'Nepavyko patvirtinti, ar forma išsiųsta. Įvesti duomenys liko formoje. Patikrinkite ryšį arba susisiekite el. paštu.' => 'We could not confirm delivery. Your details are still in the form. Check your connection or contact us by email.',
+	'Formos išsiųsti nepavyko. Bandykite dar kartą arba susisiekite el. paštu.' => 'The form could not be sent. Please try again or contact us by email.',
 	'Peržiūrėti profilį' => 'View profile',
 	'01 / Pradžia' => '01 / Start',
 	'01 / Įsigiliname' => '01 / Assess',

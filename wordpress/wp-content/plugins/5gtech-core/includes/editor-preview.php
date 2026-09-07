@@ -13,9 +13,28 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Temos adresas blokų redaktoriaus skriptams (atsarginėms nuotraukoms).
  */
 function g5tech_editor_preview_globals() {
+	$links = array();
+	foreach ( array( 'g5_team', 'g5_service', 'g5_project', 'g5_partner', 'g5_faq', 'g5_job', 'post' ) as $type ) {
+		$object = get_post_type_object( $type );
+		if ( $object && current_user_can( $object->cap->edit_posts ) ) {
+			$suffix = 'post' === $type ? '' : '?post_type=' . $type;
+			$links[ 'edit.php' . $suffix ] = admin_url( 'edit.php' . $suffix );
+			if ( current_user_can( $object->cap->create_posts ) ) {
+				$links[ 'post-new.php' . $suffix ] = admin_url( 'post-new.php' . $suffix );
+			}
+		}
+	}
+	if ( current_user_can( 'manage_g5tech_settings' ) ) {
+		$links['admin.php?page=g5tech-settings'] = admin_url( 'admin.php?page=g5tech-settings' );
+	}
+	$preview = array(
+		'themeUri' => get_stylesheet_directory_uri(),
+		'editorLinks' => $links,
+		'heroStats' => array( g5tech_stat( 1, '6000+', 'bazinių stočių' ), g5tech_stat( 3, '6', 'Europos šalys' ) ),
+	);
 	wp_add_inline_script(
 		'wp-block-editor',
-		'window.g5tech = window.g5tech || {}; window.g5tech.themeUri = ' . wp_json_encode( get_stylesheet_directory_uri() ) . ';',
+		'window.g5tech = Object.assign(window.g5tech || {}, ' . wp_json_encode( $preview ) . ');',
 		'before'
 	);
 }

@@ -1,4 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
+import { InnerBlocks } from '@wordpress/block-editor';
 import { useBlockProps, useInnerBlocksProps, RichText, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, TextControl } from '@wordpress/components';
 import metadata from './block.json';
@@ -40,5 +41,5 @@ registerBlockType( metadata.name, {
 			</section>
 		);
 	},
-	save() { return null; },
+	save() { return <InnerBlocks.Content />; },
 } );

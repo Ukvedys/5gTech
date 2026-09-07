@@ -1,4 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
+import { InnerBlocks } from '@wordpress/block-editor';
 import { useBlockProps, useInnerBlocksProps, RichText, InspectorControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import { PanelBody, Button } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
@@ -65,5 +66,5 @@ registerBlockType( metadata.name, {
 			</section>
 		);
 	},
-	save() { return null; },
+	save() { return <InnerBlocks.Content />; },
 } );

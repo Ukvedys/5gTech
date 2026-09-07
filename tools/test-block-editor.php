@@ -31,6 +31,12 @@ try {
 		block_check(!is_wp_error($id),'Create test editor'); $users[]=$id; wp_set_current_user($id);
 		block_check(!current_user_can('manage_options'),'Editor must not manage WordPress settings');
 		block_check(!current_user_can('install_plugins'),'Editor must not install plugins');
+		g5tech_editor_preview_globals();
+		$scripts = wp_scripts()->registered['wp-block-editor']->extra['before'] ?? [];
+		$globals = end($scripts);
+		block_check(str_contains($globals, 'heroStats'), 'Editor receives real global stats');
+		block_check(str_contains($globals, 'post-new.php?post_type=g5_team') === ('g5_hr_editor' === $role), 'Team action follows role permissions');
+		block_check(str_contains($globals, 'admin.php?page=g5tech-settings') === ('g5_content_editor' === $role), 'Settings action follows role permissions');
 		foreach(['lt','en','de'] as $language){
 			$page_id=wp_insert_post(['post_type'=>'page','post_status'=>'draft','post_title'=>'Temporary editor test','post_author'=>$id],true);
 			block_check(!is_wp_error($page_id),'Create test page');$posts[]=$page_id;pll_set_post_language($page_id,$language);
@@ -46,6 +52,16 @@ try {
 			block_check(str_contains(html_entity_decode(do_blocks($saved),ENT_QUOTES,'UTF-8'),$title),'Saved heading renders');
 			block_check(pll_get_post_language($page_id)===$language,'Saving retains language: expected '.$language.', terms '.wp_json_encode(wp_get_object_terms($page_id,'language',['fields'=>'slugs'])));
 		}
+	}
+	$settings = g5tech_settings();
+	$home_page = get_page_by_path('pagrindinis');
+	foreach(['lt','en','de'] as $language){
+		$home_id = pll_get_post($home_page->ID, $language);
+		block_check($home_id && str_contains(g5tech_page_editor_url('pagrindinis', $language), 'post=' . $home_id . '&action=edit'), 'Homepage editor link uses '.$language.' translation');
+	}
+	$sanitized = g5tech_sanitize_settings($settings);
+	foreach($settings as $key=>$value){
+		if(str_starts_with($key,'home_')) block_check($sanitized[$key] === $value,'Retired setting preserved: '.$key);
 	}
 	echo 'PASS: '.$checks." block-editor checks\n";
 } finally {

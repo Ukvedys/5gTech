@@ -1,4 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
+import AdminLink from '../shared/admin-link';
 import { useBlockProps, InspectorControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import { Button, Disabled, PanelBody, TextControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
@@ -19,7 +20,7 @@ registerBlockType( metadata.name, {
 					</PanelBody>
 					<PanelBody title="Turinys">
 						<p className="components-base-control__help">Šalių sąrašas imamas iš bendrų duomenų.</p>
-						<Button variant="primary" href="admin.php?page=g5tech-settings" target="_blank" className="g5-editor-action">Atidaryti bendrus duomenis ↗</Button>
+						<AdminLink variant="primary" href="admin.php?page=g5tech-settings" target="_blank" className="g5-editor-action">Atidaryti bendrus duomenis ↗</AdminLink>
 					</PanelBody>
 				</InspectorControls>
 				<Disabled>

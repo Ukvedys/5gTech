@@ -98,7 +98,7 @@ function g5tech_home_team_cards() {
 			$show_profile = (bool) get_post_meta( $member->ID, 'g5_team_show_profile', true );
 			$url          = $show_profile ? get_permalink( $member ) : home_url( '/apie-mus/#komanda' );
 			?>
-			<a class="team-card team-card--compact" href="<?php echo esc_url( $url ); ?>" aria-label="<?php echo esc_attr( g5tech_t( 'Peržiūrėti profilį' ) . ': ' . get_the_title( $member ) ); ?>">
+			<a class="team-card team-card--compact" href="<?php echo esc_url( $url ); ?>" aria-label="<?php echo esc_attr( ( $show_profile ? g5tech_t( 'Peržiūrėti profilį' ) : g5tech_t( 'Komanda' ) ) . ': ' . get_the_title( $member ) ); ?>">
 				<div class="team-portrait" aria-hidden="true">
 					<?php if ( has_post_thumbnail( $member ) ) : ?>
 						<?php echo get_the_post_thumbnail( $member, 'medium_large', array( 'alt' => '' ) ); ?>
@@ -301,13 +301,13 @@ function g5tech_render_homepage_legacy() {
 		<section class="services" id="services" aria-labelledby="services-title" data-g5-core-module="home_services" style="order:<?php echo (int) g5tech_home_section_order( 'services', 2 ); ?>">
 			<div class="container">
 				<div class="services-heading"><h2 id="services-title">Paslaugos</h2></div>
-				<div class="service-grid" role="list" aria-label="Paslaugų kryptys">
+				<div class="service-grid" role="group" aria-label="Paslaugų kryptys">
 					<?php foreach ( $services as $index => $service ) : ?>
 						<?php
 						$title   = get_post_meta( $service->ID, 'g5_service_card_title', true ) ?: get_the_title( $service );
 						$summary = get_post_meta( $service->ID, 'g5_service_card_summary', true ) ?: get_post_meta( $service->ID, 'g5_service_summary', true );
 						?>
-						<a class="service-tile" href="<?php echo esc_url( get_permalink( $service ) ); ?>" role="listitem">
+						<a class="service-tile" href="<?php echo esc_url( get_permalink( $service ) ); ?>">
 							<div class="service-tile-top"><span class="num"><?php echo esc_html( str_pad( (string) ( $index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span><span class="mini-arrow">→</span></div>
 							<h3><?php echo esc_html( $title ); ?></h3>
 							<?php if ( $summary ) : ?><p><?php echo esc_html( $summary ); ?></p><?php endif; ?>

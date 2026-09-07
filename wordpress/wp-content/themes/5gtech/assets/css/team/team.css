@@ -144,6 +144,8 @@ body {
 }
 
 .editorial-head__copy {
+	min-width: 0;
+	overflow-wrap: anywhere;
   grid-column: 2 / 6;
   padding-inline: var(--5g-grid-inset);
 }
@@ -265,6 +267,9 @@ body {
 }
 
 .purpose-card {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  hyphens: auto;
   min-height: 28rem;
   padding: var(--5g-space-8) var(--5g-grid-inset);
   display: flex;

@@ -82,9 +82,18 @@
 	}
 
 	.g5-language-switcher__item {
-		min-height: 1.85rem;
+		min-height: 44px;
+		min-width: 44px;
+		justify-content: center;
+		box-sizing: border-box;
 		padding-inline: 0.5rem;
 	}
+}
+
+@media (max-width: 25rem) {
+	.g5-site-brand-cluster { gap: 6px; }
+	.g5-site-brand-cluster .custom-logo-link { max-width: 100px; }
+	.g5-language-switcher { gap: 0; padding: 2px; }
 }
 
 @media (max-width: 31.25rem) {

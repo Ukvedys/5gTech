@@ -56,6 +56,12 @@ foreach(['lt','en','de'] as $lang){
 			// Missing required fields prevent mail transport from being invoked.
 			$r=g5_http($base.'/wp-admin/admin-post.php',['action'=>'g5tech_'.$kind,'g5tech_form_language'=>$lang,'g5tech_nonce'=>$token],$lang);
 			g5_verify($r['status']===302 && str_contains($r['headers'],'Location: '.$url.'?forma='.$status),$url.' POST '.$status.' keeps language');
+			$r=g5_http($base.'/wp-admin/admin-post.php',['action'=>'g5tech_'.$kind,'g5tech_form_language'=>$lang,'g5tech_nonce'=>$token,'g5tech_async'=>'1'],$lang);
+			$feedback=json_decode($r['body'],true);
+			g5_verify($r['status']===200 && is_array($feedback) && $feedback['success']===false,$url.' async '.$status.' returns an error without sending mail');
+			$expected_message=g5tech_form_status_message($kind,$status);
+			g5_verify(($feedback['message']??'')===g5tech_t($expected_message['text'],$lang),$url.' async feedback language');
+			g5_verify(!empty($feedback['nonce']),$url.' async error refreshes nonce');
 		}
 	}
 	$r=g5_http($base.($lang==='lt'?'':'/'.$lang).'/missing-regression-page/',null,$lang);
