@@ -70,14 +70,30 @@ function g5tech_form_status_message( $form ) {
 }
 
 function g5tech_form_redirect( $path, $status ) {
+	$language = sanitize_key( wp_unslash( $_POST['g5tech_form_language'] ?? $_COOKIE['pll_language'] ?? 'lt' ) );
+	$language = in_array( $language, array( 'lt', 'en', 'de' ), true ) ? $language : 'lt';
+	$url = home_url( $path );
+	if ( function_exists( 'pll_get_post' ) ) {
+		$page = get_page_by_path( trim( $path, '/' ) );
+		$translated = $page ? pll_get_post( $page->ID, $language ) : 0;
+		if ( $translated ) {
+			$url = get_permalink( $translated );
+		}
+	}
 	wp_safe_redirect(
 		add_query_arg(
 			'forma',
 			$status,
-			home_url( $path )
+			$url
 		)
 	);
 	exit;
+}
+
+/** Keep the language explicit even when admin-post.php runs without a language cookie. */
+function g5tech_form_language_field() {
+	$language = function_exists( 'g5tech_current_language' ) ? g5tech_current_language() : 'lt';
+	printf( '<input type="hidden" name="g5tech_form_language" value="%s">', esc_attr( $language ) );
 }
 
 function g5tech_form_recipient( $setting_key = 'email' ) {
@@ -103,7 +119,9 @@ function g5tech_contact_team_cards() {
 	$selected_members = array();
 
 	foreach ( $members as $member ) {
-		$role       = strtolower( get_post_meta( $member->ID, 'g5_team_role', true ) );
+		// Categorise by the source role, not its translated display text.
+		$source_id  = function_exists( 'pll_get_post' ) ? pll_get_post( $member->ID, 'lt' ) : 0;
+		$role       = strtolower( get_post_meta( $source_id ?: $member->ID, 'g5_team_role', true ) );
 		$member_key = str_contains( $role, 'personal' )
 			? 'Karjera'
 			: ( str_contains( $role, 'direktor' ) ? 'Vadovybė' : ( str_contains( $role, 'vadov' ) ? 'Projektai' : '' ) );
@@ -178,7 +196,7 @@ function g5tech_render_contact_page_legacy() {
 			<div class="split-layout__main">
 				<form class="form-grid" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post">
 					<input type="hidden" name="action" value="g5tech_contact">
-					<?php wp_nonce_field( 'g5tech_contact', 'g5tech_nonce' ); ?>
+					<?php wp_nonce_field( 'g5tech_contact', 'g5tech_nonce' ); g5tech_form_language_field(); ?>
 					<div class="g5-form-trap" aria-hidden="true"><input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" hidden></div>
 					<div class="field"><label for="contact-name">Vardas ir pavardė *</label><input id="contact-name" name="name" autocomplete="name" required></div>
 					<div class="field"><label for="contact-company">Įmonė</label><input id="contact-company" name="company" autocomplete="organization"></div>
@@ -243,7 +261,7 @@ function g5tech_render_application_page() {
 		<div class="g5-container section-head"><div class="g5-eyebrow">Kandidatavimas</div><div class="section-head__copy"><h2 class="g5-display-md" id="form-title">Kontaktai ir darbo patirtis.</h2><p class="g5-body">Žvaigždute pažymėti laukai yra privalomi.</p></div></div>
 		<form class="g5-container form-grid" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="action" value="g5tech_application">
-			<?php wp_nonce_field( 'g5tech_application', 'g5tech_nonce' ); ?>
+			<?php wp_nonce_field( 'g5tech_application', 'g5tech_nonce' ); g5tech_form_language_field(); ?>
 			<div class="g5-form-trap" aria-hidden="true"><input id="apply-website" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" hidden></div>
 			<div class="field"><label for="apply-name">Vardas *</label><input id="apply-name" name="name" autocomplete="given-name" required></div>
 			<div class="field"><label for="apply-surname">Pavardė *</label><input id="apply-surname" name="surname" autocomplete="family-name" required></div>

@@ -1008,7 +1008,7 @@ function g5tech_render_job_page( $attributes, $content, $block ) {
 
 function g5tech_redirect_inactive_job() {
 	if ( is_singular( 'g5_job' ) && ! g5tech_job_is_active( get_queried_object_id() ) ) {
-		wp_safe_redirect( home_url( '/karjera/#positions' ), 302 );
+		wp_safe_redirect( g5tech_localized_page_url( 'karjera' ) . '#positions', 302 );
 		exit;
 	}
 }

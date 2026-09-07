@@ -4,6 +4,7 @@
  */
 
 return array(
+	'Peržiūrėti profilį' => 'Profil ansehen',
 	'Close menu' => 'Menü schließen',
 	'Open menu' => 'Menü öffnen',
 	'Skip to content' => 'Zum Inhalt springen',

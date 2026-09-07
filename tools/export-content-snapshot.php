@@ -4,8 +4,9 @@
  *
  * Paleidimas iš projekto šaknies:  php tools/export-content-snapshot.php
  * Rezultatas: deploy/content/snapshot.json + nuotraukų kopijos deploy/uploads/.
- * Įrašą įkėlus į git, diegimas (deploy.yml) jį pritaiko serveryje.
+ * Serveryje pritaikoma tik rankiniu diegimu pasirinkus import_content.
  */
+if ( PHP_SAPI !== 'cli' ) { http_response_code( 403 ); exit; }
 
 $root = dirname( __DIR__ );
 
@@ -22,6 +23,7 @@ $post_types = array( 'page', 'post', 'g5_team', 'g5_service', 'g5_project', 'g5_
 $statuses   = array( 'publish', 'draft', 'private' );
 
 $snapshot = array(
+	'schema_version' => 2,
 	'generated'   => gmdate( 'c' ),
 	'source_home' => home_url(),
 	'options'     => array(),
@@ -111,7 +113,7 @@ foreach ( $post_types as $post_type ) {
 		}
 
 		// Nuotraukų ID blokų atributuose — registruojami permapavimui.
-		if ( preg_match_all( '/"image\d*Id":(\d+)/', $p->post_content, $matches ) ) {
+		if ( preg_match_all( '/"(?:image\d*Id|videoId)"\s*:\s*(\d+)/', $p->post_content, $matches ) ) {
 			foreach ( $matches[1] as $image_id ) {
 				$register_attachment( $image_id );
 			}
@@ -157,6 +159,7 @@ foreach ( $post_types as $post_type ) {
 		}
 
 		$snapshot['posts'][] = array(
+			'source_id' => $p->ID,
 			'lang'         => $entry_lang,
 			'translations' => $entry_translations,
 			'type'       => $p->post_type,
@@ -203,7 +206,12 @@ if ( ! is_dir( dirname( $out ) ) ) {
 	mkdir( dirname( $out ), 0755, true );
 }
 
-file_put_contents( $out, wp_json_encode( $snapshot, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) );
+if ( $missing ) {
+	fwrite( STDERR, 'Export aborted; missing uploads: ' . implode( ', ', $missing ) . "\n" );
+	exit( 1 );
+}
+file_put_contents( $out . '.tmp', wp_json_encode( $snapshot, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) );
+rename( $out . '.tmp', $out );
 
 echo 'Irasu: ' . count( $snapshot['posts'] ) . ', nustatymu: ' . count( $snapshot['options'] ) . ', nuotrauku: ' . $copied . "\n";
 

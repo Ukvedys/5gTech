@@ -76,7 +76,12 @@ add_filter( 'post_type_labels_post', 'g5tech_news_post_type_labels' );
 function g5tech_news_category_label( $post_id ) {
 	$categories = get_the_category( $post_id );
 
-	return $categories ? $categories[0]->name : 'Naujienos';
+	foreach ( $categories as $category ) {
+		if ( (int) $category->term_id !== (int) get_option( 'default_category' ) && 'uncategorized' !== $category->slug ) {
+			return $category->name;
+		}
+	}
+	return g5tech_t( 'Naujienos' );
 }
 
 function g5tech_render_news_cards( $limit = 12 ) {

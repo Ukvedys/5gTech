@@ -1250,7 +1250,7 @@ function g5tech_redirect_hidden_team_profile() {
 	}
 
 	if ( ! (bool) get_post_meta( get_queried_object_id(), 'g5_team_show_profile', true ) ) {
-		wp_safe_redirect( home_url( '/apie-mus/#komanda' ), 302 );
+		wp_safe_redirect( g5tech_localized_page_url( 'apie-mus' ) . '#komanda', 302 );
 		exit;
 	}
 }

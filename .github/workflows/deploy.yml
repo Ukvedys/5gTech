@@ -1,6 +1,6 @@
 name: Diegimas į serverį
 
-# Push į main atnaujina staging kodą ir, kol yra SYNC-ON, WordPress turinį.
+# Push į main atnaujina tik staging kodą; turinys importuojamas tik rankiniu pasirinkimu.
 on:
   push:
     branches: [ main ]
@@ -18,10 +18,15 @@ on:
         default: 'staging'
         type: choice
         options: [ staging, live ]
+      import_content:
+        description: 'Vienkartinis turinio importas (perrašo sutampančius įrašus; reikia atsarginės kopijos)'
+        required: true
+        default: false
+        type: boolean
 
 concurrency:
-  group: deploy-${{ github.ref }}
-  cancel-in-progress: true
+  group: deploy-${{ github.event.inputs.target || 'staging' }}
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -44,6 +49,7 @@ jobs:
             | xargs -0 -n1 php -l > /dev/null
           find wordpress/wp-content/themes/5gtech -name '*.php' -print0 \
             | xargs -0 -n1 php -l > /dev/null
+          find deploy -name '*.php' -print0 | xargs -0 -n1 php -l > /dev/null
           echo "PHP sintaksė švari"
 
       - name: Paruošti Polylang autoload
@@ -125,7 +131,21 @@ jobs:
             *) echo "::error::Kelias turi būti absoliutus (prasidėti nuo /). Gauta: $TARGET_PATH"; exit 1 ;;
           esac
 
+          TARGET_PATH="${TARGET_PATH%/}"
+          test "$TARGET_PATH" != ""
+          test "$TARGET_PATH" != "/"
           echo "path=$TARGET_PATH" >> "$GITHUB_OUTPUT"
+          PRIVATE_PATH=$(ssh -p ${{ secrets.SSH_PORT }} "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "bash -s -- '$TARGET_PATH'" <<'REMOTE'
+          set -eu
+          KEY=$(printf '%s' "$1" | sha256sum | cut -c1-16)
+          PRIVATE_PATH="$HOME/.g5tech-deploy/$KEY"
+          mkdir -p "$PRIVATE_PATH"
+          chmod 700 "$HOME/.g5tech-deploy" "$PRIVATE_PATH"
+          printf '%s' "$PRIVATE_PATH"
+          REMOTE
+          )
+          echo "private_path=$PRIVATE_PATH" >> "$GITHUB_OUTPUT"
 
       - name: Patikrinti, ar tai WordPress katalogas
         run: |
@@ -193,7 +213,9 @@ jobs:
           BACKUP_FILE="$BACKUP_DIR/pre-local-sync-$(date -u +%Y%m%dT%H%M%SZ).sql"
           BACKUP_PARTIAL="$BACKUP_FILE.partial"
 
+          umask 077
           mkdir -p "$BACKUP_DIR"
+          chmod 700 "$BACKUP_DIR"
 
           DUMP_ARGS=(
             --host="$DB_SERVER_VALUE"
@@ -245,13 +267,14 @@ jobs:
             "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ steps.target.outputs.path }}/wp-content/plugins/polylang/"
 
       - name: Įkelti vietinio turinio momentinį įrašą
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.import_content }}
         run: |
           rsync -az --delete \
             --exclude 'uploads/' \
             --exclude '*.md' \
             -e "ssh -p ${{ secrets.SSH_PORT }}" \
             deploy/ \
-            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ steps.target.outputs.path }}/wp-content/g5-deploy/"
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ steps.target.outputs.private_path }}/"
 
           rsync -az \
             --exclude '.DS_Store' \
@@ -259,52 +282,42 @@ jobs:
             deploy/uploads/ \
             "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ steps.target.outputs.path }}/wp-content/uploads/"
 
-      - name: Pritaikyti vietinį WordPress turinį
+      - name: Uždaryti seną viešą importo katalogą
+        run: |
+          ssh -p ${{ secrets.SSH_PORT }} "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "bash -s -- '${{ steps.target.outputs.path }}' '${{ steps.target.outputs.private_path }}'" <<'REMOTE'
+          set -eu
+          LEGACY="$1/wp-content/g5-deploy"
+          if [ -d "$LEGACY" ]; then
+            mkdir -p "$2/../legacy"
+            chmod 700 "$2/../legacy"
+            mv "$LEGACY" "$2/../legacy/$(basename "$2")-$(date -u +%Y%m%dT%H%M%SZ)"
+          fi
+          REMOTE
+
+      - name: Vienkartinis patvirtintas turinio importas
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.import_content }}
+        run: |
+          ssh -p ${{ secrets.SSH_PORT }} "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "php '${{ steps.target.outputs.private_path }}/sync-content.php' --wordpress='${{ steps.target.outputs.path }}' --import-content"
+
+      - name: Patikrinti diegimą
         run: |
           ssh -p ${{ secrets.SSH_PORT }} "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
             "bash -s -- '${{ steps.target.outputs.path }}'" <<'REMOTE'
           set -eu
           TARGET_PATH="$1"
-
-          set +e
-          php \
-            -d display_errors=1 \
-            -d display_startup_errors=1 \
-            -d error_reporting=-1 \
-            "$TARGET_PATH/wp-content/g5-deploy/sync-content.php"
-          SYNC_RESULT=$?
-          set -e
-
-          if [ "$SYNC_RESULT" -eq 75 ]; then
-            set +e
-            php \
-              -d display_errors=1 \
-              -d display_startup_errors=1 \
-              -d error_reporting=-1 \
-              "$TARGET_PATH/wp-content/g5-deploy/sync-content.php"
-            SYNC_RESULT=$?
-            set -e
-          fi
-
-          if [ "$SYNC_RESULT" -ne 0 ]; then
-            echo "Sinchronizavimo diagnostika (paskutinės žurnalo eilutės):"
-
-            if [ -f "$TARGET_PATH/wp-content/debug.log" ]; then
-              tail -n 80 "$TARGET_PATH/wp-content/debug.log" || true
-            elif [ -f "$TARGET_PATH/error_log" ]; then
-              tail -n 80 "$TARGET_PATH/error_log" || true
-            else
-              echo "WordPress klaidų žurnalas nerastas"
-            fi
-
-            exit "$SYNC_RESULT"
-          fi
-
-          wp cache flush --path="$TARGET_PATH" || true
-
+          wp plugin is-active 5gtech-core --path="$TARGET_PATH"
+          wp plugin is-active polylang --path="$TARGET_PATH"
+          test "$(wp option get stylesheet --path="$TARGET_PATH")" = "5gtech"
+          wp cache flush --path="$TARGET_PATH"
           if wp plugin is-active litespeed-cache --path="$TARGET_PATH" >/dev/null 2>&1; then
-            wp litespeed-purge all --path="$TARGET_PATH" || true
+            wp litespeed-purge all --path="$TARGET_PATH"
           fi
+          SITE_URL=$(wp option get home --path="$TARGET_PATH")
+          for ROUTE in / /en/ /de/ /kontaktai/; do
+            curl --fail --silent --show-error --location --max-time 30 "$SITE_URL$ROUTE" > /dev/null
+          done
           REMOTE
 
       - name: Santrauka
@@ -314,6 +327,6 @@ jobs:
           echo "- Tema: \`wp-content/themes/5gtech\`" >> $GITHUB_STEP_SUMMARY
           echo "- Papildinys: \`wp-content/plugins/5gtech-core\` (su sukompiliuotais blokais)" >> $GITHUB_STEP_SUMMARY
           echo "- Kalbos: \`Polylang\` iš repozitorijos" >> $GITHUB_STEP_SUMMARY
-          echo "- Turinys: vietinis momentinis įrašas pritaikytas, jei yra \`deploy/content/SYNC-ON\`" >> $GITHUB_STEP_SUMMARY
+          echo "- Turinys: importas tik pagal atskirą rankinį pasirinkimą; įprasti diegimai jo nekeičia" >> $GITHUB_STEP_SUMMARY
           echo "- Atsarginė kopija: prieš turinio keitimą išsaugota už viešo WordPress katalogo" >> $GITHUB_STEP_SUMMARY
           echo "- Nepaliesta: WordPress branduolys ir kiti papildiniai" >> $GITHUB_STEP_SUMMARY

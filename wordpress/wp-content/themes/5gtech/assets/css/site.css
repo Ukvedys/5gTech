@@ -1568,6 +1568,8 @@ svg {
 		font-weight: 700;
 		letter-spacing: .16em;
 	}
+	:lang(en) .g5-site-nav .wp-block-navigation__responsive-dialog::before { content: "MENU"; }
+	:lang(de) .g5-site-nav .wp-block-navigation__responsive-dialog::before { content: "MENÜ"; }
 
 	.admin-bar .g5-site-nav .wp-block-navigation__responsive-dialog::before {
 		top: calc(2rem + 32px);
@@ -2169,4 +2171,3 @@ body.editor-styles-wrapper .wp-block-quote {
   height: 100%;
   object-fit: cover;
 }
-

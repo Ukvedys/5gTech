@@ -4,6 +4,7 @@
  */
 
 return array(
+	'Peržiūrėti profilį' => 'View profile',
 	'01 / Pradžia' => '01 / Start',
 	'01 / Įsigiliname' => '01 / Assess',
 	'02 / Projektų geografija' => '02 / Project footprint',

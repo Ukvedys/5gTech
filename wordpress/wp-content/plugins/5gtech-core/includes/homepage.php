@@ -98,7 +98,7 @@ function g5tech_home_team_cards() {
 			$show_profile = (bool) get_post_meta( $member->ID, 'g5_team_show_profile', true );
 			$url          = $show_profile ? get_permalink( $member ) : home_url( '/apie-mus/#komanda' );
 			?>
-			<a class="team-card team-card--compact" href="<?php echo esc_url( $url ); ?>" aria-label="<?php echo esc_attr( 'Peržiūrėti: ' . get_the_title( $member ) ); ?>">
+			<a class="team-card team-card--compact" href="<?php echo esc_url( $url ); ?>" aria-label="<?php echo esc_attr( g5tech_t( 'Peržiūrėti profilį' ) . ': ' . get_the_title( $member ) ); ?>">
 				<div class="team-portrait" aria-hidden="true">
 					<?php if ( has_post_thumbnail( $member ) ) : ?>
 						<?php echo get_the_post_thumbnail( $member, 'medium_large', array( 'alt' => '' ) ); ?>

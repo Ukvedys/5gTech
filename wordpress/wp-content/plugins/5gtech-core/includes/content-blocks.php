@@ -652,7 +652,7 @@ function g5tech_render_contact_form_split_block() {
 		<div class="split-layout__main">
 			<form class="form-grid" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post">
 				<input type="hidden" name="action" value="g5tech_contact">
-				<?php wp_nonce_field( 'g5tech_contact', 'g5tech_nonce' ); ?>
+				<?php wp_nonce_field( 'g5tech_contact', 'g5tech_nonce' ); g5tech_form_language_field(); ?>
 				<div class="g5-form-trap" aria-hidden="true"><input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" hidden></div>
 				<div class="field"><label for="contact-name">Vardas ir pavardė *</label><input id="contact-name" name="name" autocomplete="name" required></div>
 				<div class="field"><label for="contact-company">Įmonė</label><input id="contact-company" name="company" autocomplete="organization"></div>
@@ -708,7 +708,7 @@ function g5tech_render_application_form_block() {
 	?>
 	<form class="g5-container form-grid" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="action" value="g5tech_application">
-		<?php wp_nonce_field( 'g5tech_application', 'g5tech_nonce' ); ?>
+		<?php wp_nonce_field( 'g5tech_application', 'g5tech_nonce' ); g5tech_form_language_field(); ?>
 		<div class="g5-form-trap" aria-hidden="true"><input id="apply-website" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" hidden></div>
 		<div class="field"><label for="apply-name">Vardas *</label><input id="apply-name" name="name" autocomplete="given-name" required></div>
 		<div class="field"><label for="apply-surname">Pavardė *</label><input id="apply-surname" name="surname" autocomplete="family-name" required></div>

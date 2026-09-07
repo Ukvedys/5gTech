@@ -1,5 +1,5 @@
 {
-    "generated": "2026-08-04T07:48:54+00:00",
+    "generated": "2026-09-07T08:39:37+00:00",
     "source_home": "http://5gtech.test",
     "options": {
         "g5tech_about_content": {
@@ -287,7 +287,8 @@
                     "default"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 3
         },
         {
             "lang": "lt",
@@ -307,7 +308,8 @@
             "parent": "",
             "thumbnail": "2026/07/hero-sky-worker.png",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 5
         },
         {
             "lang": "lt",
@@ -327,7 +329,8 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 6
         },
         {
             "lang": "lt",
@@ -347,7 +350,8 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 7
         },
         {
             "lang": "lt",
@@ -367,7 +371,8 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 70
         },
         {
             "lang": "lt",
@@ -387,7 +392,8 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 83
         },
         {
             "lang": "lt",
@@ -407,7 +413,8 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 90
         },
         {
             "lang": "lt",
@@ -427,7 +434,8 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 92
         },
         {
             "lang": "lt",
@@ -447,7 +455,8 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 98
         },
         {
             "lang": "lt",
@@ -467,7 +476,8 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 99
         },
         {
             "lang": "lt",
@@ -487,7 +497,8 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 106
         },
         {
             "lang": "lt",
@@ -507,7 +518,8 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 107
         },
         {
             "lang": "lt",
@@ -527,7 +539,8 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 108
         },
         {
             "lang": "lt",
@@ -547,7 +560,8 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 109
         },
         {
             "lang": "lt",
@@ -567,7 +581,8 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 110
         },
         {
             "lang": "en",
@@ -588,7 +603,8 @@
                     "default"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 284
         },
         {
             "lang": "de",
@@ -609,7 +625,8 @@
                     "default"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 285
         },
         {
             "lang": "en",
@@ -626,7 +643,8 @@
             "parent": "",
             "thumbnail": "2026/07/hero-sky-worker.png",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 286
         },
         {
             "lang": "de",
@@ -643,7 +661,8 @@
             "parent": "",
             "thumbnail": "2026/07/hero-sky-worker.png",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 287
         },
         {
             "lang": "en",
@@ -654,7 +673,7 @@
             "status": "publish",
             "date": "2026-08-04 06:41:45",
             "date_gmt": "2026-08-04 06:41:45",
-            "content": "<!-- wp:g5tech/contact-page /-->",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Contact\",\"title\":\"Let's discuss your project.\",\"lead\":\"Describe your requirements or contact us directly. We will respond and connect you with the right specialist.\",\"compact\":true,\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Write it down\",\"title\":\"Project request.\",\"anchorId\":\"contact-title\"} -->\n<!-- wp:g5tech/contact-form-split /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Team\",\"title\":\"Direct contacts.\",\"theme\":\"paper\",\"anchorId\":\"people-title\"} -->\n<!-- wp:g5tech/contact-people /-->\n<!-- /wp:g5tech/section -->",
             "excerpt": "",
             "menu_order": 0,
             "parent": "",
@@ -664,7 +683,8 @@
                     "page-kontaktai"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 288
         },
         {
             "lang": "de",
@@ -675,7 +695,7 @@
             "status": "publish",
             "date": "2026-08-04 06:41:45",
             "date_gmt": "2026-08-04 06:41:45",
-            "content": "<!-- wp:g5tech/contact-page /-->",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Kontakt\",\"title\":\"Lassen Sie uns Ihr Projekt besprechen.\",\"lead\":\"Beschreiben Sie Ihre Anforderungen oder kontaktieren Sie uns direkt. Wir antworten und verbinden Sie mit dem passenden Ansprechpartner.\",\"compact\":true,\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Schreiben Sie es auf\",\"title\":\"Projektanfrage.\",\"anchorId\":\"contact-title\"} -->\n<!-- wp:g5tech/contact-form-split /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Team\",\"title\":\"Direkte Kontakte.\",\"theme\":\"paper\",\"anchorId\":\"people-title\"} -->\n<!-- wp:g5tech/contact-people /-->\n<!-- /wp:g5tech/section -->",
             "excerpt": "",
             "menu_order": 0,
             "parent": "",
@@ -685,7 +705,8 @@
                     "page-kontaktai"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 289
         },
         {
             "lang": "en",
@@ -706,7 +727,8 @@
                     "page-privatumo-politika"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 290
         },
         {
             "lang": "de",
@@ -727,7 +749,8 @@
                     "page-privatumo-politika"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 291
         },
         {
             "lang": "en",
@@ -738,7 +761,7 @@
             "status": "publish",
             "date": "2026-08-04 06:41:45",
             "date_gmt": "2026-08-04 06:41:45",
-            "content": "<!-- wp:g5tech/experience-page /-->",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Experience\",\"title\":\"Experience in European infrastructure projects.\",\"lead\":\"We work in six European countries, according to the standards of different operators and with equipment from different manufacturers.\",\"dialect\":\"site\",\"anchorId\":\"g5-experience-title\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Key figures\",\"title\":\"Key figures.\",\"theme\":\"dark\",\"dialect\":\"site\",\"anchorId\":\"g5-experience-numbers-title\"} -->\n<!-- wp:g5tech/stats-band /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/geo-section {\"eyebrow\":\"Geography\",\"title\":\"Six European countries.\",\"anchorId\":\"g5-countries-title\"} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Projects\",\"title\":\"Selected projects.\",\"theme\":\"dark\",\"dialect\":\"site\",\"anchorId\":\"g5-projects-preview-title\"} -->\n<!-- wp:g5tech/projects-preview /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Experience\",\"title\":\"Partners.\",\"theme\":\"paper\",\"dialect\":\"site\",\"anchorId\":\"g5-operators-title\"} -->\n<!-- wp:g5tech/partner-tag-split /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Delivery standard\",\"title\":\"ISO standartai, SSVA ir VERT kvalifikacijos.\",\"theme\":\"dark\",\"dialect\":\"site\",\"anchorId\":\"g5-certifications-title\"} -->\n<!-- wp:g5tech/certification-grid /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/page-cta {\"eyebrow\":\"New project\",\"title\":\"Let's discuss your project.\",\"body\":\"Specify the market, operator or equipment - we will provide relevant experience.\",\"buttonLabel\":\"Contact\",\"buttonUrl\":\"/en/contact/\",\"dialect\":\"site\",\"anchorId\":\"g5-experience-cta-title\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
             "excerpt": "",
             "menu_order": 0,
             "parent": "",
@@ -748,7 +771,8 @@
                     "page-patirtis"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 292
         },
         {
             "lang": "de",
@@ -759,7 +783,7 @@
             "status": "publish",
             "date": "2026-08-04 06:41:45",
             "date_gmt": "2026-08-04 06:41:45",
-            "content": "<!-- wp:g5tech/experience-page /-->",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Erfahrung\",\"title\":\"Erfahrung in europäischen Infrastrukturprojekten.\",\"lead\":\"Wir arbeiten in sechs europäischen Ländern, nach den Standards verschiedener Betreiber und mit Geräten verschiedener Hersteller.\",\"dialect\":\"site\",\"anchorId\":\"g5-experience-title\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Kennzahlen\",\"title\":\"Kennzahlen.\",\"theme\":\"dark\",\"dialect\":\"site\",\"anchorId\":\"g5-experience-numbers-title\"} -->\n<!-- wp:g5tech/stats-band /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/geo-section {\"eyebrow\":\"Einsatzgebiete\",\"title\":\"Sechs europäische Länder.\",\"anchorId\":\"g5-countries-title\"} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Projekte\",\"title\":\"Ausgewählte Projekte.\",\"theme\":\"dark\",\"dialect\":\"site\",\"anchorId\":\"g5-projects-preview-title\"} -->\n<!-- wp:g5tech/projects-preview /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Erfahrung\",\"title\":\"Partner.\",\"theme\":\"paper\",\"dialect\":\"site\",\"anchorId\":\"g5-operators-title\"} -->\n<!-- wp:g5tech/partner-tag-split /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Ausführungsstandard\",\"title\":\"ISO standartai, SSVA ir VERT kvalifikacijos.\",\"theme\":\"dark\",\"dialect\":\"site\",\"anchorId\":\"g5-certifications-title\"} -->\n<!-- wp:g5tech/certification-grid /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/page-cta {\"eyebrow\":\"Neues Projekt\",\"title\":\"Lassen Sie uns Ihr Projekt besprechen.\",\"body\":\"Geben Sie den Markt, den Betreiber oder die Ausrüstung an – wir liefern relevante Erfahrung.\",\"buttonLabel\":\"Kontakt\",\"buttonUrl\":\"/de/kontakt/\",\"dialect\":\"site\",\"anchorId\":\"g5-experience-cta-title\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
             "excerpt": "",
             "menu_order": 0,
             "parent": "",
@@ -769,7 +793,8 @@
                     "page-patirtis"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 293
         },
         {
             "lang": "en",
@@ -790,7 +815,8 @@
                     "page-apie-mus"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 294
         },
         {
             "lang": "de",
@@ -811,7 +837,8 @@
                     "page-apie-mus"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 295
         },
         {
             "lang": "en",
@@ -822,7 +849,7 @@
             "status": "publish",
             "date": "2026-08-04 06:41:45",
             "date_gmt": "2026-08-04 06:41:45",
-            "content": "<!-- wp:g5tech/career-page /-->",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Careers\",\"title\":\"Career in telecommunications and energy projects.\",\"lead\":\"Projects in Lithuania and other European countries, practical training, certificates required for work and a safe working environment.\",\"buttonLabel\":\"View positions\",\"buttonUrl\":\"#positions\",\"buttonIcon\":\"↓\",\"button2Label\":\"Submit your CV\",\"button2Url\":\"/en/apply/\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"What we provide\",\"title\":\"Working conditions.\",\"theme\":\"paper\",\"anchorId\":\"benefits-title\"} -->\n<!-- wp:g5tech/card-grid -->\n<!-- wp:g5tech/card {\"title\":\"Training and qualifications\",\"text\":\"We cover working-at-height, electrical safety, first aid and other training required for the role.\"} /-->\n<!-- wp:g5tech/card {\"title\":\"Equipment and tools\",\"text\":\"We provide work clothes, tools and certified personal protective equipment.\"} /-->\n<!-- wp:g5tech/card {\"title\":\"European projects\",\"text\":\"We pay for work-related travel, transportation and accommodation during business trips.\"} /-->\n<!-- /wp:g5tech/card-grid -->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Positions\",\"title\":\"Open positions.\",\"anchorId\":\"positions-title\",\"sectionId\":\"positions\"} -->\n<!-- wp:g5tech/job-groups {\"emptyText\":\"Šiuo metu atvirų pozicijų nėra. Galite palikti CV – susisieksime atsiradus tinkamai pozicijai.\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Recruitment\",\"title\":\"How the selection works.\",\"theme\":\"dark\",\"anchorId\":\"selection-title\"} -->\n<!-- wp:g5tech/steps -->\n<!-- wp:g5tech/step {\"title\":\"Application\",\"text\":\"Choose a position or leave your CV.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Assessment\",\"text\":\"We review your experience and suitability for the role.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Interview\",\"text\":\"We discuss experience, expectations and job specifics.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Technical assessment\",\"text\":\"We appreciate technical knowledge as needed.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Offer\",\"text\":\"We are coordinating the terms and the joining date.\"} /-->\n<!-- /wp:g5tech/steps -->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Growth\",\"title\":\"Training and practical preparation for work.\",\"anchorId\":\"growth-title\"} -->\n<!-- wp:g5tech/card-grid -->\n<!-- wp:g5tech/link-card {\"label\":\"5GTECH Academy\",\"title\":\"Practical training for future telecommunications specialists.\",\"linkText\":\"About the program →\",\"url\":\"/en/academy/\"} /-->\n<!-- wp:g5tech/link-card {\"label\":\"Training\",\"title\":\"Hands-on training with equipment used on real projects.\",\"linkText\":\"About training →\",\"url\":\"/en/training/\"} /-->\n<!-- wp:g5tech/link-card {\"label\":\"DUK\",\"title\":\"Answers about business travel, working conditions and safety.\",\"linkText\":\"View FAQ →\",\"url\":\"/en/candidate-faq/\"} /-->\n<!-- /wp:g5tech/card-grid -->\n<!-- /wp:g5tech/section -->",
             "excerpt": "",
             "menu_order": 0,
             "parent": "",
@@ -832,7 +859,8 @@
                     "page-karjera"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 296
         },
         {
             "lang": "de",
@@ -843,7 +871,7 @@
             "status": "publish",
             "date": "2026-08-04 06:41:45",
             "date_gmt": "2026-08-04 06:41:45",
-            "content": "<!-- wp:g5tech/career-page /-->",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Karriere\",\"title\":\"Karriere in Telekommunikations- und Energieprojekten.\",\"lead\":\"Projekte in Litauen und anderen europäischen Ländern, praktische Ausbildung, für die Arbeit erforderliche Zertifikate und ein sicheres Arbeitsumfeld.\",\"buttonLabel\":\"Positionen ansehen\",\"buttonUrl\":\"#positions\",\"buttonIcon\":\"↓\",\"button2Label\":\"Lebenslauf einreichen\",\"button2Url\":\"/de/bewerben/\",\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Was wir bieten\",\"title\":\"Arbeitsbedingungen.\",\"theme\":\"paper\",\"anchorId\":\"benefits-title\"} -->\n<!-- wp:g5tech/card-grid -->\n<!-- wp:g5tech/card {\"title\":\"Schulungen und Qualifikationen\",\"text\":\"Wir übernehmen die Kosten für Schulungen zu Höhenarbeit, elektrischer Sicherheit, Erster Hilfe und weiteren tätigkeitsbezogenen Qualifikationen.\"} /-->\n<!-- wp:g5tech/card {\"title\":\"Ausrüstung und Werkzeuge\",\"text\":\"Wir stellen Arbeitskleidung, Werkzeuge und zertifizierte persönliche Schutzausrüstung zur Verfügung.\"} /-->\n<!-- wp:g5tech/card {\"title\":\"Europäische Projekte\",\"text\":\"Wir übernehmen die Kosten für beruflich bedingte Fahrten, Transport und Unterkunft bei Geschäftsreisen.\"} /-->\n<!-- /wp:g5tech/card-grid -->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Positionen\",\"title\":\"Offene Stellen.\",\"anchorId\":\"positions-title\",\"sectionId\":\"positions\"} -->\n<!-- wp:g5tech/job-groups {\"emptyText\":\"Šiuo metu atvirų pozicijų nėra. Galite palikti CV – susisieksime atsiradus tinkamai pozicijai.\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Bewerbungsprozess\",\"title\":\"So funktioniert die Auswahl.\",\"theme\":\"dark\",\"anchorId\":\"selection-title\"} -->\n<!-- wp:g5tech/steps -->\n<!-- wp:g5tech/step {\"title\":\"Bewerbung\",\"text\":\"Wählen Sie eine Stelle oder hinterlassen Sie Ihren Lebenslauf.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Bewertung\",\"text\":\"Wir prüfen Ihre Erfahrung und Eignung für die Position.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Gespräch\",\"text\":\"Wir besprechen Erfahrungen, Erwartungen und Jobspezifika.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Fachliche Prüfung\",\"text\":\"Bei Bedarf schätzen wir technische Kenntnisse ein.\"} /-->\n<!-- wp:g5tech/step {\"title\":\"Angebot\",\"text\":\"Wir stimmen die Konditionen und den Beitrittstermin ab.\"} /-->\n<!-- /wp:g5tech/steps -->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Wachstum\",\"title\":\"Schulung und praktische Vorbereitung auf die Arbeit.\",\"anchorId\":\"growth-title\"} -->\n<!-- wp:g5tech/card-grid -->\n<!-- wp:g5tech/link-card {\"label\":\"5GTECH Academy\",\"title\":\"Praxisnahe Schulungen für angehende Telekommunikationsfachkräfte.\",\"linkText\":\"Über das Programm →\",\"url\":\"/de/akademie/\"} /-->\n<!-- wp:g5tech/link-card {\"label\":\"Schulungen\",\"title\":\"Praxistraining mit Ausrüstung aus realen Projekten.\",\"linkText\":\"Mehr zu den Schulungen →\",\"url\":\"/de/schulungen/\"} /-->\n<!-- wp:g5tech/link-card {\"label\":\"DUK\",\"title\":\"Antworten zu Dienstreisen, Arbeitsbedingungen und Sicherheit.\",\"linkText\":\"FAQ anzeigen →\",\"url\":\"/de/faq-fuer-bewerber/\"} /-->\n<!-- /wp:g5tech/card-grid -->\n<!-- /wp:g5tech/section -->",
             "excerpt": "",
             "menu_order": 0,
             "parent": "",
@@ -853,7 +881,8 @@
                     "page-karjera"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 297
         },
         {
             "lang": "en",
@@ -864,7 +893,7 @@
             "status": "publish",
             "date": "2026-08-04 06:41:45",
             "date_gmt": "2026-08-04 06:41:45",
-            "content": "<!-- wp:g5tech/news-page /-->",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"News\",\"title\":\"Projects, team and technical insights.\",\"compact\":true,\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"The latest\",\"title\":\"Latest posts.\",\"theme\":\"paper\",\"anchorId\":\"news-title\"} -->\n<!-- wp:g5tech/news-grid /-->\n<!-- /wp:g5tech/section -->",
             "excerpt": "",
             "menu_order": 0,
             "parent": "",
@@ -874,7 +903,8 @@
                     "page-naujienos"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 298
         },
         {
             "lang": "de",
@@ -885,7 +915,7 @@
             "status": "publish",
             "date": "2026-08-04 06:41:45",
             "date_gmt": "2026-08-04 06:41:45",
-            "content": "<!-- wp:g5tech/news-page /-->",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Aktuelles\",\"title\":\"Projekte, Team und technische Einblicke.\",\"compact\":true,\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Das Neueste\",\"title\":\"Neueste Beiträge.\",\"theme\":\"paper\",\"anchorId\":\"news-title\"} -->\n<!-- wp:g5tech/news-grid /-->\n<!-- /wp:g5tech/section -->",
             "excerpt": "",
             "menu_order": 0,
             "parent": "",
@@ -895,7 +925,8 @@
                     "page-naujienos"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 299
         },
         {
             "lang": "en",
@@ -916,7 +947,8 @@
                     "page-slapukai"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 300
         },
         {
             "lang": "de",
@@ -937,7 +969,8 @@
                     "page-slapukai"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 301
         },
         {
             "lang": "en",
@@ -948,7 +981,7 @@
             "status": "publish",
             "date": "2026-08-04 06:41:45",
             "date_gmt": "2026-08-04 06:41:45",
-            "content": "<!-- wp:g5tech/application-page /-->",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Application\",\"title\":\"Apply for a position.\",\"lead\":\"Upload your CV and indicate the position you are interested in. If a suitable position is not currently available, we can contact you later.\",\"compact\":true,\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Application\",\"title\":\"Contacts and work experience.\",\"lead\":\"Fields marked with an asterisk are required.\",\"anchorId\":\"form-title\"} -->\n<!-- wp:g5tech/application-form /-->\n<!-- /wp:g5tech/section -->",
             "excerpt": "",
             "menu_order": 0,
             "parent": "",
@@ -958,7 +991,8 @@
                     "page-kandidatuoti"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 302
         },
         {
             "lang": "de",
@@ -969,7 +1003,7 @@
             "status": "publish",
             "date": "2026-08-04 06:41:45",
             "date_gmt": "2026-08-04 06:41:45",
-            "content": "<!-- wp:g5tech/application-page /-->",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"Bewerbung\",\"title\":\"Bewerben Sie sich.\",\"lead\":\"Laden Sie Ihren Lebenslauf hoch und geben Sie die Stelle an, an der Sie interessiert sind. Sollte aktuell keine passende Stelle verfügbar sein, können wir Sie später kontaktieren.\",\"compact\":true,\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Bewerbung\",\"title\":\"Kontakte und Berufserfahrung.\",\"lead\":\"Mit einem Sternchen gekennzeichnete Felder sind Pflichtfelder.\",\"anchorId\":\"form-title\"} -->\n<!-- wp:g5tech/application-form /-->\n<!-- /wp:g5tech/section -->",
             "excerpt": "",
             "menu_order": 0,
             "parent": "",
@@ -979,7 +1013,8 @@
                     "page-kandidatuoti"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 303
         },
         {
             "lang": "en",
@@ -1000,7 +1035,8 @@
                     "page-akademija"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 304
         },
         {
             "lang": "de",
@@ -1021,7 +1057,8 @@
                     "page-akademija"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 305
         },
         {
             "lang": "en",
@@ -1042,7 +1079,8 @@
                     "page-mokymai"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 306
         },
         {
             "lang": "de",
@@ -1063,7 +1101,8 @@
                     "page-mokymai"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 307
         },
         {
             "lang": "en",
@@ -1074,7 +1113,7 @@
             "status": "publish",
             "date": "2026-08-04 06:41:46",
             "date_gmt": "2026-08-04 06:41:46",
-            "content": "<!-- wp:g5tech/candidate-faq-page /-->",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"FAQ for candidates\",\"title\":\"Frequently asked questions about working at 5G TECH.\",\"compact\":true,\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Start of work\",\"title\":\"Application and preparation.\",\"theme\":\"light\",\"anchorId\":\"start-title\"} -->\n<!-- wp:g5tech/faq-group {\"group\":\"start\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Business trips\",\"title\":\"Work in European projects.\",\"theme\":\"paper\",\"anchorId\":\"travel-title\"} -->\n<!-- wp:g5tech/faq-group {\"group\":\"travel\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Safety and tools\",\"title\":\"Work at height and safety.\",\"theme\":\"light\",\"anchorId\":\"safety-title\"} -->\n<!-- wp:g5tech/faq-group {\"group\":\"safety\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Daily work\",\"title\":\"Daily workflow.\",\"theme\":\"paper\",\"anchorId\":\"daily-title\"} -->\n<!-- wp:g5tech/faq-group {\"group\":\"daily\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/page-cta {\"eyebrow\":\"Didn't find the answer?\",\"title\":\"Contact the HR team.\",\"bodySetting\":\"career_email\",\"buttonLabel\":\"To apply\",\"buttonUrl\":\"/en/apply/\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
             "excerpt": "",
             "menu_order": 0,
             "parent": "",
@@ -1084,7 +1123,8 @@
                     "page-duk"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 308
         },
         {
             "lang": "de",
@@ -1095,7 +1135,7 @@
             "status": "publish",
             "date": "2026-08-04 06:41:46",
             "date_gmt": "2026-08-04 06:41:46",
-            "content": "<!-- wp:g5tech/candidate-faq-page /-->",
+            "content": "<!-- wp:g5tech/page-hero {\"eyebrow\":\"FAQ für Kandidaten\",\"title\":\"Häufig gestellte Fragen zur Arbeit bei 5G TECH.\",\"compact\":true,\"lock\":{\"move\":true,\"remove\":true}} /-->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Arbeitsbeginn\",\"title\":\"Bewerbung und Vorbereitung.\",\"theme\":\"light\",\"anchorId\":\"start-title\"} -->\n<!-- wp:g5tech/faq-group {\"group\":\"start\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Geschäftsreisen\",\"title\":\"Mitarbeit in europäischen Projekten.\",\"theme\":\"paper\",\"anchorId\":\"travel-title\"} -->\n<!-- wp:g5tech/faq-group {\"group\":\"reisen\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Sicherheit und Werkzeuge\",\"title\":\"Arbeiten Sie in großer Höhe und sicher.\",\"theme\":\"light\",\"anchorId\":\"safety-title\"} -->\n<!-- wp:g5tech/faq-group {\"group\":\"safety\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/section {\"eyebrow\":\"Tägliche Arbeit\",\"title\":\"Täglicher Arbeitsablauf.\",\"theme\":\"paper\",\"anchorId\":\"daily-title\"} -->\n<!-- wp:g5tech/faq-group {\"group\":\"daily\"} /-->\n<!-- /wp:g5tech/section -->\n\n<!-- wp:g5tech/page-cta {\"eyebrow\":\"Haben Sie die Antwort nicht gefunden?\",\"title\":\"Kontaktieren Sie das HR-Team.\",\"bodySetting\":\"career_email\",\"buttonLabel\":\"Zur Bewerbung\",\"buttonUrl\":\"/de/bewerben/\",\"lock\":{\"move\":true,\"remove\":true}} /-->",
             "excerpt": "",
             "menu_order": 0,
             "parent": "",
@@ -1105,7 +1145,8 @@
                     "page-duk"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 309
         },
         {
             "lang": "en",
@@ -1126,7 +1167,8 @@
                     "page-vadovams"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 310
         },
         {
             "lang": "de",
@@ -1147,7 +1189,8 @@
                     "page-vadovams"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 311
         },
         {
             "lang": "en",
@@ -1168,7 +1211,8 @@
                     "page-projektu-vadovams"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 312
         },
         {
             "lang": "de",
@@ -1189,7 +1233,8 @@
                     "page-projektu-vadovams"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 313
         },
         {
             "lang": "lt",
@@ -1209,7 +1254,8 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 354
         },
         {
             "lang": "lt",
@@ -1226,7 +1272,8 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": []
+            "terms": [],
+            "source_id": 355
         },
         {
             "lang": "en",
@@ -1247,7 +1294,8 @@
                     "page-paslaugos"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 356
         },
         {
             "lang": "de",
@@ -1268,7 +1316,8 @@
                     "page-paslaugos"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 357
         },
         {
             "lang": "lt",
@@ -1295,7 +1344,8 @@
                         "name": "Projektai"
                     }
                 ]
-            }
+            },
+            "source_id": 93
         },
         {
             "lang": "lt",
@@ -1322,7 +1372,8 @@
                         "name": "Komanda"
                     }
                 ]
-            }
+            },
+            "source_id": 94
         },
         {
             "lang": "lt",
@@ -1349,7 +1400,8 @@
                         "name": "Įmonė"
                     }
                 ]
-            }
+            },
+            "source_id": 95
         },
         {
             "lang": "en",
@@ -1369,11 +1421,12 @@
             "terms": {
                 "category": [
                     {
-                        "slug": "uncategorized",
-                        "name": "Uncategorized"
+                        "slug": "projects-en",
+                        "name": "Projects"
                     }
                 ]
-            }
+            },
+            "source_id": 314
         },
         {
             "lang": "de",
@@ -1393,11 +1446,12 @@
             "terms": {
                 "category": [
                     {
-                        "slug": "uncategorized",
-                        "name": "Uncategorized"
+                        "slug": "projekte-de",
+                        "name": "Projekte"
                     }
                 ]
-            }
+            },
+            "source_id": 315
         },
         {
             "lang": "en",
@@ -1417,11 +1471,12 @@
             "terms": {
                 "category": [
                     {
-                        "slug": "uncategorized",
-                        "name": "Uncategorized"
+                        "slug": "team-en",
+                        "name": "Team"
                     }
                 ]
-            }
+            },
+            "source_id": 316
         },
         {
             "lang": "de",
@@ -1441,11 +1496,12 @@
             "terms": {
                 "category": [
                     {
-                        "slug": "uncategorized",
-                        "name": "Uncategorized"
+                        "slug": "team-de",
+                        "name": "Team"
                     }
                 ]
-            }
+            },
+            "source_id": 317
         },
         {
             "lang": "en",
@@ -1465,11 +1521,12 @@
             "terms": {
                 "category": [
                     {
-                        "slug": "uncategorized",
-                        "name": "Uncategorized"
+                        "slug": "company-en",
+                        "name": "Company"
                     }
                 ]
-            }
+            },
+            "source_id": 318
         },
         {
             "lang": "de",
@@ -1489,11 +1546,12 @@
             "terms": {
                 "category": [
                     {
-                        "slug": "uncategorized",
-                        "name": "Uncategorized"
+                        "slug": "unternehmen-de",
+                        "name": "Unternehmen"
                     }
                 ]
-            }
+            },
+            "source_id": 319
         },
         {
             "lang": "lt",
@@ -1566,7 +1624,8 @@
                     "40"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 84
         },
         {
             "lang": "lt",
@@ -1626,7 +1685,8 @@
                     "0"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 85
         },
         {
             "lang": "lt",
@@ -1686,7 +1746,8 @@
                     "0"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 86
         },
         {
             "lang": "lt",
@@ -1746,7 +1807,8 @@
                     "0"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 87
         },
         {
             "lang": "lt",
@@ -1806,7 +1868,8 @@
                     "0"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 88
         },
         {
             "lang": "en",
@@ -1876,7 +1939,8 @@
                     "40"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 336
         },
         {
             "lang": "de",
@@ -1946,7 +2010,8 @@
                     "40"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 337
         },
         {
             "lang": "en",
@@ -2003,7 +2068,8 @@
                     "0"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 338
         },
         {
             "lang": "de",
@@ -2060,7 +2126,8 @@
                     "0"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 339
         },
         {
             "lang": "en",
@@ -2117,7 +2184,8 @@
                     "0"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 340
         },
         {
             "lang": "de",
@@ -2174,7 +2242,8 @@
                     "0"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 341
         },
         {
             "lang": "en",
@@ -2231,7 +2300,8 @@
                     "0"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 342
         },
         {
             "lang": "de",
@@ -2288,7 +2358,8 @@
                     "0"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 343
         },
         {
             "lang": "en",
@@ -2345,7 +2416,8 @@
                     "0"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 344
         },
         {
             "lang": "de",
@@ -2402,7 +2474,8 @@
                     "0"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 345
         },
         {
             "lang": "lt",
@@ -2454,7 +2527,8 @@
                     "Kokiuose objektuose atliekate darbus? | Dirbame mobiliųjų operatorių bokštuose, ant pastatų, stiebų, televizijos ir vandens bokštų bei kituose ryšio infrastruktūros objektuose.\nAr parengiate projekto dokumentaciją? | Taip. Dokumentacijos apimtį ir formatą suderiname pagal konkretaus užsakovo bei projekto reikalavimus.\nAr galite atlikti tik dalį projekto darbų? | Taip. Galime prisijungti prie atskiro projekto etapo arba įgyvendinti visą sutartą darbų apimtį."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 8
         },
         {
             "lang": "lt",
@@ -2500,7 +2574,8 @@
                     "Ryšio sprendimai dideliuose ir techniškai sudėtinguose pastatuose."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 65
         },
         {
             "lang": "lt",
@@ -2546,7 +2621,8 @@
                     "Šviesolaidinio ir varinio ryšio infrastruktūros įrengimas."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 66
         },
         {
             "lang": "lt",
@@ -2592,7 +2668,8 @@
                     "Elektros sistemų projektavimas, montavimas, bandymai ir priežiūra."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 67
         },
         {
             "lang": "lt",
@@ -2638,7 +2715,8 @@
                     "Stebėjimo, signalizacijos ir patekimo kontrolės sprendimai."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 68
         },
         {
             "lang": "lt",
@@ -2684,7 +2762,8 @@
                     "Projektavimas, konstrukcijos, montavimas, paleidimas ir priežiūra."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 69
         },
         {
             "lang": "en",
@@ -2733,7 +2812,8 @@
                     "Kokiuose objektuose atliekate darbus? | Dirbame mobiliųjų operatorių bokštuose, ant pastatų, stiebų, televizijos ir vandens bokštų bei kituose ryšio infrastruktūros objektuose.\nAr parengiate projekto dokumentaciją? | Taip. Dokumentacijos apimtį ir formatą suderiname pagal konkretaus užsakovo bei projekto reikalavimus.\nAr galite atlikti tik dalį projekto darbų? | Taip. Galime prisijungti prie atskiro projekto etapo arba įgyvendinti visą sutartą darbų apimtį."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 320
         },
         {
             "lang": "de",
@@ -2782,7 +2862,8 @@
                     "Kokiuose objektuose atliekate darbus? | Dirbame mobiliųjų operatorių bokštuose, ant pastatų, stiebų, televizijos ir vandens bokštų bei kituose ryšio infrastruktūros objektuose.\nAr parengiate projekto dokumentaciją? | Taip. Dokumentacijos apimtį ir formatą suderiname pagal konkretaus užsakovo bei projekto reikalavimus.\nAr galite atlikti tik dalį projekto darbų? | Taip. Galime prisijungti prie atskiro projekto etapo arba įgyvendinti visą sutartą darbų apimtį."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 321
         },
         {
             "lang": "en",
@@ -2825,7 +2906,8 @@
                     "Communication solutions in large and technically complex buildings."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 322
         },
         {
             "lang": "de",
@@ -2868,7 +2950,8 @@
                     "Kommunikationslösungen in großen und technisch komplexen Gebäuden."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 323
         },
         {
             "lang": "en",
@@ -2911,7 +2994,8 @@
                     "Installation of fiber-optic and copper communication infrastructure."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 324
         },
         {
             "lang": "de",
@@ -2954,7 +3038,8 @@
                     "Installation von Glasfaser- und Kupfer-Kommunikationsinfrastruktur."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 325
         },
         {
             "lang": "en",
@@ -2997,7 +3082,8 @@
                     "Design, installation, testing and maintenance of electrical systems."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 326
         },
         {
             "lang": "de",
@@ -3040,7 +3126,8 @@
                     "Entwurf, Installation, Prüfung und Wartung elektrischer Systeme."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 327
         },
         {
             "lang": "en",
@@ -3083,7 +3170,8 @@
                     "Surveillance, alarm and access control solutions."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 328
         },
         {
             "lang": "de",
@@ -3126,7 +3214,8 @@
                     "Überwachungs-, Alarm- und Zugangskontrolllösungen."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 329
         },
         {
             "lang": "en",
@@ -3169,7 +3258,8 @@
                     "Design, construction, installation, commissioning and maintenance."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 330
         },
         {
             "lang": "de",
@@ -3212,7 +3302,8 @@
                     "Design, Konstruktion, Installation, Inbetriebnahme und Wartung."
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 331
         },
         {
             "lang": "lt",
@@ -3261,7 +3352,8 @@
                         "name": "Vokietija"
                     }
                 ]
-            }
+            },
+            "source_id": 136
         },
         {
             "lang": "en",
@@ -3300,7 +3392,8 @@
                     "8"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 332
         },
         {
             "lang": "de",
@@ -3339,7 +3432,8 @@
                     "8"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 333
         },
         {
             "lang": "lt",
@@ -3396,7 +3490,8 @@
                     "1"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 91
         },
         {
             "lang": "en",
@@ -3450,7 +3545,8 @@
                     "1"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 334
         },
         {
             "lang": "de",
@@ -3504,7 +3600,8 @@
                     "1"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 335
         },
         {
             "lang": "",
@@ -3534,7 +3631,8 @@
                     "8"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 79
         },
         {
             "lang": "",
@@ -3564,7 +3662,8 @@
                     "8"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 80
         },
         {
             "lang": "",
@@ -3594,7 +3693,8 @@
                     "8"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 81
         },
         {
             "lang": "",
@@ -3621,7 +3721,8 @@
                     "start"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 116
         },
         {
             "lang": "",
@@ -3648,7 +3749,8 @@
                     "start"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 117
         },
         {
             "lang": "",
@@ -3675,7 +3777,8 @@
                     "start"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 118
         },
         {
             "lang": "",
@@ -3702,7 +3805,8 @@
                     "start"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 119
         },
         {
             "lang": "",
@@ -3729,7 +3833,8 @@
                     "start"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 120
         },
         {
             "lang": "",
@@ -3756,7 +3861,8 @@
                     "travel"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 121
         },
         {
             "lang": "",
@@ -3783,7 +3889,8 @@
                     "travel"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 122
         },
         {
             "lang": "",
@@ -3810,7 +3917,8 @@
                     "travel"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 123
         },
         {
             "lang": "",
@@ -3837,7 +3945,8 @@
                     "travel"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 124
         },
         {
             "lang": "",
@@ -3864,7 +3973,8 @@
                     "travel"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 125
         },
         {
             "lang": "",
@@ -3891,7 +4001,8 @@
                     "safety"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 126
         },
         {
             "lang": "",
@@ -3918,7 +4029,8 @@
                     "safety"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 127
         },
         {
             "lang": "",
@@ -3945,7 +4057,8 @@
                     "safety"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 128
         },
         {
             "lang": "",
@@ -3972,7 +4085,8 @@
                     "safety"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 129
         },
         {
             "lang": "",
@@ -3999,7 +4113,8 @@
                     "daily"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 130
         },
         {
             "lang": "",
@@ -4026,7 +4141,8 @@
                     "daily"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 131
         },
         {
             "lang": "",
@@ -4053,7 +4169,8 @@
                     "daily"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 132
         },
         {
             "lang": "",
@@ -4080,7 +4197,8 @@
                     "daily"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 133
         },
         {
             "lang": "",
@@ -4104,7 +4222,8 @@
                     "1"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 22
         },
         {
             "lang": "",
@@ -4128,7 +4247,8 @@
                     "1"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 23
         },
         {
             "lang": "",
@@ -4152,7 +4272,8 @@
                     "1"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 24
         },
         {
             "lang": "",
@@ -4176,7 +4297,8 @@
                     "1"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 25
         },
         {
             "lang": "",
@@ -4200,7 +4322,8 @@
                     "1"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 26
         },
         {
             "lang": "",
@@ -4224,7 +4347,8 @@
                     "1"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 27
         },
         {
             "lang": "",
@@ -4248,7 +4372,8 @@
                     "1"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 28
         },
         {
             "lang": "",
@@ -4272,7 +4397,8 @@
                     "1"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 29
         },
         {
             "lang": "",
@@ -4296,7 +4422,8 @@
                     "1"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 30
         },
         {
             "lang": "",
@@ -4317,7 +4444,8 @@
                     "operator"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 31
         },
         {
             "lang": "",
@@ -4338,7 +4466,8 @@
                     "operator"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 32
         },
         {
             "lang": "",
@@ -4359,7 +4488,8 @@
                     "operator"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 33
         },
         {
             "lang": "",
@@ -4380,7 +4510,8 @@
                     "operator"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 34
         },
         {
             "lang": "",
@@ -4401,7 +4532,8 @@
                     "operator"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 35
         },
         {
             "lang": "",
@@ -4422,7 +4554,8 @@
                     "operator"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 36
         },
         {
             "lang": "",
@@ -4443,7 +4576,8 @@
                     "operator"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 37
         },
         {
             "lang": "",
@@ -4464,7 +4598,8 @@
                     "operator"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 38
         },
         {
             "lang": "",
@@ -4485,7 +4620,8 @@
                     "operator"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 39
         },
         {
             "lang": "",
@@ -4506,7 +4642,8 @@
                     "operator"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 40
         },
         {
             "lang": "",
@@ -4530,7 +4667,8 @@
                     ""
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 43
         },
         {
             "lang": "",
@@ -4554,7 +4692,8 @@
                     ""
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 44
         },
         {
             "lang": "",
@@ -4575,7 +4714,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 45
         },
         {
             "lang": "",
@@ -4596,7 +4736,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 46
         },
         {
             "lang": "",
@@ -4617,7 +4758,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 47
         },
         {
             "lang": "",
@@ -4638,7 +4780,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 48
         },
         {
             "lang": "",
@@ -4659,7 +4802,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 49
         },
         {
             "lang": "",
@@ -4680,7 +4824,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 50
         },
         {
             "lang": "",
@@ -4701,7 +4846,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 51
         },
         {
             "lang": "",
@@ -4722,7 +4868,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 52
         },
         {
             "lang": "",
@@ -4743,7 +4890,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 53
         },
         {
             "lang": "",
@@ -4764,7 +4912,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 54
         },
         {
             "lang": "",
@@ -4785,7 +4934,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 55
         },
         {
             "lang": "",
@@ -4806,7 +4956,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 56
         },
         {
             "lang": "",
@@ -4827,7 +4978,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 57
         },
         {
             "lang": "",
@@ -4848,7 +5000,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 58
         },
         {
             "lang": "",
@@ -4869,7 +5022,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 59
         },
         {
             "lang": "",
@@ -4890,7 +5044,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 60
         },
         {
             "lang": "",
@@ -4911,7 +5066,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 61
         },
         {
             "lang": "",
@@ -4932,7 +5088,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 62
         },
         {
             "lang": "",
@@ -4953,7 +5110,8 @@
                     "equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 63
         },
         {
             "lang": "",
@@ -4974,7 +5132,8 @@
                     "operator"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 89
         },
         {
             "lang": "",
@@ -4998,7 +5157,8 @@
                     ""
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 144
         },
         {
             "lang": "",
@@ -5061,7 +5221,8 @@
                     }
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 145
         },
         {
             "lang": "",
@@ -5088,7 +5249,8 @@
                     "home_intro"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 166
         },
         {
             "lang": "",
@@ -5115,7 +5277,8 @@
                     "home_services"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 167
         },
         {
             "lang": "",
@@ -5142,7 +5305,8 @@
                     "home_standards"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 168
         },
         {
             "lang": "",
@@ -5169,7 +5333,8 @@
                     "home_process"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 169
         },
         {
             "lang": "",
@@ -5196,7 +5361,8 @@
                     "home_experience"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 170
         },
         {
             "lang": "",
@@ -5223,7 +5389,8 @@
                     "home_equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 171
         },
         {
             "lang": "",
@@ -5250,7 +5417,8 @@
                     "home_team"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 172
         },
         {
             "lang": "",
@@ -5277,7 +5445,8 @@
                     "home_audiences"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 173
         },
         {
             "lang": "",
@@ -5304,7 +5473,8 @@
                     "home_news"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 174
         },
         {
             "lang": "",
@@ -5331,7 +5501,8 @@
                     "services_list"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 175
         },
         {
             "lang": "",
@@ -5358,7 +5529,8 @@
                     "services_standard"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 176
         },
         {
             "lang": "",
@@ -5385,7 +5557,8 @@
                     "projects_list"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 177
         },
         {
             "lang": "",
@@ -5412,7 +5585,8 @@
                     "experience_numbers"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 178
         },
         {
             "lang": "",
@@ -5439,7 +5613,8 @@
                     "experience_geography"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 179
         },
         {
             "lang": "",
@@ -5466,7 +5641,8 @@
                     "experience_projects"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 180
         },
         {
             "lang": "",
@@ -5493,7 +5669,8 @@
                     "experience_partners"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 181
         },
         {
             "lang": "",
@@ -5520,7 +5697,8 @@
                     "experience_certifications"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 182
         },
         {
             "lang": "",
@@ -5547,7 +5725,8 @@
                     "about_story"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 183
         },
         {
             "lang": "",
@@ -5574,7 +5753,8 @@
                     "about_purpose"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 184
         },
         {
             "lang": "",
@@ -5601,7 +5781,8 @@
                     "about_values"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 185
         },
         {
             "lang": "",
@@ -5628,7 +5809,8 @@
                     "about_team"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 186
         },
         {
             "lang": "",
@@ -5655,7 +5837,8 @@
                     "about_strategy"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 187
         },
         {
             "lang": "",
@@ -5682,7 +5865,8 @@
                     "about_competence"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 188
         },
         {
             "lang": "",
@@ -5709,7 +5893,8 @@
                     "career_benefits"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 189
         },
         {
             "lang": "",
@@ -5736,7 +5921,8 @@
                     "career_positions"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 190
         },
         {
             "lang": "",
@@ -5763,7 +5949,8 @@
                     "career_selection"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 191
         },
         {
             "lang": "",
@@ -5790,7 +5977,8 @@
                     "career_growth"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 192
         },
         {
             "lang": "",
@@ -5817,7 +6005,8 @@
                     "academy_program"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 193
         },
         {
             "lang": "",
@@ -5844,7 +6033,8 @@
                     "academy_included"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 194
         },
         {
             "lang": "",
@@ -5871,7 +6061,8 @@
                     "training_equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 195
         },
         {
             "lang": "",
@@ -5898,7 +6089,8 @@
                     "training_room"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 196
         },
         {
             "lang": "",
@@ -5925,7 +6117,8 @@
                     "candidate_faq_groups"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 197
         },
         {
             "lang": "",
@@ -5952,7 +6145,8 @@
                     "leaders_reasons"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 198
         },
         {
             "lang": "",
@@ -6015,7 +6209,8 @@
                     }
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 199
         },
         {
             "lang": "",
@@ -6042,7 +6237,8 @@
                     "project_managers_equipment"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 200
         },
         {
             "lang": "",
@@ -6069,7 +6265,8 @@
                     "contact_form"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 201
         },
         {
             "lang": "",
@@ -6096,7 +6293,8 @@
                     "contact_people"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 202
         },
         {
             "lang": "",
@@ -6123,7 +6321,8 @@
                     "news_list"
                 ]
             },
-            "terms": []
+            "terms": [],
+            "source_id": 203
         }
     ],
     "attachments": {
@@ -6212,5 +6411,6 @@
             "mime": "image/jpeg",
             "alt": "Specialistas montuoja saulės modulius ant stogo"
         }
-    }
+    },
+    "schema_version": 2
 }

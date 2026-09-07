@@ -1,371 +1,175 @@
 <?php
 /**
- * Turinio sinchronizavimas iš repozitorijos momentinio įrašo.
- *
- * Paleidžia diegimas (deploy.yml) per: wp eval-file wp-content/g5-deploy/sync-content.php
- * Įrašas idempotentiškas: kiek kartų paleisi — rezultatas tas pats.
- *
- * SVARBU: kol veikia šis sinchronizavimas, turinio TIESA yra repozitorija
- * (lokali svetainė). Serveryje darytus turinio pakeitimus kitas diegimas
- * perrašys. Paleidus svetainę gyvai — ištrinti deploy/content/SYNC-ON.
+ * Explicit, CLI-only content import. Ordinary code deployments do not run it.
+ * php sync-content.php --wordpress=/absolute/wordpress --import-content
+ * Back up the target database before importing. Unlisted client content is preserved.
  */
-
-// Skriptas savarankiškas: WP užkraunamas su Polylang administravimo
-// konstantomis (kitaip CLI kontekste Polylang API nepasiekiama).
-// Diegime kviečiamas: wp eval-file ... --skip-wordpress
+if ( PHP_SAPI !== 'cli' ) {
+	http_response_code( 403 );
+	exit;
+}
+$args = getopt( '', array( 'wordpress:', 'import-content' ) );
+if ( ! array_key_exists( 'import-content', $args ) ) {
+	echo "Content import disabled; no WordPress settings changed.\n";
+	return;
+}
+$sync_dir = defined( 'G5_SYNC_DIR' ) ? G5_SYNC_DIR : __DIR__;
+$data = json_decode( (string) file_get_contents( $sync_dir . '/content/snapshot.json' ), true );
+if ( ! is_array( $data ) || ( $data['schema_version'] ?? 0 ) !== 2 || empty( $data['posts'] ) ) {
+	fwrite( STDERR, "Invalid snapshot: export schema version 2 is required.\n" );
+	exit( 1 );
+}
+$wp_root = $args['wordpress'] ?? '';
 if ( ! defined( 'ABSPATH' ) ) {
+	if ( ! $wp_root || ! is_file( $wp_root . '/wp-load.php' ) ) {
+		fwrite( STDERR, "Specify --wordpress=/absolute/wordpress.\n" );
+		exit( 1 );
+	}
 	define( 'PLL_SETTINGS', true );
 	define( 'PLL_ADMIN', true );
 	$_SERVER['HTTP_HOST'] = $_SERVER['HTTP_HOST'] ?? 'localhost';
-	require dirname( __DIR__, 2 ) . '/wp-load.php';
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-	$g5_admins = get_users( array( 'role' => 'administrator', 'number' => 1 ) );
-	if ( $g5_admins ) wp_set_current_user( $g5_admins[0]->ID );
+	require rtrim( $wp_root, '/' ) . '/wp-load.php';
 }
-
-// Polylang: aktyvavimas ir kalbos (jei papildinys įdiegtas faile).
-if ( file_exists( WP_PLUGIN_DIR . '/polylang/polylang.php' ) ) {
-	if ( ! is_plugin_active( 'polylang/polylang.php' ) ) {
-		activate_plugin( 'polylang/polylang.php' );
-
-		if ( ! function_exists( 'PLL' ) ) {
-			// Hostinger draudžia PHP procesų paleidimo funkcijas. Specialus kodas
-			// liepia deploy.yml scenarijų paleisti dar kartą naujame PHP procese.
-			echo "Polylang aktyvuotas, reikalingas antras sinchronizavimo paleidimas.\n";
-			exit( 75 );
-		}
-	}
-
-	if ( function_exists( 'PLL' ) && PLL() ) {
-		require __DIR__ . '/polylang-shared.php';
-		g5pll_ensure_languages();
-		g5pll_apply_options();
-	}
-}
-
-$g5_sync_dir  = defined( 'G5_SYNC_DIR' ) ? G5_SYNC_DIR : __DIR__;
-$g5_flag      = $g5_sync_dir . '/content/SYNC-ON';
-$g5_snapshot  = $g5_sync_dir . '/content/snapshot.json';
-
-if ( ! file_exists( $g5_flag ) ) {
-	echo "Sinchronizavimas isjungtas (nera content/SYNC-ON) - praleista.\n";
-	return;
-}
-
-if ( ! file_exists( $g5_snapshot ) ) {
-	echo "KLAIDA: nerastas content/snapshot.json\n";
-	exit( 1 );
-}
-
-$data = json_decode( (string) file_get_contents( $g5_snapshot ), true );
-
-if ( ! is_array( $data ) || empty( $data['posts'] ) ) {
-	echo "KLAIDA: snapshot.json tuscias arba nenuskaitomas\n";
-	exit( 1 );
-}
-
-wp_set_current_user( 0 );
-kses_remove_filters(); // Turinys jau patikrintas lokaliai; kses gadintų blokų atributus.
-
+require_once ABSPATH . 'wp-admin/includes/plugin.php';
 require_once ABSPATH . 'wp-admin/includes/image.php';
-require_once ABSPATH . 'wp-admin/includes/file.php';
-require_once ABSPATH . 'wp-admin/includes/media.php';
-
-$uploads = wp_get_upload_dir();
-
-// 1. Nuotraukos: kiekvienam failui užtikrinamas attachment įrašas; senas ID → naujas ID.
-$id_map = array();
-
-foreach ( (array) ( $data['attachments'] ?? array() ) as $old_id => $att ) {
-	$rel  = ltrim( (string) $att['file'], '/' );
-	$path = trailingslashit( $uploads['basedir'] ) . $rel;
-	$url  = trailingslashit( $uploads['baseurl'] ) . $rel;
-
-	$existing = attachment_url_to_postid( $url );
-
-	if ( ! $existing && file_exists( $path ) ) {
-		$existing = wp_insert_attachment(
-			array(
-				'post_title'     => (string) $att['title'],
-				'post_mime_type' => (string) $att['mime'],
-				'post_status'    => 'inherit',
-			),
-			$path
-		);
-
-		if ( $existing && ! is_wp_error( $existing ) ) {
-			update_post_meta( $existing, '_wp_attached_file', $rel );
-			$meta = wp_generate_attachment_metadata( $existing, $path );
-
-			if ( $meta ) {
-				wp_update_attachment_metadata( $existing, $meta );
-			}
+require_once __DIR__ . '/sync-helpers.php';
+try {
+	if ( ! is_plugin_active( '5gtech-core/5gtech-core.php' ) || ! is_plugin_active( 'polylang/polylang.php' ) || get_stylesheet() !== '5gtech' ) {
+		throw new RuntimeException( 'Activate 5gtech-core, Polylang and the 5gtech theme before import.' );
+	}
+	if ( ! function_exists( 'pll_set_post_language' ) || ! function_exists( 'PLL' ) || ! PLL() ) {
+		throw new RuntimeException( 'Polylang API is unavailable.' );
+	}
+	$uploads = wp_get_upload_dir();
+	$source_ids = array();
+	$keys = array();
+	$allowed_types = array( 'page', 'post', 'g5_team', 'g5_service', 'g5_project', 'g5_job', 'g5_faq', 'g5_partner', 'g5_module' );
+	foreach ( $data['posts'] as $item ) {
+		$key = $item['type'] . '|' . $item['slug'];
+		if ( empty( $item['source_id'] ) || empty( $item['slug'] ) || ! in_array( $item['type'], $allowed_types, true ) || ! post_type_exists( $item['type'] ) || isset( $keys[$key] ) || isset( $source_ids[$item['source_id']] ) ) {
+			throw new RuntimeException( 'Invalid or duplicate post: ' . $key );
+		}
+		$keys[$key] = true;
+		$source_ids[(int) $item['source_id']] = (int) $item['source_id'];
+	}
+	foreach ( $data['attachments'] as $id => $att ) {
+		if ( (int) $id <= 0 || isset( $source_ids[(int) $id] ) ) throw new RuntimeException( 'Invalid or duplicate attachment ID: ' . $id );
+		$rel = $att['file'];
+		if ( str_starts_with( $rel, '/' ) || str_contains( $rel, '..' ) || ! is_file( $uploads['basedir'] . '/' . $rel ) ) {
+			throw new RuntimeException( 'Missing or unsafe upload: ' . $rel );
+		}
+		$source_ids[(int) $id] = (int) $id;
+	}
+	// Validate all references before any content is written.
+	foreach ( $data['posts'] as $item ) {
+		g5sync_content( $item['content'], $source_ids );
+		g5sync_meta( $item['meta'], $source_ids );
+		if ( ! empty( $item['parent'] ) && ! isset( $keys[$item['type'] . '|' . $item['parent']] ) ) {
+			throw new RuntimeException( 'Missing parent for ' . $item['slug'] );
+		}
+		foreach ( (array) ( $item['translations'] ?? array() ) as $slug ) {
+			if ( ! isset( $keys[$item['type'] . '|' . $slug] ) ) throw new RuntimeException( 'Missing translation: ' . $slug );
+		}
+		if ( ! empty( $item['thumbnail'] ) && ! in_array( $item['thumbnail'], array_column( $data['attachments'], 'file' ), true ) ) {
+			throw new RuntimeException( 'Thumbnail missing from manifest: ' . $item['slug'] );
 		}
 	}
-
-	if ( $existing && ! is_wp_error( $existing ) ) {
-		if ( ! empty( $att['alt'] ) ) {
-			update_post_meta( $existing, '_wp_attachment_image_alt', (string) $att['alt'] );
+	g5sync_options( $data['options'], $source_ids );
+	require_once __DIR__ . '/polylang-shared.php';
+	g5pll_ensure_languages();
+	g5pll_apply_options();
+	kses_remove_filters();
+	$id_map = array();
+	$thumbnail_map = array();
+	foreach ( $data['attachments'] as $old_id => $att ) {
+		$url = trailingslashit( $uploads['baseurl'] ) . $att['file'];
+		$id = attachment_url_to_postid( $url );
+		if ( ! $id ) {
+			$path = trailingslashit( $uploads['basedir'] ) . $att['file'];
+			$id = wp_insert_attachment( array( 'post_title' => $att['title'], 'post_mime_type' => $att['mime'], 'post_status' => 'inherit' ), $path, 0, true );
+			g5sync_check( $id, 'Attachment: ' . $att['file'] );
+			update_post_meta( $id, '_wp_attached_file', $att['file'] );
+			$metadata = wp_generate_attachment_metadata( $id, $path );
+			g5sync_check( $metadata, 'Attachment metadata: ' . $att['file'], false );
+			wp_update_attachment_metadata( $id, $metadata );
 		}
-
-		$id_map[ (int) $old_id ] = (int) $existing;
-	} else {
-		echo 'DEMESIO: nuotrauka nerasta serveryje: ' . $rel . "\n";
+		update_post_meta( $id, '_wp_attachment_image_alt', $att['alt'] ?? '' );
+		$id_map[(int) $old_id] = (int) $id;
+		$thumbnail_map[$att['file']] = (int) $id;
 	}
-}
-
-// 2. Turinys: adresai ir nuotraukų ID pritaikomi šiai aplinkai.
-$source_home = untrailingslashit( (string) ( $data['source_home'] ?? '' ) );
-$target_home = untrailingslashit( home_url() );
-
-$g5_adapt_content = static function ( $content ) use ( $source_home, $target_home, $id_map ) {
-	if ( $source_home && $source_home !== $target_home ) {
-		$content = str_replace( $source_home, $target_home, $content );
-	}
-
-	return preg_replace_callback(
-		'/"(image\d*Id)":(\d+)/',
-		static function ( $m ) use ( $id_map ) {
-			$old = (int) $m[2];
-
-			return '"' . $m[1] . '":' . ( $id_map[ $old ] ?? 0 );
-		},
-		$content
-	);
-};
-
-// 3. Įrašai pagal (tipas, slug) — atnaujinami arba sukuriami.
-$find_post = static function ( $type, $slug ) {
-	$found = get_posts(
-		array(
-			'post_type'      => $type,
-			'name'           => $slug,
-			'post_status'    => array( 'publish', 'draft', 'private', 'pending', 'future' ),
-			'posts_per_page' => 1,
-		)
-	);
-
-	return $found ? $found[0] : null;
-};
-
-$created = 0;
-$updated = 0;
-$deleted = 0;
-$expected_posts = array();
-
-// Tėviniai priskiriami antru praėjimu, kai visi įrašai jau egzistuoja.
-$parents = array();
-
-foreach ( $data['posts'] as $item ) {
-	$slug = (string) $item['slug'];
-	$type = (string) $item['type'];
-
-	if ( '' === $slug || ! post_type_exists( $type ) ) {
-		continue;
-	}
-
-	$expected_posts[ $type ][ $slug ] = true;
-
-	$payload = array(
-		'post_type'    => $type,
-		'post_name'    => $slug,
-		'post_title'   => (string) $item['title'],
-		'post_status'  => (string) $item['status'],
-		'post_date'    => (string) ( $item['date'] ?? '' ),
-		'post_date_gmt' => (string) ( $item['date_gmt'] ?? '' ),
-		'post_content' => $g5_adapt_content( (string) $item['content'] ),
-		'post_excerpt' => (string) $item['excerpt'],
-		'menu_order'   => (int) $item['menu_order'],
-	);
-
-	$existing = $find_post( $type, $slug );
-
-	if ( $existing ) {
-		$payload['ID'] = $existing->ID;
-		$post_id       = wp_update_post( wp_slash( $payload ), true );
-		$updated++;
-	} else {
-		$post_id = wp_insert_post( wp_slash( $payload ), true );
-		$created++;
-	}
-
-	if ( is_wp_error( $post_id ) ) {
-		echo 'KLAIDA (' . $type . '/' . $slug . '): ' . $post_id->get_error_message() . "\n";
-		continue;
-	}
-
-	foreach ( (array) $item['meta'] as $key => $values ) {
-		delete_post_meta( $post_id, $key );
-
-		foreach ( (array) $values as $value ) {
-			add_post_meta( $post_id, $key, is_string( $value ) ? wp_slash( $value ) : $value );
-		}
-	}
-
-	foreach ( get_object_taxonomies( $type ) as $taxonomy ) {
-		$is_content_taxonomy = in_array( $taxonomy, array( 'category', 'post_tag' ), true )
-			|| 0 === strpos( $taxonomy, 'g5_' );
-
-		if ( ! $is_content_taxonomy || ! taxonomy_exists( $taxonomy ) ) {
-			continue;
-		}
-
-		$term_slugs = array();
-
-		foreach ( (array) ( $item['terms'][ $taxonomy ] ?? array() ) as $term_data ) {
-			$term_slug = sanitize_title( (string) ( $term_data['slug'] ?? '' ) );
-
-			if ( '' === $term_slug ) {
-				continue;
-			}
-
-			if ( ! term_exists( $term_slug, $taxonomy ) ) {
-				wp_insert_term(
-					(string) ( $term_data['name'] ?? $term_slug ),
-					$taxonomy,
-					array( 'slug' => $term_slug )
-				);
-			}
-
-			$term_slugs[] = $term_slug;
-		}
-
-		wp_set_object_terms( $post_id, $term_slugs, $taxonomy, false );
-	}
-
-	if ( ! empty( $item['thumbnail'] ) ) {
-		$thumb_id = attachment_url_to_postid( trailingslashit( $uploads['baseurl'] ) . ltrim( (string) $item['thumbnail'], '/' ) );
-
-		if ( $thumb_id ) {
-			set_post_thumbnail( $post_id, $thumb_id );
-		}
-	} else {
-		delete_post_thumbnail( $post_id );
-	}
-
-	if ( ! empty( $item['parent'] ) ) {
-		$parents[ $post_id ] = array( $type, (string) $item['parent'] );
-	}
-}
-
-foreach ( $parents as $post_id => $ref ) {
-	$parent = $find_post( $ref[0], $ref[1] );
-
-	if ( $parent ) {
-		wp_update_post( array( 'ID' => $post_id, 'post_parent' => $parent->ID ) );
-	}
-}
-
-// 3b. Kalbos ir vertimų ryšiai (Polylang).
-if ( function_exists( 'pll_set_post_language' ) && function_exists( 'PLL' ) && PLL() ) {
 	$by_key = array();
-
+	// First pass establishes destination IDs, including forward references.
 	foreach ( $data['posts'] as $item ) {
-		$p = $find_post( (string) $item['type'], (string) $item['slug'] );
-		if ( $p ) $by_key[ $item['type'] . '|' . $item['slug'] ] = $p->ID;
+		$key = $item['type'] . '|' . $item['slug'];
+		$found = get_posts( array( 'post_type' => $item['type'], 'name' => $item['slug'], 'post_status' => array( 'publish','draft','private','pending','future' ), 'posts_per_page' => 2, 'suppress_filters' => true, 'lang' => '' ) );
+		if ( count( $found ) > 1 ) throw new RuntimeException( 'Ambiguous destination: ' . $key );
+		$id = $found ? $found[0]->ID : wp_insert_post( array( 'post_type' => $item['type'], 'post_name' => $item['slug'], 'post_title' => $item['title'], 'post_status' => 'draft' ), true );
+		g5sync_check( $id, 'Create: ' . $key );
+		if ( get_post_field( 'post_name', $id ) !== $item['slug'] ) throw new RuntimeException( 'Slug collision: ' . $key );
+		$by_key[$key] = (int) $id;
+		$id_map[(int) $item['source_id']] = (int) $id;
 	}
-
+	$source_home = untrailingslashit( $data['source_home'] );
+	$target_home = untrailingslashit( home_url() );
 	foreach ( $data['posts'] as $item ) {
-		$id = $by_key[ $item['type'] . '|' . $item['slug'] ] ?? 0;
-		if ( ! $id || empty( $item['lang'] ) ) continue;
-		pll_set_post_language( $id, (string) $item['lang'] );
-	}
-
-	foreach ( $data['posts'] as $item ) {
-		if ( ( $item['lang'] ?? '' ) !== 'lt' || empty( $item['translations'] ) ) continue;
-		$id = $by_key[ $item['type'] . '|' . $item['slug'] ] ?? 0;
-		if ( ! $id ) continue;
-		$group = array( 'lt' => $id );
-
-		foreach ( (array) $item['translations'] as $tr_lang => $tr_slug ) {
-			$tr_id = $by_key[ $item['type'] . '|' . $tr_slug ] ?? 0;
-			if ( $tr_id ) $group[ $tr_lang ] = $tr_id;
+		$id = $by_key[$item['type'] . '|' . $item['slug']];
+		$content = g5sync_content( $item['content'], $id_map );
+		$payload = array( 'ID' => $id, 'post_title' => $item['title'], 'post_status' => $item['status'],
+			'post_content' => g5sync_urls( $content, $source_home, $target_home ), 'post_excerpt' => g5sync_urls( $item['excerpt'], $source_home, $target_home ),
+			'menu_order' => $item['menu_order'], 'post_parent' => empty( $item['parent'] ) ? 0 : $by_key[$item['type'] . '|' . $item['parent']],
+			'post_date' => $item['date'], 'post_date_gmt' => $item['date_gmt'] );
+		g5sync_check( wp_update_post( wp_slash( $payload ), true ), 'Update: ' . $item['slug'] );
+		foreach ( g5sync_meta( $item['meta'], $id_map ) as $key => $values ) {
+			delete_post_meta( $id, $key );
+			foreach ( $values as $value ) {
+				$value = g5sync_urls( $value, $source_home, $target_home );
+				g5sync_check( add_post_meta( $id, $key, is_string( $value ) ? wp_slash( $value ) : $value ), 'Meta: ' . $key );
+			}
 		}
-
+		if ( ! empty( $item['thumbnail'] ) ) {
+			$thumb = $thumbnail_map[$item['thumbnail']];
+			set_post_thumbnail( $id, $thumb );
+			if ( (int) get_post_thumbnail_id( $id ) !== $thumb ) throw new RuntimeException( 'Thumbnail could not be assigned.' );
+		} else {
+			delete_post_thumbnail( $id );
+		}
+		foreach ( (array) $item['terms'] as $taxonomy => $terms ) {
+			if ( ! taxonomy_exists( $taxonomy ) || ( ! in_array( $taxonomy, array( 'category', 'post_tag' ), true ) && ! str_starts_with( $taxonomy, 'g5_' ) ) ) throw new RuntimeException( 'Unknown taxonomy: ' . $taxonomy );
+			$term_ids = array();
+			foreach ( $terms as $term ) {
+				$existing = term_exists( $term['slug'], $taxonomy );
+				if ( ! $existing ) $existing = wp_insert_term( $term['name'], $taxonomy, array( 'slug' => $term['slug'] ) );
+				g5sync_check( $existing, 'Term: ' . $term['slug'] );
+				$term_ids[] = (int) ( is_array( $existing ) ? $existing['term_id'] : $existing );
+			}
+			g5sync_check( wp_set_object_terms( $id, $term_ids, $taxonomy, false ), 'Terms: ' . $taxonomy, false );
+		}
+		if ( ! empty( $item['lang'] ) ) {
+			pll_set_post_language( $id, $item['lang'] );
+			if ( pll_get_post_language( $id ) !== $item['lang'] ) throw new RuntimeException( 'Language assignment failed.' );
+		}
+	}
+	foreach ( $data['posts'] as $item ) {
+		if ( $item['lang'] !== 'lt' || empty( $item['translations'] ) ) continue;
+		$group = array( 'lt' => $by_key[$item['type'] . '|' . $item['slug']] );
+		foreach ( $item['translations'] as $lang => $slug ) $group[$lang] = $by_key[$item['type'] . '|' . $slug];
 		pll_save_post_translations( $group );
+		foreach ( $group as $lang => $id ) if ( pll_get_post( $group['lt'], $lang ) !== $id ) throw new RuntimeException( 'Translation relationship failed.' );
 	}
-
-	echo "Kalbos priskirtos\n";
-}
-
-// 3c. Vietinė kopija yra turinio šaltinis: pašalinami serveryje likę
-// bandomieji ar pasenę valdomų tipų įrašai, kurių momentiniame įraše nėra.
-foreach ( array_keys( $expected_posts ) as $type ) {
-	$server_posts = get_posts(
-		array(
-			'post_type'        => $type,
-			'post_status'      => array( 'publish', 'draft', 'private', 'pending', 'future' ),
-			'posts_per_page'   => -1,
-			'suppress_filters' => true,
-			'lang'             => '',
-		)
-	);
-
-	foreach ( $server_posts as $server_post ) {
-		if ( isset( $expected_posts[ $type ][ $server_post->post_name ] ) ) {
-			continue;
-		}
-
-		if ( wp_delete_post( $server_post->ID, true ) ) {
-			$deleted++;
-		}
+	foreach ( g5sync_options( $data['options'], $id_map ) as $name => $value ) {
+		if ( ! str_starts_with( $name, 'g5tech_' ) && ! in_array( $name, array( 'blogname','blogdescription','timezone_string','date_format','time_format','start_of_week','posts_per_page','permalink_structure' ), true ) ) throw new RuntimeException( 'Disallowed option: ' . $name );
+		$value = g5sync_urls( $value, $source_home, $target_home );
+		update_option( $name, $value );
+		if ( get_option( $name ) != $value ) throw new RuntimeException( 'Option verification failed: ' . $name );
 	}
-}
-
-// 4. Nustatymai.
-foreach ( (array) ( $data['options'] ?? array() ) as $name => $value ) {
-	if ( 'g5tech_about_content' === $name && is_array( $value ) ) {
-		foreach ( array( 'story_image_1_id', 'story_image_2_id' ) as $key ) {
-			$old_id = (int) ( $value[ $key ] ?? 0 );
-			$value[ $key ] = $old_id ? ( $id_map[ $old_id ] ?? 0 ) : 0;
-		}
+	if ( isset( $by_key['page|pagrindinis'] ) ) {
+		update_option( 'show_on_front', 'page' );
+		update_option( 'page_on_front', $by_key['page|pagrindinis'] );
 	}
-
-	if ( 'g5tech_training_page_content' === $name && is_array( $value ) ) {
-		$old_id = (int) ( $value['image_id'] ?? 0 );
-		$value['image_id'] = $old_id ? ( $id_map[ $old_id ] ?? 0 ) : 0;
-		$value['equipment_ids'] = array_values(
-			array_filter(
-				array_map(
-					static fn( $attachment_id ) => $id_map[ (int) $attachment_id ] ?? 0,
-					(array) ( $value['equipment_ids'] ?? array() )
-				)
-			)
-		);
-	}
-
-	update_option( $name, $value );
+	delete_transient( 'pll_languages_list' );
+	delete_option( 'rewrite_rules' );
+	echo 'Imported and verified ' . count( $by_key ) . ' posts. Unlisted client posts/options preserved.' . "\n";
+} catch ( Throwable $error ) {
+	fwrite( STDERR, 'IMPORT FAILED: ' . $error->getMessage() . "\nRestore the pre-import backup before retrying a partially completed import.\n" );
+	exit( 1 );
 }
-
-// Pašalinami tik seni 5G TECH nustatymai. WordPress, vartotojų ir kitų
-// papildinių nustatymai neliečiami.
-global $wpdb;
-$expected_options = array_fill_keys( array_keys( (array) ( $data['options'] ?? array() ) ), true );
-$server_options = $wpdb->get_col(
-	$wpdb->prepare(
-		"SELECT option_name FROM {$wpdb->options} WHERE option_name LIKE %s",
-		$wpdb->esc_like( 'g5tech_' ) . '%'
-	)
-);
-
-foreach ( $server_options as $option_name ) {
-	if ( 'g5tech_roles_version' !== $option_name && ! isset( $expected_options[ $option_name ] ) ) {
-		delete_option( $option_name );
-	}
-}
-
-// 5. Pradinis puslapis pagal slug (ID skiriasi tarp aplinkų).
-$front = $find_post( 'page', 'pagrindinis' );
-
-if ( $front ) {
-	update_option( 'show_on_front', 'page' );
-	update_option( 'page_on_front', $front->ID );
-}
-
-// Kitas viešas WordPress užklausimas sugeneruos taisykles jau su aktyviu
-// Polylang. Taip nereikia Hostinger išjungtų PHP procesų paleidimo funkcijų.
-delete_transient( 'pll_languages_list' );
-delete_option( 'rewrite_rules' );
-echo "Nuorodu taisykles pazymetos atnaujinti.\n";
-
-echo 'Baigta: atnaujinta ' . $updated . ', sukurta ' . $created . ', pasalinta ' . $deleted . ', nuotrauku susieta ' . count( $id_map ) . ".\n";

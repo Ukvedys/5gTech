@@ -321,6 +321,13 @@ if ( g5tech_polylang_ready() ) {
 /**
  * Current public language.
  */
+function g5tech_localized_page_url( $slug, $language = null ) {
+	$language = $language ?: g5tech_current_language();
+	$page = get_page_by_path( trim( $slug, '/' ) );
+	$id = $page && function_exists( 'pll_get_post' ) ? pll_get_post( $page->ID, $language ) : 0;
+	return $id ? get_permalink( $id ) : home_url( '/' . trim( $slug, '/' ) . '/' );
+}
+
 function g5tech_current_language() {
 	if ( g5tech_polylang_ready() && ! is_admin() && function_exists( 'pll_current_language' ) ) {
 		$pll = pll_current_language();

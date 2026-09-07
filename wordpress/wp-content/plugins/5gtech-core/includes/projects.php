@@ -609,7 +609,7 @@ function g5tech_render_project_page( $attributes, $content, $block ) {
 
 function g5tech_redirect_hidden_project() {
 	if ( is_singular( 'g5_project' ) && ! g5tech_project_is_visible( get_queried_object_id() ) ) {
-		wp_safe_redirect( home_url( '/projektai/' ) );
+		wp_safe_redirect( g5tech_localized_page_url( 'patirtis' ) );
 		exit;
 	}
 }
