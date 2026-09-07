@@ -83,21 +83,31 @@ jobs:
           rm -rf build
           npm run build
 
-          # Kiekvienas šaltinio katalogas privalo turėti atitikmenį `build/`.
+          # Tik katalogai su block.json yra blokai; shared/ yra bendras kodas.
           TRUKSTA=""
-          for DIR in blocks-src/*/; do
-            NAME=$(basename "$DIR")
-            if [ ! -f "build/$NAME/block.json" ]; then
-              TRUKSTA="$TRUKSTA $NAME"
-            fi
+          BLOKU=0
+          for METADATA in blocks-src/*/block.json; do
+            [ -f "$METADATA" ] || continue
+            NAME=$(basename "$(dirname "$METADATA")")
+            BLOKU=$((BLOKU + 1))
+            for FILE in block.json index.js index.asset.php; do
+              if [ ! -s "build/$NAME/$FILE" ]; then
+                TRUKSTA="$TRUKSTA $NAME/$FILE"
+              fi
+            done
           done
+
+          if [ "$BLOKU" -eq 0 ]; then
+            echo "::error::Nerasta blokų aprašų blocks-src/*/block.json"
+            exit 1
+          fi
 
           if [ -n "$TRUKSTA" ]; then
             echo "::error::Nesukompiliuoti blokai:$TRUKSTA"
             exit 1
           fi
 
-          echo "Sukompiliuota blokų: $(ls build | wc -l)"
+          echo "Sukompiliuota blokų: $BLOKU"
 
       - name: Prijungti SSH raktą
         uses: webfactory/ssh-agent@v0.9.0
