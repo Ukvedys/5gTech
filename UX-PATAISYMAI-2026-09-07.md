@@ -2,6 +2,8 @@
 
 2026-09-07 · Vietinė WordPress svetainė: http://5gtech.test
 
+**Vėlesnis priėmimo atnaujinimas:** abiejų ribotų kliento rolių naršyklės bandymai ir vietinis DB bei failų atkūrimas jau atlikti. Aktualūs rezultatai ir likę tikslinio serverio darbai pateikti [baigiamojoje patikroje](PERDAVIMO-PATIKRA-2026-09-07.md). Toliau išsaugota ankstesnio pataisų etapo eiga.
+
 ## Rezultatas
 
 Pataisytas patvirtintas sudėtinių blokų turinio praradimas išsaugant, klaidinantys seni administravimo valdikliai, teisių neatitinkančios redaktoriaus nuorodos, formų klaidų eiga ir keli mobiliojo išdėstymo trūkumai. Pakeitimai atlikti produkcinėje WordPress temoje bei `5gtech-core`, ne statiniuose maketuose. Blokų surinkti `build` failai atnaujinti.

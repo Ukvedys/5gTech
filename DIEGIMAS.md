@@ -15,6 +15,10 @@ Atnaujinta 2026-09-07. Produkcinis šaltinis – „WordPress“ tema ir „5gte
 
 Reikia atskiros veikiančios „WordPress“ instaliacijos su MySQL / MariaDB, HTTPS, PHP 8.2 ar naujesniu ir tinkamomis PHP plėtinių bei failų įkėlimo ribomis. Vietinė SQLite DB tiesiogiai į MySQL nekopijuojama.
 
+Kandidatavimo forma priima CV iki 5 MiB. Svetainę aptarnaujančio PHP `upload_max_filesize` nustatyti bent `8M`, `post_max_size` bent `10M`; patikrinti ir žiniatinklio serverio užklausos dydžio ribą. Vien PHP CLI nustatymų patikros neužtenka. Testuoti mažą ir arti 5 MiB esantį leistiną CV per naršyklę.
+
+Produkcinėje aplinkoje neturi veikti vietinis `wp-content/mu-plugins/5gtech-local-mail.php` ar kitas testinis pašto sulaikymas. Nekopijuoti vietinio `wp-config.php`, SQLite bazės, TMP katalogų ar testinių vartotojų į live. Tikras pašto gavimas yra atskiras priėmimo kriterijus, net jei forma rodo sėkmę.
+
 SSH aplinkoje turi veikti PHP CLI, WP-CLI (`wp`), `rsync`, `curl`, `sha256sum` ir `mariadb-dump` arba `mysqldump`. CLI ir svetainė turi naudoti suderinamas PHP versijas.
 
 Prieš importą aktyvuoti temą `5gtech`, papildinius `5gtech-core` ir `polylang`. Importas pats jų neaktyvuoja. Pirmai instaliacijai failus galima įkelti rankiniu būdu, aktyvuoti ir tada importuoti. Tik kodo diegimo HTTP patikra iki pirmo importo gali nepraeiti, nes dar nėra tikslinių puslapių.
@@ -81,5 +85,7 @@ Automatinio rollback nėra. Sustabdžius diegimus ir redagavimą atkurti ankstes
 - Indeksavimo nustatymai, domeno nuorodos, privatumo informacija ir atsarginių kopijų atkūrimas.
 
 HTTP regresija: `php tools/test-multilingual-site.php`. Tikrina vietinę svetainę; siunčiamos tik nepilnos / neteisingos formos, neinicijuojančios laiškų.
+
+2026-09-07 vietinis DB ir vykdymui reikalingų failų atkūrimas bei abiejų ribotų rolių redagavimo bandymas atlikti. Tai nėra MySQL / MariaDB ar kliento hostingo atkūrimo patvirtinimas. Aktualus priėmimo protokolas: [PERDAVIMO-PATIKRA-2026-09-07.md](PERDAVIMO-PATIKRA-2026-09-07.md).
 
 Senas `tools/test-wordpress-modules.php` tikrina ankstesnį modulių kompozitorių ir šiuo metu nepraeina. Jis nėra dabartinio blokų redaktoriaus priėmimo testas. Dabartinių blokų saugojimą tikrina `tools/test-block-editor.php` atskiroje testinėje DB.
