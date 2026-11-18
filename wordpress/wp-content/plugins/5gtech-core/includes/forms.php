@@ -7,6 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+require_once __DIR__ . '/mail-transport.php';
+require_once __DIR__ . '/turnstile.php';
+
 function g5tech_register_form_blocks() {
 	register_block_type(
 		'g5tech/contact-page',
@@ -51,6 +54,7 @@ function g5tech_form_status_message( $form, $requested_status = null ) {
 	}
 
 	$messages = array(
+		'human' => 'Nepavyko patvirtinti, kad esate žmogus. Pakartokite patikrą ir bandykite dar kartą.',
 		'required' => 'Patikrinkite privalomus laukus ir bandykite dar kartą.',
 		'email'    => 'Patikrinkite, ar el. pašto adresas įrašytas teisingai.',
 		'consent'  => 'Norint pateikti formą, būtinas sutikimas dėl duomenų naudojimo.',
@@ -238,6 +242,7 @@ function g5tech_render_contact_page_legacy() {
 					<div class="field field--full"><label for="contact-topic">Užklausos tema *</label><select id="contact-topic" name="topic" required><option value="">Pasirinkite</option><option>Bendradarbiavimas</option><option>Techninė užduotis</option><option>Karjera</option><option>Kita</option></select></div>
 					<div class="field field--full"><label for="contact-message">Trumpai aprašykite užduotį *</label><textarea id="contact-message" name="message" required></textarea></div>
 					<label class="consent field--full"><input type="checkbox" name="consent" value="1" required><span>Sutinku, kad mano duomenys būtų naudojami atsakymui į užklausą. <a href="<?php echo esc_url( home_url( '/privatumo-politika/' ) ); ?>">Privatumo politika</a>.</span></label>
+					<?php g5tech_turnstile_field( 'contact' ); ?>
 					<div class="field--full"><button class="g5-button g5-button--dark" type="submit">Siųsti užklausą <span class="g5-button__icon" aria-hidden="true">→</span></button></div>
 					<?php g5tech_render_form_status( $status ); ?>
 				</form>
@@ -314,6 +319,7 @@ function g5tech_render_application_page() {
 			</fieldset>
 			<div class="field field--full"><label for="apply-motivation">Kodėl norėtumėte prisijungti?</label><textarea id="apply-motivation" name="motivation"></textarea></div>
 			<label class="consent field--full"><input type="checkbox" name="consent" value="1" required><span>Sutinku, kad mano duomenys ir CV būtų naudojami atrankos tikslais. <a href="<?php echo esc_url( home_url( '/privatumo-politika/' ) ); ?>">Privatumo politika</a>.</span></label>
+			<?php g5tech_turnstile_field( 'application' ); ?>
 			<div class="field--full"><button class="g5-button g5-button--dark" type="submit">Pateikti kandidatūrą <span class="g5-button__icon" aria-hidden="true">→</span></button></div>
 			<?php g5tech_render_form_status( $status ); ?>
 		</form>
@@ -333,6 +339,9 @@ function g5tech_handle_contact_form() {
 
 	if ( ! empty( $_POST['website'] ) ) {
 		g5tech_form_redirect( '/kontaktai/', 'success' );
+	}
+	if ( ! g5tech_turnstile_passed( 'contact' ) ) {
+		g5tech_form_redirect( '/kontaktai/', 'human' );
 	}
 
 	$name    = isset( $_POST['name'] ) ? sanitize_text_field( wp_unslash( $_POST['name'] ) ) : '';
@@ -364,7 +373,7 @@ function g5tech_handle_contact_form() {
 			$message,
 		)
 	);
-	$sent = wp_mail(
+	$sent = g5tech_send_form_mail(
 		g5tech_form_recipient(),
 		'5G TECH svetainės užklausa: ' . $topic,
 		$body,
@@ -386,6 +395,9 @@ function g5tech_handle_application_form() {
 
 	if ( ! empty( $_POST['website'] ) ) {
 		g5tech_form_redirect( '/kandidatuoti/', 'success' );
+	}
+	if ( ! g5tech_turnstile_passed( 'application' ) ) {
+		g5tech_form_redirect( '/kandidatuoti/', 'human' );
 	}
 
 	$name       = isset( $_POST['name'] ) ? sanitize_text_field( wp_unslash( $_POST['name'] ) ) : '';
@@ -475,7 +487,7 @@ function g5tech_handle_application_form() {
 			'Motyvacija: ' . $motivation,
 		)
 	);
-	$sent         = wp_mail(
+	$sent         = g5tech_send_form_mail(
 		g5tech_form_recipient( 'career_email' ),
 		'Kandidatūra: ' . $name . ' ' . $surname,
 		$body,

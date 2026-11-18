@@ -44,6 +44,10 @@ foreach ( array( 'blogname', 'blogdescription', 'timezone_string', 'date_format'
 	$snapshot['options'][ $option_name ] = get_option( $option_name );
 }
 
+// Site identity is stored outside g5tech_* settings in block themes.
+$snapshot['options']['site_logo'] = (int) get_option( 'site_logo', get_theme_mod( 'custom_logo', 0 ) );
+$snapshot['options']['site_icon'] = (int) get_option( 'site_icon', 0 );
+
 $uploads     = wp_get_upload_dir();
 $att_paths   = array();
 $register_attachment = static function ( $attachment_id ) use ( &$snapshot, &$att_paths, $uploads ) {
@@ -69,6 +73,9 @@ $register_attachment = static function ( $attachment_id ) use ( &$snapshot, &$at
 };
 
 // Nuotraukos, kurios saugomos ne blokuose, o svetainės nustatymuose.
+foreach ( array( 'site_logo', 'site_icon' ) as $key ) {
+	$register_attachment( $snapshot['options'][ $key ] );
+}
 $about_media = (array) ( $snapshot['options']['g5tech_about_content'] ?? array() );
 foreach ( array( 'story_image_1_id', 'story_image_2_id' ) as $key ) {
 	$register_attachment( $about_media[ $key ] ?? 0 );

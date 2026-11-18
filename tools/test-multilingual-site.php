@@ -7,6 +7,8 @@ $base = rtrim($argv[1] ?? home_url(), '/');
 $checks = 0; $errors = [];
 function g5_verify($condition, $message) { global $checks,$errors; $checks++; if(!$condition)$errors[]=$message; }
 function g5_http($url, $post = null, $language = 'lt') {
+	$delay = max(0, min(5000, (int) getenv('G5_HTTP_DELAY_MS')));
+	if ($delay) usleep($delay * 1000);
 	$h=curl_init($url);
 	curl_setopt_array($h,[CURLOPT_RETURNTRANSFER=>true,CURLOPT_HEADER=>true,CURLOPT_TIMEOUT=>20,CURLOPT_MAXREDIRS=>5,CURLOPT_FOLLOWLOCATION=>$post===null,CURLOPT_HTTPHEADER=>['Accept-Language: '.$language,'Cookie: pll_language='.$language]]);
 	if($post!==null)curl_setopt_array($h,[CURLOPT_POST=>true,CURLOPT_POSTFIELDS=>http_build_query($post)]);
@@ -28,7 +30,7 @@ foreach($posts as $p){
 	if($p->post_type==='g5_team' && !(bool)get_post_meta($p->ID,'g5_team_show_profile',true))$seo_id=get_page_by_path('apie-mus')->ID;
 	$translations=pll_get_post_translations($seo_id);
 	foreach(count($translations)>1?$translations:[] as $lang=>$id){
-		$path=parse_url(get_permalink($id),PHP_URL_PATH);
+		$path=rtrim((string)parse_url($base,PHP_URL_PATH),'/').parse_url(get_permalink($id),PHP_URL_PATH);
 		$nodes=$x->query('//link[@hreflang="'.$lang.'"]');
 		g5_verify($nodes->length===1 && parse_url($nodes->item(0)->getAttribute('href'),PHP_URL_PATH)===$path,$url.' hreflang '.$lang);
 	}
@@ -55,7 +57,7 @@ foreach(['lt','en','de'] as $lang){
 		foreach(['security'=>'invalid','required'=>$nonce->length?$nonce->item(0)->getAttribute('value'):''] as $status=>$token){
 			// Missing required fields prevent mail transport from being invoked.
 			$r=g5_http($base.'/wp-admin/admin-post.php',['action'=>'g5tech_'.$kind,'g5tech_form_language'=>$lang,'g5tech_nonce'=>$token],$lang);
-			g5_verify($r['status']===302 && str_contains($r['headers'],'Location: '.$url.'?forma='.$status),$url.' POST '.$status.' keeps language');
+			g5_verify($r['status']===302 && stripos($r['headers'],'Location: '.$url.'?forma='.$status)!==false,$url.' POST '.$status.' keeps language');
 			$r=g5_http($base.'/wp-admin/admin-post.php',['action'=>'g5tech_'.$kind,'g5tech_form_language'=>$lang,'g5tech_nonce'=>$token,'g5tech_async'=>'1'],$lang);
 			$feedback=json_decode($r['body'],true);
 			g5_verify($r['status']===200 && is_array($feedback) && $feedback['success']===false,$url.' async '.$status.' returns an error without sending mail');

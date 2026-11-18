@@ -27,7 +27,8 @@
       buttons.forEach((button) => { button.disabled = true; });
       form.setAttribute('aria-busy', 'true');
       try {
-        const response = await fetch(form.action, { method: 'POST', body: data, credentials: 'same-origin', headers: { Accept: 'application/json' } });
+        // A hidden input named "action" shadows the form.action DOM property.
+        const response = await fetch(form.getAttribute('action'), { method: 'POST', body: data, credentials: 'same-origin', headers: { Accept: 'application/json' } });
         if (!response.ok) throw new Error('Submission unavailable');
         const result = await response.json();
         if (typeof result.success !== 'boolean' || !result.message) throw new Error('Invalid feedback');
@@ -40,6 +41,8 @@
         // A network failure can happen after delivery; never retry automatically.
         feedback(window.g5techFormMessages.networkError, true);
       } finally {
+        const widget = form.querySelector('.cf-turnstile');
+        if (widget && window.turnstile) window.turnstile.reset(widget);
         pending = false;
         buttons.forEach((button, index) => { button.disabled = disabled[index]; });
         form.removeAttribute('aria-busy');

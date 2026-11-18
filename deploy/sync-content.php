@@ -157,7 +157,7 @@ try {
 		foreach ( $group as $lang => $id ) if ( pll_get_post( $group['lt'], $lang ) !== $id ) throw new RuntimeException( 'Translation relationship failed.' );
 	}
 	foreach ( g5sync_options( $data['options'], $id_map ) as $name => $value ) {
-		if ( ! str_starts_with( $name, 'g5tech_' ) && ! in_array( $name, array( 'blogname','blogdescription','timezone_string','date_format','time_format','start_of_week','posts_per_page','permalink_structure' ), true ) ) throw new RuntimeException( 'Disallowed option: ' . $name );
+		if ( ! str_starts_with( $name, 'g5tech_' ) && ! in_array( $name, array( 'blogname','blogdescription','timezone_string','date_format','time_format','start_of_week','posts_per_page','permalink_structure','site_logo','site_icon' ), true ) ) throw new RuntimeException( 'Disallowed option: ' . $name );
 		$value = g5sync_urls( $value, $source_home, $target_home );
 		update_option( $name, $value );
 		if ( get_option( $name ) != $value ) throw new RuntimeException( 'Option verification failed: ' . $name );

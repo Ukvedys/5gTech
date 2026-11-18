@@ -991,7 +991,8 @@ a.info-card:focus-visible p {
 }
 
 .job-list {
-  border-top: var(--5g-border-width) solid var(--5g-line-light);
+  border: var(--5g-border-width) solid var(--5g-line-light);
+  border-bottom: 0;
 }
 
 .g5-job-group + .g5-job-group {
@@ -1046,6 +1047,51 @@ a.info-card:focus-visible p {
 
 .job-row:hover span {
   color: var(--5g-color-on-dark-muted);
+}
+
+/* Job conditions are editorial fields, not four fixed-size numeric statistics.
+ * Flex rows fill the frame even when only 1, 2 or 3 fields are populated. */
+.single-g5_job .stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.single-g5_job .stats-grid > .stat {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--5g-space-4);
+  min-width: 0;
+  min-height: 10rem;
+  padding: clamp(1.25rem, 2.2vw, 2rem);
+  overflow-wrap: anywhere;
+}
+
+.single-g5_job .stat strong {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.3;
+  letter-spacing: -.025em;
+  text-wrap: pretty;
+}
+
+.single-g5_job .stat span {
+  margin-top: 0;
+  font-size: .75rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 1050px) {
+  .single-g5_job .stats-grid > .stat {
+    flex-basis: 50%;
+  }
+}
+
+@media (max-width: 720px) {
+  .single-g5_job .stats-grid > .stat {
+    flex-basis: 100%;
+    min-height: 0;
+  }
 }
 
 .split-layout__side .plain-list {

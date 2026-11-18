@@ -1,5 +1,6 @@
 {
-    "generated": "2026-09-07T08:39:37+00:00",
+    "schema_version": 2,
+    "generated": "2026-09-08T11:26:09+00:00",
     "source_home": "http://5gtech.test",
     "options": {
         "g5tech_about_content": {
@@ -217,7 +218,7 @@
             "contact_page_url": "/kontaktai/",
             "phone": "+370 687 77155",
             "email": "info@5gtech.lt",
-            "career_email": "Kristina@5gtech.lt",
+            "career_email": "atrankos@5gtech.lt",
             "address": "Meistrų g. 8A\nLT-02189 Vilnius",
             "company_code": "305547599",
             "vat_code": "LT100013136617",
@@ -262,10 +263,13 @@
         "time_format": "g:i a",
         "start_of_week": "1",
         "posts_per_page": "10",
-        "permalink_structure": "/%postname%/"
+        "permalink_structure": "/%postname%/",
+        "site_logo": 9,
+        "site_icon": 0
     },
     "posts": [
         {
+            "source_id": 3,
             "lang": "lt",
             "translations": {
                 "en": "privacy-policy-en",
@@ -287,10 +291,10 @@
                     "default"
                 ]
             },
-            "terms": [],
-            "source_id": 3
+            "terms": []
         },
         {
+            "source_id": 5,
             "lang": "lt",
             "translations": {
                 "en": "home",
@@ -308,10 +312,10 @@
             "parent": "",
             "thumbnail": "2026/07/hero-sky-worker.png",
             "meta": [],
-            "terms": [],
-            "source_id": 5
+            "terms": []
         },
         {
+            "source_id": 6,
             "lang": "lt",
             "translations": {
                 "en": "contact",
@@ -329,10 +333,10 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": [],
-            "source_id": 6
+            "terms": []
         },
         {
+            "source_id": 7,
             "lang": "lt",
             "translations": {
                 "en": "privacy-policy-2",
@@ -350,10 +354,10 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": [],
-            "source_id": 7
+            "terms": []
         },
         {
+            "source_id": 70,
             "lang": "lt",
             "translations": {
                 "en": "experience",
@@ -371,10 +375,10 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": [],
-            "source_id": 70
+            "terms": []
         },
         {
+            "source_id": 83,
             "lang": "lt",
             "translations": {
                 "en": "about-us",
@@ -392,10 +396,10 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": [],
-            "source_id": 83
+            "terms": []
         },
         {
+            "source_id": 90,
             "lang": "lt",
             "translations": {
                 "en": "careers",
@@ -413,10 +417,10 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": [],
-            "source_id": 90
+            "terms": []
         },
         {
+            "source_id": 92,
             "lang": "lt",
             "translations": {
                 "en": "news",
@@ -434,10 +438,10 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": [],
-            "source_id": 92
+            "terms": []
         },
         {
+            "source_id": 98,
             "lang": "lt",
             "translations": {
                 "en": "cookies",
@@ -455,10 +459,10 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": [],
-            "source_id": 98
+            "terms": []
         },
         {
+            "source_id": 99,
             "lang": "lt",
             "translations": {
                 "en": "apply",
@@ -476,10 +480,10 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": [],
-            "source_id": 99
+            "terms": []
         },
         {
+            "source_id": 106,
             "lang": "lt",
             "translations": {
                 "en": "academy",
@@ -497,10 +501,10 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": [],
-            "source_id": 106
+            "terms": []
         },
         {
+            "source_id": 107,
             "lang": "lt",
             "translations": {
                 "en": "training",
@@ -518,10 +522,10 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": [],
-            "source_id": 107
+            "terms": []
         },
         {
+            "source_id": 108,
             "lang": "lt",
             "translations": {
                 "en": "candidate-faq",
@@ -539,10 +543,10 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": [],
-            "source_id": 108
+            "terms": []
         },
         {
+            "source_id": 109,
             "lang": "lt",
             "translations": {
                 "en": "for-executives",
@@ -560,10 +564,10 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": [],
-            "source_id": 109
+            "terms": []
         },
         {
+            "source_id": 110,
             "lang": "lt",
             "translations": {
                 "en": "for-project-managers",
@@ -581,17 +585,17 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": [],
-            "source_id": 110
+            "terms": []
         },
         {
+            "source_id": 284,
             "lang": "en",
             "translations": [],
             "type": "page",
             "slug": "privacy-policy-en",
             "title": "Privacy Policy",
             "status": "draft",
-            "date": "2026-08-04 06:41:45",
+            "date": "2026-09-07 08:39:37",
             "date_gmt": "0000-00-00 00:00:00",
             "content": "<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Who we are</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>Our website address is: http://5gtech.test.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Comments</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor&#8217;s IP address and browser user agent string to help spam detection.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Media</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Cookies</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>If you visit our login page, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &quot;Remember Me&quot;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Embedded content from other websites</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Who we share your data with</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>If you request a password reset, your IP address will be included in the reset email.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">How long we retain your data</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">What rights you have over your data</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Where your data is sent</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>Visitor comments may be checked through an automated spam detection service.</p>\n<!-- /wp:paragraph -->\n",
             "excerpt": "",
@@ -603,17 +607,17 @@
                     "default"
                 ]
             },
-            "terms": [],
-            "source_id": 284
+            "terms": []
         },
         {
+            "source_id": 285,
             "lang": "de",
             "translations": [],
             "type": "page",
             "slug": "privacy-policy-de",
             "title": "Privacy Policy",
             "status": "draft",
-            "date": "2026-08-04 06:41:45",
+            "date": "2026-09-07 08:39:37",
             "date_gmt": "0000-00-00 00:00:00",
             "content": "<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Who we are</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>Our website address is: http://5gtech.test.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Comments</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor&#8217;s IP address and browser user agent string to help spam detection.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Media</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Cookies</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>If you visit our login page, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &quot;Remember Me&quot;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Embedded content from other websites</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Who we share your data with</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>If you request a password reset, your IP address will be included in the reset email.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">How long we retain your data</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">What rights you have over your data</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Where your data is sent</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Suggested text: </strong>Visitor comments may be checked through an automated spam detection service.</p>\n<!-- /wp:paragraph -->\n",
             "excerpt": "",
@@ -625,10 +629,10 @@
                     "default"
                 ]
             },
-            "terms": [],
-            "source_id": 285
+            "terms": []
         },
         {
+            "source_id": 286,
             "lang": "en",
             "translations": [],
             "type": "page",
@@ -643,10 +647,10 @@
             "parent": "",
             "thumbnail": "2026/07/hero-sky-worker.png",
             "meta": [],
-            "terms": [],
-            "source_id": 286
+            "terms": []
         },
         {
+            "source_id": 287,
             "lang": "de",
             "translations": [],
             "type": "page",
@@ -661,10 +665,10 @@
             "parent": "",
             "thumbnail": "2026/07/hero-sky-worker.png",
             "meta": [],
-            "terms": [],
-            "source_id": 287
+            "terms": []
         },
         {
+            "source_id": 288,
             "lang": "en",
             "translations": [],
             "type": "page",
@@ -683,10 +687,10 @@
                     "page-kontaktai"
                 ]
             },
-            "terms": [],
-            "source_id": 288
+            "terms": []
         },
         {
+            "source_id": 289,
             "lang": "de",
             "translations": [],
             "type": "page",
@@ -705,10 +709,10 @@
                     "page-kontaktai"
                 ]
             },
-            "terms": [],
-            "source_id": 289
+            "terms": []
         },
         {
+            "source_id": 290,
             "lang": "en",
             "translations": [],
             "type": "page",
@@ -727,10 +731,10 @@
                     "page-privatumo-politika"
                 ]
             },
-            "terms": [],
-            "source_id": 290
+            "terms": []
         },
         {
+            "source_id": 291,
             "lang": "de",
             "translations": [],
             "type": "page",
@@ -749,10 +753,10 @@
                     "page-privatumo-politika"
                 ]
             },
-            "terms": [],
-            "source_id": 291
+            "terms": []
         },
         {
+            "source_id": 292,
             "lang": "en",
             "translations": [],
             "type": "page",
@@ -771,10 +775,10 @@
                     "page-patirtis"
                 ]
             },
-            "terms": [],
-            "source_id": 292
+            "terms": []
         },
         {
+            "source_id": 293,
             "lang": "de",
             "translations": [],
             "type": "page",
@@ -793,10 +797,10 @@
                     "page-patirtis"
                 ]
             },
-            "terms": [],
-            "source_id": 293
+            "terms": []
         },
         {
+            "source_id": 294,
             "lang": "en",
             "translations": [],
             "type": "page",
@@ -815,10 +819,10 @@
                     "page-apie-mus"
                 ]
             },
-            "terms": [],
-            "source_id": 294
+            "terms": []
         },
         {
+            "source_id": 295,
             "lang": "de",
             "translations": [],
             "type": "page",
@@ -837,10 +841,10 @@
                     "page-apie-mus"
                 ]
             },
-            "terms": [],
-            "source_id": 295
+            "terms": []
         },
         {
+            "source_id": 296,
             "lang": "en",
             "translations": [],
             "type": "page",
@@ -859,10 +863,10 @@
                     "page-karjera"
                 ]
             },
-            "terms": [],
-            "source_id": 296
+            "terms": []
         },
         {
+            "source_id": 297,
             "lang": "de",
             "translations": [],
             "type": "page",
@@ -881,10 +885,10 @@
                     "page-karjera"
                 ]
             },
-            "terms": [],
-            "source_id": 297
+            "terms": []
         },
         {
+            "source_id": 298,
             "lang": "en",
             "translations": [],
             "type": "page",
@@ -903,10 +907,10 @@
                     "page-naujienos"
                 ]
             },
-            "terms": [],
-            "source_id": 298
+            "terms": []
         },
         {
+            "source_id": 299,
             "lang": "de",
             "translations": [],
             "type": "page",
@@ -925,10 +929,10 @@
                     "page-naujienos"
                 ]
             },
-            "terms": [],
-            "source_id": 299
+            "terms": []
         },
         {
+            "source_id": 300,
             "lang": "en",
             "translations": [],
             "type": "page",
@@ -947,10 +951,10 @@
                     "page-slapukai"
                 ]
             },
-            "terms": [],
-            "source_id": 300
+            "terms": []
         },
         {
+            "source_id": 301,
             "lang": "de",
             "translations": [],
             "type": "page",
@@ -969,10 +973,10 @@
                     "page-slapukai"
                 ]
             },
-            "terms": [],
-            "source_id": 301
+            "terms": []
         },
         {
+            "source_id": 302,
             "lang": "en",
             "translations": [],
             "type": "page",
@@ -991,10 +995,10 @@
                     "page-kandidatuoti"
                 ]
             },
-            "terms": [],
-            "source_id": 302
+            "terms": []
         },
         {
+            "source_id": 303,
             "lang": "de",
             "translations": [],
             "type": "page",
@@ -1013,10 +1017,10 @@
                     "page-kandidatuoti"
                 ]
             },
-            "terms": [],
-            "source_id": 303
+            "terms": []
         },
         {
+            "source_id": 304,
             "lang": "en",
             "translations": [],
             "type": "page",
@@ -1035,10 +1039,10 @@
                     "page-akademija"
                 ]
             },
-            "terms": [],
-            "source_id": 304
+            "terms": []
         },
         {
+            "source_id": 305,
             "lang": "de",
             "translations": [],
             "type": "page",
@@ -1057,10 +1061,10 @@
                     "page-akademija"
                 ]
             },
-            "terms": [],
-            "source_id": 305
+            "terms": []
         },
         {
+            "source_id": 306,
             "lang": "en",
             "translations": [],
             "type": "page",
@@ -1079,10 +1083,10 @@
                     "page-mokymai"
                 ]
             },
-            "terms": [],
-            "source_id": 306
+            "terms": []
         },
         {
+            "source_id": 307,
             "lang": "de",
             "translations": [],
             "type": "page",
@@ -1101,10 +1105,10 @@
                     "page-mokymai"
                 ]
             },
-            "terms": [],
-            "source_id": 307
+            "terms": []
         },
         {
+            "source_id": 308,
             "lang": "en",
             "translations": [],
             "type": "page",
@@ -1123,10 +1127,10 @@
                     "page-duk"
                 ]
             },
-            "terms": [],
-            "source_id": 308
+            "terms": []
         },
         {
+            "source_id": 309,
             "lang": "de",
             "translations": [],
             "type": "page",
@@ -1145,10 +1149,10 @@
                     "page-duk"
                 ]
             },
-            "terms": [],
-            "source_id": 309
+            "terms": []
         },
         {
+            "source_id": 310,
             "lang": "en",
             "translations": [],
             "type": "page",
@@ -1167,10 +1171,10 @@
                     "page-vadovams"
                 ]
             },
-            "terms": [],
-            "source_id": 310
+            "terms": []
         },
         {
+            "source_id": 311,
             "lang": "de",
             "translations": [],
             "type": "page",
@@ -1189,10 +1193,10 @@
                     "page-vadovams"
                 ]
             },
-            "terms": [],
-            "source_id": 311
+            "terms": []
         },
         {
+            "source_id": 312,
             "lang": "en",
             "translations": [],
             "type": "page",
@@ -1211,10 +1215,10 @@
                     "page-projektu-vadovams"
                 ]
             },
-            "terms": [],
-            "source_id": 312
+            "terms": []
         },
         {
+            "source_id": 313,
             "lang": "de",
             "translations": [],
             "type": "page",
@@ -1233,10 +1237,10 @@
                     "page-projektu-vadovams"
                 ]
             },
-            "terms": [],
-            "source_id": 313
+            "terms": []
         },
         {
+            "source_id": 354,
             "lang": "lt",
             "translations": {
                 "en": "services",
@@ -1254,10 +1258,10 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": [],
-            "source_id": 354
+            "terms": []
         },
         {
+            "source_id": 355,
             "lang": "lt",
             "translations": [],
             "type": "page",
@@ -1272,10 +1276,10 @@
             "parent": "",
             "thumbnail": "",
             "meta": [],
-            "terms": [],
-            "source_id": 355
+            "terms": []
         },
         {
+            "source_id": 356,
             "lang": "en",
             "translations": [],
             "type": "page",
@@ -1294,10 +1298,10 @@
                     "page-paslaugos"
                 ]
             },
-            "terms": [],
-            "source_id": 356
+            "terms": []
         },
         {
+            "source_id": 357,
             "lang": "de",
             "translations": [],
             "type": "page",
@@ -1316,10 +1320,10 @@
                     "page-paslaugos"
                 ]
             },
-            "terms": [],
-            "source_id": 357
+            "terms": []
         },
         {
+            "source_id": 93,
             "lang": "lt",
             "translations": {
                 "en": "mobile-network-modernisation-project-germany",
@@ -1340,14 +1344,14 @@
             "terms": {
                 "category": [
                     {
-                        "slug": "projektai",
+                        "slug": "projektai-lt",
                         "name": "Projektai"
                     }
                 ]
-            },
-            "source_id": 93
+            }
         },
         {
+            "source_id": 94,
             "lang": "lt",
             "translations": {
                 "en": "practical-employee-training",
@@ -1368,14 +1372,14 @@
             "terms": {
                 "category": [
                     {
-                        "slug": "komanda",
+                        "slug": "komanda-lt",
                         "name": "Komanda"
                     }
                 ]
-            },
-            "source_id": 94
+            }
         },
         {
+            "source_id": 95,
             "lang": "lt",
             "translations": {
                 "en": "projects-in-six-european-countries",
@@ -1396,14 +1400,14 @@
             "terms": {
                 "category": [
                     {
-                        "slug": "imone",
+                        "slug": "imone-lt",
                         "name": "Įmonė"
                     }
                 ]
-            },
-            "source_id": 95
+            }
         },
         {
+            "source_id": 314,
             "lang": "en",
             "translations": [],
             "type": "post",
@@ -1421,14 +1425,14 @@
             "terms": {
                 "category": [
                     {
-                        "slug": "projects-en",
+                        "slug": "projects-en-en",
                         "name": "Projects"
                     }
                 ]
-            },
-            "source_id": 314
+            }
         },
         {
+            "source_id": 315,
             "lang": "de",
             "translations": [],
             "type": "post",
@@ -1446,14 +1450,14 @@
             "terms": {
                 "category": [
                     {
-                        "slug": "projekte-de",
+                        "slug": "projekte-de-de",
                         "name": "Projekte"
                     }
                 ]
-            },
-            "source_id": 315
+            }
         },
         {
+            "source_id": 316,
             "lang": "en",
             "translations": [],
             "type": "post",
@@ -1471,14 +1475,14 @@
             "terms": {
                 "category": [
                     {
-                        "slug": "team-en",
+                        "slug": "team-en-en",
                         "name": "Team"
                     }
                 ]
-            },
-            "source_id": 316
+            }
         },
         {
+            "source_id": 317,
             "lang": "de",
             "translations": [],
             "type": "post",
@@ -1496,14 +1500,14 @@
             "terms": {
                 "category": [
                     {
-                        "slug": "team-de",
+                        "slug": "team-de-de",
                         "name": "Team"
                     }
                 ]
-            },
-            "source_id": 317
+            }
         },
         {
+            "source_id": 318,
             "lang": "en",
             "translations": [],
             "type": "post",
@@ -1521,14 +1525,14 @@
             "terms": {
                 "category": [
                     {
-                        "slug": "company-en",
+                        "slug": "company-en-en",
                         "name": "Company"
                     }
                 ]
-            },
-            "source_id": 318
+            }
         },
         {
+            "source_id": 319,
             "lang": "de",
             "translations": [],
             "type": "post",
@@ -1546,14 +1550,14 @@
             "terms": {
                 "category": [
                     {
-                        "slug": "unternehmen-de",
+                        "slug": "unternehmen-de-de",
                         "name": "Unternehmen"
                     }
                 ]
-            },
-            "source_id": 319
+            }
         },
         {
+            "source_id": 84,
             "lang": "lt",
             "translations": {
                 "en": "aleksandras-iljinas-2",
@@ -1624,10 +1628,10 @@
                     "40"
                 ]
             },
-            "terms": [],
-            "source_id": 84
+            "terms": []
         },
         {
+            "source_id": 85,
             "lang": "lt",
             "translations": {
                 "en": "nerijus-bazinas-2",
@@ -1685,10 +1689,10 @@
                     "0"
                 ]
             },
-            "terms": [],
-            "source_id": 85
+            "terms": []
         },
         {
+            "source_id": 86,
             "lang": "lt",
             "translations": {
                 "en": "eimantas-zemaitis-2",
@@ -1746,10 +1750,10 @@
                     "0"
                 ]
             },
-            "terms": [],
-            "source_id": 86
+            "terms": []
         },
         {
+            "source_id": 87,
             "lang": "lt",
             "translations": {
                 "en": "tadas-grabauskas-2",
@@ -1807,10 +1811,10 @@
                     "0"
                 ]
             },
-            "terms": [],
-            "source_id": 87
+            "terms": []
         },
         {
+            "source_id": 88,
             "lang": "lt",
             "translations": {
                 "en": "kristina-nagineviciene-2",
@@ -1868,10 +1872,10 @@
                     "0"
                 ]
             },
-            "terms": [],
-            "source_id": 88
+            "terms": []
         },
         {
+            "source_id": 336,
             "lang": "en",
             "translations": [],
             "type": "g5_team",
@@ -1939,10 +1943,10 @@
                     "40"
                 ]
             },
-            "terms": [],
-            "source_id": 336
+            "terms": []
         },
         {
+            "source_id": 337,
             "lang": "de",
             "translations": [],
             "type": "g5_team",
@@ -2010,10 +2014,10 @@
                     "40"
                 ]
             },
-            "terms": [],
-            "source_id": 337
+            "terms": []
         },
         {
+            "source_id": 338,
             "lang": "en",
             "translations": [],
             "type": "g5_team",
@@ -2068,10 +2072,10 @@
                     "0"
                 ]
             },
-            "terms": [],
-            "source_id": 338
+            "terms": []
         },
         {
+            "source_id": 339,
             "lang": "de",
             "translations": [],
             "type": "g5_team",
@@ -2126,10 +2130,10 @@
                     "0"
                 ]
             },
-            "terms": [],
-            "source_id": 339
+            "terms": []
         },
         {
+            "source_id": 340,
             "lang": "en",
             "translations": [],
             "type": "g5_team",
@@ -2184,10 +2188,10 @@
                     "0"
                 ]
             },
-            "terms": [],
-            "source_id": 340
+            "terms": []
         },
         {
+            "source_id": 341,
             "lang": "de",
             "translations": [],
             "type": "g5_team",
@@ -2242,10 +2246,10 @@
                     "0"
                 ]
             },
-            "terms": [],
-            "source_id": 341
+            "terms": []
         },
         {
+            "source_id": 342,
             "lang": "en",
             "translations": [],
             "type": "g5_team",
@@ -2300,10 +2304,10 @@
                     "0"
                 ]
             },
-            "terms": [],
-            "source_id": 342
+            "terms": []
         },
         {
+            "source_id": 343,
             "lang": "de",
             "translations": [],
             "type": "g5_team",
@@ -2358,10 +2362,10 @@
                     "0"
                 ]
             },
-            "terms": [],
-            "source_id": 343
+            "terms": []
         },
         {
+            "source_id": 344,
             "lang": "en",
             "translations": [],
             "type": "g5_team",
@@ -2416,10 +2420,10 @@
                     "0"
                 ]
             },
-            "terms": [],
-            "source_id": 344
+            "terms": []
         },
         {
+            "source_id": 345,
             "lang": "de",
             "translations": [],
             "type": "g5_team",
@@ -2474,10 +2478,10 @@
                     "0"
                 ]
             },
-            "terms": [],
-            "source_id": 345
+            "terms": []
         },
         {
+            "source_id": 8,
             "lang": "lt",
             "translations": {
                 "en": "mobile-networks",
@@ -2527,10 +2531,10 @@
                     "Kokiuose objektuose atliekate darbus? | Dirbame mobiliųjų operatorių bokštuose, ant pastatų, stiebų, televizijos ir vandens bokštų bei kituose ryšio infrastruktūros objektuose.\nAr parengiate projekto dokumentaciją? | Taip. Dokumentacijos apimtį ir formatą suderiname pagal konkretaus užsakovo bei projekto reikalavimus.\nAr galite atlikti tik dalį projekto darbų? | Taip. Galime prisijungti prie atskiro projekto etapo arba įgyvendinti visą sutartą darbų apimtį."
                 ]
             },
-            "terms": [],
-            "source_id": 8
+            "terms": []
         },
         {
+            "source_id": 65,
             "lang": "lt",
             "translations": {
                 "en": "in-building-networks",
@@ -2574,10 +2578,10 @@
                     "Ryšio sprendimai dideliuose ir techniškai sudėtinguose pastatuose."
                 ]
             },
-            "terms": [],
-            "source_id": 65
+            "terms": []
         },
         {
+            "source_id": 66,
             "lang": "lt",
             "translations": {
                 "en": "fixed-networks",
@@ -2621,10 +2625,10 @@
                     "Šviesolaidinio ir varinio ryšio infrastruktūros įrengimas."
                 ]
             },
-            "terms": [],
-            "source_id": 66
+            "terms": []
         },
         {
+            "source_id": 67,
             "lang": "lt",
             "translations": {
                 "en": "electrical-installations",
@@ -2668,10 +2672,10 @@
                     "Elektros sistemų projektavimas, montavimas, bandymai ir priežiūra."
                 ]
             },
-            "terms": [],
-            "source_id": 67
+            "terms": []
         },
         {
+            "source_id": 68,
             "lang": "lt",
             "translations": {
                 "en": "security-and-surveillance-systems",
@@ -2715,10 +2719,10 @@
                     "Stebėjimo, signalizacijos ir patekimo kontrolės sprendimai."
                 ]
             },
-            "terms": [],
-            "source_id": 68
+            "terms": []
         },
         {
+            "source_id": 69,
             "lang": "lt",
             "translations": {
                 "en": "solar-power-systems",
@@ -2762,10 +2766,10 @@
                     "Projektavimas, konstrukcijos, montavimas, paleidimas ir priežiūra."
                 ]
             },
-            "terms": [],
-            "source_id": 69
+            "terms": []
         },
         {
+            "source_id": 320,
             "lang": "en",
             "translations": [],
             "type": "g5_service",
@@ -2812,10 +2816,10 @@
                     "Kokiuose objektuose atliekate darbus? | Dirbame mobiliųjų operatorių bokštuose, ant pastatų, stiebų, televizijos ir vandens bokštų bei kituose ryšio infrastruktūros objektuose.\nAr parengiate projekto dokumentaciją? | Taip. Dokumentacijos apimtį ir formatą suderiname pagal konkretaus užsakovo bei projekto reikalavimus.\nAr galite atlikti tik dalį projekto darbų? | Taip. Galime prisijungti prie atskiro projekto etapo arba įgyvendinti visą sutartą darbų apimtį."
                 ]
             },
-            "terms": [],
-            "source_id": 320
+            "terms": []
         },
         {
+            "source_id": 321,
             "lang": "de",
             "translations": [],
             "type": "g5_service",
@@ -2862,10 +2866,10 @@
                     "Kokiuose objektuose atliekate darbus? | Dirbame mobiliųjų operatorių bokštuose, ant pastatų, stiebų, televizijos ir vandens bokštų bei kituose ryšio infrastruktūros objektuose.\nAr parengiate projekto dokumentaciją? | Taip. Dokumentacijos apimtį ir formatą suderiname pagal konkretaus užsakovo bei projekto reikalavimus.\nAr galite atlikti tik dalį projekto darbų? | Taip. Galime prisijungti prie atskiro projekto etapo arba įgyvendinti visą sutartą darbų apimtį."
                 ]
             },
-            "terms": [],
-            "source_id": 321
+            "terms": []
         },
         {
+            "source_id": 322,
             "lang": "en",
             "translations": [],
             "type": "g5_service",
@@ -2906,10 +2910,10 @@
                     "Communication solutions in large and technically complex buildings."
                 ]
             },
-            "terms": [],
-            "source_id": 322
+            "terms": []
         },
         {
+            "source_id": 323,
             "lang": "de",
             "translations": [],
             "type": "g5_service",
@@ -2950,10 +2954,10 @@
                     "Kommunikationslösungen in großen und technisch komplexen Gebäuden."
                 ]
             },
-            "terms": [],
-            "source_id": 323
+            "terms": []
         },
         {
+            "source_id": 324,
             "lang": "en",
             "translations": [],
             "type": "g5_service",
@@ -2994,10 +2998,10 @@
                     "Installation of fiber-optic and copper communication infrastructure."
                 ]
             },
-            "terms": [],
-            "source_id": 324
+            "terms": []
         },
         {
+            "source_id": 325,
             "lang": "de",
             "translations": [],
             "type": "g5_service",
@@ -3038,10 +3042,10 @@
                     "Installation von Glasfaser- und Kupfer-Kommunikationsinfrastruktur."
                 ]
             },
-            "terms": [],
-            "source_id": 325
+            "terms": []
         },
         {
+            "source_id": 326,
             "lang": "en",
             "translations": [],
             "type": "g5_service",
@@ -3082,10 +3086,10 @@
                     "Design, installation, testing and maintenance of electrical systems."
                 ]
             },
-            "terms": [],
-            "source_id": 326
+            "terms": []
         },
         {
+            "source_id": 327,
             "lang": "de",
             "translations": [],
             "type": "g5_service",
@@ -3126,10 +3130,10 @@
                     "Entwurf, Installation, Prüfung und Wartung elektrischer Systeme."
                 ]
             },
-            "terms": [],
-            "source_id": 327
+            "terms": []
         },
         {
+            "source_id": 328,
             "lang": "en",
             "translations": [],
             "type": "g5_service",
@@ -3170,10 +3174,10 @@
                     "Surveillance, alarm and access control solutions."
                 ]
             },
-            "terms": [],
-            "source_id": 328
+            "terms": []
         },
         {
+            "source_id": 329,
             "lang": "de",
             "translations": [],
             "type": "g5_service",
@@ -3214,10 +3218,10 @@
                     "Überwachungs-, Alarm- und Zugangskontrolllösungen."
                 ]
             },
-            "terms": [],
-            "source_id": 329
+            "terms": []
         },
         {
+            "source_id": 330,
             "lang": "en",
             "translations": [],
             "type": "g5_service",
@@ -3258,10 +3262,10 @@
                     "Design, construction, installation, commissioning and maintenance."
                 ]
             },
-            "terms": [],
-            "source_id": 330
+            "terms": []
         },
         {
+            "source_id": 331,
             "lang": "de",
             "translations": [],
             "type": "g5_service",
@@ -3302,10 +3306,10 @@
                     "Design, Konstruktion, Installation, Inbetriebnahme und Wartung."
                 ]
             },
-            "terms": [],
-            "source_id": 331
+            "terms": []
         },
         {
+            "source_id": 136,
             "lang": "lt",
             "translations": {
                 "en": "mobile-network-modernisation-germany",
@@ -3352,10 +3356,10 @@
                         "name": "Vokietija"
                     }
                 ]
-            },
-            "source_id": 136
+            }
         },
         {
+            "source_id": 332,
             "lang": "en",
             "translations": [],
             "type": "g5_project",
@@ -3392,10 +3396,10 @@
                     "8"
                 ]
             },
-            "terms": [],
-            "source_id": 332
+            "terms": []
         },
         {
+            "source_id": 333,
             "lang": "de",
             "translations": [],
             "type": "g5_project",
@@ -3432,10 +3436,10 @@
                     "8"
                 ]
             },
-            "terms": [],
-            "source_id": 333
+            "terms": []
         },
         {
+            "source_id": 91,
             "lang": "lt",
             "translations": {
                 "en": "telecommunications-technician",
@@ -3443,13 +3447,13 @@
             },
             "type": "g5_job",
             "slug": "telekomunikaciju-specialistas",
-            "title": "Telekomunikacijų specialistas (-ė)",
+            "title": "Telekomunikacijų specialistas (-ė) (pradinis lygis) – Europa",
             "status": "publish",
-            "date": "2026-07-29 08:45:03",
-            "date_gmt": "2026-07-29 08:45:03",
+            "date": "2026-09-08 11:26:08",
+            "date_gmt": "2026-09-08 11:26:08",
             "content": "",
             "excerpt": "",
-            "menu_order": 0,
+            "menu_order": 5,
             "parent": "",
             "thumbnail": "",
             "meta": {
@@ -3460,7 +3464,7 @@
                     "Pradinis lygis"
                 ],
                 "g5_job_location": [
-                    "Europa"
+                    "Vokietija, Švedija, Norvegija ir kt."
                 ],
                 "g5_job_salary": [
                     "2 500–2 750+ €"
@@ -3469,19 +3473,19 @@
                     "6–8 sav."
                 ],
                 "g5_job_driving": [
-                    "B"
+                    ""
                 ],
                 "g5_job_summary": [
-                    "Darbas mobiliojo ryšio infrastruktūros montavimo projektuose Vokietijoje, Švedijoje, Norvegijoje ir kitose Europos šalyse."
+                    "Telekomunikacinių sistemų montavimas Europoje (Vokietija, Švedija, Norvegija ir kt.): Darbuotojas pradeda karjerą įmonėje, supažindinamas su įranga, procesais, saugos principais ir projekto eiga. Dirba su mentoriaus palaikymu, dalyvauja mokymuose ir įgyja praktinę patirtį. Įprasta komandiruočių trukmė – 6–8 savaitės. Tačiau esame atviri lankstesniems sprendimams. Darbas aukštyje."
                 ],
                 "g5_job_responsibilities": [
-                    "Montuosite antenas ir radijo modulius\nInstaliuosite kabelius ir kitą infrastruktūrą\nPadėsite atlikti testavimo darbus\nLaikysitės techninių ir saugos reikalavimų\nPildysite atliktų darbų informaciją\nDirbsite kartu su patyrusiu komandos nariu"
+                    "Telekomunikacinių sistemų montavimas ir integravimas tarptautiniuose projektuose;\nBazinių stočių įrangos montavimas ir testavimas;\nĮrangos montavimas aukštyje (bokštuose iki 80 m, pastatų stogai);\nTechninė įrangos priežiūra ir gedimų diagnostika;\nElektros ir optinių kabelių jungimas;\nMetalo konstrukcijų montavimas;\nMobilaus ryšio antenų montavimas ir testavimas;\nTechninių ataskaitų rengimas;\nAtsakingas užduočių vykdymas ir analizė;\nDarbo saugos užtikrinimas."
                 ],
                 "g5_job_requirements": [
-                    "Atsakingo požiūrio į darbų saugą\nNoro mokytis techninio darbo\nGalimybės dirbti komandiruočių principu\nB kategorijos vairuotojo pažymėjimo\nAnglų kalbos pagrindų – privalumas"
+                    "Privalumas: Techninis išsilavinimas (automatika, telekomunikacijos, elektrotechnika);\nPrivalumas: Anglų, Vokiečių kalbos žinios;\nPrivalumas: B kategorijos vairuotojo pažymėjimas;\nPrivalumas: Telekomunikacijų įrangos patirtis (Huawei, Ericsson, Nokia);\nPrivalumas: Patirtis ryšio technologijų srityje;\nPrivalumas: Gebėjimas dirbti tiek komandoje, tiek savarankiškai;\nPrivalumas: Kompiuterinis raštingumas ir gebėjimas skaityti techninius projektus;\nPrivalumas: Gera fizinė būklė ir pozityvus požiūris.\nDidžiuotumeisi savo darbu ir jo prasmingumu;\nVertintum komandinį darbą ir bendradarbiavimą;\nTurėtum vidinę motyvaciją mokytis ir tobulėti;\nAtsakingai ir laiku vykdytum patikėtas užduotis;\nLaikytumeisi etiškumo, pagarbos ir atsakomybės principų."
                 ],
                 "g5_job_offer": [
-                    "Darbo sutartį Lietuvoje ir socialines garantijas\nApmokamą apgyvendinimą ir keliones\nDarbo aprangą, įrankius ir saugos priemones\nDarbui reikalingus mokymus ir kvalifikacijas\nMentoriaus palaikymą projekto pradžioje\nGalimybę augti pagal Grow2Go modelį"
+                    "Įdomūs ir svarbūs tarptautiniai telekomunikacijų projektai;\nProfesinio tobulėjimo galimybės ir nuolatiniai mokymai;\nKokybiškas apgyvendinimas ir nauji įmonės automobiliai;\nVisos socialinės garantijos;\nDarbo apranga ir visos būtinos darbo priemonės;\nAukščiausios kokybės apsaugos įranga (Singing Rock, Skylotec, Petzl);\nDraugiška komanda ir efektyvi darbo atmosfera;\nOrganizacija, kuriai rūpi darbuotojų gerovė;\nGalimybė pažinti šalį ir kultūrą, kurioje dirbi;\nĮmonės transportas tavo laisvalaikio kelionėms;\nUnikali patirtis ir nuolatinis profesinis augimas;\nGalimybė bendradarbiauti su telekomunikacijų ekspertais."
                 ],
                 "g5_job_expires": [
                     ""
@@ -3490,10 +3494,10 @@
                     "1"
                 ]
             },
-            "terms": [],
-            "source_id": 91
+            "terms": []
         },
         {
+            "source_id": 334,
             "lang": "en",
             "translations": [],
             "type": "g5_job",
@@ -3545,10 +3549,10 @@
                     "1"
                 ]
             },
-            "terms": [],
-            "source_id": 334
+            "terms": []
         },
         {
+            "source_id": 335,
             "lang": "de",
             "translations": [],
             "type": "g5_job",
@@ -3600,10 +3604,890 @@
                     "1"
                 ]
             },
-            "terms": [],
-            "source_id": 335
+            "terms": []
         },
         {
+            "source_id": 511,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "telekomunikaciju-specialistas-pradinis-lietuva",
+            "title": "Telekomunikacijų specialistas (-ė) (pradinis lygis) – Lietuvos projektai",
+            "status": "publish",
+            "date": "2026-09-08 11:26:08",
+            "date_gmt": "2026-09-08 11:26:08",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 1,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "lithuania"
+                ],
+                "g5_job_level": [
+                    "Pradinis lygis"
+                ],
+                "g5_job_location": [
+                    "Lietuva"
+                ],
+                "g5_job_salary": [
+                    ""
+                ],
+                "g5_job_rotation": [
+                    ""
+                ],
+                "g5_job_driving": [
+                    ""
+                ],
+                "g5_job_summary": [
+                    "Telekomunikacinių sistemų montavimas visoje Lietuvoje: Darbuotojas pradeda karjerą įmonėje, supažindinamas su įranga, procesais, saugos principais ir projekto eiga. Dirba su mentoriaus palaikymu, dalyvauja mokymuose ir įgyja praktinę patirtį. Darbas aukštyje."
+                ],
+                "g5_job_responsibilities": [
+                    "Telekomunikacinių sistemų montavimas ir integravimas;\nBazinių stočių įrangos montavimas ir testavimas;\nĮrangos montavimas aukštyje (bokštuose iki 80 m, pastatų stogai);\nTechninė įrangos priežiūra ir gedimų diagnostika;\nElektros ir optinių kabelių jungimas;\nMetalo konstrukcijų montavimas;\nMobilaus ryšio antenų montavimas ir testavimas;\nTechninių ataskaitų rengimas;\nAtsakingas užduočių vykdymas ir analizė;\nDarbo saugos užtikrinimas."
+                ],
+                "g5_job_requirements": [
+                    "Privalumas: Techninis išsilavinimas (automatika, telekomunikacijos, elektrotechnika);\nPrivalumas: Anglų, Vokiečių kalbos žinios;\nPrivalumas: B kategorijos vairuotojo pažymėjimas;\nPrivalumas: Telekomunikacijų įrangos patirtis (Huawei, Ericsson, Nokia);\nPrivalumas: Patirtis ryšio technologijų srityje;\nPrivalumas: Gebėjimas dirbti tiek komandoje, tiek savarankiškai;\nPrivalumas: Kompiuterinis raštingumas ir gebėjimas skaityti techninius projektus;\nPrivalumas: Gera fizinė būklė ir pozityvus požiūris.\nDidžiuotumeisi savo darbu ir jo prasmingumu;\nVertintum komandinį darbą ir bendradarbiavimą;\nTurėtum vidinę motyvaciją mokytis ir tobulėti;\nAtsakingai ir laiku vykdytum patikėtas užduotis;\nLaikytumeisi etiškumo, pagarbos ir atsakomybės principų."
+                ],
+                "g5_job_offer": [
+                    "Įdomūs ir svarbūs telekomunikacijų projektai;\nProfesinio tobulėjimo galimybės ir nuolatiniai mokymai;\nVisos socialinės garantijos;\nDarbo apranga ir visos būtinos darbo priemonės;\nAukščiausios kokybės apsaugos įranga (Singing Rock, Skylotec, Petzl);\nDraugiška komanda ir efektyvi darbo atmosfera;\nOrganizacija, kuriai rūpi darbuotojų gerovė;\nUnikali patirtis ir nuolatinis profesinis augimas;\nGalimybė bendradarbiauti su telekomunikacijų ekspertais."
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 512,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "telekomunikaciju-specialistas-savarankiskas-lietuva",
+            "title": "Telekomunikacijų specialistas (-ė) (savarankiškas lygis) – Lietuvos projektai",
+            "status": "publish",
+            "date": "2026-09-08 11:26:08",
+            "date_gmt": "2026-09-08 11:26:08",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 2,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "lithuania"
+                ],
+                "g5_job_level": [
+                    "Savarankiškas lygis"
+                ],
+                "g5_job_location": [
+                    "Lietuva"
+                ],
+                "g5_job_salary": [
+                    ""
+                ],
+                "g5_job_rotation": [
+                    ""
+                ],
+                "g5_job_driving": [
+                    ""
+                ],
+                "g5_job_summary": [
+                    "Telekomunikacinių sistemų montavimas visoje Lietuvoje. Specialistas geba savarankiškai vykdyti užduotis, laikosi nustatytų standartų, atsakingai valdo laiką ir įrangą. Gali teikti grįžtamąjį ryšį, padėti naujokams ir užtikrina kokybišką darbų atlikimą. Darbas aukštyje."
+                ],
+                "g5_job_responsibilities": [
+                    "Telekomunikacinių sistemų montavimas ir integravimas \nBazinių stočių įrangos montavimas ir testavimas;\nĮrangos montavimas aukštyje (bokštuose iki 80 m, pastatų stogai);\nTechninė įrangos priežiūra ir gedimų diagnostika;\nElektros ir optinių kabelių jungimas;\nMetalo konstrukcijų montavimas;\nMobilaus ryšio antenų montavimas ir testavimas;\nTechninių ataskaitų rengimas;\nAtsakingas užduočių vykdymas ir analizė;\nDarbo saugos užtikrinimas."
+                ],
+                "g5_job_requirements": [
+                    "Privalumas: Techninis išsilavinimas (automatika, telekomunikacijos, elektrotechnika);\nPrivalumas: Anglų, Vokiečių kalbos žinios;\nPrivalumas: B kategorijos vairuotojo pažymėjimas;\nPrivalumas: Telekomunikacijų įrangos patirtis (Huawei, Ericsson, Nokia);\nPrivalumas: Patirtis ryšio technologijų srityje;\nPrivalumas: Gebėjimas dirbti tiek komandoje, tiek savarankiškai;\nPrivalumas: Kompiuterinis raštingumas ir gebėjimas skaityti techninius projektus;\nPrivalumas: Gera fizinė būklė ir pozityvus požiūris.\nDidžiuotumeisi savo darbu ir jo prasmingumu;\nVertintum komandinį darbą ir bendradarbiavimą;\nTurėtum vidinę motyvaciją mokytis ir tobulėti;\nAtsakingai ir laiku vykdytum patikėtas užduotis;\nLaikytumeisi etiškumo, pagarbos ir atsakomybės principų."
+                ],
+                "g5_job_offer": [
+                    "Įdomūs ir svarbūs telekomunikacijų projektai;\nProfesinio tobulėjimo galimybės ir nuolatiniai mokymai;\nVisos socialinės garantijos;\nDarbo apranga ir visos būtinos darbo priemonės;\nAukščiausios kokybės apsaugos įranga (Singing Rock, Skylotec, Petzl);\nDraugiška komanda ir efektyvi darbo atmosfera;\nOrganizacija, kuriai rūpi darbuotojų gerovė;\nUnikali patirtis ir nuolatinis profesinis augimas;\nGalimybė bendradarbiauti su telekomunikacijų ekspertais."
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 513,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "telekomunikaciju-inzinierius-koordinuojantis-lietuva",
+            "title": "Telekomunikacijų inžinierius (-ė) (koordinuojantis lygis) – Lietuvos projektai",
+            "status": "publish",
+            "date": "2026-09-08 11:26:08",
+            "date_gmt": "2026-09-08 11:26:08",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 3,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "lithuania"
+                ],
+                "g5_job_level": [
+                    "Koordinuojantis lygis"
+                ],
+                "g5_job_location": [
+                    "Lietuva"
+                ],
+                "g5_job_salary": [
+                    ""
+                ],
+                "g5_job_rotation": [
+                    ""
+                ],
+                "g5_job_driving": [
+                    ""
+                ],
+                "g5_job_summary": [
+                    "Telekomunikacinių sistemų montavimas visoje Lietuvoje. Inžinierius ne tik dirba savarankiškai, bet ir koordinuoja mažas komandas, sprendžia techninius klausimus vietoje, dalyvauja kokybės užtikrinime bei perduoda patirtį kolegoms. Darbas aukštyje."
+                ],
+                "g5_job_responsibilities": [
+                    "Telekomunikacinių sistemų montavimas ir integravimas;\nBazinių stočių įrangos montavimas ir testavimas;\nĮrangos montavimas aukštyje (bokštuose iki 80 m, pastatų stogai);\nTechninė įrangos priežiūra ir gedimų diagnostika;\nElektros ir optinių kabelių jungimas;\nMetalo konstrukcijų montavimas;\nMobilaus ryšio antenų montavimas ir testavimas;\nTechninių ataskaitų rengimas;\nAtsakingas užduočių vykdymas ir analizė;\nDarbo saugos užtikrinimas."
+                ],
+                "g5_job_requirements": [
+                    "Privalumas: Techninis išsilavinimas (automatika, telekomunikacijos, elektrotechnika);\nPrivalumas: Anglų, Vokiečių kalbos žinios;\nPrivalumas: B kategorijos vairuotojo pažymėjimas;\nPrivalumas: Telekomunikacijų įrangos patirtis (Huawei, Ericsson, Nokia);\nPrivalumas: Patirtis ryšio technologijų srityje;\nPrivalumas: Gebėjimas dirbti tiek komandoje, tiek savarankiškai;\nPrivalumas: Kompiuterinis raštingumas ir gebėjimas skaityti techninius projektus;\nPrivalumas: Gera fizinė būklė ir pozityvus požiūris.\nDidžiuotumeisi savo darbu ir jo prasmingumu;\nVertintum komandinį darbą ir bendradarbiavimą;\nTurėtum vidinę motyvaciją mokytis ir tobulėti;\nAtsakingai ir laiku vykdytum patikėtas užduotis;\nLaikytumeisi etiškumo, pagarbos ir atsakomybės principų."
+                ],
+                "g5_job_offer": [
+                    "Įdomūs ir svarbūs telekomunikacijų projektai;\nProfesinio tobulėjimo galimybės ir nuolatiniai mokymai;\nVisos socialinės garantijos;\nDarbo apranga ir visos būtinos darbo priemonės;\nAukščiausios kokybės apsaugos įranga (Singing Rock, Skylotec, Petzl);\nDraugiška komanda ir efektyvi darbo atmosfera;\nOrganizacija, kuriai rūpi darbuotojų gerovė;\nUnikali patirtis ir nuolatinis profesinis augimas;\nGalimybė bendradarbiauti su telekomunikacijų ekspertais."
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 514,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "telekomunikaciju-inzinierius-vadovaujantis-lietuva",
+            "title": "Telekomunikacijų inžinierius (-ė) (vadovaujantis lygis) – Lietuvos projektai",
+            "status": "publish",
+            "date": "2026-09-08 11:26:08",
+            "date_gmt": "2026-09-08 11:26:08",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 4,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "lithuania"
+                ],
+                "g5_job_level": [
+                    "Vadovaujantis lygis"
+                ],
+                "g5_job_location": [
+                    "Lietuva"
+                ],
+                "g5_job_salary": [
+                    ""
+                ],
+                "g5_job_rotation": [
+                    ""
+                ],
+                "g5_job_driving": [
+                    ""
+                ],
+                "g5_job_summary": [
+                    "Telekomunikacinių sistemų montavimas visoje Lietuvoje. Komandos vadovas atsako už darbo organizavimą, rezultatų pasiekimą ir komandos ugdymą. Prisideda prie įmonės tikslų įgyvendinimo, perduoda darbo standartus ir atstovauja įmonę projektinėje aplinkoje. Darbas aukštyje."
+                ],
+                "g5_job_responsibilities": [
+                    "Telekomunikacinių sistemų montavimas ir integravimas ;\nBazinių stočių įrangos montavimas ir testavimas;\nĮrangos montavimas aukštyje (bokštuose iki 80 m, pastatų stogai);\nTechninė įrangos priežiūra ir gedimų diagnostika;\nElektros ir optinių kabelių jungimas;\nMetalo konstrukcijų montavimas;\nMobilaus ryšio antenų montavimas ir testavimas;\nTechninių ataskaitų rengimas;\nAtsakingas užduočių vykdymas ir analizė;\nDarbo saugos užtikrinimas."
+                ],
+                "g5_job_requirements": [
+                    "Privalumas: Techninis išsilavinimas (automatika, telekomunikacijos, elektrotechnika);\nPrivalumas: Anglų, Vokiečių kalbos žinios;\nPrivalumas: B kategorijos vairuotojo pažymėjimas;\nPrivalumas: Telekomunikacijų įrangos patirtis (Huawei, Ericsson, Nokia);\nPrivalumas: Patirtis ryšio technologijų srityje;\nPrivalumas: Gebėjimas dirbti tiek komandoje, tiek savarankiškai;\nPrivalumas: Kompiuterinis raštingumas ir gebėjimas skaityti techninius projektus;\nPrivalumas: Gera fizinė būklė ir pozityvus požiūris.\nDidžiuotumeisi savo darbu ir jo prasmingumu;\nVertintum komandinį darbą ir bendradarbiavimą;\nTurėtum vidinę motyvaciją mokytis ir tobulėti;\nAtsakingai ir laiku vykdytum patikėtas užduotis;\nLaikytumeisi etiškumo, pagarbos ir atsakomybės principų."
+                ],
+                "g5_job_offer": [
+                    "Įdomūs ir svarbūs telekomunikacijų projektai;\nProfesinio tobulėjimo galimybės ir nuolatiniai mokymai;\nVisos socialinės garantijos;\nDarbo apranga ir visos būtinos darbo priemonės;\nAukščiausios kokybės apsaugos įranga (Singing Rock, Skylotec, Petzl);\nDraugiška komanda ir efektyvi darbo atmosfera;\nOrganizacija, kuriai rūpi darbuotojų gerovė;\nUnikali patirtis ir nuolatinis profesinis augimas;\nGalimybė bendradarbiauti su telekomunikacijų ekspertais."
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 515,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "telekomunikaciju-specialistas-savarankiskas-europa",
+            "title": "Telekomunikacijų specialistas (-ė) (savarankiškas lygis) – Europa",
+            "status": "publish",
+            "date": "2026-09-08 11:26:08",
+            "date_gmt": "2026-09-08 11:26:08",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 6,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "europe"
+                ],
+                "g5_job_level": [
+                    "Savarankiškas lygis"
+                ],
+                "g5_job_location": [
+                    "Vokietija, Švedija, Norvegija ir kt."
+                ],
+                "g5_job_salary": [
+                    "2 750–3 000+ €"
+                ],
+                "g5_job_rotation": [
+                    "6–8 sav."
+                ],
+                "g5_job_driving": [
+                    ""
+                ],
+                "g5_job_summary": [
+                    "Telekomunikacinių sistemų montavimas Europoje (Vokietija, Švedija, Norvegija ir kt.): Specialistas geba savarankiškai vykdyti užduotis, laikosi nustatytų standartų, atsakingai valdo laiką ir įrangą. Gali teikti grįžtamąjį ryšį, padėti naujokams ir užtikrina kokybišką darbų atlikimą. Įprasta komandiruočių trukmė – 6–8 savaitės. Tačiau esame atviri lankstesniems sprendimams. Darbas aukštyje."
+                ],
+                "g5_job_responsibilities": [
+                    "Telekomunikacinių sistemų montavimas ir integravimas tarptautiniuose projektuose;\nBazinių stočių įrangos montavimas ir testavimas;\nĮrangos montavimas aukštyje (bokštuose iki 80 m, pastatų stogai);\nTechninė įrangos priežiūra ir gedimų diagnostika;\nElektros ir optinių kabelių jungimas;\nMetalo konstrukcijų montavimas;\nMobilaus ryšio antenų montavimas ir testavimas;\nTechninių ataskaitų rengimas;\nAtsakingas užduočių vykdymas ir analizė;\nDarbo saugos užtikrinimas."
+                ],
+                "g5_job_requirements": [
+                    "Privalumas: Techninis išsilavinimas (automatika, telekomunikacijos, elektrotechnika);\nPrivalumas: Anglų, Vokiečių kalbos žinios;\nPrivalumas: B kategorijos vairuotojo pažymėjimas;\nPrivalumas: Telekomunikacijų įrangos patirtis (Huawei, Ericsson, Nokia);\nPrivalumas: Patirtis ryšio technologijų srityje;\nPrivalumas: Gebėjimas dirbti tiek komandoje, tiek savarankiškai;\nPrivalumas: Kompiuterinis raštingumas ir gebėjimas skaityti techninius projektus;\nPrivalumas: Gera fizinė būklė ir pozityvus požiūris.\nDidžiuotumeisi savo darbu ir jo prasmingumu;\nVertintum komandinį darbą ir bendradarbiavimą;\nTurėtum vidinę motyvaciją mokytis ir tobulėti;\nAtsakingai ir laiku vykdytum patikėtas užduotis;\nLaikytumeisi etiškumo, pagarbos ir atsakomybės principų."
+                ],
+                "g5_job_offer": [
+                    "Įdomūs ir svarbūs tarptautiniai telekomunikacijų projektai;\nProfesinio tobulėjimo galimybės ir nuolatiniai mokymai;\nKokybiškas apgyvendinimas ir nauji įmonės automobiliai;\nVisos socialinės garantijos;\nDarbo apranga ir visos būtinos darbo priemonės;\nAukščiausios kokybės apsaugos įranga (Singing Rock, Skylotec, Petzl);\nDraugiška komanda ir efektyvi darbo atmosfera;\nOrganizacija, kuriai rūpi darbuotojų gerovė;\nGalimybė pažinti šalį ir kultūrą, kurioje dirbi;\nĮmonės transportas tavo laisvalaikio kelionėms;\nUnikali patirtis ir nuolatinis profesinis augimas;\nGalimybė bendradarbiauti su telekomunikacijų ekspertais."
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 516,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "telekomunikaciju-inzinierius-koordinuojantis-europa",
+            "title": "Telekomunikacijų inžinierius (-ė) (koordinuojantis lygis) – Europa",
+            "status": "publish",
+            "date": "2026-09-08 11:26:09",
+            "date_gmt": "2026-09-08 11:26:09",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 7,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "europe"
+                ],
+                "g5_job_level": [
+                    "Koordinuojantis lygis"
+                ],
+                "g5_job_location": [
+                    "Vokietija, Švedija, Norvegija ir kt."
+                ],
+                "g5_job_salary": [
+                    "3 000–3 300+ €"
+                ],
+                "g5_job_rotation": [
+                    "6–8 sav."
+                ],
+                "g5_job_driving": [
+                    ""
+                ],
+                "g5_job_summary": [
+                    "Telekomunikacinių sistemų montavimas Europoje (Vokietija, Švedija, Norvegija ir kt.): Inžinierius ne tik dirba savarankiškai, bet ir koordinuoja mažas komandas, sprendžia techninius klausimus vietoje, dalyvauja kokybės užtikrinime bei perduoda patirtį kolegoms. Įprasta komandiruočių trukmė – 6–8 savaitės. Tačiau esame atviri lankstesniems sprendimams. Darbas aukštyje."
+                ],
+                "g5_job_responsibilities": [
+                    "Telekomunikacinių sistemų montavimas ir integravimas tarptautiniuose projektuose;\nBazinių stočių įrangos montavimas ir testavimas;\nĮrangos montavimas aukštyje (bokštuose iki 80 m, pastatų stogai);\nTechninė įrangos priežiūra ir gedimų diagnostika;\nElektros ir optinių kabelių jungimas;\nMetalo konstrukcijų montavimas;\nMobilaus ryšio antenų montavimas ir testavimas;\nTechninių ataskaitų rengimas;\nAtsakingas užduočių vykdymas ir analizė;\nDarbo saugos užtikrinimas."
+                ],
+                "g5_job_requirements": [
+                    "Privalumas: Techninis išsilavinimas (automatika, telekomunikacijos, elektrotechnika);\nPrivalumas: Anglų, Vokiečių kalbos žinios;\nPrivalumas: B kategorijos vairuotojo pažymėjimas;\nPrivalumas: Telekomunikacijų įrangos patirtis (Huawei, Ericsson, Nokia);\nPrivalumas: Patirtis ryšio technologijų srityje;\nPrivalumas: Gebėjimas dirbti tiek komandoje, tiek savarankiškai;\nPrivalumas: Kompiuterinis raštingumas ir gebėjimas skaityti techninius projektus;\nPrivalumas: Gera fizinė būklė ir pozityvus požiūris.\nDidžiuotumeisi savo darbu ir jo prasmingumu;\nVertintum komandinį darbą ir bendradarbiavimą;\nTurėtum vidinę motyvaciją mokytis ir tobulėti;\nAtsakingai ir laiku vykdytum patikėtas užduotis;\nLaikytumeisi etiškumo, pagarbos ir atsakomybės principų."
+                ],
+                "g5_job_offer": [
+                    "Įdomūs ir svarbūs tarptautiniai telekomunikacijų projektai;\nProfesinio tobulėjimo galimybės ir nuolatiniai mokymai;\nKokybiškas apgyvendinimas ir nauji įmonės automobiliai;\nVisos socialinės garantijos;\nDarbo apranga ir visos būtinos darbo priemonės;\nAukščiausios kokybės apsaugos įranga (Singing Rock, Skylotec, Petzl);\nDraugiška komanda ir efektyvi darbo atmosfera;\nOrganizacija, kuriai rūpi darbuotojų gerovė;\nGalimybė pažinti šalį ir kultūrą, kurioje dirbi;\nĮmonės transportas tavo laisvalaikio kelionėms;\nUnikali patirtis ir nuolatinis profesinis augimas;\nGalimybė bendradarbiauti su telekomunikacijų ekspertais."
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 517,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "telekomunikaciju-inzinierius-vadovaujantis-europa",
+            "title": "Telekomunikacijų inžinierius (-ė) (vadovaujantis lygis) – Europa",
+            "status": "publish",
+            "date": "2026-09-08 11:26:09",
+            "date_gmt": "2026-09-08 11:26:09",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 8,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "europe"
+                ],
+                "g5_job_level": [
+                    "Vadovaujantis lygis"
+                ],
+                "g5_job_location": [
+                    "Vokietija, Švedija, Norvegija ir kt."
+                ],
+                "g5_job_salary": [
+                    "3 300–3 600+ €"
+                ],
+                "g5_job_rotation": [
+                    "6–8 sav."
+                ],
+                "g5_job_driving": [
+                    ""
+                ],
+                "g5_job_summary": [
+                    "Telekomunikacinių sistemų montavimas Europoje (Vokietija, Švedija, Norvegija ir kt.): Komandos vadovas atsako už darbo organizavimą, rezultatų pasiekimą ir komandos ugdymą. Prisideda prie įmonės tikslų įgyvendinimo, perduoda darbo standartus ir atstovauja įmonę projektinėje aplinkoje. Įprasta komandiruočių trukmė – 6–8 savaitės. Tačiau esame atviri lankstesniems sprendimams. Darbas aukštyje."
+                ],
+                "g5_job_responsibilities": [
+                    "Telekomunikacinių sistemų montavimas ir integravimas tarptautiniuose projektuose;\nBazinių stočių įrangos montavimas ir testavimas;\nĮrangos montavimas aukštyje (bokštuose iki 80 m, pastatų stogai);\nTechninė įrangos priežiūra ir gedimų diagnostika;\nElektros ir optinių kabelių jungimas;\nMetalo konstrukcijų montavimas;\nMobilaus ryšio antenų montavimas ir testavimas;\nTechninių ataskaitų rengimas;\nAtsakingas užduočių vykdymas ir analizė;\nDarbo saugos užtikrinimas."
+                ],
+                "g5_job_requirements": [
+                    "Privalumas: Techninis išsilavinimas (automatika, telekomunikacijos, elektrotechnika);\nPrivalumas: Anglų, Vokiečių kalbos žinios;\nPrivalumas: B kategorijos vairuotojo pažymėjimas;\nPrivalumas: Telekomunikacijų įrangos patirtis (Huawei, Ericsson, Nokia);\nPrivalumas: Patirtis ryšio technologijų srityje;\nPrivalumas: Gebėjimas dirbti tiek komandoje, tiek savarankiškai;\nPrivalumas: Kompiuterinis raštingumas ir gebėjimas skaityti techninius projektus;\nPrivalumas: Gera fizinė būklė ir pozityvus požiūris.\nDidžiuotumeisi savo darbu ir jo prasmingumu;\nVertintum komandinį darbą ir bendradarbiavimą;\nTurėtum vidinę motyvaciją mokytis ir tobulėti;\nAtsakingai ir laiku vykdytum patikėtas užduotis;\nLaikytumeisi etiškumo, pagarbos ir atsakomybės principų."
+                ],
+                "g5_job_offer": [
+                    "Įdomūs ir svarbūs tarptautiniai telekomunikacijų projektai;\nProfesinio tobulėjimo galimybės ir nuolatiniai mokymai;\nKokybiškas apgyvendinimas ir nauji įmonės automobiliai;\nVisos socialinės garantijos;\nDarbo apranga ir visos būtinos darbo priemonės;\nAukščiausios kokybės apsaugos įranga (Singing Rock, Skylotec, Petzl);\nDraugiška komanda ir efektyvi darbo atmosfera;\nOrganizacija, kuriai rūpi darbuotojų gerovė;\nGalimybė pažinti šalį ir kultūrą, kurioje dirbi;\nĮmonės transportas tavo laisvalaikio kelionėms;\nUnikali patirtis ir nuolatinis profesinis augimas;\nGalimybė bendradarbiauti su telekomunikacijų ekspertais."
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 518,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "mobiliojo-rysio-integracijos-inzinierius",
+            "title": "Mobiliojo ryšio tinklo integracijos inžinierius (-ė) (savarankiškas lygis) – Europa",
+            "status": "publish",
+            "date": "2026-09-08 11:26:09",
+            "date_gmt": "2026-09-08 11:26:09",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 9,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "europe"
+                ],
+                "g5_job_level": [
+                    "Savarankiškas lygis"
+                ],
+                "g5_job_location": [
+                    "Vokietija, Švedija, Norvegija ir kt."
+                ],
+                "g5_job_salary": [
+                    "2 750–3 600+ €"
+                ],
+                "g5_job_rotation": [
+                    "6–8 sav."
+                ],
+                "g5_job_driving": [
+                    "B"
+                ],
+                "g5_job_summary": [
+                    "Mobiliojo ryšio tinklo integracija tarptautiniuose projektuose (Vokietija, Švedija, Norvegija ir kt.). Komandos vadovas atsako už darbo organizavimą, rezultatų pasiekimą ir komandos ugdymą. Prisideda prie įmonės tikslų įgyvendinimo, perduoda darbo standartus ir atstovauja įmonę projektinėje aplinkoje. Šioje pozicijoje tu atsakingas už bazinių stočių integravimą į operatorių tinklus – prisijungsi prie paruoštų stočių, atliksi konfigūravimo, integravimo ir testavimo darbus, užtikrinsi tinkamą įrangos veikimą pagal Nokia, Ericsson ar Huawei technologinius standartus. Įprasta komandiruočių trukmė – 6–8 savaitės. Tačiau esame atviri lankstesniems sprendimams."
+                ],
+                "g5_job_responsibilities": [
+                    "Mobilaus ryšio bazinių stočių (2G/3G/4G/5G) konfigūravimas ir integravimas;\nĮrangos paleidimo darbai;\nNuotolinis prisijungimas prie įrangos naudojant specializuotas sistemas;\nDarbas su NOKIA, Ericsson, Huawei įranga;\nTechninių ataskaitų rengimas ir dokumentavimas;\nBendradarbiavimas su komanda paleidimo etapuose;\nĮrangos kokybės užtikrinimas pagal operatorių reikalavimus;\nDarbo saugos reikalavimų laikymasis."
+                ],
+                "g5_job_requirements": [
+                    "Anglų kalba;\nVokiečių kalba (privalumas);\nB kategorijos vairuotojo pažymėjimas;\nKompiuterinis raštingumas ir kruopštumas;\nSavarankiškumas ir atsakomybė už darbo rezultatą;\nPatirtis dirbant su mobilio ryšio integracija (privalumas);\nElektros išmanymas;\nDidžiuotumeisi savo darbu ir jo prasmingumu;\nVertintum komandinį darbą ir bendradarbiavimą;\nTurėtum vidinę motyvaciją mokytis ir tobulėti;\nAtsakingai ir laiku vykdytum patikėtas užduotis;\nLaikytumeisi etiškumo, pagarbos ir atsakomybės principų."
+                ],
+                "g5_job_offer": [
+                    "Įdomūs ir svarbūs tarptautiniai telekomunikacijų projektai;\nProfesinio tobulėjimo galimybės ir nuolatiniai mokymai;\nKokybiškas apgyvendinimas ir nauji įmonės automobiliai;\nVisos socialinės garantijos;\nDarbo apranga ir visos būtinos darbo priemonės;\nAukščiausios kokybės apsaugos įranga (Singing Rock, Skylotec, Petzl);\nDraugiška komanda ir efektyvi darbo atmosfera;\nOrganizacija, kuriai rūpi darbuotojų gerovė;\nGalimybė pažinti šalį ir kultūrą, kurioje dirbi;\nĮmonės transportas tavo laisvalaikio kelionėms;\nUnikali patirtis ir nuolatinis profesinis augimas;\nGalimybė bendradarbiauti su telekomunikacijų ekspertais."
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 519,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "saules-elektriniu-montuotojas-pradinis",
+            "title": "Saulės elektrinių montuotojas (-a) (pradinis lygis) – Europa",
+            "status": "publish",
+            "date": "2026-09-08 11:26:09",
+            "date_gmt": "2026-09-08 11:26:09",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 10,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "europe"
+                ],
+                "g5_job_level": [
+                    "Pradinis lygis"
+                ],
+                "g5_job_location": [
+                    "Vokietija"
+                ],
+                "g5_job_salary": [
+                    "2 000–2 250+ €"
+                ],
+                "g5_job_rotation": [
+                    "6–8 sav."
+                ],
+                "g5_job_driving": [
+                    ""
+                ],
+                "g5_job_summary": [
+                    "Atsinaujinanti energetika – tavo proga pradėti svarbią karjerą. Ieškome atsakingų, motyvuotų ir norinčių mokytis darbuotojų, kurie prisijungtų prie mūsų komandiruojamų komandų Vokietijoje. Patirtis – nebūtina. Svarbiausia – nusiteikimas ir atsakomybė. Įprasta komandiruočių trukmė – 6–8 savaitės. Tačiau esame atviri lankstesniems sprendimams."
+                ],
+                "g5_job_responsibilities": [
+                    "Montuosi saulės elektrinių konstrukcijas ir modulius;\nRūpinsies kabelių išvedžiojimu ir tvarka aplinkoje;\nSeksi instrukcijas ir dirbsi komandoje su patyrusiais kolegomis;"
+                ],
+                "g5_job_requirements": [
+                    "Privalumas: Techninis išsilavinimas (automatika, telekomunikacijos, elektrotechnika);\nPrivalumas: Anglų, Vokiečių kalbos žinios;\nPrivalumas: B kategorijos vairuotojo pažymėjimas;\nPrivalumas: Gebėjimas dirbti tiek komandoje, tiek savarankiškai;\nPrivalumas: Kompiuterinis raštingumas ir gebėjimas skaityti techninius projektus;\nPrivalumas: Gera fizinė būklė ir pozityvus požiūris.\nDidžiuotumeisi savo darbu ir jo prasmingumu;\nVertintum komandinį darbą ir bendradarbiavimą;\nTurėtum vidinę motyvaciją mokytis ir tobulėti;\nAtsakingai ir laiku vykdytum patikėtas užduotis;\nLaikytumeisi etiškumo, pagarbos ir atsakomybės principų."
+                ],
+                "g5_job_offer": [
+                    "Įdomūs ir svarbūs tarptautiniai projektai;\nProfesinio tobulėjimo galimybės ir nuolatiniai mokymai;\nKokybiškas apgyvendinimas ir nauji įmonės automobiliai;\nVisos socialinės garantijos;\nDarbo apranga ir visos būtinos darbo priemonės;\nAukščiausios kokybės apsaugos įranga;\nDraugiška komanda ir efektyvi darbo atmosfera;\nOrganizacija, kuriai rūpi darbuotojų gerovė;\nGalimybė pažinti šalį ir kultūrą, kurioje dirbi;\nĮmonės transportas tavo laisvalaikio kelionėms;"
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 520,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "saules-elektriniu-montuotojas-savarankiskas",
+            "title": "Saulės elektrinių montuotojas (-a) (savarankiškas lygis) – Europa",
+            "status": "publish",
+            "date": "2026-09-08 11:26:09",
+            "date_gmt": "2026-09-08 11:26:09",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 11,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "europe"
+                ],
+                "g5_job_level": [
+                    "Savarankiškas lygis"
+                ],
+                "g5_job_location": [
+                    "Vokietija"
+                ],
+                "g5_job_salary": [
+                    "2 250–2 500+ €"
+                ],
+                "g5_job_rotation": [
+                    "6–8 sav."
+                ],
+                "g5_job_driving": [
+                    ""
+                ],
+                "g5_job_summary": [
+                    "Jeigu turi patirties montuojant saulės modulius ir gali savarankiškai atlikti darbus pagal brėžinius – ši pozicija kaip tik tau. Prisijunk prie mūsų komandų Vokietijoje ir prisidėk prie tvarios energetikos ateities. Įprasta komandiruočių trukmė – 6–8 savaitės. Tačiau esame atviri lankstesniems sprendimams."
+                ],
+                "g5_job_responsibilities": [
+                    "Montuosi saulės elektrinių konstrukcijas ir modulius;\nRūpinsies kabelių išvedžiojimu ir tvarka aplinkoje;\nSeksi instrukcijas ir dirbsi komandoje su patyrusiais kolegomis;"
+                ],
+                "g5_job_requirements": [
+                    "Privalumas: Techninis išsilavinimas (automatika, telekomunikacijos, elektrotechnika);\nPrivalumas: Anglų, Vokiečių kalbos žinios;\nPrivalumas: B kategorijos vairuotojo pažymėjimas;\nPrivalumas: Gebėjimas dirbti tiek komandoje, tiek savarankiškai;\nPrivalumas: Kompiuterinis raštingumas ir gebėjimas skaityti techninius projektus;\nPrivalumas: Gera fizinė būklė ir pozityvus požiūris.\nDidžiuotumeisi savo darbu ir jo prasmingumu;\nVertintum komandinį darbą ir bendradarbiavimą;\nTurėtum vidinę motyvaciją mokytis ir tobulėti;\nAtsakingai ir laiku vykdytum patikėtas užduotis;\nLaikytumeisi etiškumo, pagarbos ir atsakomybės principų."
+                ],
+                "g5_job_offer": [
+                    "Įdomūs ir svarbūs tarptautiniai projektai;\nProfesinio tobulėjimo galimybės ir nuolatiniai mokymai;\nKokybiškas apgyvendinimas ir nauji įmonės automobiliai;\nVisos socialinės garantijos;\nDarbo apranga ir visos būtinos darbo priemonės;\nAukščiausios kokybės apsaugos įranga;\nDraugiška komanda ir efektyvi darbo atmosfera;\nOrganizacija, kuriai rūpi darbuotojų gerovė;\nGalimybė pažinti šalį ir kultūrą, kurioje dirbi;\nĮmonės transportas tavo laisvalaikio kelionėms;"
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 521,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "saules-elektriniu-montuotojas-koordinuojantis",
+            "title": "Saulės elektrinių montuotojas (-a) (koordinuojantis lygis) – Europa",
+            "status": "publish",
+            "date": "2026-09-08 11:26:09",
+            "date_gmt": "2026-09-08 11:26:09",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 12,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "europe"
+                ],
+                "g5_job_level": [
+                    "Koordinuojantis lygis"
+                ],
+                "g5_job_location": [
+                    "Europa"
+                ],
+                "g5_job_salary": [
+                    "2 500–3 000+ €"
+                ],
+                "g5_job_rotation": [
+                    "6–8 sav."
+                ],
+                "g5_job_driving": [
+                    ""
+                ],
+                "g5_job_summary": [
+                    "Turi ne tik patirties, bet ir gebi planuoti, vesti komandą ir spręsti situacijas vietoje? Koordinuojančio montuotojo pozicija skirta tau. Vadovauk montuotojų komandai, bendradarbiauk su projektų vadovais ir tapk tvarios plėtros dalimi. Įprasta komandiruočių trukmė – 6–8 savaitės. Tačiau esame atviri lankstesniems sprendimams."
+                ],
+                "g5_job_responsibilities": [
+                    "Montuosi saulės elektrinių konstrukcijas ir modulius;\nRūpinsies kabelių išvedžiojimu ir tvarka aplinkoje;\nSeksi instrukcijas ir dirbsi komandoje su patyrusiais kolegomis;"
+                ],
+                "g5_job_requirements": [
+                    "Privalumas: Techninis išsilavinimas (automatika, telekomunikacijos, elektrotechnika);\nPrivalumas: Anglų, Vokiečių kalbos žinios;\nPrivalumas: B kategorijos vairuotojo pažymėjimas;\nPrivalumas: Gebėjimas dirbti tiek komandoje, tiek savarankiškai;\nPrivalumas: Kompiuterinis raštingumas ir gebėjimas skaityti techninius projektus;\nPrivalumas: Gera fizinė būklė ir pozityvus požiūris.\nDidžiuotumeisi savo darbu ir jo prasmingumu;\nVertintum komandinį darbą ir bendradarbiavimą;\nTurėtum vidinę motyvaciją mokytis ir tobulėti;\nAtsakingai ir laiku vykdytum patikėtas užduotis;\nLaikytumeisi etiškumo, pagarbos ir atsakomybės principų."
+                ],
+                "g5_job_offer": [
+                    "Įdomūs ir svarbūs tarptautiniai projektai;\nProfesinio tobulėjimo galimybės ir nuolatiniai mokymai;\nKokybiškas apgyvendinimas ir nauji įmonės automobiliai;\nVisos socialinės garantijos;\nDarbo apranga ir visos būtinos darbo priemonės;\nAukščiausios kokybės apsaugos įranga;\nDraugiška komanda ir efektyvi darbo atmosfera;\nOrganizacija, kuriai rūpi darbuotojų gerovė;\nGalimybė pažinti šalį ir kultūrą, kurioje dirbi;\nĮmonės transportas tavo laisvalaikio kelionėms;"
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 522,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "telekomunikaciju-projektu-vykdytojas",
+            "title": "Telekomunikacijų projektų vykdytojas (-a)",
+            "status": "publish",
+            "date": "2026-09-08 11:26:09",
+            "date_gmt": "2026-09-08 11:26:09",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 13,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "office"
+                ],
+                "g5_job_level": [
+                    ""
+                ],
+                "g5_job_location": [
+                    "Vilnius · hibridinis darbas"
+                ],
+                "g5_job_salary": [
+                    ""
+                ],
+                "g5_job_rotation": [
+                    ""
+                ],
+                "g5_job_driving": [
+                    ""
+                ],
+                "g5_job_summary": [
+                    "Projektų vykdytojas yra atsakingas už kasdienę projekto eigą ir užtikrina, kad visi darbai būtų atlikti pagal planą, biudžetą ir aukščiausius kokybės standartus. Tai žmogus, kuris užtikrina, kad komanda dirbtų pagal nustatytus tikslus ir laikytųsi nustatytų terminų."
+                ],
+                "g5_job_responsibilities": [
+                    "Įgyvendinsi tarptautinius projektus pagal iš anksto nustatytą planą ir strategiją;\nKontroliuosi kasdieninę projektų eigą, koordinuodamas komandos darbą;\nSpręsi iškilusius sunkumus, užtikrindamas sklandų projekto įgyvendinimą;\nUžtikrinsi, kad visi projekto etapai būtų vykdomi pagal strategiją, laikantis laiko ir biudžeto reikalavimų;\nTiesiogiai bendrausi su komandomis ir kitais projekto dalyviais;\nAtstovausi 5GTech vardą Lietuvoje ir Europoje;\nKelionės ir susitikimai su klientais bei partneriais;"
+                ],
+                "g5_job_requirements": [
+                    "Patirties telekomunikacijų (mobilaus ryšio) srityje;\nGerų anglų kalbos žinių (raštu ir žodžiu);\nPuikių problemų sprendimo ir komunikacijos įgūdžių;\nSavęs organizavimo ir savarankiškumo;\nLankstumo ir greito reagavimo į pokyčius;\nPozityvaus požiūrio net pirmadienį;\nVairuotojo pažymėjimo (nes kelionės laukia tikros!);"
+                ],
+                "g5_job_offer": [
+                    "Galimybę prisidėti prie tarptautinių projektų įgyvendinimo ir įgyti vertingos patirties;\nĮdomių iššūkių ir galimybes mokytis su patyrusiais kolegomis;\nįgalinimą spręsti realias problemas ir prisidėti prie įmonės augimo;\ntikslų siekimą komandoje, kurioje kiekvienas darbuotojas svarbus;\nAmbicingą, palaikantį kolektyvą ir gerą mikroklimatą;\nKonferencijas, keliones, įdomias pažintis;\nVisas darbo priemones, lankstų grafiką, socialines garantijas."
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 523,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "telekomunikaciju-projektu-vadovas",
+            "title": "Telekomunikacijų projektų vadovas (-ė)",
+            "status": "publish",
+            "date": "2026-09-08 11:26:09",
+            "date_gmt": "2026-09-08 11:26:09",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 14,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "office"
+                ],
+                "g5_job_level": [
+                    ""
+                ],
+                "g5_job_location": [
+                    "Vilnius · hibridinis darbas"
+                ],
+                "g5_job_salary": [
+                    ""
+                ],
+                "g5_job_rotation": [
+                    ""
+                ],
+                "g5_job_driving": [
+                    ""
+                ],
+                "g5_job_summary": [
+                    "Projektų vadovas atsakingas už didelių projektų valdymą ir jų sėkmingą įgyvendinimą. Tai žmogus, kuris turi gilias žinias ir patirtį telekomunikacijų srityje, gebantis valdyti komandas, skaičiuoti projektų kaštus ir užtikrinti jų įgyvendinimą pagal strategiją. Projektų vadovas yra strateginis lyderis, kuris prisideda prie įmonės augimo, vysto santykius su klientais ir užtikrina, kad visi projektai būtų įvykdyti pagal aukščiausius standartus."
+                ],
+                "g5_job_responsibilities": [
+                    "Planuosi ir valdysi tarptautinius projektus nuo A iki Z;\nKontroliuosi biudžetus, kokybę, resursus;\nVykdysi partnerių atrankas ir palaikysi ryšius su esamais;\nSpręsi kasdienius iššūkius, kurie padės augti tiek tau, tiek mums;\nKeliausi į užsienio šalis susitikti su klientais ir partneriais;\nAtstovausi 5GTech vardą Lietuvoje ir Europoje;\nBūsi viena svarbiausių mūsų komandos ašių, siekianti didesnių tikslų;"
+                ],
+                "g5_job_requirements": [
+                    "Patirties telekomunikacijų (mobilaus ryšio) srityje;\nGerų anglų kalbos žinių (raštu ir žodžiu);\nGebėjimo dirbti savarankiškai bei atsakingai;\nPuikių planavimo, derybų įgūdžių;\nFinansiškai raštingos mąstysenos;\nLankstumo, iniciatyvumo, idėjų – ir drąsos jas įgyvendinti;\nPozityvaus požiūrio net pirmadienį;\nVairuotojo pažymėjimo (nes kelionės laukia tikros!);"
+                ],
+                "g5_job_offer": [
+                    "Laisvę veikti ir realiai įgyvendinti savo idėjas;\nGalimybę formuoti ir auginti savo komandą;\nTarptautinius projektus, kurių rezultatu gali didžiuotis;\nNė dienos rutinos – kiekviena savaitė vis kitokia;\nAmbicingą, palaikantį kolektyvą ir gerą mikroklimatą;\nKonferencijas, keliones, įdomias pažintis;\nVisas darbo priemones, lankstų grafiką, socialines garantijas."
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 524,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "saules-elektriniu-projektu-vykdytojas",
+            "title": "Saulės elektrinių projektų vykdytojas (-a)",
+            "status": "publish",
+            "date": "2026-09-08 11:26:09",
+            "date_gmt": "2026-09-08 11:26:09",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 15,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "office"
+                ],
+                "g5_job_level": [
+                    ""
+                ],
+                "g5_job_location": [
+                    "Vilnius · hibridinis darbas"
+                ],
+                "g5_job_salary": [
+                    ""
+                ],
+                "g5_job_rotation": [
+                    ""
+                ],
+                "g5_job_driving": [
+                    ""
+                ],
+                "g5_job_summary": [
+                    "Projektų vykdytojas yra atsakingas už kasdienę projekto eigą ir užtikrina, kad visi darbai būtų atlikti pagal planą, biudžetą ir aukščiausius kokybės standartus. Tai žmogus, kuris užtikrina, kad komanda dirbtų pagal nustatytus tikslus ir laikytųsi nustatytų terminų."
+                ],
+                "g5_job_responsibilities": [
+                    "Įgyvendinsi tarptautinius projektus pagal iš anksto nustatytą planą ir strategiją;\nKontroliuosi kasdieninę projektų eigą, koordinuodamas komandos darbą;\nSpręsi iškilusius sunkumus, užtikrindamas sklandų projekto įgyvendinimą;\nUžtikrinsi, kad visi projekto etapai būtų vykdomi pagal strategiją, laikantis laiko ir biudžeto reikalavimų;\nTiesiogiai bendrausi su komandomis ir kitais projekto dalyviais;\nAtstovausi 5GTech vardą Lietuvoje ir Europoje;\nKelionės ir susitikimai su klientais bei partneriais;"
+                ],
+                "g5_job_requirements": [
+                    "Patirties Saulės elektrinių montavime;\nGerų anglų kalbos žinių (raštu ir žodžiu);\nPuikių problemų sprendimo ir komunikacijos įgūdžių;\nSavęs organizavimo ir savarankiškumo;\nLankstumo ir greito reagavimo į pokyčius;\nPozityvaus požiūrio net pirmadienį;\nVairuotojo pažymėjimo (nes kelionės laukia tikros!);"
+                ],
+                "g5_job_offer": [
+                    "Galimybę prisidėti prie tarptautinių projektų įgyvendinimo ir įgyti vertingos patirties;\nĮdomių iššūkių ir galimybes mokytis su patyrusiais kolegomis;\nįgalinimą spręsti realias problemas ir prisidėti prie įmonės augimo;\ntikslų siekimą komandoje, kurioje kiekvienas darbuotojas svarbus;\nAmbicingą, palaikantį kolektyvą ir gerą mikroklimatą;\nKonferencijas, keliones, įdomias pažintis;\nVisas darbo priemones, lankstų grafiką, socialines garantijas."
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 525,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "saules-elektriniu-projektu-vadovas",
+            "title": "Saulės elektrinių projektų vadovas (-ė)",
+            "status": "publish",
+            "date": "2026-09-08 11:26:09",
+            "date_gmt": "2026-09-08 11:26:09",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 16,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "office"
+                ],
+                "g5_job_level": [
+                    ""
+                ],
+                "g5_job_location": [
+                    "Vilnius · hibridinis darbas"
+                ],
+                "g5_job_salary": [
+                    ""
+                ],
+                "g5_job_rotation": [
+                    ""
+                ],
+                "g5_job_driving": [
+                    ""
+                ],
+                "g5_job_summary": [
+                    "Projektų vadovas atsakingas už didelių projektų valdymą ir jų sėkmingą įgyvendinimą. Tai žmogus, kuris turi gilias žinias ir patirtį telekomunikacijų srityje, gebantis valdyti komandas, skaičiuoti projektų kaštus ir užtikrinti jų įgyvendinimą pagal strategiją. Projektų vadovas yra strateginis lyderis, kuris prisideda prie įmonės augimo, vysto santykius su klientais ir užtikrina, kad visi projektai būtų įvykdyti pagal aukščiausius standartus."
+                ],
+                "g5_job_responsibilities": [
+                    "Įgyvendinsi tarptautinius projektus pagal iš anksto nustatytą planą ir strategiją;\nKontroliuosi kasdieninę projektų eigą, koordinuodamas komandos darbą;\nSpręsi iškilusius sunkumus, užtikrindamas sklandų projekto įgyvendinimą;\nUžtikrinsi, kad visi projekto etapai būtų vykdomi pagal strategiją, laikantis laiko ir biudžeto reikalavimų;\nTiesiogiai bendrausi su komandomis ir kitais projekto dalyviais;\nAtstovausi 5GTech vardą Lietuvoje ir Europoje;\nKelionės ir susitikimai su klientais bei partneriais;"
+                ],
+                "g5_job_requirements": [
+                    "Patirties Saulės elektrinių montavime;\nGerų anglų kalbos žinių (raštu ir žodžiu);\nPuikių problemų sprendimo ir komunikacijos įgūdžių;\nSavęs organizavimo ir savarankiškumo;\nLankstumo ir greito reagavimo į pokyčius;\nPozityvaus požiūrio net pirmadienį;\nVairuotojo pažymėjimo (nes kelionės laukia tikros!);"
+                ],
+                "g5_job_offer": [
+                    "Galimybę prisidėti prie tarptautinių projektų įgyvendinimo ir įgyti vertingos patirties;\nĮdomių iššūkių ir galimybes mokytis su patyrusiais kolegomis;\nįgalinimą spręsti realias problemas ir prisidėti prie įmonės augimo;\ntikslų siekimą komandoje, kurioje kiekvienas darbuotojas svarbus;\nAmbicingą, palaikantį kolektyvą ir gerą mikroklimatą;\nKonferencijas, keliones, įdomias pažintis;\nVisas darbo priemones, lankstų grafiką, socialines garantijas."
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 526,
+            "lang": "lt",
+            "translations": [],
+            "type": "g5_job",
+            "slug": "administracijos-ir-personalo-koordinatorius",
+            "title": "Administracijos ir personalo koordinatorė (-ius)",
+            "status": "publish",
+            "date": "2026-09-08 11:26:09",
+            "date_gmt": "2026-09-08 11:26:09",
+            "content": "",
+            "excerpt": "",
+            "menu_order": 17,
+            "parent": "",
+            "thumbnail": "",
+            "meta": {
+                "g5_job_group": [
+                    "office"
+                ],
+                "g5_job_level": [
+                    ""
+                ],
+                "g5_job_location": [
+                    "Vilnius, Meistrų 8A"
+                ],
+                "g5_job_salary": [
+                    ""
+                ],
+                "g5_job_rotation": [
+                    ""
+                ],
+                "g5_job_driving": [
+                    ""
+                ],
+                "g5_job_summary": [
+                    "Ieškome komandos narės (-io), kuri (-is) padėtų užtikrinti administracinę tvarką, prisidėtų prie personalo atrankų ir palaikytų sklandų komandos darbą."
+                ],
+                "g5_job_responsibilities": [
+                    "Tvarkysi personalo dokumentaciją: darbo sutartis, šablonus, archyvus, sutarčių nutraukimus, atostogų prašymus;\nKoordinuosi įdarbinimo ir išdarbinimo procesus – nuo informacijos pateikimo buhalterijai iki dokumentų pasirašymo, skenavimo ir suvedimo į sistemas;\nRuoši komandiruočių įsakymus, registruosi darbuotojus į tarptautines sistemas (pvz., Zoll Vokietijoje);\nAdministruosi darbo laiko apskaitą – pildysi tabelius, suvestines, fiksuosi neatvykimus;\nRūpinsies įmonės išlaidų dokumentavimu – sąskaitos, važtaraščiai, informacijos perdavimas buhalterijai;\nUžtikrinsi vidinės e. saugos dokumentacijos tvarką – darbuotojų registracija į sistemą, mokymų priskyrimas, medicininių pažymų su rizikos faktoriais koordinavimas;\nBendrausi su įvairiais kolegomis – nuo meistrų ir technikų iki partnerių užsienyje ir paslaugų teikėjų;\nRūpinsies kelionių ir apgyvendinimo rezervacijomis – skrydžių bilietai, viešbučiai, Airbnb;\nJei tau įdomu – galėsi prisidėti prie įmonės įvaizdžio kūrimo socialiniuose tinkluose;\nPadėsi įmonės vadovui organizaciniais klausimais – užduotys, susitikimai, dokumentų paruošimas;\nAktyviai dalyvausi darbuotojų pritraukimo procese – nuo darbo skelbimų kūrimo ir viešinimo iki kandidatų atrankos bei darbo pokalbių."
+                ],
+                "g5_job_requirements": [
+                    "Patirties administracijoje ir/ar personalo srityje (HR – privalumas);\nPuikių organizacinių ir bendravimo įgūdžių;\nSklandžios anglų kalbos, vokiečių – privalumas;\nIT raštingumo (MS Office, el. dokumentų valdymas);\nIniciatyvumo, atsakomybės, gebėjimo dirbti savarankiškai;\nAutomobilio ir vairuotojo pažymėjimo;\nLaikytumeisi etiškumo, pagarbos ir atsakomybės principų."
+                ],
+                "g5_job_offer": [
+                    "Šiltą, draugišką komandą, kurioje kiekvienas žmogus – vertybė, o ne pozicija;\nTelefoną, kompiuterį, lankstų grafiką;\nDegalų kompensaciją;\nStabilų atlyginimą, socialines garantijas ir galimybę tobulėti;\nRealią įtaką – čia tavo darbas matomas ir vertinamas;\nJei esi aktyvi (-us) ir mėgsti žmones – galėsi atstovauti įmonei karjeros dienose, universitetų renginiuose, konferencijose;\nOrganizacija, kuriai rūpi darbuotojų gerovė;"
+                ],
+                "g5_job_expires": [
+                    ""
+                ],
+                "g5_job_active": [
+                    "1"
+                ]
+            },
+            "terms": []
+        },
+        {
+            "source_id": 79,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -3631,10 +4515,10 @@
                     "8"
                 ]
             },
-            "terms": [],
-            "source_id": 79
+            "terms": []
         },
         {
+            "source_id": 80,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -3662,10 +4546,10 @@
                     "8"
                 ]
             },
-            "terms": [],
-            "source_id": 80
+            "terms": []
         },
         {
+            "source_id": 81,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -3693,10 +4577,10 @@
                     "8"
                 ]
             },
-            "terms": [],
-            "source_id": 81
+            "terms": []
         },
         {
+            "source_id": 116,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -3721,10 +4605,10 @@
                     "start"
                 ]
             },
-            "terms": [],
-            "source_id": 116
+            "terms": []
         },
         {
+            "source_id": 117,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -3749,10 +4633,10 @@
                     "start"
                 ]
             },
-            "terms": [],
-            "source_id": 117
+            "terms": []
         },
         {
+            "source_id": 118,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -3777,10 +4661,10 @@
                     "start"
                 ]
             },
-            "terms": [],
-            "source_id": 118
+            "terms": []
         },
         {
+            "source_id": 119,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -3805,10 +4689,10 @@
                     "start"
                 ]
             },
-            "terms": [],
-            "source_id": 119
+            "terms": []
         },
         {
+            "source_id": 120,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -3833,10 +4717,10 @@
                     "start"
                 ]
             },
-            "terms": [],
-            "source_id": 120
+            "terms": []
         },
         {
+            "source_id": 121,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -3861,10 +4745,10 @@
                     "travel"
                 ]
             },
-            "terms": [],
-            "source_id": 121
+            "terms": []
         },
         {
+            "source_id": 122,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -3889,10 +4773,10 @@
                     "travel"
                 ]
             },
-            "terms": [],
-            "source_id": 122
+            "terms": []
         },
         {
+            "source_id": 123,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -3917,10 +4801,10 @@
                     "travel"
                 ]
             },
-            "terms": [],
-            "source_id": 123
+            "terms": []
         },
         {
+            "source_id": 124,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -3945,10 +4829,10 @@
                     "travel"
                 ]
             },
-            "terms": [],
-            "source_id": 124
+            "terms": []
         },
         {
+            "source_id": 125,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -3973,10 +4857,10 @@
                     "travel"
                 ]
             },
-            "terms": [],
-            "source_id": 125
+            "terms": []
         },
         {
+            "source_id": 126,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -4001,10 +4885,10 @@
                     "safety"
                 ]
             },
-            "terms": [],
-            "source_id": 126
+            "terms": []
         },
         {
+            "source_id": 127,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -4029,10 +4913,10 @@
                     "safety"
                 ]
             },
-            "terms": [],
-            "source_id": 127
+            "terms": []
         },
         {
+            "source_id": 128,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -4057,10 +4941,10 @@
                     "safety"
                 ]
             },
-            "terms": [],
-            "source_id": 128
+            "terms": []
         },
         {
+            "source_id": 129,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -4085,10 +4969,10 @@
                     "safety"
                 ]
             },
-            "terms": [],
-            "source_id": 129
+            "terms": []
         },
         {
+            "source_id": 130,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -4113,10 +4997,10 @@
                     "daily"
                 ]
             },
-            "terms": [],
-            "source_id": 130
+            "terms": []
         },
         {
+            "source_id": 131,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -4141,10 +5025,10 @@
                     "daily"
                 ]
             },
-            "terms": [],
-            "source_id": 131
+            "terms": []
         },
         {
+            "source_id": 132,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -4169,10 +5053,10 @@
                     "daily"
                 ]
             },
-            "terms": [],
-            "source_id": 132
+            "terms": []
         },
         {
+            "source_id": 133,
             "lang": "",
             "translations": [],
             "type": "g5_faq",
@@ -4197,10 +5081,10 @@
                     "daily"
                 ]
             },
-            "terms": [],
-            "source_id": 133
+            "terms": []
         },
         {
+            "source_id": 22,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4222,10 +5106,10 @@
                     "1"
                 ]
             },
-            "terms": [],
-            "source_id": 22
+            "terms": []
         },
         {
+            "source_id": 23,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4247,10 +5131,10 @@
                     "1"
                 ]
             },
-            "terms": [],
-            "source_id": 23
+            "terms": []
         },
         {
+            "source_id": 24,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4272,10 +5156,10 @@
                     "1"
                 ]
             },
-            "terms": [],
-            "source_id": 24
+            "terms": []
         },
         {
+            "source_id": 25,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4297,10 +5181,10 @@
                     "1"
                 ]
             },
-            "terms": [],
-            "source_id": 25
+            "terms": []
         },
         {
+            "source_id": 26,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4322,10 +5206,10 @@
                     "1"
                 ]
             },
-            "terms": [],
-            "source_id": 26
+            "terms": []
         },
         {
+            "source_id": 27,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4347,10 +5231,10 @@
                     "1"
                 ]
             },
-            "terms": [],
-            "source_id": 27
+            "terms": []
         },
         {
+            "source_id": 28,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4372,10 +5256,10 @@
                     "1"
                 ]
             },
-            "terms": [],
-            "source_id": 28
+            "terms": []
         },
         {
+            "source_id": 29,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4397,10 +5281,10 @@
                     "1"
                 ]
             },
-            "terms": [],
-            "source_id": 29
+            "terms": []
         },
         {
+            "source_id": 30,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4422,10 +5306,10 @@
                     "1"
                 ]
             },
-            "terms": [],
-            "source_id": 30
+            "terms": []
         },
         {
+            "source_id": 31,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4444,10 +5328,10 @@
                     "operator"
                 ]
             },
-            "terms": [],
-            "source_id": 31
+            "terms": []
         },
         {
+            "source_id": 32,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4466,10 +5350,10 @@
                     "operator"
                 ]
             },
-            "terms": [],
-            "source_id": 32
+            "terms": []
         },
         {
+            "source_id": 33,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4488,10 +5372,10 @@
                     "operator"
                 ]
             },
-            "terms": [],
-            "source_id": 33
+            "terms": []
         },
         {
+            "source_id": 34,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4510,10 +5394,10 @@
                     "operator"
                 ]
             },
-            "terms": [],
-            "source_id": 34
+            "terms": []
         },
         {
+            "source_id": 35,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4532,10 +5416,10 @@
                     "operator"
                 ]
             },
-            "terms": [],
-            "source_id": 35
+            "terms": []
         },
         {
+            "source_id": 36,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4554,10 +5438,10 @@
                     "operator"
                 ]
             },
-            "terms": [],
-            "source_id": 36
+            "terms": []
         },
         {
+            "source_id": 37,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4576,10 +5460,10 @@
                     "operator"
                 ]
             },
-            "terms": [],
-            "source_id": 37
+            "terms": []
         },
         {
+            "source_id": 38,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4598,10 +5482,10 @@
                     "operator"
                 ]
             },
-            "terms": [],
-            "source_id": 38
+            "terms": []
         },
         {
+            "source_id": 39,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4620,10 +5504,10 @@
                     "operator"
                 ]
             },
-            "terms": [],
-            "source_id": 39
+            "terms": []
         },
         {
+            "source_id": 40,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4642,10 +5526,10 @@
                     "operator"
                 ]
             },
-            "terms": [],
-            "source_id": 40
+            "terms": []
         },
         {
+            "source_id": 43,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4667,10 +5551,10 @@
                     ""
                 ]
             },
-            "terms": [],
-            "source_id": 43
+            "terms": []
         },
         {
+            "source_id": 44,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4692,10 +5576,10 @@
                     ""
                 ]
             },
-            "terms": [],
-            "source_id": 44
+            "terms": []
         },
         {
+            "source_id": 45,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4714,10 +5598,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 45
+            "terms": []
         },
         {
+            "source_id": 46,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4736,10 +5620,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 46
+            "terms": []
         },
         {
+            "source_id": 47,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4758,10 +5642,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 47
+            "terms": []
         },
         {
+            "source_id": 48,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4780,10 +5664,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 48
+            "terms": []
         },
         {
+            "source_id": 49,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4802,10 +5686,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 49
+            "terms": []
         },
         {
+            "source_id": 50,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4824,10 +5708,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 50
+            "terms": []
         },
         {
+            "source_id": 51,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4846,10 +5730,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 51
+            "terms": []
         },
         {
+            "source_id": 52,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4868,10 +5752,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 52
+            "terms": []
         },
         {
+            "source_id": 53,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4890,10 +5774,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 53
+            "terms": []
         },
         {
+            "source_id": 54,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4912,10 +5796,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 54
+            "terms": []
         },
         {
+            "source_id": 55,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4934,10 +5818,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 55
+            "terms": []
         },
         {
+            "source_id": 56,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4956,10 +5840,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 56
+            "terms": []
         },
         {
+            "source_id": 57,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -4978,10 +5862,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 57
+            "terms": []
         },
         {
+            "source_id": 58,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -5000,10 +5884,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 58
+            "terms": []
         },
         {
+            "source_id": 59,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -5022,10 +5906,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 59
+            "terms": []
         },
         {
+            "source_id": 60,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -5044,10 +5928,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 60
+            "terms": []
         },
         {
+            "source_id": 61,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -5066,10 +5950,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 61
+            "terms": []
         },
         {
+            "source_id": 62,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -5088,10 +5972,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 62
+            "terms": []
         },
         {
+            "source_id": 63,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -5110,10 +5994,10 @@
                     "equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 63
+            "terms": []
         },
         {
+            "source_id": 89,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -5132,10 +6016,10 @@
                     "operator"
                 ]
             },
-            "terms": [],
-            "source_id": 89
+            "terms": []
         },
         {
+            "source_id": 144,
             "lang": "",
             "translations": [],
             "type": "g5_partner",
@@ -5157,10 +6041,10 @@
                     ""
                 ]
             },
-            "terms": [],
-            "source_id": 144
+            "terms": []
         },
         {
+            "source_id": 145,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5221,10 +6105,10 @@
                     }
                 ]
             },
-            "terms": [],
-            "source_id": 145
+            "terms": []
         },
         {
+            "source_id": 166,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5249,10 +6133,10 @@
                     "home_intro"
                 ]
             },
-            "terms": [],
-            "source_id": 166
+            "terms": []
         },
         {
+            "source_id": 167,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5277,10 +6161,10 @@
                     "home_services"
                 ]
             },
-            "terms": [],
-            "source_id": 167
+            "terms": []
         },
         {
+            "source_id": 168,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5305,10 +6189,10 @@
                     "home_standards"
                 ]
             },
-            "terms": [],
-            "source_id": 168
+            "terms": []
         },
         {
+            "source_id": 169,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5333,10 +6217,10 @@
                     "home_process"
                 ]
             },
-            "terms": [],
-            "source_id": 169
+            "terms": []
         },
         {
+            "source_id": 170,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5361,10 +6245,10 @@
                     "home_experience"
                 ]
             },
-            "terms": [],
-            "source_id": 170
+            "terms": []
         },
         {
+            "source_id": 171,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5389,10 +6273,10 @@
                     "home_equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 171
+            "terms": []
         },
         {
+            "source_id": 172,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5417,10 +6301,10 @@
                     "home_team"
                 ]
             },
-            "terms": [],
-            "source_id": 172
+            "terms": []
         },
         {
+            "source_id": 173,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5445,10 +6329,10 @@
                     "home_audiences"
                 ]
             },
-            "terms": [],
-            "source_id": 173
+            "terms": []
         },
         {
+            "source_id": 174,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5473,10 +6357,10 @@
                     "home_news"
                 ]
             },
-            "terms": [],
-            "source_id": 174
+            "terms": []
         },
         {
+            "source_id": 175,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5501,10 +6385,10 @@
                     "services_list"
                 ]
             },
-            "terms": [],
-            "source_id": 175
+            "terms": []
         },
         {
+            "source_id": 176,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5529,10 +6413,10 @@
                     "services_standard"
                 ]
             },
-            "terms": [],
-            "source_id": 176
+            "terms": []
         },
         {
+            "source_id": 177,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5557,10 +6441,10 @@
                     "projects_list"
                 ]
             },
-            "terms": [],
-            "source_id": 177
+            "terms": []
         },
         {
+            "source_id": 178,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5585,10 +6469,10 @@
                     "experience_numbers"
                 ]
             },
-            "terms": [],
-            "source_id": 178
+            "terms": []
         },
         {
+            "source_id": 179,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5613,10 +6497,10 @@
                     "experience_geography"
                 ]
             },
-            "terms": [],
-            "source_id": 179
+            "terms": []
         },
         {
+            "source_id": 180,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5641,10 +6525,10 @@
                     "experience_projects"
                 ]
             },
-            "terms": [],
-            "source_id": 180
+            "terms": []
         },
         {
+            "source_id": 181,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5669,10 +6553,10 @@
                     "experience_partners"
                 ]
             },
-            "terms": [],
-            "source_id": 181
+            "terms": []
         },
         {
+            "source_id": 182,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5697,10 +6581,10 @@
                     "experience_certifications"
                 ]
             },
-            "terms": [],
-            "source_id": 182
+            "terms": []
         },
         {
+            "source_id": 183,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5725,10 +6609,10 @@
                     "about_story"
                 ]
             },
-            "terms": [],
-            "source_id": 183
+            "terms": []
         },
         {
+            "source_id": 184,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5753,10 +6637,10 @@
                     "about_purpose"
                 ]
             },
-            "terms": [],
-            "source_id": 184
+            "terms": []
         },
         {
+            "source_id": 185,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5781,10 +6665,10 @@
                     "about_values"
                 ]
             },
-            "terms": [],
-            "source_id": 185
+            "terms": []
         },
         {
+            "source_id": 186,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5809,10 +6693,10 @@
                     "about_team"
                 ]
             },
-            "terms": [],
-            "source_id": 186
+            "terms": []
         },
         {
+            "source_id": 187,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5837,10 +6721,10 @@
                     "about_strategy"
                 ]
             },
-            "terms": [],
-            "source_id": 187
+            "terms": []
         },
         {
+            "source_id": 188,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5865,10 +6749,10 @@
                     "about_competence"
                 ]
             },
-            "terms": [],
-            "source_id": 188
+            "terms": []
         },
         {
+            "source_id": 189,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5893,10 +6777,10 @@
                     "career_benefits"
                 ]
             },
-            "terms": [],
-            "source_id": 189
+            "terms": []
         },
         {
+            "source_id": 190,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5921,10 +6805,10 @@
                     "career_positions"
                 ]
             },
-            "terms": [],
-            "source_id": 190
+            "terms": []
         },
         {
+            "source_id": 191,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5949,10 +6833,10 @@
                     "career_selection"
                 ]
             },
-            "terms": [],
-            "source_id": 191
+            "terms": []
         },
         {
+            "source_id": 192,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -5977,10 +6861,10 @@
                     "career_growth"
                 ]
             },
-            "terms": [],
-            "source_id": 192
+            "terms": []
         },
         {
+            "source_id": 193,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -6005,10 +6889,10 @@
                     "academy_program"
                 ]
             },
-            "terms": [],
-            "source_id": 193
+            "terms": []
         },
         {
+            "source_id": 194,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -6033,10 +6917,10 @@
                     "academy_included"
                 ]
             },
-            "terms": [],
-            "source_id": 194
+            "terms": []
         },
         {
+            "source_id": 195,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -6061,10 +6945,10 @@
                     "training_equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 195
+            "terms": []
         },
         {
+            "source_id": 196,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -6089,10 +6973,10 @@
                     "training_room"
                 ]
             },
-            "terms": [],
-            "source_id": 196
+            "terms": []
         },
         {
+            "source_id": 197,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -6117,10 +7001,10 @@
                     "candidate_faq_groups"
                 ]
             },
-            "terms": [],
-            "source_id": 197
+            "terms": []
         },
         {
+            "source_id": 198,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -6145,10 +7029,10 @@
                     "leaders_reasons"
                 ]
             },
-            "terms": [],
-            "source_id": 198
+            "terms": []
         },
         {
+            "source_id": 199,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -6209,10 +7093,10 @@
                     }
                 ]
             },
-            "terms": [],
-            "source_id": 199
+            "terms": []
         },
         {
+            "source_id": 200,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -6237,10 +7121,10 @@
                     "project_managers_equipment"
                 ]
             },
-            "terms": [],
-            "source_id": 200
+            "terms": []
         },
         {
+            "source_id": 201,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -6265,10 +7149,10 @@
                     "contact_form"
                 ]
             },
-            "terms": [],
-            "source_id": 201
+            "terms": []
         },
         {
+            "source_id": 202,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -6293,10 +7177,10 @@
                     "contact_people"
                 ]
             },
-            "terms": [],
-            "source_id": 202
+            "terms": []
         },
         {
+            "source_id": 203,
             "lang": "",
             "translations": [],
             "type": "g5_module",
@@ -6321,16 +7205,87 @@
                     "news_list"
                 ]
             },
-            "terms": [],
-            "source_id": 203
+            "terms": []
         }
     ],
     "attachments": {
+        "9": {
+            "file": "2026/07/5gtech-logo-white.png",
+            "title": "5G TECH logotipas",
+            "alt": "",
+            "mime": "image/png"
+        },
         "97": {
             "file": "2026/07/hero-sky-worker.png",
             "title": "5G TECH titulinio puslapio nuotrauka",
             "alt": "",
             "mime": "image/png"
+        },
+        "466": {
+            "file": "2026/08/komanda-aleksandras-iljinas.jpg",
+            "title": "Aleksandras Iljinas",
+            "alt": "",
+            "mime": "image/jpeg"
+        },
+        "467": {
+            "file": "2026/08/komanda-nerijus-bazinas.jpg",
+            "title": "Nerijus Bazinas",
+            "alt": "",
+            "mime": "image/jpeg"
+        },
+        "468": {
+            "file": "2026/08/komanda-eimantas-zemaitis.jpg",
+            "title": "Eimantas Žemaitis",
+            "alt": "",
+            "mime": "image/jpeg"
+        },
+        "470": {
+            "file": "2026/08/komanda-tadas-grabauskas.jpg",
+            "title": "Tadas Grabauskas",
+            "alt": "",
+            "mime": "image/jpeg"
+        },
+        "469": {
+            "file": "2026/08/komanda-kristina-nagineviciene.jpg",
+            "title": "Kristina Naginevičienė",
+            "alt": "",
+            "mime": "image/jpeg"
+        },
+        "474": {
+            "file": "2026/09/paslauga-mobiliojo-rysio.jpg",
+            "title": "Paslauga: mobiliojo ryšio tinklai",
+            "alt": "Specialistas dirba mobiliojo ryšio bokšte",
+            "mime": "image/jpeg"
+        },
+        "475": {
+            "file": "2026/09/paslauga-vidinio-rysio.jpg",
+            "title": "Paslauga: vidinio ryšio tinklai",
+            "alt": "Specialistas montuoja vidinio ryšio anteną prie pastato",
+            "mime": "image/jpeg"
+        },
+        "476": {
+            "file": "2026/09/paslauga-fiksuoto-rysio.jpg",
+            "title": "Paslauga: fiksuoto ryšio tinklai",
+            "alt": "Specialistas tvarko šviesolaidinę įrangą lauko spintoje",
+            "mime": "image/jpeg"
+        },
+        "477": {
+            "file": "2026/09/paslauga-elektros-darbai.jpg",
+            "title": "Paslauga: elektros darbai",
+            "alt": "Elektrikas tikrina elektros skirstomąją spintą",
+            "mime": "image/jpeg"
+        },
+        "478": {
+            "file": "2026/09/paslauga-apsaugos-sistemos.jpg",
+            "title": "Paslauga: apsaugos sistemos",
+            "alt": "Specialistas montuoja lauko vaizdo stebėjimo kamerą",
+            "mime": "image/jpeg"
+        },
+        "479": {
+            "file": "2026/09/paslauga-saules-elektrines.jpg",
+            "title": "Paslauga: saulės elektrinės",
+            "alt": "Specialistas montuoja saulės modulius ant stogo",
+            "mime": "image/jpeg"
         },
         "16": {
             "file": "2026/07/service-demo.png",
@@ -6338,79 +7293,11 @@
             "alt": "",
             "mime": "image/png"
         },
-        "64": {
-            "file": "2026/07/service-team.jpg",
-            "title": "5G TECH komandos darbai",
-            "alt": "",
-            "mime": "image/jpeg"
-        },
         "42": {
             "file": "2026/07/Screenshot-2026-07-29-at-10.40.12.png",
             "title": "Screenshot 2026-07-29 at 10.40.12",
             "alt": "",
             "mime": "image/png"
-        },
-        "9001": {
-            "file": "2026/08/komanda-aleksandras-iljinas.jpg",
-            "title": "Komanda: Aleksandras Iljinas",
-            "mime": "image/jpeg"
-        },
-        "9002": {
-            "file": "2026/08/komanda-eimantas-zemaitis.jpg",
-            "title": "Komanda: Eimantas Žemaitis",
-            "mime": "image/jpeg"
-        },
-        "9003": {
-            "file": "2026/08/komanda-kristina-nagineviciene.jpg",
-            "title": "Komanda: Kristina Naginevičienė",
-            "mime": "image/jpeg"
-        },
-        "9004": {
-            "file": "2026/08/komanda-nerijus-bazinas.jpg",
-            "title": "Komanda: Nerijus Bazinas",
-            "mime": "image/jpeg"
-        },
-        "9005": {
-            "file": "2026/08/komanda-tadas-grabauskas.jpg",
-            "title": "Komanda: Tadas Grabauskas",
-            "mime": "image/jpeg"
-        },
-        "9201": {
-            "file": "2026/09/paslauga-mobiliojo-rysio.jpg",
-            "title": "Paslauga: mobiliojo ryšio tinklai",
-            "mime": "image/jpeg",
-            "alt": "Specialistas dirba mobiliojo ryšio bokšte"
-        },
-        "9202": {
-            "file": "2026/09/paslauga-vidinio-rysio.jpg",
-            "title": "Paslauga: vidinio ryšio tinklai",
-            "mime": "image/jpeg",
-            "alt": "Specialistas montuoja vidinio ryšio anteną prie pastato"
-        },
-        "9203": {
-            "file": "2026/09/paslauga-fiksuoto-rysio.jpg",
-            "title": "Paslauga: fiksuoto ryšio tinklai",
-            "mime": "image/jpeg",
-            "alt": "Specialistas tvarko šviesolaidinę įrangą lauko spintoje"
-        },
-        "9204": {
-            "file": "2026/09/paslauga-elektros-darbai.jpg",
-            "title": "Paslauga: elektros darbai",
-            "mime": "image/jpeg",
-            "alt": "Elektrikas tikrina elektros skirstomąją spintą"
-        },
-        "9205": {
-            "file": "2026/09/paslauga-apsaugos-sistemos.jpg",
-            "title": "Paslauga: apsaugos sistemos",
-            "mime": "image/jpeg",
-            "alt": "Specialistas montuoja lauko vaizdo stebėjimo kamerą"
-        },
-        "9206": {
-            "file": "2026/09/paslauga-saules-elektrines.jpg",
-            "title": "Paslauga: saulės elektrinės",
-            "mime": "image/jpeg",
-            "alt": "Specialistas montuoja saulės modulius ant stogo"
         }
-    },
-    "schema_version": 2
+    }
 }

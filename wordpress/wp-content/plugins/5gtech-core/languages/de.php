@@ -220,6 +220,7 @@ return array (
   'Fiksuoto ryšio tinklai – 5G TECH' => 'Feste Kommunikationsnetze – 5G TECH',
   'Forma ir pirminis susipažinimo pokalbis.' => 'Formular und erstes Vorstellungsgespräch.',
   'Forma nebegalioja. Atnaujinkite puslapį ir bandykite dar kartą.' => 'Das Formular ist nicht mehr gültig. Bitte aktualisieren Sie die Seite und versuchen Sie es erneut.',
+  'Nepavyko patvirtinti, kad esate žmogus. Pakartokite patikrą ir bandykite dar kartą.' => 'Die Sicherheitsprüfung war nicht erfolgreich. Bitte wiederholen Sie die Prüfung und versuchen Sie es erneut.',
   'Formos išsiųsti nepavyko. Bandykite dar kartą arba susisiekite el. paštu.' => 'Das Formular konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns per E-Mail. per Post',
   'Gaisro signalizacija' => 'Feueralarm',
   'Galimybės dirbti komandiruočių principu' => 'Möglichkeiten, auf Geschäftsreisebasis zu arbeiten',

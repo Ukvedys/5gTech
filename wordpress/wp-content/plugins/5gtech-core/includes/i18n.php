@@ -402,6 +402,11 @@ function g5tech_i18n_localize_url( $url, $language = null ) {
 	}
 
 	$path = isset( $parts['path'] ) ? $parts['path'] : '/';
+	// Route names are relative to the installation, not the domain root.
+	$base_path = rtrim( $home_parts['path'] ?? '', '/' );
+	if ( '' !== $base_path && ( $path === $base_path || str_starts_with( $path, $base_path . '/' ) ) ) {
+		$path = substr( $path, strlen( $base_path ) ) ?: '/';
+	}
 	if ( g5tech_i18n_is_technical_path( $path ) ) {
 		return $url;
 	}
@@ -416,7 +421,7 @@ function g5tech_i18n_localize_url( $url, $language = null ) {
 	}
 
 	$canonical_path = g5tech_i18n_canonical_path( $path, $detected_language );
-	$new_path       = g5tech_i18n_localized_path( $canonical_path, $language );
+	$new_path       = $base_path . g5tech_i18n_localized_path( $canonical_path, $language );
 	$query          = isset( $parts['query'] ) ? '?' . $parts['query'] : '';
 	$fragment       = isset( $parts['fragment'] ) ? '#' . $parts['fragment'] : '';
 
@@ -429,6 +434,23 @@ function g5tech_i18n_localize_url( $url, $language = null ) {
 
 	return $new_path . $query . $fragment;
 }
+
+/** Keep template navigation within WordPress when installed in a subdirectory. */
+function g5tech_navigation_installation_path( $block ) {
+	if ( 'core/navigation-link' !== ( $block['blockName'] ?? '' ) ) {
+		return $block;
+	}
+
+	$url = $block['attrs']['url'] ?? '';
+	$base_path = rtrim( (string) wp_parse_url( get_option( 'home' ), PHP_URL_PATH ), '/' );
+	if ( '' !== $base_path && str_starts_with( $url, '/' ) && ! str_starts_with( $url, '//' )
+		&& $url !== $base_path && ! str_starts_with( $url, $base_path . '/' ) ) {
+		$block['attrs']['url'] = $base_path . $url;
+	}
+
+	return $block;
+}
+add_filter( 'render_block_data', 'g5tech_navigation_installation_path' );
 
 /**
  * Prefix all generated front-end home URLs with the current language.

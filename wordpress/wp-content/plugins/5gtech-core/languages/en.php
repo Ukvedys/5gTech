@@ -713,4 +713,5 @@ return array (
   'šalys' => 'countries',
   'Žmonės, kurie atsako už rezultatą' => 'People who are responsible for the result',
   'Žvaigždute pažymėti laukai yra privalomi.' => 'Fields marked with an asterisk are required.',
+  'Nepavyko patvirtinti, kad esate žmogus. Pakartokite patikrą ir bandykite dar kartą.' => 'We could not verify you are human. Please repeat the check and try again.',
 );

@@ -38,6 +38,9 @@ function g5sync_meta( $meta, $map ) {
 }
 
 function g5sync_options( $options, $map ) {
+	foreach ( array( 'site_logo', 'site_icon' ) as $key ) {
+		if ( array_key_exists( $key, $options ) ) $options[$key] = g5sync_ids( $options[$key], $map );
+	}
 	foreach ( array( 'story_image_1_id','story_image_2_id' ) as $key ) {
 		if ( isset( $options['g5tech_about_content'][$key] ) ) $options['g5tech_about_content'][$key] = g5sync_ids( $options['g5tech_about_content'][$key], $map );
 	}
